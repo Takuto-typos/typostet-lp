@@ -4,332 +4,214 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>プライバシーポリシー - TYP0stet</title>
+<meta name="description" content="TYP0stet プライバシーポリシー。取得する個人情報、利用目的、第三者提供、ユーザーの権利。">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="appletouchicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@400;500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
 <style>
+  :root { --ink: #0E0E0E; --bone: #F4EDDF; --mint: #92E5BD; --mint-deep: #4F8F6E; --terra: #C7553E; --rule: rgba(14,14,14,.15); --soft: rgba(14,14,14,.55); --mute: rgba(14,14,14,.7); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0E0E0E; color: #c9d1d9; line-height: 1.8; padding: 40px 20px; }
-  .container { max-width: 720px; margin: 0 auto; }
-  .brand { font-size: 24px; color: #e6edf3; margin-bottom: 4px; letter-spacing: 2px; font-weight: 600; }
-  .brand .z { color: #92E5BD; }
-  .lang { margin-bottom: 32px; font-size: 14px; }
-  .lang a { color: #92E5BD; text-decoration: none; margin: 0 8px; }
+  body { font-family: "IBM Plex Sans JP", -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bone); color: var(--ink); line-height: 1.85; padding: 40px 20px; font-feature-settings: "palt" 1; }
+  .container { max-width: 760px; margin: 0 auto; }
+  .brand { display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px; text-decoration: none; color: var(--ink); }
+  .brand .name { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 22px; letter-spacing: .04em; }
+  .brand .name .zero { color: var(--mint-deep); font-style: italic; }
+  .brand .stet { font-family: "Permanent Marker", cursive; font-size: 13px; color: var(--terra); transform: translateY(-2px); }
+  .lang { margin-bottom: 32px; font-size: 13px; font-family: "IBM Plex Mono", monospace; letter-spacing: .08em; }
+  .lang a { color: var(--mint-deep); text-decoration: none; margin: 0 8px 0 0; cursor: pointer; }
   .lang a:hover { text-decoration: underline; }
-  h1 { font-size: 20px; color: #e6edf3; margin-bottom: 8px; }
-  h2 { font-size: 15px; color: #e6edf3; margin-top: 28px; margin-bottom: 12px; border-bottom: 1px solid #21262d; padding-bottom: 6px; }
-  h3 { font-size: 14px; color: #c9d1d9; margin-top: 14px; margin-bottom: 6px; }
-  p, li { font-size: 14px; color: #8b949e; margin-bottom: 6px; }
-  ul { padding-left: 20px; }
-  .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #21262d; font-size: 12px; color: #484f58; }
+  h1 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 32px; color: var(--ink); margin-top: 24px; margin-bottom: 8px; }
+  .updated { font-size: 11px; color: var(--soft); margin-bottom: 32px; font-family: "IBM Plex Mono", monospace; letter-spacing: .08em; }
+  h2 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 22px; color: var(--ink); margin: 36px 0 12px; }
+  h2::before { content: attr(data-num); font-family: "IBM Plex Mono", monospace; font-style: normal; font-size: 11px; color: var(--mint-deep); margin-right: 12px; letter-spacing: .14em; vertical-align: 4px; }
+  p { font-size: 14px; color: var(--mute); margin-bottom: 12px; line-height: 1.85; }
+  p strong { color: var(--ink); }
+  ul { margin: 8px 0 16px 0; padding-left: 22px; font-size: 14px; color: var(--mute); }
+  ul li { margin-bottom: 6px; line-height: 1.7; }
+  .footer { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--rule); font-size: 11px; color: var(--soft); font-family: "IBM Plex Mono", monospace; letter-spacing: .06em; }
+  .footer a { color: var(--ink); text-decoration: none; margin: 0 6px; }
+  .footer a:hover { color: var(--mint-deep); }
+  .footer .four81 { color: var(--mint-deep); font-weight: 700; float: right; }
   .section { display: none; }
   .section.active { display: block; }
-  .updated { font-size: 12px; color: #6e7681; margin-bottom: 12px; }
-  a.inline { color: #92E5BD; text-decoration: none; }
+  .inline { color: var(--mint-deep); }
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="brand">TYP<span class="z">0</span>S</div>
+  <a href="/" class="brand">
+    <span class="name">TYP<span class="zero">0</span>S</span>
+    <span class="stet">stet</span>
+  </a>
   <div class="lang">
-    <a href="#" onclick="show('ja')">日本語</a> |
-    <a href="#" onclick="show('en')">English</a> |
-    <a href="#" onclick="show('ko')">한국어</a>
+    <a onclick="show('ja')">日本語</a> · <a onclick="show('en')">English</a>
   </div>
 
   <div id="ja" class="section active">
     <h1>プライバシーポリシー</h1>
-    <p class="updated">最終更新日: 2026年5月24日（brand v5.4 更新）</p>
-    <p>株式会社Remoi（以下「当社」）は、TYP0stet（以下「本サービス」、TYP0stet アプリおよび typostet.com を含む）における個人情報の取り扱いについて、以下のとおりプライバシーポリシーを定めます。</p>
+    <p class="updated">最終更新日: 2026 年 6 月 2 日 / brand v5.10 (stet)</p>
 
-    <h2>1. 収集する情報</h2>
-    <h3>1.1 アカウント情報</h3>
+    <h2 data-num="01">事業者情報</h2>
+    <p>本ポリシーは、株式会社 Remoi (以下「当社」) が運営するブランド「TYP0stet」(typostet.com および関連サービス) における個人情報の取り扱いを定めるものです。</p>
+    <p>事業者所在地: 〒115-0045 東京都北区赤羽 1-59-8 日ノ出ビル 4F<br>連絡先: <a class="inline" href="mailto:info@typostet.com">info@typostet.com</a></p>
+
+    <h2 data-num="02">取得する個人情報</h2>
+    <p>当社は、ユーザーが本サービスを利用する際に以下の情報を取得します:</p>
     <ul>
-      <li>Apple ID または Google アカウントでサインインした場合：プロバイダから提供される識別子（メールアドレス、表示名）</li>
-      <li>creator handle（公開時の表示名、例「夜の散歩者」「失敗の常連」）は当社が決定論的に割り当てるものであり、ユーザーは選択できません。</li>
-    </ul>
-    <h3>1.2 ユーザーが入力するコンテンツ</h3>
-    <ul>
-      <li>typo（失敗・しくじり・やらかし）のテキスト・音声</li>
-      <li>ユーザーが選択したシャツデザイン（文字ロゴ・0 マーク・ロゴカラー）</li>
-      <li>背景写真（SNS シェア用、シャツには印刷しません）</li>
-      <li>「めちゃわかる」「これを着る（cover-version 購入）」等のリアクション</li>
-      <li><strong>typo 本文はあなたのクローゼット内にのみ保管され、他人には見えません</strong>（倫理憲章 02 / 匿名を、詩で守る）。シャツに印刷されることもありません（倫理憲章 07）。</li>
-    </ul>
-    <h3>1.3 注文・決済情報</h3>
-    <ul>
-      <li>配送先氏名・住所・電話番号（Stripe Checkout で取得、当社サーバーにも保存）</li>
-      <li>注文内容・金額・配送状況</li>
-      <li>クレジットカード情報は <a class="inline" href="https://stripe.com/jp/privacy" target="_blank" rel="noopener">Stripe, Inc.</a> が直接処理し、当社サーバーには一切保存されません。</li>
-    </ul>
-    <h3>1.4 自動取得する情報</h3>
-    <ul>
-      <li>アプリ・サービスの利用状況（画面遷移、エラーログ、API 呼び出し）</li>
-      <li>デバイス情報（OS バージョン、機種、言語設定）</li>
-      <li>当社は広告 ID やクロスサイトトラッキング情報を取得しません。</li>
+      <li><strong>注文時に取得</strong>: 氏名、メールアドレス、配送先住所、電話番号 (任意)、購入商品・数量</li>
+      <li><strong>決済時に取得</strong>: クレジットカード情報は当社のサーバーに保存されず、Stripe, Inc. (米国) に直接送信・処理されます</li>
+      <li><strong>Newsletter 購読時に取得</strong>: メールアドレス (note 経由で当社が直接保有することはありません)</li>
+      <li><strong>サイト閲覧時に自動取得</strong>: IP アドレス、ブラウザ種別、参照元 URL、cookie 情報</li>
+      <li><strong>お問い合わせ時に取得</strong>: 氏名、メールアドレス、お問い合わせ内容</li>
     </ul>
 
-    <h2>2. 利用目的</h2>
+    <h2 data-num="03">利用目的</h2>
+    <p>取得した個人情報は以下の目的でのみ利用します:</p>
     <ul>
+      <li>商品の配送・代金請求・カスタマーサポート</li>
+      <li>注文確認・発送通知・予約商品の残金 charge 通知</li>
       <li>本サービスの提供・運営・改善</li>
-      <li>シャツデザイン候補の生成補助（AI を使用しますが、AI は表に出さない設計です。最終的なデザインはユーザーが選びます）</li>
-      <li>注文の受付・製造・配送</li>
-      <li>不正利用・違反コンテンツの検知（人の目による事前確認を含む）</li>
-      <li>カスタマーサポート対応</li>
-      <li>法令上の義務履行</li>
+      <li>不正利用の防止</li>
+      <li>法令に基づく対応</li>
+      <li>新製品・キャンペーン情報の案内 (オプトアウト可)</li>
     </ul>
 
-    <h2>3. データの保存場所と削除</h2>
+    <h2 data-num="04">第三者提供と委託</h2>
+    <p>当社は、ユーザーの個人情報を以下の場合を除き第三者に提供しません:</p>
     <ul>
-      <li>アカウント・コンテンツ・注文データは <strong>Supabase（インフラ提供：米国 Supabase Inc., データセンター：東京リージョン）</strong> に保存されます。</li>
-      <li>クレジットカード情報は Stripe, Inc.（米国・日本）のシステムに保存され、当社は触れません。</li>
-      <li>ユーザーがアカウント削除をリクエストすると、サーバ側で<strong>即時実行</strong>されます（30 日猶予なし、ダークパターンなし）。削除対象：typo 本文、シャツデザイン、クローゼット、ブックマーク、creator handle 紐付け、push token。</li>
-      <li>削除されない（または匿名化のうえ保管される）データ：注文履歴・決済記録は、日本の税法第 25 条等に基づき <strong>7 年間 匿名化された状態で保管</strong>されます。user_id を NULL に匿名化したうえで保管し、特定の個人と紐付けません。</li>
+      <li>ユーザーの事前同意がある場合</li>
+      <li>法令に基づく場合</li>
+      <li>人の生命・身体・財産の保護のために必要で、本人の同意を得ることが困難な場合</li>
     </ul>
-
-    <h2>4. 第三者への提供・委託</h2>
+    <p>以下の業務委託先には個人情報を提供することがあります (業務遂行に必要な範囲のみ):</p>
     <ul>
-      <li><strong>Anthropic, PBC（米国）</strong>：シャツデザイン候補の生成補助（Claude API）のため、入力テキストを送信します。<strong>当社は Anthropic に zero data retention（保持しない）契約を結ぶよう設定しており、Anthropic 側でも学習データには使われません</strong>。</li>
-      <li><strong>Stripe, Inc.（米国・日本）</strong>：決済処理および配送先情報の取得</li>
-      <li><strong>Supabase Inc.（米国）</strong>：データベース・認証基盤・サーバーレス関数のホスティング</li>
-      <li><strong>Apple Inc. / Google LLC</strong>：「Sign in with Apple」「Google Sign-In」を選択した場合、認証連携のため</li>
-      <li><strong>製造・配送パートナー</strong>：受注生産時、製造業者・配送業者にお名前・住所・注文内容を提供します。</li>
-      <li>上記以外の第三者への個人情報の提供は行いません（法令に基づく場合を除く）。</li>
+      <li><strong>Stripe, Inc.</strong> (米国) — 決済処理</li>
+      <li><strong>Cloudflare, Inc.</strong> (米国) — Web ホスティング・CDN・DNS</li>
+      <li><strong>Google LLC</strong> (米国) — メール (Gmail) 経由でのお問い合わせ対応</li>
+      <li><strong>配送業者</strong> (ヤマト運輸・佐川急便・日本郵便等) — 商品の配送</li>
+      <li><strong>沖縄 SEABOW</strong> — 受注生産品のプリント (配送先情報のみ)</li>
     </ul>
 
-    <h2>5. 公開コンテンツについて</h2>
+    <h2 data-num="05">cookie の使用</h2>
+    <p>本サービスは以下の目的で cookie を使用します:</p>
     <ul>
-      <li>ユーザーが「シャツにする」「他人の typo を着る」等を実行した際、シャツのデザイン（文字ロゴ・0 マーク・色）は <strong>みんなの typo</strong>（アプリ内の公開フィード）に掲載される場合があります。</li>
-      <li><strong>typo 本文（失敗エピソード本文）は公開されません</strong>。あなただけのクローゼットの中だけに残ります。</li>
-      <li>公開時に creator として表示されるのは、当社が割り当てた<strong>詩的匿名 handle</strong>（例「夜の散歩者」「失敗の常連」）であり、本名・SNS・連絡先は表示されません。</li>
-      <li>他人のデザインを「これを着る」（cover-version）で購入した場合、製造原価控除後の粗利の 50% が creator へ匿名のまま還元されます（詳細は<a class="inline" href="terms.html">利用規約第8条</a>）。</li>
-      <li>公開時に個人特定情報（実名・電話番号・SNS ハンドル等）が含まれる可能性がある場合、入力時にマスクをご提案する場合があります。</li>
+      <li>ユーザー認証・ログイン状態の保持 (将来的にマイページ機能を提供する場合)</li>
+      <li>サイト分析 (Cloudflare Analytics)</li>
+      <li>Stripe 決済処理に必要な情報の保持</li>
     </ul>
+    <p>cookie の使用を希望されない場合は、ブラウザの設定で無効化できます (一部機能が利用できなくなる場合があります)。当社は Google Analytics や Facebook Pixel 等の第三者トラッキングは現時点で使用していません。</p>
 
-    <h2>6. ユーザーの権利</h2>
+    <h2 data-num="06">ユーザーの権利</h2>
+    <p>ユーザーは自身の個人情報について以下の権利を有します:</p>
     <ul>
-      <li>アカウントおよびデータの削除請求（アプリ内設定 または typos@remoi.jp）</li>
-      <li>保有データの開示・訂正請求</li>
-      <li>個人情報利用の停止請求</li>
-      <li>EU/UK 居住者の方は GDPR/UK GDPR に基づく権利（データポータビリティ、処理制限等）</li>
-      <li>カリフォルニア州居住者の方は CCPA に基づく権利</li>
+      <li>保有個人データの開示請求</li>
+      <li>個人情報の訂正・追加・削除請求</li>
+      <li>利用停止・第三者提供停止の請求</li>
+      <li>Newsletter 配信停止 (note 側で配信解除可能)</li>
+    </ul>
+    <p>これらの請求は <a class="inline" href="mailto:info@typostet.com">info@typostet.com</a> までご連絡ください。本人確認の上、合理的な期間内に対応いたします。</p>
+
+    <h2 data-num="07">個人情報の保存期間</h2>
+    <p>当社は、利用目的の達成に必要な期間に限り個人情報を保存します:</p>
+    <ul>
+      <li>注文情報: 注文後 7 年間 (税法・特定商取引法の保存義務に基づく)</li>
+      <li>カスタマーサポートの記録: 対応完了後 3 年間</li>
+      <li>サイトログ: 自動取得日から 90 日間</li>
     </ul>
 
-    <h2>7. クッキー・トラッキング</h2>
-    <p>本サービスは広告トラッキング、サードパーティアナリティクス（Google Analytics 等）を使用しません。アプリは認証セッショントークンのみ端末に保存します。</p>
+    <h2 data-num="08">安全管理措置</h2>
+    <p>当社は、取得した個人情報の漏えい・滅失・毀損を防止するため、合理的な安全管理措置を講じます。これには、データ暗号化 (HTTPS 通信)、アクセス制限、定期的なセキュリティ監査が含まれます。</p>
 
-    <h2>8. 子どもの利用</h2>
-    <p>本サービスは 17 歳以上を対象としています。商品の購入には法的な購買能力が必要です。13 歳未満の方は本サービスをご利用できません。</p>
+    <h2 data-num="09">本ポリシーの変更</h2>
+    <p>本ポリシーは、法令の改正や本サービスの内容変更に応じて更新されることがあります。重要な変更については、本サービスにおいて 7 日前までに告知します。</p>
 
-    <h2>9. データ漏洩発生時</h2>
-    <p>個人データの漏洩が確認された場合、関係法令に従い、影響を受けるユーザーおよび監督当局へ遅滞なく通知します。</p>
-
-    <h2>10. ポリシーの変更</h2>
-    <p>本ポリシーは必要に応じて変更することがあります。重要な変更はアプリ内および typostet.com で通知します。</p>
-
-    <h2>11. お問い合わせ</h2>
-    <p>プライバシーに関するご質問・データ削除請求は下記までご連絡ください。<br>
-    株式会社Remoi<br>
-    〒115-0045 東京都北区赤羽1-59-8 日ノ出ビル4F<br>
-    typos@remoi.jp</p>
+    <h2 data-num="10">お問い合わせ</h2>
+    <p>個人情報の取り扱いに関するお問い合わせは <a class="inline" href="mailto:info@typostet.com">info@typostet.com</a> までご連絡ください。</p>
   </div>
 
   <div id="en" class="section">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: May 21, 2026</p>
-    <p>Remoi, K.K. ("we", "us", or "our") sets forth this Privacy Policy regarding the handling of personal information in TYP0stet (the "Service", including the TYP0stet app and typostet.com).</p>
+    <p class="updated">Last updated: June 2, 2026 / brand v5.10 (stet)</p>
 
-    <h2>1. Information We Collect</h2>
-    <h3>1.1 Account Information</h3>
+    <h2 data-num="01">Operator</h2>
+    <p>This Policy describes how Remoi, K.K. ("we", "us") handles personal information collected via TYP0stet (typostet.com and related services).</p>
+    <p>Address: Hinode Bldg. 4F, 1-59-8 Akabane, Kita-ku, Tokyo 115-0045, Japan<br>Contact: <a class="inline" href="mailto:info@typostet.com">info@typostet.com</a></p>
+
+    <h2 data-num="02">Information Collected</h2>
     <ul>
-      <li>If you sign in with Apple ID or Google: identifiers provided by the provider (email address, display name).</li>
-      <li>If you choose anonymous sign-in: only an anonymous ID auto-generated by us. No personally identifiable information is collected.</li>
-    </ul>
-    <h3>1.2 User-Provided Content</h3>
-    <ul>
-      <li>Failure-experience text and voice input</li>
-      <li>AI-generated shirt copy that you select</li>
-      <li>Shirt design (color, layout, logo choice)</li>
-      <li>Background photos (for SNS share images only; never printed on shirts)</li>
-      <li>Reactions such as "me too" and cover-version purchases</li>
-    </ul>
-    <h3>1.3 Order &amp; Payment Information</h3>
-    <ul>
-      <li>Shipping name, address, phone number (collected via Stripe Checkout and also stored in our database)</li>
-      <li>Order content, amount, and shipping status</li>
-      <li>Credit card information is handled directly by <a class="inline" href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe, Inc.</a> and never stored on our servers.</li>
-    </ul>
-    <h3>1.4 Automatically Collected Information</h3>
-    <ul>
-      <li>Service usage (screen transitions, error logs, API calls)</li>
-      <li>Device information (OS version, model, language)</li>
-      <li>We do NOT collect advertising IDs or cross-site tracking data.</li>
+      <li><strong>At order</strong>: Name, email, shipping address, phone (optional), purchased items</li>
+      <li><strong>At payment</strong>: Credit card data is sent directly to Stripe, Inc. (USA); not stored on our servers</li>
+      <li><strong>Newsletter subscription</strong>: Email (via note; not directly held by us)</li>
+      <li><strong>Site browsing</strong>: IP, browser type, referrer URL, cookies</li>
+      <li><strong>Inquiries</strong>: Name, email, message</li>
     </ul>
 
-    <h2>2. Purposes of Use</h2>
+    <h2 data-num="03">Purpose of Use</h2>
     <ul>
-      <li>Provide, operate, and improve the Service</li>
-      <li>AI translation and shirt design generation</li>
-      <li>Order processing, manufacturing, and shipping</li>
-      <li>Detect abuse and policy-violating content</li>
-      <li>Customer support</li>
-      <li>Compliance with legal obligations</li>
+      <li>Order fulfillment, billing, customer support</li>
+      <li>Order confirmation, shipping notice, pre-order balance charge notice</li>
+      <li>Service provision, operation, improvement</li>
+      <li>Fraud prevention</li>
+      <li>Legal compliance</li>
+      <li>Product / campaign announcements (opt-out available)</li>
     </ul>
 
-    <h2>3. Data Storage Locations</h2>
+    <h2 data-num="04">Third-Party Disclosure & Outsourcing</h2>
+    <p>We do not disclose personal information to third parties except: with user consent, by law, or for life/safety/property protection where consent is impractical.</p>
+    <p>We share information with the following service providers (limited to what's necessary):</p>
     <ul>
-      <li>Account, content, and order data is stored in <strong>Supabase (operated by Supabase Inc., USA; data center in Tokyo region)</strong>.</li>
-      <li>Credit card information is stored in Stripe, Inc.'s systems (USA / Japan); we never see or store it.</li>
-      <li>Upon account deletion, related data is generally deleted within 30 days (excluding information subject to retention obligations).</li>
+      <li><strong>Stripe, Inc.</strong> (USA) — payment processing</li>
+      <li><strong>Cloudflare, Inc.</strong> (USA) — web hosting, CDN, DNS</li>
+      <li><strong>Google LLC</strong> (USA) — email (Gmail) for inquiry handling</li>
+      <li><strong>Shipping carriers</strong> (Yamato, Sagawa, Japan Post) — delivery</li>
+      <li><strong>SEABOW (Okinawa)</strong> — printing for made-to-order items (shipping info only)</li>
     </ul>
 
-    <h2>4. Third-Party Sharing &amp; Processors</h2>
+    <h2 data-num="05">Cookies</h2>
+    <p>We use cookies for:</p>
     <ul>
-      <li><strong>Anthropic, PBC (USA)</strong>: For AI processing (Claude API), your failure text and shirt-copy data is transmitted. May be retained up to 30 days per Anthropic's <a class="inline" href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
-      <li><strong>Stripe, Inc. (USA / Japan)</strong>: Payment processing and shipping address collection.</li>
-      <li><strong>Supabase Inc. (USA)</strong>: Database, authentication, and serverless function hosting.</li>
-      <li><strong>Apple Inc. / Google LLC</strong>: When you choose Sign in with Apple or Google Sign-In, for authentication federation.</li>
-      <li><strong>Manufacturing &amp; shipping partners</strong>: Your name, address, and order content are provided for manufacturing and shipping.</li>
-      <li>No personal information is shared with any other third parties (except as required by law).</li>
+      <li>User authentication / session (for future my-page features)</li>
+      <li>Site analytics (Cloudflare Analytics)</li>
+      <li>Stripe payment processing</li>
+    </ul>
+    <p>You may disable cookies in your browser (some functions may be unavailable). We do not currently use Google Analytics or Facebook Pixel.</p>
+
+    <h2 data-num="06">User Rights</h2>
+    <ul>
+      <li>Request disclosure of held data</li>
+      <li>Request correction, addition, deletion</li>
+      <li>Request suspension of use or third-party disclosure</li>
+      <li>Unsubscribe from Newsletter (via note)</li>
+    </ul>
+    <p>Contact <a class="inline" href="mailto:info@typostet.com">info@typostet.com</a>. We respond within a reasonable period after identity verification.</p>
+
+    <h2 data-num="07">Retention</h2>
+    <ul>
+      <li>Order data: 7 years (tax / commerce law)</li>
+      <li>Customer support records: 3 years after resolution</li>
+      <li>Site logs: 90 days from auto-collection</li>
     </ul>
 
-    <h2>5. About Public Content</h2>
-    <ul>
-      <li>Shirt designs that you publish by tapping the purchase button are visible to other users in the public collection.</li>
-      <li>The body of your failure confession is <strong>private by default</strong>. It is only shown publicly if you explicitly choose "show back side".</li>
-      <li>When publishing, our AI suggests masking of personally identifying information (real names, phone numbers, SNS handles, etc.).</li>
-    </ul>
+    <h2 data-num="08">Security</h2>
+    <p>We implement reasonable safeguards to prevent leakage, loss, or damage of personal information: data encryption (HTTPS), access restrictions, periodic security audits.</p>
 
-    <h2>6. Your Rights</h2>
-    <ul>
-      <li>Request deletion of account and data (in-app settings or typos@remoi.jp)</li>
-      <li>Request disclosure or correction of held data</li>
-      <li>Request to halt use of personal information</li>
-      <li>EU/UK residents: rights under GDPR/UK GDPR (portability, restriction of processing, etc.)</li>
-      <li>California residents: rights under CCPA</li>
-    </ul>
+    <h2 data-num="09">Changes to Policy</h2>
+    <p>This Policy may be updated. Material changes will be announced 7 days in advance.</p>
 
-    <h2>7. Cookies &amp; Tracking</h2>
-    <p>The Service does not use ad tracking or third-party analytics (Google Analytics etc.). The app stores only authentication session tokens on your device.</p>
-
-    <h2>8. Children's Use</h2>
-    <p>The Service is intended for users aged 17 and older. Purchase requires legal purchasing capacity. Users under 13 may not use the Service.</p>
-
-    <h2>9. Data Breach Notification</h2>
-    <p>In the event of a confirmed data breach, we will notify affected users and supervisory authorities without undue delay, in accordance with applicable laws.</p>
-
-    <h2>10. Changes to This Policy</h2>
-    <p>This Policy may be updated as needed. Significant changes will be communicated within the app and on typostet.com.</p>
-
-    <h2>11. Contact</h2>
-    <p>For privacy questions or data deletion requests, contact:<br>
-    Remoi, K.K.<br>
-    Hinode Bldg. 4F, 1-59-8 Akabane, Kita-ku, Tokyo 115-0045, Japan<br>
-    typos@remoi.jp</p>
-  </div>
-
-  <div id="ko" class="section">
-    <h1>개인정보 처리방침</h1>
-    <p class="updated">최종 업데이트: 2026년 5월 21일</p>
-    <p>주식회사 Remoi(이하 "회사")는 TYP0stet(이하 "본 서비스", TYP0stet 앱 및 typostet.com 포함)에서의 개인정보 처리에 대해 다음과 같이 방침을 정합니다.</p>
-
-    <h2>1. 수집하는 정보</h2>
-    <h3>1.1 계정 정보</h3>
-    <ul>
-      <li>Apple ID 또는 Google 계정으로 로그인한 경우: 제공자가 제공하는 식별자(이메일 주소, 표시 이름)</li>
-      <li>익명 로그인을 선택한 경우: 회사가 자동 생성하는 익명 ID만 수집. 개인 식별 정보는 수집하지 않습니다.</li>
-    </ul>
-    <h3>1.2 사용자 입력 콘텐츠</h3>
-    <ul>
-      <li>실패 경험 텍스트·음성</li>
-      <li>AI 생성 셔츠 문구 (사용자 선택)</li>
-      <li>셔츠 디자인 (색상, 배치, 로고 선택)</li>
-      <li>배경 사진 (SNS 공유용, 셔츠에는 인쇄되지 않음)</li>
-      <li>"me too" 및 커버 버전 구매 등의 반응</li>
-    </ul>
-    <h3>1.3 주문·결제 정보</h3>
-    <ul>
-      <li>배송 성명·주소·전화번호 (Stripe Checkout에서 수집, 회사 서버에도 저장)</li>
-      <li>주문 내용·금액·배송 상태</li>
-      <li>신용카드 정보는 <a class="inline" href="https://stripe.com/jp/privacy" target="_blank" rel="noopener">Stripe, Inc.</a>에서 직접 처리하며, 회사 서버에는 저장되지 않습니다.</li>
-    </ul>
-    <h3>1.4 자동 수집 정보</h3>
-    <ul>
-      <li>앱·서비스 이용 상황 (화면 전환, 오류 로그, API 호출)</li>
-      <li>디바이스 정보 (OS 버전, 기종, 언어 설정)</li>
-      <li>광고 ID나 크로스 사이트 추적 정보는 수집하지 않습니다.</li>
-    </ul>
-
-    <h2>2. 이용 목적</h2>
-    <ul>
-      <li>본 서비스의 제공·운영·개선</li>
-      <li>AI 번역·셔츠 디자인 생성</li>
-      <li>주문 접수·제조·배송</li>
-      <li>부정 이용·위반 콘텐츠 감지</li>
-      <li>고객 지원 대응</li>
-      <li>법적 의무 이행</li>
-    </ul>
-
-    <h2>3. 데이터 저장 위치</h2>
-    <ul>
-      <li>계정·콘텐츠·주문 데이터는 <strong>Supabase(인프라 제공: 미국 Supabase Inc., 데이터센터: 도쿄 리전)</strong>에 저장됩니다.</li>
-      <li>신용카드 정보는 Stripe, Inc.(미국·일본) 시스템에 저장되며, 회사는 접근할 수 없습니다.</li>
-      <li>계정 삭제 시 관련 데이터는 원칙적으로 30일 이내에 삭제됩니다(법적 보존 의무가 있는 정보 제외).</li>
-    </ul>
-
-    <h2>4. 제3자 제공·위탁</h2>
-    <ul>
-      <li><strong>Anthropic, PBC(미국)</strong>: AI 처리(Claude API)를 위해 입력 텍스트 및 셔츠 문구를 전송. Anthropic 정책에 따라 최대 30일 보관될 수 있습니다.</li>
-      <li><strong>Stripe, Inc.(미국·일본)</strong>: 결제 처리 및 배송 정보 수집</li>
-      <li><strong>Supabase Inc.(미국)</strong>: 데이터베이스·인증 기반·서버리스 함수 호스팅</li>
-      <li><strong>Apple Inc. / Google LLC</strong>: Sign in with Apple/Google Sign-In 선택 시 인증 연계용</li>
-      <li><strong>제조·배송 파트너</strong>: 수주 생산 시 제조업체·배송업체에 성명·주소·주문 내용 제공</li>
-      <li>위 외의 제3자 제공은 하지 않습니다(법령에 의한 경우 제외).</li>
-    </ul>
-
-    <h2>5. 공개 콘텐츠에 대해</h2>
-    <ul>
-      <li>"구매" 버튼을 눌러 공개 컬렉션에 게재된 셔츠 디자인은 다른 사용자가 열람 가능합니다.</li>
-      <li>고백문 본문은 <strong>원칙적으로 비공개</strong>입니다. 명시적으로 "뒷면 보이기"를 선택한 경우에만 공개됩니다.</li>
-      <li>공개 시 AI가 개인 식별 정보(실명·전화번호·SNS 핸들 등)를 감지하면 마스킹을 제안합니다.</li>
-    </ul>
-
-    <h2>6. 사용자의 권리</h2>
-    <ul>
-      <li>계정 및 데이터 삭제 요청(앱 내 설정 또는 typos@remoi.jp)</li>
-      <li>보유 데이터의 공개·정정 요청</li>
-      <li>개인정보 이용 정지 요청</li>
-      <li>EU/UK 거주자: GDPR/UK GDPR에 따른 권리</li>
-      <li>캘리포니아주 거주자: CCPA에 따른 권리</li>
-    </ul>
-
-    <h2>7. 쿠키·추적</h2>
-    <p>본 서비스는 광고 추적이나 서드파티 분석(Google Analytics 등)을 사용하지 않습니다. 앱은 인증 세션 토큰만 단말기에 저장합니다.</p>
-
-    <h2>8. 아동 이용</h2>
-    <p>본 서비스는 17세 이상을 대상으로 합니다. 상품 구매에는 법적인 구매 능력이 필요합니다. 13세 미만은 본 서비스를 이용할 수 없습니다.</p>
-
-    <h2>9. 데이터 유출 발생 시</h2>
-    <p>개인 데이터 유출이 확인된 경우 관계 법령에 따라 영향을 받는 사용자 및 감독 기관에 지체 없이 통지합니다.</p>
-
-    <h2>10. 방침 변경</h2>
-    <p>본 방침은 필요에 따라 변경될 수 있습니다. 중요한 변경은 앱 내 및 typostet.com에서 통지합니다.</p>
-
-    <h2>11. 문의</h2>
-    <p>개인정보 관련 문의·데이터 삭제 요청은 아래로 연락 주세요.<br>
-    주식회사 Remoi<br>
-    〒115-0045 도쿄도 기타구 아카바네 1-59-8 히노데 빌딩 4F<br>
-    typos@remoi.jp</p>
+    <h2 data-num="10">Contact</h2>
+    <p><a class="inline" href="mailto:info@typostet.com">info@typostet.com</a></p>
   </div>
 
   <div class="footer">
-    <p>TYP<span class="z" style="color:#92E5BD">0</span>S — Remoi, K.K.</p>
-    <p>〒115-0045 東京都北区赤羽1-59-8 日ノ出ビル4F</p>
-    <p>typos@remoi.jp</p>
+    <p>© 2026 TYP<span style="color:#4F8F6E">0</span>stet — Remoi, K.K. <span class="four81">4:81</span></p>
     <p style="margin-top: 12px;">
-      <a href="/" style="color:#92E5BD; text-decoration:none; margin: 0 8px;">Home</a>·
-      <a href="/terms.html" style="color:#92E5BD; text-decoration:none; margin: 0 8px;">Terms</a>·
-      <a href="/tokutei.html" style="color:#92E5BD; text-decoration:none; margin: 0 8px;">特定商取引法</a>·
-      <a href="/manifest.html" style="color:#92E5BD; text-decoration:none; margin: 0 8px;">Manifesto</a>
+      <a href="/">Home</a>·
+      <a href="/manifest.html">倫理憲章</a>·
+      <a href="/terms.html">利用規約</a>·
+      <a href="/tokutei.html">特定商取引法</a>·
+      <a href="mailto:info@typostet.com">info@typostet.com</a>
     </p>
   </div>
 </div>
