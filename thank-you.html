@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>注文を受け付けました — TYP0stet</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="appletouchicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  *,*::before,*::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --ink: #0d1117;
+    --bone: #F4EDDF;
+    --mint: #5effd8;
+    --dim: rgba(244, 237, 223, 0.55);
+    --hair: rgba(244, 237, 223, 0.10);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink);
+    color: var(--bone);
+    font-family: 'IBM Plex Mono', monospace;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topbar {
+    padding: 22px 32px;
+    border-bottom: 1px solid var(--hair);
+    font-size: 11px;
+    letter-spacing: 4px;
+  }
+  .topbar .brand { font-weight: 500; letter-spacing: 6px; }
+  .topbar .brand .z { color: var(--mint); font-weight: 700; }
+
+  main {
+    flex: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 96px 32px 64px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    color: var(--mint);
+    letter-spacing: 5px;
+    margin-bottom: 28px;
+  }
+
+  h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.06em;
+    margin-bottom: 28px;
+  }
+  h1 .z { color: var(--mint); font-family: 'IBM Plex Mono', monospace; font-weight: 700; }
+
+  .lead {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px;
+    color: rgba(244, 237, 223, 0.78);
+    line-height: 2;
+    margin-bottom: 56px;
+  }
+
+  .steps {
+    border-top: 1px solid var(--hair);
+    padding-top: 56px;
+    margin-bottom: 64px;
+    text-align: left;
+  }
+  .steps h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    margin-bottom: 24px;
+    color: var(--bone);
+    text-align: center;
+  }
+  .steps ol {
+    list-style: none;
+    counter-reset: step;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .steps li {
+    counter-increment: step;
+    padding: 16px 0 16px 44px;
+    position: relative;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    line-height: 1.95;
+    color: rgba(244, 237, 223, 0.78);
+    border-bottom: 1px solid var(--hair);
+  }
+  .steps li:last-child { border-bottom: none; }
+  .steps li::before {
+    content: "0" counter(step);
+    position: absolute;
+    left: 0;
+    top: 18px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--mint);
+    letter-spacing: 2px;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 48px;
+  }
+  .cta-row a {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 1px solid var(--bone);
+    color: var(--bone);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+  .cta-row a:hover {
+    background: var(--bone);
+    color: var(--ink);
+  }
+  .cta-row a.primary {
+    background: var(--mint);
+    color: var(--ink);
+    border-color: var(--mint);
+  }
+  .cta-row a.primary:hover {
+    background: var(--bone);
+    border-color: var(--bone);
+  }
+
+  .quiet {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    color: var(--dim);
+    line-height: 2;
+    border-top: 1px solid var(--hair);
+    padding-top: 32px;
+    text-align: center;
+  }
+  .quiet em { color: var(--mint); font-style: normal; }
+
+  footer {
+    border-top: 1px solid var(--hair);
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 10px;
+    color: var(--dim);
+    letter-spacing: 3px;
+  }
+  footer a { color: var(--dim); text-decoration: none; margin: 0 12px; }
+  footer a:hover { color: var(--mint); }
+
+  /* mode-specific (cover 版だけ表示する block の制御は JS) */
+  [data-mode] { display: none; }
+  [data-mode].on { display: block; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">TYP<span class="z">0</span>S</div>
+</div>
+
+<main>
+  <div class="eyebrow" id="eyebrow">ORDER CONFIRMED</div>
+
+  <!-- ─── original 購入 (creator が自分の typo を着る) ─── -->
+  <div data-mode="original" id="block-original">
+    <h1>その typo を、<br>着る支度ができました<span style="color: var(--mint)">。</span></h1>
+    <p class="lead">
+      ありがとうございます。受注生産のため、お届けまで 14〜21 日ほど。<br>
+      届いたら、いつものシャツのように、着て出かけてください。
+    </p>
+  </div>
+
+  <!-- ─── cover 版購入 (他人の typo を着る) ─── -->
+  <div data-mode="cover" id="block-cover">
+    <h1>その typo を、<br>あなたも着ます<span style="color: var(--mint)">。</span></h1>
+    <p class="lead">
+      誰かの typo に「わかる」と思った、その瞬間が物質になります。<br>
+      受注生産のため、お届けまで 14〜21 日ほど。
+    </p>
+  </div>
+
+  <!-- ─── sticker 購入 ─── -->
+  <div data-mode="sticker" id="block-sticker">
+    <h1>その typo を、<br>貼る支度ができました<span style="color: var(--mint)">。</span></h1>
+    <p class="lead">
+      ありがとうございます。印刷後 7〜10 日ほどでお届け。<br>
+      ノート、水筒、手帳、どこへでも。
+    </p>
+  </div>
+
+  <div class="steps">
+    <h2>これから起こること</h2>
+    <ol id="steps-list">
+      <!-- JS で挿入 -->
+    </ol>
+  </div>
+
+  <div class="cta-row">
+    <a href="/" class="primary">HOME へ戻る</a>
+    <a href="mailto:typos@remoi.jp">問い合わせる</a>
+  </div>
+
+  <div class="quiet">
+    アプリを使っている方は、ブラウザを閉じてアプリに戻れます。<br>
+    クローゼットに「<em>製造中</em>」のラベルが付きます。
+  </div>
+</main>
+
+<footer>
+  <a href="/">Home</a>·
+  <a href="/privacy.html">Privacy</a>·
+  <a href="/terms.html">Terms</a>·
+  <a href="/tokutei.html">特定商取引法</a>·
+  <a href="/manifest.html">Manifesto</a>
+</footer>
+
+<script>
+  /**
+   * URL クエリで mode を判定:
+   *   - ?mode=cover     → 他人の typo 購入
+   *   - ?mode=sticker   → ステッカー
+   *   - default          → 自分の typo (original)
+   *
+   * Edge Function (create-checkout-session) が success_url を組み立てる時に
+   * &mode=... を付加する設計。session_id は埋まるが本ページでは使わない。
+   */
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var mode = (params.get('mode') || 'original').toLowerCase();
+
+    var validModes = ['original', 'cover', 'sticker'];
+    if (validModes.indexOf(mode) === -1) {
+      mode = 'original';
+    }
+
+    // 該当 block を表示
+    var block = document.querySelector('[data-mode="' + mode + '"]');
+    if (block) block.classList.add('on');
+
+    // eyebrow の text を mode 別に
+    var eyebrowText = {
+      original: 'ORDER CONFIRMED · TYP0stet WEAR',
+      cover:    'ORDER CONFIRMED · COVER VERSION',
+      sticker:  'ORDER CONFIRMED · STICKER',
+    }[mode];
+    document.getElementById('eyebrow').textContent = eyebrowText;
+
+    // steps を mode 別に
+    var stepsList = document.getElementById('steps-list');
+    var stepsByMode = {
+      original: [
+        '決済が完了しました。Stripe からレシートが、ご登録のメールアドレスに届きます。',
+        'TYP0stet 内部でデザインを確認し、印刷業者へ手作業で発注します。',
+        '14〜21 日後、ご登録の住所へ発送（追跡番号付き）。発送時にメールでお知らせします。',
+        '届いたら、着て出かけてください。誰かが、その typo に気づくかもしれません。',
+      ],
+      cover: [
+        '決済が完了しました。Stripe からレシートが、ご登録のメールアドレスに届きます。',
+        '元のデザインを TYP0stet 内部で確認し、印刷業者へ手作業で発注します。',
+        '14〜21 日後、ご登録の住所へ発送（追跡番号付き）。発送時にメールでお知らせします。',
+        '届いたら、着て出かけてください。元の typo を書いた誰かと、同じ服を纏うことになります。',
+      ],
+      sticker: [
+        '決済が完了しました。Stripe からレシートが、ご登録のメールアドレスに届きます。',
+        'デザインを確認し、印刷業者へ発注します。',
+        '印刷後 7〜10 日でご登録の住所へ発送。発送時にメールでお知らせします。',
+        '届いたら、どこへでも貼ってください。ノート、水筒、手帳、ギターのケース。',
+      ],
+    };
+    var steps = stepsByMode[mode] || stepsByMode.original;
+    steps.forEach(function(s) {
+      var li = document.createElement('li');
+      li.textContent = s;
+      stepsList.appendChild(li);
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E0E0E">
+
+<title>TYP0stet — 失敗できる、を誇りに。</title>
+<meta name="description" content="TYP0stet (タイポステット) は AI 時代の人間性ブランド。typo = 失敗、stet = 校正記号「生かせ」。失敗を恥じない文化を、沖縄から。">
+<meta name="keywords" content="TYP0stet, タイポステット, typo, stet, 失敗, 人間の証明書, アパレル, athleisure, 沖縄, AI時代, ブランド">
+
+<meta property="og:title" content="TYP0stet — 失敗できる、を誇りに。">
+<meta property="og:description" content="typo = 失敗、stet = 校正記号「生かせ」。AI 時代の人間性ブランド、沖縄から。">
+<meta property="og:url" content="https://typostet.com">
+<meta property="og:image" content="https://typostet.com/img/og-image.png">
+<meta property="og:site_name" content="TYP0stet">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TYP0stet — 失敗できる、を誇りに。">
+<meta name="twitter:description" content="typo = 失敗、stet = 校正記号「生かせ」。AI 時代の人間性ブランド、沖縄から。">
+<meta name="twitter:image" content="https://typostet.com/img/og-image.png">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/appletouchicon.png">
+
+<link rel="canonical" href="https://typostet.com">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@300;400;500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Brand",
+  "name": "TYP0stet",
+  "alternateName": "タイポステット",
+  "url": "https://typostet.com",
+  "logo": "https://typostet.com/appletouchicon.png",
+  "description": "AI 時代の人間性ブランド。typo = 失敗、stet = 校正記号「生かせ」。",
+  "founder": { "@type": "Person", "name": "tig" },
+  "foundingDate": "2026",
+  "foundingLocation": { "@type": "Place", "name": "沖縄県南城市" },
+  "sameAs": [
+    "https://twitter.com/typostet481",
+    "https://instagram.com/typostet",
+    "https://note.com/typostet",
+    "https://threads.net/@typostet",
+    "https://youtube.com/@typostet"
+  ]
+}
+</script>
+
+<style>
+:root {
+  --ink: #0E0E0E;
+  --bone: #F4EDDF;
+  --mint: #92E5BD;
+  --mint-deep: #4F8F6E;
+  --olive: #5E6638;
+  --sand: #D9C9A8;
+  --terra: #C7553E;
+  --deep: #1E3A4A;
+  --pur: #6B4F8A;
+  --yel: #D9B547;
+  --rule: rgba(14,14,14,.15);
+  --rule-strong: rgba(14,14,14,.4);
+  --soft: rgba(14,14,14,.55);
+  --mute: rgba(14,14,14,.7);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html, body { background: var(--bone); color: var(--ink); }
+body {
+  font-family: "IBM Plex Sans JP", "Inter", "Helvetica Neue", "Yu Gothic", sans-serif;
+  font-feature-settings: "palt" 1;
+  line-height: 1.65; letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+.italic, em { font-family: "Cormorant Garamond", "Times", serif; font-style: italic; font-weight: 500; }
+.mono { font-family: "IBM Plex Mono", monospace; }
+a { color: inherit; text-underline-offset: 3px; }
+button { font-family: inherit; cursor: pointer; }
+img, svg { display: block; max-width: 100%; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 32px;
+  background: rgba(244,237,223,.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+.brand { display: flex; align-items: baseline; gap: 6px; text-decoration: none; }
+.brand .name { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 22px; letter-spacing: .04em; }
+.brand .name .zero { color: var(--mint-deep); font-style: italic; }
+.brand .stet { font-family: "Permanent Marker", cursive; font-size: 14px; color: var(--terra); transform: translateY(-2px); letter-spacing: .03em; }
+.topbar nav { display: none; gap: 22px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--soft); }
+.topbar nav a { text-decoration: none; transition: color .2s; }
+.topbar nav a:hover { color: var(--ink); }
+.topbar .cta {
+  background: var(--ink); color: var(--bone);
+  padding: 8px 16px; border: none;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  text-decoration: none; transition: opacity .2s;
+}
+.topbar .cta:hover { opacity: .85; }
+@media (min-width: 880px) { .topbar nav { display: flex; } }
+
+.hero { min-height: 92vh; display: flex; align-items: center; padding: 96px 0 64px; position: relative; overflow: hidden; }
+.hero .grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; width: 100%; }
+.hero .copy h1 { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: clamp(58px, 8vw, 132px); line-height: 0.92; letter-spacing: -0.022em; }
+.hero .copy h1 em { font-style: italic; color: var(--ink); }
+.hero .copy h1 .accent { color: var(--mint-deep); font-style: italic; }
+.hero .copy .strap { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mint-deep); margin-bottom: 22px; }
+.hero .copy .lede { margin-top: 36px; max-width: 540px; font-size: 15px; line-height: 1.85; color: var(--mute); }
+.hero .copy .lede em { color: var(--ink); }
+.hero .copy .actions { margin-top: 44px; display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary, .btn-secondary {
+  padding: 14px 24px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+  text-decoration: none; border: 1px solid var(--ink);
+  transition: all .2s; display: inline-block;
+}
+.btn-primary { background: var(--ink); color: var(--bone); }
+.btn-primary:hover { opacity: .88; }
+.btn-secondary { background: transparent; color: var(--ink); }
+.btn-secondary:hover { background: var(--ink); color: var(--bone); }
+.hero .visual { display: flex; justify-content: center; align-items: center; }
+.hero .visual svg { width: 100%; max-width: 500px; height: auto; }
+.hero .four81-mark { position: absolute; top: 88px; right: 32px; font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--mint-deep); letter-spacing: .14em; opacity: .6; }
+
+section { padding: 110px 0; border-top: 1px solid var(--rule); position: relative; }
+section .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--mint-deep); margin-bottom: 18px; }
+section h2 { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: clamp(36px, 4.5vw, 64px); line-height: 1.05; letter-spacing: -0.012em; max-width: 920px; }
+section h2 em { font-style: italic; color: var(--mint-deep); }
+section h2 .terra { color: var(--terra); font-style: italic; }
+section .lede { margin-top: 22px; max-width: 720px; color: var(--mute); font-size: 15px; line-height: 1.9; }
+section .lede em { color: var(--ink); }
+
+.stet-wrap { margin-top: 56px; display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center; }
+.stet-glyph {
+  background: var(--bone); border: 1px solid var(--rule); padding: 64px 44px;
+  aspect-ratio: 1/1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 18px;
+}
+.stet-glyph .crossed { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 64px; font-weight: 500; color: var(--ink); position: relative; }
+.stet-glyph .crossed::before { content: ""; position: absolute; left: -10%; right: -10%; top: 48%; height: 3px; background: var(--terra); transform: rotate(-3deg); }
+.stet-glyph .dots { display: flex; gap: 14px; margin-top: -4px; }
+.stet-glyph .dots span { width: 9px; height: 9px; background: var(--terra); border-radius: 50%; }
+.stet-glyph .stet-write { font-family: "Permanent Marker", cursive; font-size: 42px; color: var(--terra); transform: rotate(-2deg) translateY(8px); }
+.stet-glyph .caption { margin-top: 18px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--soft); letter-spacing: .14em; text-transform: uppercase; }
+.stet-text dt { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 24px; color: var(--ink); margin-top: 30px; }
+.stet-text dt:first-child { margin-top: 0; }
+.stet-text dd { margin-top: 8px; color: var(--mute); font-size: 14px; line-height: 1.85; }
+.stet-text dd em { color: var(--ink); }
+
+.products-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.product { background: #fff; border: 1px solid var(--rule); padding: 28px; display: flex; flex-direction: column; gap: 14px; transition: transform .2s, border-color .2s; }
+.product:hover { transform: translateY(-3px); border-color: var(--rule-strong); }
+.product .visual { aspect-ratio: 1/1; background: var(--bone); display: flex; align-items: center; justify-content: center; border: 1px solid var(--rule); padding: 24px; }
+.product .label { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: .12em; color: var(--mint-deep); text-transform: uppercase; }
+.product h3 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 22px; }
+.product .desc { font-size: 12px; color: var(--mute); line-height: 1.7; }
+.product .price-row { display: flex; align-items: baseline; justify-content: space-between; margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--rule); }
+.product .price { font-family: "IBM Plex Mono", monospace; font-size: 14px; font-weight: 700; }
+.product .price .sub { color: var(--soft); font-weight: 400; font-size: 10px; margin-left: 4px; }
+.product .btn-mini { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; padding: 8px 12px; background: var(--ink); color: var(--bone); border: none; transition: opacity .2s; }
+.product .btn-mini:hover { opacity: .85; }
+.product .btn-mini.soon { background: transparent; color: var(--soft); border: 1px solid var(--rule); cursor: not-allowed; }
+.product .btn-mini.preorder { background: var(--mint-deep); }
+
+.houses-section { background: #fff; }
+.houses-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.house { border: 1px solid var(--rule); padding: 28px 22px; background: var(--bone); position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 12px; }
+.house::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; }
+.house.erd::before { background: var(--terra); }
+.house.green::before { background: var(--mint-deep); }
+.house.pur::before { background: var(--pur); }
+.house.lue::before { background: var(--deep); }
+.house.yel::before { background: var(--yel); }
+.house h3 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 700; font-size: 24px; letter-spacing: -0.01em; }
+.house h3 .typo { color: var(--mint-deep); }
+.house .hour { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--soft); letter-spacing: .08em; }
+.house .blurb { font-size: 13px; line-height: 1.7; color: var(--mute); }
+.house .tag { margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--ink); background: #fff; padding: 4px 8px; border: 1px solid var(--rule); align-self: flex-start; letter-spacing: .08em; }
+.houses-foot { margin-top: 36px; font-size: 13px; color: var(--soft); text-align: center; }
+
+.four81-section { background: var(--ink); color: var(--bone); }
+.four81-section h2 { color: var(--bone); }
+.four81-section h2 em { color: var(--mint); }
+.four81-section .lede { color: rgba(244,237,223,.7); }
+.four81-section .lede em { color: var(--bone); }
+.four81-section .eyebrow { color: var(--mint); }
+.scatter-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.scatter-card { background: rgba(244,237,223,.04); border: 1px solid rgba(244,237,223,.15); padding: 28px 22px; display: flex; flex-direction: column; gap: 14px; aspect-ratio: 1/1.05; }
+.scatter-card .where { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .12em; color: var(--mint); text-transform: uppercase; }
+.scatter-card .sketch { flex: 1; display: flex; align-items: center; justify-content: center; }
+.scatter-card .blurb { font-size: 12px; color: rgba(244,237,223,.55); line-height: 1.6; }
+
+.manifesto-section { background: var(--bone); }
+.manifesto-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; }
+.tenet { background: #fff; border: 1px solid var(--rule); padding: 36px; }
+.tenet .num { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--mint-deep); letter-spacing: .14em; }
+.tenet h3 { margin-top: 8px; font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 30px; }
+.tenet p { margin-top: 14px; color: var(--mute); font-size: 14px; line-height: 1.85; }
+
+.founder-section { background: #fff; }
+.founder-grid { margin-top: 56px; display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; align-items: center; }
+.founder-portrait { aspect-ratio: 4/5; background: var(--bone); border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; color: var(--soft); font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; text-align: center; padding: 20px; }
+.founder-text h3 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 36px; margin-bottom: 16px; }
+.founder-text p { font-size: 14px; line-height: 1.95; color: var(--mute); margin-top: 16px; }
+.founder-text p em { color: var(--ink); }
+.founder-meta { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--soft); letter-spacing: .08em; display: grid; gap: 8px; }
+
+.ugc-section { background: var(--bone); }
+.ugc-prompt { margin-top: 56px; padding: 56px 36px; background: #fff; border: 1px solid var(--rule); text-align: center; }
+.ugc-prompt .question { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: clamp(24px, 3.5vw, 36px); line-height: 1.3; color: var(--ink); max-width: 720px; margin: 0 auto; }
+.ugc-prompt .question em { color: var(--mint-deep); }
+.ugc-prompt .hashtags { margin-top: 22px; font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--soft); letter-spacing: .08em; }
+.ugc-prompt .hashtags span { margin: 0 8px; }
+.ugc-cta { margin-top: 28px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+.newsletter-section { background: var(--ink); color: var(--bone); }
+.newsletter-section h2 { color: var(--bone); }
+.newsletter-section h2 em { color: var(--mint); }
+.newsletter-section .eyebrow { color: var(--mint); }
+.newsletter-section .lede { color: rgba(244,237,223,.7); }
+.newsletter-section .lede em { color: var(--bone); }
+.newsletter-grid { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.newsletter-cta { padding: 36px; background: rgba(244,237,223,.04); border: 1px solid rgba(244,237,223,.15); }
+.newsletter-cta h3 { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 28px; font-weight: 500; color: var(--bone); margin-bottom: 16px; }
+.newsletter-cta p { color: rgba(244,237,223,.7); font-size: 13px; line-height: 1.8; margin-bottom: 24px; }
+.newsletter-cta a { display: inline-block; padding: 14px 24px; background: var(--mint); color: var(--ink); font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; transition: opacity .2s; }
+.newsletter-cta a:hover { opacity: .9; }
+
+footer { border-top: 1px solid var(--rule); padding: 64px 0 40px; background: var(--bone); }
+footer .grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+footer .col h4 { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--soft); margin-bottom: 16px; }
+footer .col ul { list-style: none; }
+footer .col li { margin-top: 10px; font-size: 13px; }
+footer .col a { color: var(--ink); text-decoration: none; transition: color .2s; }
+footer .col a:hover { color: var(--mint-deep); }
+footer .brand-col .brand { margin-bottom: 14px; }
+footer .brand-col .tagline { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 18px; color: var(--ink); margin-bottom: 14px; }
+footer .brand-col .place { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--soft); letter-spacing: .08em; }
+footer .copyright { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--soft); letter-spacing: .08em; }
+footer .copyright .right { display: flex; gap: 22px; }
+footer .copyright .four81 { color: var(--mint-deep); font-weight: 700; }
+
+@media (max-width: 1024px) {
+  .hero .grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero .visual { order: -1; }
+  .stet-wrap, .founder-grid, .newsletter-grid { grid-template-columns: 1fr; gap: 36px; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .houses-grid { grid-template-columns: repeat(2, 1fr); }
+  .scatter-grid { grid-template-columns: repeat(2, 1fr); }
+  .manifesto-grid { grid-template-columns: 1fr; }
+  footer .grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 0 22px; }
+  .topbar { padding: 12px 22px; }
+  .hero { min-height: auto; padding: 64px 0 56px; }
+  .hero .four81-mark { top: 70px; right: 22px; font-size: 11px; }
+  section { padding: 72px 0; }
+  .products-grid, .houses-grid { grid-template-columns: 1fr; }
+  footer .grid { grid-template-columns: 1fr; }
+  .stet-glyph { padding: 44px 28px; }
+  .stet-glyph .crossed { font-size: 48px; }
+  .stet-glyph .stet-write { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="/" class="brand">
+    <span class="name">TYP<span class="zero">0</span>S</span>
+    <span class="stet">stet</span>
+  </a>
+  <nav>
+    <a href="#stet">stet?</a>
+    <a href="#vol1">Vol.1</a>
+    <a href="#house">House</a>
+    <a href="#manifesto">Manifesto</a>
+    <a href="#newsletter">Newsletter</a>
+  </nav>
+  <a href="#vol1" class="cta">Pre-order</a>
+</header>
+
+<section class="hero">
+  <div class="four81-mark">4:81</div>
+  <div class="wrap grid">
+    <div class="copy">
+      <div class="strap">AI 時代の人間性ブランド / from Okinawa</div>
+      <h1>失敗できる、<br>を<em>誇りに</em>。</h1>
+      <p class="lede">
+        typo = <em>失敗</em>。stet = 校正記号「<em>そのまま、生かせ</em>」。<br>
+        AI が完璧を量産する世界で、<em>失敗できる</em>のは人間にだけ残された特権。<br>
+        TYP0stet は、それを物理的に身につけられるブランド。
+      </p>
+      <div class="actions">
+        <a href="#vol1" class="btn-primary">Vol.1 先行予約</a>
+        <a href="#stet" class="btn-secondary">stet とは</a>
+      </div>
+    </div>
+    <div class="visual">
+      <svg viewBox="0 0 420 520" xmlns="http://www.w3.org/2000/svg" aria-label="TYP0stet Vol.1 athleisure tee">
+        <defs>
+          <linearGradient id="bonefade" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#FFF8E8"/>
+            <stop offset="1" stop-color="#E8DCC0"/>
+          </linearGradient>
+        </defs>
+        <path d="M 60 80 L 110 60 L 130 50 L 175 65 L 245 65 L 290 50 L 310 60 L 360 80 L 380 130 L 360 150 L 340 142 L 340 380 L 350 420 L 350 470 Q 210 510 70 470 L 70 420 L 80 380 L 80 142 L 60 150 L 40 130 Z" fill="url(#bonefade)" stroke="#0E0E0E" stroke-width="1.2"/>
+        <path d="M 175 65 Q 210 85 245 65" fill="none" stroke="#0E0E0E" stroke-width="1.2"/>
+        <g transform="translate(126 156)">
+          <text x="0" y="0" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="18" fill="#0E0E0E" letter-spacing="-0.4">TYP<tspan fill="#4F8F6E">0</tspan></text>
+          <text x="12" y="15" font-family="Permanent Marker, cursive" font-size="11" fill="#C7553E" transform="rotate(-3 12 15)">stet</text>
+        </g>
+        <g transform="translate(268 165)">
+          <ellipse cx="0" cy="0" rx="14" ry="18" fill="none" stroke="#0E0E0E" stroke-width="2.6"/>
+          <ellipse cx="-3" cy="-2" rx="3" ry="5" fill="#92E5BD" opacity=".75"/>
+        </g>
+        <text x="56" y="155" font-family="IBM Plex Mono, monospace" font-size="6" fill="#4F8F6E" letter-spacing="0.5">4:81</text>
+        <path d="M 80 460 Q 210 500 340 460" fill="none" stroke="rgba(14,14,14,.5)" stroke-width="0.8" stroke-dasharray="2,2"/>
+        <text x="210" y="495" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="rgba(14,14,14,.55)" letter-spacing="0.15em">DROP TAIL HEM +6cm</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="stet">
+  <div class="wrap">
+    <div class="eyebrow">What is "stet"</div>
+    <h2>校正記号で、<em>「やっぱり、そのまま」</em>。</h2>
+    <div class="stet-wrap">
+      <div class="stet-glyph">
+        <div class="crossed">typo</div>
+        <div class="dots"><span></span><span></span><span></span><span></span></div>
+        <div class="stet-write">stet</div>
+        <div class="caption">Proofreading mark — "let it stand"</div>
+      </div>
+      <div class="stet-text">
+        <dl>
+          <dt>語源</dt>
+          <dd>ラテン語 <span class="mono">stet</span> = 「<em>let it stand</em>」(そのままに、生かせ)。<br>校正者が「<em>消そうとしたけど、やっぱり残せ</em>」と原稿の余白に書き込む記号。</dd>
+          <dt>TYP0stet の意味</dt>
+          <dd>typo (失敗) + stet (生かせ) = <em>失敗を、生かす</em>。<br>AI 時代に completion が量産される世界で、人間の typo は希少資源。<br>修正可能でも、<em>あえて生かす</em>。それがブランド名の由来。</dd>
+          <dt>brand thesis</dt>
+          <dd>TYP0stet = <em>人間の証明書</em>。<br>Mission: やらかしで、繋がる。<br>Vision: 失敗を恥じない文化を作る。<br>Tone: クールに。</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vol1">
+  <div class="wrap">
+    <div class="eyebrow">Product Lineup / 2026</div>
+    <h2>シャツ、ステッカー、トート、<br><em>Newsletter</em>。</h2>
+    <p class="lede">
+      Vol.1 Flagship Tee は <em>2026 年 10 月発送</em>、先行予約金 ¥1,000 で受付開始。<br>
+      他のプロダクトは順次。Newsletter (note) は今すぐ購読可能。
+    </p>
+    <div class="products-grid">
+      <article class="product">
+        <div class="visual">
+          <svg viewBox="0 0 180 220">
+            <path d="M 30 40 L 50 30 L 60 25 L 80 32 L 100 32 L 120 25 L 130 30 L 150 40 L 160 65 L 150 75 L 140 71 L 140 175 L 145 200 L 145 215 Q 90 225 35 215 L 35 200 L 40 175 L 40 71 L 30 75 L 20 65 Z" fill="#F4EDDF" stroke="#0E0E0E" stroke-width="1"/>
+            <path d="M 80 32 Q 90 42 100 32" fill="none" stroke="#0E0E0E" stroke-width="1"/>
+            <g transform="translate(55 70)">
+              <text x="0" y="0" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="9" fill="#0E0E0E">TYP<tspan fill="#4F8F6E">0</tspan></text>
+              <text x="6" y="7" font-family="Permanent Marker, cursive" font-size="5.5" fill="#C7553E">stet</text>
+            </g>
+            <ellipse cx="123" cy="75" rx="6" ry="8" fill="none" stroke="#0E0E0E" stroke-width="1.4"/>
+          </svg>
+        </div>
+        <span class="label">Vol.1 / Flagship Tee</span>
+        <h3>Athleisure Tee</h3>
+        <p class="desc">poly50/cot50 4.5oz Repreve / drop tail hem / 3 色 (Bone / Mint / Olive) / 沖縄 SEABOW プリント</p>
+        <div class="price-row">
+          <span class="price">¥9,800<span class="sub">(予約金 ¥1,000)</span></span>
+          <a href="#preorder-tee" class="btn-mini preorder">予約</a>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="visual">
+          <svg viewBox="0 0 180 180">
+            <rect x="20" y="20" width="140" height="140" rx="14" fill="#92E5BD"/>
+            <text x="90" y="105" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="40" fill="#0E0E0E">TYP<tspan fill="#FFF">0</tspan></text>
+            <text x="98" y="130" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="22" fill="#C7553E" transform="rotate(-3 98 130)">stet</text>
+          </svg>
+        </div>
+        <span class="label">Entry / Vol.0</span>
+        <h3>Sticker Pack</h3>
+        <p class="desc">防水 PVC、3 種ロゴ × 2 枚。水筒・PC・ヘルメットに貼って brand 拡散。</p>
+        <div class="price-row">
+          <span class="price">¥500</span>
+          <a href="#preorder-sticker" class="btn-mini preorder">予約</a>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="visual">
+          <svg viewBox="0 0 180 180">
+            <path d="M 50 60 L 50 160 L 130 160 L 130 60 Z" fill="#D9C9A8" stroke="#0E0E0E" stroke-width="1"/>
+            <path d="M 65 60 Q 65 30 90 30 Q 115 30 115 60" fill="none" stroke="#0E0E0E" stroke-width="2"/>
+            <g transform="translate(72 105)">
+              <text x="0" y="0" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="14" fill="#0E0E0E">TYP<tspan fill="#4F8F6E">0</tspan></text>
+              <text x="10" y="11" font-family="Permanent Marker, cursive" font-size="9" fill="#C7553E">stet</text>
+            </g>
+          </svg>
+        </div>
+        <span class="label">Coming Soon / Year 1</span>
+        <h3>Tote Bag</h3>
+        <p class="desc">沖縄ヘンプ or オーガニックコットン 12oz。日常 carry の signal、conversation starter。</p>
+        <div class="price-row">
+          <span class="price">¥6,800<span class="sub">(予定)</span></span>
+          <span class="btn-mini soon">Soon</span>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="visual">
+          <svg viewBox="0 0 180 180">
+            <rect x="30" y="50" width="120" height="90" fill="#fff" stroke="#0E0E0E" stroke-width="1.2"/>
+            <path d="M 30 50 L 90 100 L 150 50" fill="none" stroke="#0E0E0E" stroke-width="1.2"/>
+            <text x="90" y="160" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4F8F6E" letter-spacing="0.12em">NEWSLETTER</text>
+            <text x="90" y="100" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="14" fill="#C7553E" transform="rotate(-3 90 100)">stet</text>
+          </svg>
+        </div>
+        <span class="label">Free / Monthly</span>
+        <h3>Newsletter</h3>
+        <p class="desc">note 主軸、月 2-4 本。AI 時代の人間性、ものづくり、失敗の記録。</p>
+        <div class="price-row">
+          <span class="price">無料</span>
+          <a href="https://note.com/typostet" target="_blank" rel="noopener" class="btn-mini">購読</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="481" class="four81-section">
+  <div class="wrap">
+    <div class="eyebrow">Sub Mark — 4:81</div>
+    <h2>し(4)っ(8)ぱい(1)。<br><em>存在しない時刻</em>。</h2>
+    <p class="lede">
+      4:81 は物理的に存在しない時刻。AI が generate しない時間 = 人間にだけある記憶の歪み。<br>
+      「気づけば 4:81 だった」「あれは 2:60 のこと」 ── 失敗を反芻するときの時間感覚は、いつも壊れている。<br>
+      シャツのどこかに、必ず。<em>気付くと、いる</em>。
+    </p>
+    <div class="scatter-grid">
+      <div class="scatter-card">
+        <span class="where">袖口内側</span>
+        <div class="sketch">
+          <svg viewBox="0 0 120 120" width="100">
+            <path d="M 20 30 L 80 25 L 95 40 L 100 60 L 95 80 L 80 95 L 50 100 L 25 90 L 15 70 L 18 45 Z" fill="none" stroke="#F4EDDF" stroke-width="0.8" opacity=".5"/>
+            <text x="60" y="62" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#92E5BD" letter-spacing="0.12em">4:81</text>
+          </svg>
+        </div>
+        <span class="blurb">袖をまくると、見える</span>
+      </div>
+      <div class="scatter-card">
+        <span class="where">裾内側</span>
+        <div class="sketch">
+          <svg viewBox="0 0 120 120" width="100">
+            <path d="M 10 30 L 110 30 L 110 90 Q 60 105 10 90 Z" fill="none" stroke="#F4EDDF" stroke-width="0.8" opacity=".5"/>
+            <text x="60" y="65" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#92E5BD" letter-spacing="0.12em">4:81</text>
+          </svg>
+        </div>
+        <span class="blurb">内タグの右下、ひっそりと</span>
+      </div>
+      <div class="scatter-card">
+        <span class="where">型紙レシート</span>
+        <div class="sketch">
+          <svg viewBox="0 0 120 120" width="100">
+            <rect x="20" y="15" width="80" height="90" fill="none" stroke="#F4EDDF" stroke-width="0.8" opacity=".5" stroke-dasharray="2,2"/>
+            <text x="92" y="100" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#92E5BD" letter-spacing="0.12em">4:81</text>
+          </svg>
+        </div>
+        <span class="blurb">時刻 stamp 風、右下に</span>
+      </div>
+      <div class="scatter-card">
+        <span class="where">Pin Badge 裏</span>
+        <div class="sketch">
+          <svg viewBox="0 0 120 120" width="100">
+            <circle cx="60" cy="60" r="36" fill="none" stroke="#F4EDDF" stroke-width="0.8" opacity=".5"/>
+            <text x="60" y="65" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#92E5BD" letter-spacing="0.12em">4:81</text>
+          </svg>
+        </div>
+        <span class="blurb">外しても、刻印で残る</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="house" class="houses-section">
+  <div class="wrap">
+    <div class="eyebrow">5 House System</div>
+    <h2>あなたは、<em>何時に</em>失敗する人。</h2>
+    <p class="lede">
+      購入時刻から自動 assign される 5 つの House (組)。色 × typo の組名前。<br>
+      内タグに刻まれて、街で同じ House の人と出会ったら ─ 「<em>Wave 1 だね</em>」「<em>lueBlue 組?</em>」が起きる。
+    </p>
+    <div class="houses-grid">
+      <div class="house erd">
+        <h3><span class="typo">erd</span>Red</h3>
+        <div class="hour">05:00 — 08:59 / 朝</div>
+        <p class="blurb">朝活で気づく即時派。火の時間。一瞬で「あ」となり、瞬間に反省し、次に進む人。</p>
+        <span class="tag">H. erdRed</span>
+      </div>
+      <div class="house green">
+        <h3><span class="typo">Gre</span>eren</h3>
+        <div class="hour">09:00 — 14:59 / 昼</div>
+        <p class="blurb">昼仕事の中で気づく規則派。緑の中庸。同僚に笑い飛ばされ、午後に切り替える人。</p>
+        <span class="tag">H. Greeren</span>
+      </div>
+      <div class="house pur">
+        <h3><span class="typo">P</span>urlep</h3>
+        <div class="hour">15:00 — 20:59 / 夕</div>
+        <p class="blurb">黄昏に思い出す移行派。紫の境界。夕食前に「今日もやらかしたな」と独りごちる人。</p>
+        <span class="tag">H. Purlep</span>
+      </div>
+      <div class="house lue">
+        <h3><span class="typo">lue</span>Blue</h3>
+        <div class="hour">21:00 — 03:59 / 夜</div>
+        <p class="blurb">深夜まで反芻する沈思派。青の静寂。寝る前に「あれは違った」と何度も再生する人。</p>
+        <span class="tag">H. lueBlue</span>
+      </div>
+      <div class="house yel">
+        <h3><span class="typo">Y</span>ellwo</h3>
+        <div class="hour">04:00 — 04:59 / 4:81 直撃</div>
+        <p class="blurb">存在しない時刻に起きてる希少派。黄の例外。Yellwo を引いた人は、もう少し寝てください。</p>
+        <span class="tag">H. Yellwo</span>
+      </div>
+    </div>
+    <p class="houses-foot">
+      ※ 人間は本当は無限のタイプ。5 つに分けるのは、人間っぽい乱暴さの brand 装置として。<br>
+      Year 2+ で House はパーソナライズで進化していきます。
+    </p>
+  </div>
+</section>
+
+<section id="manifesto" class="manifesto-section">
+  <div class="wrap">
+    <div class="eyebrow">Manifesto</div>
+    <h2>4 つの宣言。</h2>
+    <div class="manifesto-grid">
+      <article class="tenet">
+        <div class="num">01 / Thesis</div>
+        <h3>人間の証明書。</h3>
+        <p>AI が完璧を量産する時代に、typo (失敗) は人間にしか残せない痕跡。<br>TYP0stet はその痕跡を、物理的に身につけられるブランド。</p>
+      </article>
+      <article class="tenet">
+        <div class="num">02 / Mission</div>
+        <h3>やらかしで、繋がる。</h3>
+        <p>同じ TYP0stet を着てる人同士で「あ、あなたも誇りに思ってるんですね」。<br>失敗が会話の入口になる文化を、街に増やす。</p>
+      </article>
+      <article class="tenet">
+        <div class="num">03 / Vision</div>
+        <h3>失敗を恥じない文化を作る。</h3>
+        <p>「失敗を語る」じゃなく「失敗を誇る」。<br>誇りは語りたくなる、ミスは隠したくなる。voice を能動に。</p>
+      </article>
+      <article class="tenet">
+        <div class="num">04 / Tone</div>
+        <h3>クールに。</h3>
+        <p>痛くない。押しつけない。語りすぎない。<br>沖縄 base の slow speak で、AI に書かれない物作りを淡々と。</p>
+      </article>
+    </div>
+    <div style="margin-top: 40px; text-align: center;">
+      <a href="/manifest.html" class="btn-secondary">倫理憲章を読む</a>
+    </div>
+  </div>
+</section>
+
+<section id="founder" class="founder-section">
+  <div class="wrap">
+    <div class="eyebrow">Founder</div>
+    <h2><em>沖縄から</em>、tig。</h2>
+    <div class="founder-grid">
+      <div class="founder-portrait">Founder Portrait<br>(coming 2026.07)</div>
+      <div class="founder-text">
+        <h3>19 歳、ポルトガルで気づいた。</h3>
+        <p>大人の仮面を脱ぐと、人はやらかす。やらかすと、繋がる。<em>失敗できる</em>のは、人間に残された最後の特権だ。</p>
+        <p>それから 10 年熟成した思想を、沖縄南城の家から brand にする。AI 時代の人間性ブランド、TYP0stet。<em>失敗を、生かす。</em></p>
+        <div class="founder-meta">
+          <span>Base: 沖縄県南城市</span>
+          <span>Brand: TYP0stet (2026.06 公開)</span>
+          <span>Vol.1 launch: 2026.10</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ugc" class="ugc-section">
+  <div class="wrap">
+    <div class="eyebrow">Join the culture</div>
+    <h2>あなたも、<em>誇りに</em>思ってるんですね。</h2>
+    <p class="lede">
+      街で TYP0stet を着てる人同士は、もう同志。<br>
+      SNS にも、その入口を。最近、あなたが <em>誇りに思った失敗</em> を 1 行で。
+    </p>
+    <div class="ugc-prompt">
+      <p class="question">「最近どんな <em>誇り</em>、ありました?」</p>
+      <p class="hashtags"><span>#失敗できる</span><span>#TYP0stet日</span><span>#H_lueBlue</span><span>#人間の証明書</span></p>
+      <div class="ugc-cta">
+        <a href="https://twitter.com/intent/tweet?text=%23TYP0stet%E6%97%A5%20%23%E5%A4%B1%E6%95%97%E3%81%A7%E3%81%8D%E3%82%8B" target="_blank" rel="noopener" class="btn-primary">X で投稿</a>
+        <a href="https://www.instagram.com/typostet/" target="_blank" rel="noopener" class="btn-secondary">Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="newsletter" class="newsletter-section">
+  <div class="wrap">
+    <div class="eyebrow">Newsletter</div>
+    <h2>AI 時代に、<em>typo を着る理由</em>。</h2>
+    <p class="lede">
+      ものづくりの工程、brand の進捗、tig の文章。月 2-4 本、note に書きます。<br>
+      購読は無料。<em>失敗を、誇りに思ってる人</em>へ。
+    </p>
+    <div class="newsletter-grid">
+      <div class="newsletter-cta">
+        <h3>note 主軸で配信</h3>
+        <p>第 1 号:「AI 時代に typo を着る理由」<br>manifesto を tig 言語で、長文 1 本。</p>
+        <a href="https://note.com/typostet" target="_blank" rel="noopener">note で購読する →</a>
+      </div>
+      <div class="newsletter-cta">
+        <h3>SNS でも</h3>
+        <p>Newsletter の短い断片や日常の voice は SNS で。<br>X / Instagram / Threads いずれも。</p>
+        <a href="https://twitter.com/typostet481" target="_blank" rel="noopener">@typostet481 を見る →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="col brand-col">
+        <a href="/" class="brand">
+          <span class="name">TYP<span class="zero">0</span>S</span>
+          <span class="stet">stet</span>
+        </a>
+        <p class="tagline">失敗できる、を誇りに。</p>
+        <p class="place">Designed in Okinawa<br>Made in Japan / Printed in Okinawa</p>
+      </div>
+      <div class="col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#vol1">Vol.1 Tee</a></li>
+          <li><a href="#vol1">Sticker</a></li>
+          <li><a href="#vol1">Tote (soon)</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Brand</h4>
+        <ul>
+          <li><a href="#stet">stet とは</a></li>
+          <li><a href="#481">4:81</a></li>
+          <li><a href="#house">5 House</a></li>
+          <li><a href="#manifesto">Manifesto</a></li>
+          <li><a href="/manifest.html">倫理憲章</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Legal & Contact</h4>
+        <ul>
+          <li><a href="/terms.html">利用規約</a></li>
+          <li><a href="/privacy.html">プライバシー</a></li>
+          <li><a href="/tokutei.html">特定商取引法</a></li>
+          <li><a href="mailto:info@typostet.com">info@typostet.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <div>© 2026 TYP<span style="color:var(--mint-deep);">0</span>stet — Designed in Okinawa</div>
+      <div class="right">
+        <a href="https://twitter.com/typostet481" target="_blank" rel="noopener">X</a>
+        <a href="https://instagram.com/typostet" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://threads.net/@typostet" target="_blank" rel="noopener">Threads</a>
+        <a href="https://note.com/typostet" target="_blank" rel="noopener">note</a>
+        <span class="four81">4:81</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

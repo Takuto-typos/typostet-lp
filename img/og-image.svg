@@ -1,0 +1,30 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- TYP0S OG image v5.3 (2026-05-22) — 失敗を、着よう。 -->
+  <rect width="1200" height="630" fill="#0E0E0E"/>
+
+  <!-- 46 ITALIC [ 0 ] brand mark — 左寄せ 大型 -->
+  <g transform="translate(180, 240)">
+    <!-- bracket left -->
+    <polyline points="62,8 22,8 22,212 62,212" fill="none" stroke="#92E5BD" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- bracket right -->
+    <polyline points="190,8 230,8 230,212 190,212" fill="none" stroke="#92E5BD" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- 0 italic -->
+    <g transform="rotate(-10 126 110)">
+      <ellipse cx="126" cy="110" rx="44" ry="62" fill="#92E5BD"/>
+      <ellipse cx="126" cy="110" rx="19" ry="42" fill="#0E0E0E"/>
+    </g>
+  </g>
+
+  <!-- メイン copy: 失敗を、着よう。 -->
+  <text x="500" y="280" font-family="'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-weight="500" font-size="84" fill="#F4EDDF" letter-spacing="6">失敗を、着よう。</text>
+
+  <!-- TYP0S word mark (standard、0 のみ mint) -->
+  <text x="500" y="360" font-family="'IBM Plex Mono', 'Menlo', monospace" font-weight="500" font-size="42" fill="#F4EDDF" letter-spacing="6">TYP<tspan fill="#92E5BD" font-weight="700">0</tspan>S</text>
+
+  <!-- sub copy -->
+  <text x="500" y="432" font-family="'Noto Serif JP', 'Hiragino Mincho ProN', serif" font-size="22" fill="rgba(244,237,223,0.62)" letter-spacing="2">AI 時代、失敗できることが、人間をやってる証拠。</text>
+
+  <!-- footer -->
+  <line x1="500" y1="500" x2="700" y2="500" stroke="#92E5BD" stroke-width="1.5"/>
+  <text x="500" y="544" font-family="'IBM Plex Mono', 'Menlo', monospace" font-weight="500" font-size="14" fill="rgba(146,229,189,0.85)" letter-spacing="4">FIRST DROP — 2026.05.23</text>
+</svg>
