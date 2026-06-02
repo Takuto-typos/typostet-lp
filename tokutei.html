@@ -4,148 +4,154 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>特定商取引法に基づく表記 - TYP0stet</title>
+<meta name="description" content="TYP0stet の特定商取引法に基づく表記。販売事業者、連絡先、価格、配送、返品ポリシー等。">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="appletouchicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@400;500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0E0E0E; color: #c9d1d9; line-height: 1.8; padding: 40px 20px; }
-  .container { max-width: 720px; margin: 0 auto; }
-  .brand { font-size: 24px; color: #e6edf3; margin-bottom: 4px; letter-spacing: 2px; font-weight: 600; }
-  .brand .z { color: #92E5BD; }
-  .lang { margin-bottom: 32px; font-size: 14px; }
-  .lang a { color: #92E5BD; text-decoration: none; margin: 0 8px; }
+  body { font-family: "IBM Plex Sans JP", -apple-system, BlinkMacSystemFont, sans-serif; background: #F4EDDF; color: #0E0E0E; line-height: 1.8; padding: 40px 20px; font-feature-settings: "palt" 1; }
+  .container { max-width: 760px; margin: 0 auto; }
+  .brand { display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px; text-decoration: none; color: #0E0E0E; }
+  .brand .name { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 22px; letter-spacing: .04em; }
+  .brand .name .zero { color: #4F8F6E; font-style: italic; }
+  .brand .stet { font-family: "Permanent Marker", cursive; font-size: 13px; color: #C7553E; transform: translateY(-2px); }
+  .lang { margin-bottom: 32px; font-size: 13px; font-family: "IBM Plex Mono", monospace; letter-spacing: .08em; }
+  .lang a { color: #4F8F6E; text-decoration: none; margin: 0 8px 0 0; cursor: pointer; }
   .lang a:hover { text-decoration: underline; }
-  h1 { font-size: 18px; color: #e6edf3; margin-top: 16px; margin-bottom: 24px; }
-  .updated { font-size: 12px; color: #6e7681; margin-bottom: 16px; }
+  h1 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 32px; color: #0E0E0E; margin-top: 24px; margin-bottom: 8px; }
+  .updated { font-size: 11px; color: rgba(14,14,14,.5); margin-bottom: 24px; font-family: "IBM Plex Mono", monospace; letter-spacing: .08em; }
   table { width: 100%; border-collapse: collapse; margin-top: 16px; }
-  th, td { text-align: left; padding: 12px 8px; border-bottom: 1px solid #21262d; vertical-align: top; font-size: 14px; }
-  th { width: 32%; color: #c9d1d9; font-weight: 600; }
-  td { color: #8b949e; }
-  .note { font-size: 12px; color: #6e7681; margin-top: 8px; }
-  .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #21262d; font-size: 12px; color: #484f58; }
-  .footer a { color: #92E5BD; text-decoration: none; margin: 0 10px; }
-  .footer a:hover { text-decoration: underline; }
+  th, td { text-align: left; padding: 14px 8px; border-bottom: 1px solid rgba(14,14,14,.12); vertical-align: top; font-size: 14px; }
+  th { width: 34%; color: #0E0E0E; font-weight: 500; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+  td { color: rgba(14,14,14,.75); line-height: 1.7; }
+  td strong { color: #0E0E0E; }
+  .note { font-size: 12px; color: rgba(14,14,14,.55); margin-top: 6px; line-height: 1.6; }
+  .footer { margin-top: 56px; padding-top: 28px; border-top: 1px solid rgba(14,14,14,.12); font-size: 11px; color: rgba(14,14,14,.55); font-family: "IBM Plex Mono", monospace; letter-spacing: .06em; }
+  .footer a { color: #0E0E0E; text-decoration: none; margin: 0 6px; }
+  .footer a:hover { color: #4F8F6E; }
+  .footer .four81 { color: #4F8F6E; font-weight: 700; float: right; }
   .section { display: none; }
   .section.active { display: block; }
-  .price-list { margin: 4px 0 0 0; padding-left: 18px; }
-  .price-list li { font-size: 13px; color: #8b949e; margin-bottom: 2px; list-style: none; position: relative; padding-left: 14px; }
-  .price-list li::before { content: "·"; position: absolute; left: 0; color: #6e7681; }
+  .price-list { margin: 6px 0 0 0; padding-left: 0; list-style: none; }
+  .price-list li { font-size: 13px; color: rgba(14,14,14,.75); margin-bottom: 4px; padding-left: 14px; position: relative; }
+  .price-list li::before { content: "→"; position: absolute; left: 0; color: #4F8F6E; }
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="brand">TYP<span class="z">0</span>S</div>
+  <a href="/" class="brand">
+    <span class="name">TYP<span class="zero">0</span>S</span>
+    <span class="stet">stet</span>
+  </a>
   <div class="lang">
-    <a href="#" onclick="show('ja')">日本語</a> |
-    <a href="#" onclick="show('en')">English</a>
+    <a onclick="show('ja')">日本語</a> · <a onclick="show('en')">English</a>
   </div>
 
   <div id="ja" class="section active">
     <h1>特定商取引法に基づく表記</h1>
-    <p class="updated">最終更新日: 2026年5月24日（brand v5.4 更新）</p>
+    <p class="updated">最終更新日: 2026年6月2日</p>
     <table>
-      <tr><th>販売事業者</th><td>株式会社Remoi</td></tr>
+      <tr><th>販売事業者</th><td>株式会社 Remoi<div class="note">TYP0stet は株式会社 Remoi が運営するブランドです。将来的に法人格を株式会社 TYP0stet に移行する予定があります。</div></td></tr>
       <tr><th>運営責任者</th><td>代表取締役 堀井 拓斗</td></tr>
-      <tr><th>所在地</th><td>〒115-0045 東京都北区赤羽1-59-8 日ノ出ビル4F</td></tr>
-      <tr><th>連絡先</th><td>typos@remoi.jp</td></tr>
-      <tr><th>販売 URL</th><td>https://typostet.com / TYP0stet アプリ内</td></tr>
-      <tr><th>販売価格</th><td>商品ごとに表示（消費税込み）
+      <tr><th>所在地</th><td>〒115-0045 東京都北区赤羽 1-59-8 日ノ出ビル 4F</td></tr>
+      <tr><th>電話番号</th><td>請求があれば遅滞なく開示いたします (info@typostet.com までご連絡ください)</td></tr>
+      <tr><th>メール連絡先</th><td>info@typostet.com</td></tr>
+      <tr><th>販売 URL</th><td>https://typostet.com</td></tr>
+      <tr><th>販売価格</th><td>商品ごとに表示 (消費税込み)
         <ul class="price-list">
-          <li>TYP0stet シャツ（受注生産・1 着）<strong>¥13,800</strong></li>
-          <li>TYP0stet ステッカー（1 枚）¥500</li>
-          <li>TYP0stet ステッカー 3 枚パック ¥1,500</li>
-          <li>TYP0stet ステッカー 5 枚パック ¥2,500</li>
-          <li>TYP0stet キーチェーン ¥1,500（Phase 2.5 以降）</li>
-          <li>TYP0stet ピン ¥2,000（Phase 2.5 以降）</li>
-          <li>TYP0stet マグ ¥3,500（Phase 3 以降）</li>
-          <li>TYP0stet トート ¥4,500（Phase 3 以降）</li>
-          <li>TYP0stet ジャケット ¥45,000（Phase 4 以降）</li>
+          <li>TYP0stet Vol.1 Athleisure Tee <strong>¥9,800</strong> (先行予約金 ¥1,000、残金 ¥8,800 は発送前 charge)</li>
+          <li>TYP0stet Sticker Pack <strong>¥500</strong></li>
+          <li>TYP0stet Tote Bag <strong>¥6,800</strong> (Year 1 後半販売予定)</li>
+          <li>TYP0stet Pin Badge <strong>¥800</strong> (Vol.1 launch 後展開予定)</li>
         </ul>
-        <div class="note">シャツは brand v5.4 で価格統一（¥13,800）。サイズ・カラー違いに追加料金はありません。</div>
+        <div class="note">商品の価格、仕様は予告なく変更する場合があります。最新の価格は商品ページにてご確認ください。</div>
       </td></tr>
-      <tr><th>cover-version の還元</th><td>他人のデザインを「これを着る」（cover-version）で購入した場合、製造原価控除後の<strong>粗利の 50% が creator に還元</strong>されます。残り 50% は TYP0stet（株式会社Remoi）の運営費に充当。creator への支払いは四半期締めで決済 platform 経由（最低支払額 ¥1,000、未達分は次期繰越）。
-        <div class="note">cover-version 還元のオプトアウトを希望する creator は support@typostet.com までご連絡ください。</div>
+      <tr><th>商品代金以外の必要料金</th><td>送料: <strong>全国一律 ¥600</strong>
+        <div class="note">沖縄県内発送・海外発送は別途案内。代金引換は対応しておりません。</div>
       </td></tr>
-      <tr><th>商品代金以外の必要料金</th><td>送料：全国一律 ¥800（沖縄・離島は ¥1,500）<br>ステッカー単品のみの注文：全国一律 ¥250（クリックポスト）<br>海外発送は当面停止中（再開時別途案内）
-        <div class="note">代金引換は対応しておりません。</div>
+      <tr><th>支払方法</th><td>クレジットカード決済 (Visa / Mastercard / JCB / American Express / Diners Club)<br>Apple Pay / Google Pay
+        <div class="note">決済処理は Stripe, Inc. (米国) に委託しています。カード情報は当社のサーバーには保存されません。</div>
       </td></tr>
-      <tr><th>支払方法</th><td>クレジットカード決済（Visa / Mastercard / JCB / American Express / Diners Club）<br>Apple Pay / Google Pay<br>※ 決済処理は Stripe, Inc.（米国）に委託しています</td></tr>
-      <tr><th>支払時期</th><td>注文確定時に決済が成立します。</td></tr>
-      <tr><th>商品の引き渡し時期</th><td><strong>受注生産品（T シャツ等）</strong>：注文確定後<strong>約 3〜4 週間</strong>を目安に発送
-        <div class="note">内訳：DTF 印刷（プリント供給元の納期）14-21 日 + 熱圧着・検品・梱包・配送 5-7 日。素材調達・繁忙期等の事情により最大 30 日まで延長する場合があります。</div>
-        <strong>在庫品（ステッカー / キーチェーン / ピン等）</strong>：注文確定後 3〜5 営業日以内に発送
+      <tr><th>支払時期</th><td><strong>先行予約商品 (Vol.1 シャツ等)</strong>: 予約金 ¥1,000 を注文確定時に決済、残金 ¥8,800 を発送 1 週間前に自動 charge<br><br>
+        <strong>在庫品 (ステッカー等)</strong>: 注文確定時に全額決済
+      </td></tr>
+      <tr><th>商品の引き渡し時期</th><td><strong>Vol.1 Athleisure Tee (受注生産・先行予約)</strong>: 2026 年 10 月発送予定
+        <div class="note">沖縄 SEABOW にてシルクスクリーンプリント、検品後発送。生産状況により最大 4 週間程度延長する場合があります。</div>
+        <strong>ステッカー (在庫品)</strong>: 注文確定後 3 〜 7 営業日以内に発送
         <div class="note">発送遅延の場合はメールにて速やかにご連絡いたします。</div>
       </td></tr>
-      <tr><th>返品・交換について</th><td><strong>受注生産品（T シャツ等）はお客様都合による返品・交換をお受けできません。</strong><br>
-        在庫品（ステッカー等）も、衛生上・性質上の理由でお客様都合の返品はお受けしておりません。<br><br>
-        以下に該当する場合のみ、商品到着後 7 日以内にご連絡いただければ無償交換または返金対応いたします：
+      <tr><th>返品・交換について</th><td><strong>受注生産品 (Vol.1 シャツ等) はお客様都合による返品・交換をお受けできません。</strong> 染色のムラ・後染めの個体差は受注生産品の特性として許容願います。<br><br>
+        在庫品 (ステッカー等) も衛生上・性質上の理由でお客様都合の返品はお受けしておりません。<br><br>
+        以下に該当する場合のみ、商品到着後 7 日以内にご連絡いただければ無償交換または返金対応いたします:
         <ul class="price-list">
           <li>配送中の破損</li>
           <li>明らかな縫製不良・印刷不良</li>
           <li>注文内容と異なる商品の発送</li>
         </ul>
-        <div class="note">交換・返金のご連絡先：typos@remoi.jp</div>
+        <div class="note">交換・返金のご連絡先: info@typostet.com</div>
       </td></tr>
-      <tr><th>返品送料</th><td>当社事由による不良・誤発送の場合は当社負担、お客様事由の場合は受付不可。</td></tr>
-      <tr><th>動作環境</th><td>iOS 15.0 以上 / Android 10 以上<br>インターネット接続必須</td></tr>
+      <tr><th>返品送料</th><td>当社事由による不良・誤発送の場合は当社負担、お客様事由の場合は受付不可</td></tr>
+      <tr><th>先行予約のキャンセル</th><td>Vol.1 シャツの先行予約は、残金 charge 前 (発送 1 週間前まで) は予約金 ¥1,000 を全額返金にてキャンセル可能<div class="note">残金 charge 後は受注生産工程に入るためキャンセル不可となります。</div></td></tr>
     </table>
   </div>
 
   <div id="en" class="section">
     <h1>Commerce Disclosure (Tokutei Shotorihiki-ho)</h1>
-    <p class="updated">Last updated: May 21, 2026</p>
+    <p class="updated">Last updated: June 2, 2026</p>
     <table>
-      <tr><th>Legal Seller</th><td>Remoi, K.K.</td></tr>
+      <tr><th>Legal Seller</th><td>Remoi, K.K.<div class="note">TYP0stet is a brand operated by Remoi, K.K. We plan to transition the corporate entity to TYP0stet, K.K. in the future.</div></td></tr>
       <tr><th>Representative</th><td>Takuto Horii, CEO</td></tr>
       <tr><th>Address</th><td>Hinode Bldg. 4F, 1-59-8 Akabane, Kita-ku, Tokyo 115-0045, Japan</td></tr>
-      <tr><th>Contact</th><td>typos@remoi.jp</td></tr>
-      <tr><th>Sales URL</th><td>https://typostet.com / Within the TYP0stet app</td></tr>
+      <tr><th>Phone</th><td>Disclosed promptly upon request (contact info@typostet.com)</td></tr>
+      <tr><th>Email</th><td>info@typostet.com</td></tr>
+      <tr><th>Sales URL</th><td>https://typostet.com</td></tr>
       <tr><th>Pricing</th><td>Displayed per item, tax included.
         <ul class="price-list">
-          <li>TYP0stet WEAR entry T-shirt ¥12,000</li>
-          <li>TYP0stet WEAR premium T-shirt ¥18,000</li>
-          <li>TYP0stet WEAR jacket ¥45,000 (Phase 2+)</li>
-          <li>TYP0stet sticker (single) ¥500</li>
-          <li>TYP0stet sticker 3-pack ¥1,500</li>
-          <li>TYP0stet sticker 5-pack ¥2,500</li>
-          <li>TYP0stet keychain ¥1,500 (Phase 2.5+)</li>
-          <li>TYP0stet pin ¥2,000 (Phase 2.5+)</li>
-          <li>TYP0stet mug ¥3,500 (Phase 3+)</li>
-          <li>TYP0stet tote ¥4,500 (Phase 3+)</li>
+          <li>TYP0stet Vol.1 Athleisure Tee <strong>¥9,800</strong> (¥1,000 deposit at pre-order, ¥8,800 balance charged before shipping)</li>
+          <li>TYP0stet Sticker Pack <strong>¥500</strong></li>
+          <li>TYP0stet Tote Bag <strong>¥6,800</strong> (Late Year 1)</li>
+          <li>TYP0stet Pin Badge <strong>¥800</strong> (Post Vol.1 launch)</li>
         </ul>
       </td></tr>
-      <tr><th>Additional Fees</th><td>Shipping: Flat ¥800 within Japan (¥1,500 for Okinawa and remote islands)<br>Stickers-only orders: flat ¥250 (Click-Post)<br>International shipping currently paused.
-        <div class="note">Cash on delivery is not available.</div>
+      <tr><th>Additional Fees</th><td>Shipping: <strong>Flat ¥600 within Japan</strong>
+        <div class="note">Within Okinawa or international shipping handled separately. Cash on delivery not available.</div>
       </td></tr>
-      <tr><th>Payment Methods</th><td>Credit card (Visa / Mastercard / JCB / Amex / Diners)<br>Apple Pay / Google Pay<br>* Payment processing handled by Stripe, Inc. (USA)</td></tr>
-      <tr><th>Payment Timing</th><td>Charged at order confirmation.</td></tr>
-      <tr><th>Delivery Timing</th><td><strong>Made-to-order items (T-shirts etc.)</strong>: shipped within 14–21 days after order confirmation.
-        <div class="note">May extend up to 30 days for weather, peak season, or material sourcing reasons. We notify by email in case of delay.</div>
-        <strong>In-stock items (stickers / keychains / pins etc.)</strong>: shipped within 3–5 business days.
+      <tr><th>Payment Methods</th><td>Credit card (Visa / Mastercard / JCB / Amex / Diners)<br>Apple Pay / Google Pay
+        <div class="note">Payment processing handled by Stripe, Inc. (USA). Card data is not stored on our servers.</div>
       </td></tr>
-      <tr><th>Returns &amp; Exchanges</th><td><strong>No returns or exchanges for buyer's reasons on made-to-order items.</strong><br>
-        Stickers and similar in-stock items are also non-returnable for buyer's reasons due to hygiene and product nature.<br><br>
+      <tr><th>Payment Timing</th><td><strong>Pre-order items (Vol.1 Tee etc.)</strong>: ¥1,000 deposit charged at order; ¥8,800 balance auto-charged 1 week before shipping.<br><br>
+        <strong>In-stock items (stickers etc.)</strong>: Full amount charged at order.
+      </td></tr>
+      <tr><th>Delivery Timing</th><td><strong>Vol.1 Athleisure Tee (made-to-order, pre-order)</strong>: Shipping planned October 2026.
+        <div class="note">Silk-screen printed at SEABOW (Okinawa), inspected, then shipped. Production may extend up to 4 weeks depending on workload.</div>
+        <strong>Stickers (in-stock)</strong>: Shipped within 3–7 business days of order.
+      </td></tr>
+      <tr><th>Returns &amp; Exchanges</th><td><strong>No returns or exchanges for buyer's reasons on made-to-order items (Vol.1 Tee etc.).</strong> Dye unevenness and individual variations in garment-dyed pieces are part of the product character.<br><br>
+        Stickers and similar in-stock items are also non-returnable for buyer's reasons (hygiene, product nature).<br><br>
         Free exchange or refund within 7 days of arrival only for:
         <ul class="price-list">
           <li>Shipping damage</li>
           <li>Manufacturing defects</li>
           <li>Wrong items shipped</li>
         </ul>
-        <div class="note">Contact: typos@remoi.jp within 7 days of arrival.</div>
+        <div class="note">Contact: info@typostet.com within 7 days of arrival.</div>
       </td></tr>
       <tr><th>Return Shipping</th><td>Covered by Remoi, K.K. for our fault; not accepted for buyer's reasons.</td></tr>
-      <tr><th>System Requirements</th><td>iOS 15.0+ / Android 10+. Internet connection required.</td></tr>
+      <tr><th>Pre-order Cancellation</th><td>Vol.1 Tee pre-orders can be cancelled with full ¥1,000 deposit refund up until the balance charge (1 week before shipping).<div class="note">After balance charge, cancellation is not possible due to entering made-to-order production.</div></td></tr>
     </table>
   </div>
 
   <div class="footer">
-    <p>TYP<span class="z" style="color:#92E5BD">0</span>S — Remoi, K.K.</p>
-    <p>typos@remoi.jp</p>
+    <p>© 2026 TYP<span style="color:#4F8F6E">0</span>stet — Remoi, K.K.  <span class="four81">4:81</span></p>
     <p style="margin-top: 12px;">
       <a href="/">Home</a>·
-      <a href="/terms.html">Terms</a>·
-      <a href="/privacy.html">Privacy</a>·
-      <a href="/manifest.html">Manifesto</a>
+      <a href="/terms.html">利用規約</a>·
+      <a href="/privacy.html">プライバシー</a>·
+      <a href="/manifest.html">倫理憲章</a>·
+      <a href="mailto:info@typostet.com">info@typostet.com</a>
     </p>
   </div>
 </div>

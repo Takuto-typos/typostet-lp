@@ -4,279 +4,130 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>倫理憲章 — TYP0stet</title>
-<meta name="description" content="TYP0stet の倫理憲章。失敗をどう扱うか、AI をどう使うか、匿名性をどう守るか。8 つの宣言。">
-<meta name="keywords" content="TYP0stet, 倫理憲章, ブランド, AI, 匿名, 失敗, manifesto">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="appletouchicon.png">
-
-<!-- OGP -->
+<meta name="description" content="TYP0stet の倫理憲章。AI 時代に、失敗を扱うブランドとして守ること、しないこと。">
 <meta property="og:title" content="TYP0stet — 倫理憲章">
-<meta property="og:description" content="失敗をどう扱うか、AI をどう使うか、匿名性をどう守るか。8 つの宣言。">
-<meta property="og:type" content="article">
+<meta property="og:description" content="AI 時代に、失敗を扱うブランドとして守ること、しないこと。">
 <meta property="og:url" content="https://typostet.com/manifest.html">
 <meta property="og:image" content="https://typostet.com/appletouchicon.png">
 <meta property="og:site_name" content="TYP0stet">
-<meta property="og:locale" content="ja_JP">
-
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="appletouchicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500;1,700&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@400;500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
 <style>
-  *,*::before,*::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    /* brand v5.4 (2026-05-24) — Pistachio Sea Mint + Ink Black 統一 */
-    --ink: #0E0E0E;
-    --bone: #F4EDDF;
-    --mint: #92E5BD;
-    --dim: rgba(244, 237, 223, 0.55);
-    --hair: rgba(244, 237, 223, 0.10);
-  }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--ink);
-    color: var(--bone);
-    font-family: 'IBM Plex Mono', monospace;
-    line-height: 1.85;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: var(--mint); text-decoration: none; border-bottom: 1px solid var(--hair); }
-  a:hover { border-bottom-color: var(--mint); }
-
-  .topbar {
-    padding: 22px 32px;
-    border-bottom: 1px solid var(--hair);
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-size: 11px;
-    letter-spacing: 4px;
-  }
-  .topbar a { border: none; opacity: 0.7; }
-  .topbar a:hover { opacity: 1; }
-  .topbar .brand { font-weight: 500; letter-spacing: 6px; }
-  .topbar .brand .z { color: var(--mint); }
-
-  .container {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 80px 32px 120px;
-  }
-
-  .eyebrow {
-    font-size: 10px;
-    color: var(--mint);
-    letter-spacing: 5px;
-    margin-bottom: 24px;
-  }
-
-  h1 {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 38px;
-    font-weight: 500;
-    line-height: 1.4;
-    color: var(--bone);
-    letter-spacing: 4px;
-    margin-bottom: 8px;
-  }
-  h1 .z { color: var(--mint); font-family: 'IBM Plex Mono', monospace; font-weight: 700; }
-
-  .subtitle {
-    font-size: 13px;
-    color: var(--dim);
-    letter-spacing: 2px;
-    margin-bottom: 56px;
-  }
-
-  .lead {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 18px;
-    line-height: 2;
-    color: var(--bone);
-    margin-bottom: 64px;
-    padding-bottom: 56px;
-    border-bottom: 1px solid var(--hair);
-    letter-spacing: 1px;
-  }
-  .lead p + p { margin-top: 1em; }
-
-  .clause {
-    margin-top: 56px;
-    padding-top: 36px;
-    border-top: 1px solid var(--hair);
-  }
-  .clause:first-of-type {
-    border-top: none;
-    padding-top: 0;
-    margin-top: 0;
-  }
-  .clause .num {
-    font-size: 11px;
-    color: var(--mint);
-    letter-spacing: 5px;
-    font-weight: 700;
-    margin-bottom: 14px;
-  }
-  .clause h2 {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--bone);
-    letter-spacing: 3px;
-    line-height: 1.5;
-    margin-bottom: 18px;
-  }
-  .clause p {
-    font-size: 14px;
-    color: var(--dim);
-    line-height: 2;
-    letter-spacing: 1px;
-  }
-  .clause p + p { margin-top: 1em; }
-  .clause strong {
-    color: var(--bone);
-    font-weight: 500;
-  }
-
-  .closing {
-    margin-top: 96px;
-    padding-top: 56px;
-    border-top: 1px solid var(--hair);
-    text-align: center;
-  }
-  .closing .sig {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 16px;
-    color: var(--bone);
-    letter-spacing: 4px;
-    margin-bottom: 14px;
-  }
-  .closing .meta {
-    font-size: 10px;
-    color: var(--dim);
-    letter-spacing: 4px;
-  }
-
-  .footer {
-    margin-top: 80px;
-    padding-top: 32px;
-    border-top: 1px solid var(--hair);
-    text-align: center;
-    font-size: 10px;
-    color: var(--dim);
-    letter-spacing: 3px;
-  }
-  .footer a { border: none; opacity: 0.7; margin: 0 14px; }
-  .footer a:hover { opacity: 1; }
-
-  @media (max-width: 600px) {
-    .container { padding: 56px 24px 80px; }
-    h1 { font-size: 28px; letter-spacing: 2px; }
-    .lead { font-size: 15px; }
-    .clause h2 { font-size: 19px; letter-spacing: 2px; }
-    .clause p { font-size: 13.5px; }
-    .topbar { padding: 16px 20px; font-size: 10px; letter-spacing: 3px; }
-  }
+  :root { --ink: #0E0E0E; --bone: #F4EDDF; --mint: #92E5BD; --mint-deep: #4F8F6E; --terra: #C7553E; --rule: rgba(14,14,14,.15); --soft: rgba(14,14,14,.55); --mute: rgba(14,14,14,.7); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "IBM Plex Sans JP", -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bone); color: var(--ink); line-height: 1.85; padding: 40px 20px; font-feature-settings: "palt" 1; }
+  .container { max-width: 760px; margin: 0 auto; }
+  .brand { display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px; text-decoration: none; color: var(--ink); }
+  .brand .name { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 22px; letter-spacing: .04em; }
+  .brand .name .zero { color: var(--mint-deep); font-style: italic; }
+  .brand .stet { font-family: "Permanent Marker", cursive; font-size: 13px; color: var(--terra); transform: translateY(-2px); }
+  h1 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: clamp(40px, 6vw, 64px); line-height: 1.05; color: var(--ink); margin: 36px 0 8px; }
+  h1 em { color: var(--mint-deep); }
+  .updated { font-size: 11px; color: var(--soft); margin-bottom: 36px; font-family: "IBM Plex Mono", monospace; letter-spacing: .08em; }
+  .intro { font-size: 16px; line-height: 1.9; color: var(--mute); margin-bottom: 40px; }
+  .intro em { color: var(--ink); font-family: "Cormorant Garamond", serif; font-style: italic; }
+  .pillars { margin: 56px 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  @media (max-width: 640px) { .pillars { grid-template-columns: 1fr; } }
+  .pillar { background: #fff; border: 1px solid var(--rule); padding: 28px; }
+  .pillar .num { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: .14em; color: var(--mint-deep); }
+  .pillar h2 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 26px; margin: 6px 0 12px; color: var(--ink); }
+  .pillar p { font-size: 13px; color: var(--mute); line-height: 1.8; }
+  h2.section-title { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 32px; margin: 64px 0 8px; }
+  h2.section-title em { color: var(--mint-deep); }
+  h3 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 22px; color: var(--ink); margin: 36px 0 8px; line-height: 1.3; }
+  p.body { font-size: 14px; color: var(--mute); margin-bottom: 12px; line-height: 1.85; }
+  p.body em { color: var(--ink); font-family: "Cormorant Garamond", serif; font-style: italic; }
+  .closing { margin-top: 80px; padding: 40px; background: var(--ink); color: var(--bone); text-align: center; }
+  .closing h3 { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 28px; color: var(--bone); margin-bottom: 12px; }
+  .closing p { font-size: 14px; color: rgba(244,237,223,.7); }
+  .closing .four81 { font-family: "IBM Plex Mono", monospace; color: var(--mint); margin-top: 12px; font-size: 12px; letter-spacing: .12em; }
+  .footer { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--rule); font-size: 11px; color: var(--soft); font-family: "IBM Plex Mono", monospace; letter-spacing: .06em; }
+  .footer a { color: var(--ink); text-decoration: none; margin: 0 6px; }
+  .footer a:hover { color: var(--mint-deep); }
+  .footer .four81 { color: var(--mint-deep); font-weight: 700; float: right; }
 </style>
 </head>
 <body>
-
-<div class="topbar">
-  <div class="brand">TYP<span class="z">0</span>S</div>
-  <a href="/">HOME</a>
-</div>
-
 <div class="container">
+  <a href="/" class="brand">
+    <span class="name">TYP<span class="zero">0</span>S</span>
+    <span class="stet">stet</span>
+  </a>
 
-  <div class="eyebrow">MANIFESTO · 2026.05.24 · v5.4</div>
-  <h1>TYP<span class="z">0</span>S 倫理憲章</h1>
-  <div class="subtitle">8 つの宣言 — 失敗をどう扱うか、AI をどう「使わないか」、匿名をどう守るか。</div>
+  <h1>倫理憲章。<br><em>失敗を扱うブランドとして。</em></h1>
+  <p class="updated">最終更新: 2026 年 6 月 2 日 / brand v5.10 (stet)</p>
 
-  <div class="lead">
-    <p>TYP0stet は、失敗を「治す」ためのサービスではない。</p>
-    <p>失敗は治療の対象ではなく、人間の構造的な性質として、ただそこにある。</p>
-    <p>この憲章は、TYP0stet を運営する私たちが、何を<strong>しない</strong>と決めたかの宣言である。</p>
+  <p class="intro">
+    TYP0stet は、失敗を「<em>治す</em>」ためのブランドではない。<br>
+    AI が完璧を量産する時代に、失敗を <em>誇りに思える</em> 文化を作るためのブランドである。<br>
+    この憲章は、私たちが <em>何をしない</em> と決めたかの宣言である。
+  </p>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="num">01 / Thesis</div>
+      <h2>人間の証明書。</h2>
+      <p>AI が完璧を量産する時代に、typo は人間にしか残せない痕跡。それを物理的に身につけられるブランドである。</p>
+    </div>
+    <div class="pillar">
+      <div class="num">02 / Mission</div>
+      <h2>やらかしで、繋がる。</h2>
+      <p>失敗が会話の入口になる文化を、街に増やす。同じ TYP0stet を着てる人同士で「あ、あなたも誇りに思ってるんですね」。</p>
+    </div>
+    <div class="pillar">
+      <div class="num">03 / Vision</div>
+      <h2>失敗を恥じない文化を作る。</h2>
+      <p>「失敗を語る」じゃなく「失敗を誇る」。誇りは語りたくなる、ミスは隠したくなる。voice を能動に。</p>
+    </div>
+    <div class="pillar">
+      <div class="num">04 / Tone</div>
+      <h2>クールに。</h2>
+      <p>痛くない。押しつけない。語りすぎない。沖縄 base の slow speak で、淡々と。</p>
+    </div>
   </div>
 
-  <div class="clause">
-    <div class="num">01 / 失敗を否定しない</div>
-    <h2>失敗できることが、美しい。</h2>
-    <p>TYP0stet は、あなたの typo（失敗・しくじり・やらかし）を、励ましたり寄り添ったりしない。あなたが書き、あなたが選び、シャツに変換する。それだけを行う。</p>
-    <p>「もっと頑張れ」「大丈夫」「次はうまくいく」── そういう声は、TYP0stet からは発されない。「あ、人間やってる」と、隣に座って同じ景色を見るだけ。</p>
-  </div>
+  <h2 class="section-title">私たちが<em>しない</em>こと。</h2>
 
-  <div class="clause">
-    <div class="num">02 / 匿名を、詩で守る</div>
-    <h2>「夜の散歩者」「失敗の常連」「あー、と呟いた人」。</h2>
-    <p>公開された他人の typo に対して、creator の本名・SNS・連絡先は表示されない。代わりに、TYP0stet が割り当てる<strong>詩的匿名</strong>が表示される ── 「夜の散歩者」「寝そびれた人」「言いそびれの達人」のような、100 種類の名前。</p>
-    <p>これは user が選べない。決定論的に割り当てる。それでも、知らない誰かに「ああ、自分もそうだ」と思える名前であってほしいから、機能性ではなく詩で組んだ。</p>
-  </div>
+  <h3>01. 失敗を、笑い物にしない。</h3>
+  <p class="body">TYP0stet は「失敗を <em>誇りに思う</em>」ブランド。誰かの失敗を嘲笑する文化にしない。SNS で見つけた user の typo を勝手に晒して笑いを取らない。「面白い失敗集」みたいなコンテンツを作らない。</p>
 
-  <div class="clause">
-    <div class="num">03 / アルゴリズムを使わない</div>
-    <h2>並びは時系列だけ。</h2>
-    <p>みんなの typo は、新着順のみで並ぶ。エンゲージメント順・人気順・あなたへのおすすめ ── これらの並び替えを、TYP0stet は使わない。</p>
-    <p>誰の typo が上に来るかは、その人が書いた時刻だけで決まる。「見られる側」のプレッシャーを下げ、「見る側」の偶然性を増やすための選択。</p>
-  </div>
+  <h3>02. 個人を特定可能な情報を晒さない。</h3>
+  <p class="body">user が SNS で <em>#TYP0stet日</em> hashtag で投稿した失敗を、当社の媒体で再掲する際は <em>必ず本人の許諾</em> を取る。本名・連絡先・SNS handle・写真は本人が公開した状態のものに限る。</p>
 
-  <div class="clause">
-    <div class="num">04 / カウンタを出さない</div>
-    <h2>共感の数を、人に見せない。</h2>
-    <p>「めちゃわかる」が何回押されたかは、creator にも、他の人にも、表示されない。フォロワー数、いいね数、再生数 ── これらの数字を、TYP0stet は持たない。</p>
-    <p>edition 番号は<strong>あなた自身の連番</strong>（1 着目、2 着目…）だけが表示される。他人と比べる数字は、最初から作らない。</p>
-  </div>
+  <h3>03. AI を、表に出さない。</h3>
+  <p class="body">「AI が翻訳した」「AI が design した」のような主語を、商品説明や marketing に使わない。AI 時代に <em>人間が選んで人間が着るブランド</em> としての純度を保つ。<br>※ 内部開発で AI tool を使うこと自体は否定しない。表に出る言葉として AI を主語にしないという宣言。</p>
 
-  <div class="clause">
-    <div class="num">05 / 毎晩 20:00、同じ夜に書く</div>
-    <h2>誰かが、いま、書いている時間。</h2>
-    <p>TYP0stet は、毎晩 20:00 JST に全ユーザーへ同時に通知を送る *。「あなただけ」のタイミングでは送らない。「いま開きたくなる頻度」を学習で最適化することは、行わない。</p>
-    <p>同じ時刻に書く、という共時性が、見えない仲間意識を作る。これは BeReal の発明から学んだ、TYP0stet の選択である。</p>
-    <p style="font-size: 11px; color: var(--dim); margin-top: 8px;">* Phase 1 launch では opt-in 通知。Phase 2 で 20:00 同期 push へ完全移行。</p>
-  </div>
+  <h3>04. 安易にバズを狙わない。</h3>
+  <p class="body">cult 純度と speed が衝突したら、必ず純度を取る。「失敗」を chip にした炎上 marketing、過剰な煽り、刺激目的のコンテンツは作らない。Sell-through 急ぎたいときも、brand voice を曲げない。</p>
 
-  <div class="clause">
-    <div class="num">06 / あなたの失敗を、AI 学習に渡さない</div>
-    <h2>あなたの typo は、あなたの失敗のままで終わる。</h2>
-    <p>あなたが入力した typo は、Anthropic / OpenAI / その他 LLM 提供者の学習データセットに、TYP0stet 側から提供されることはない。API 経由の inference には、API 提供元のポリシー（zero data retention 相当）が適用される。</p>
-    <p>誰かのモデルの精度向上のために、あなたの失敗が再利用されることはない。</p>
-  </div>
+  <h3>05. 沖縄職人と素材を、respect する。</h3>
+  <p class="body">沖縄 SEABOW でのシルクスクリーンプリント、沖縄ヘンプや琉球藍など地域素材を扱う際は、職人の名前と工程を明示する。「沖縄産」を marketing word として消費しない。共同で物を作る関係を、ブランド成長とともに維持する。</p>
 
-  <div class="clause">
-    <div class="num">07 / 物質化に責任を持つ</div>
-    <h2>シャツに乗るのは、TYP0stet の文字と 0 だけ。</h2>
-    <p>シャツに焼かれるのは、TYP0stet の<strong>文字ロゴ 30 種 × 0 マーク 30 種 × 自由なロゴカラー</strong>の組み合わせだけ。あなたが書いた typo の本文は、シャツに乗らない。あなたのクローゼットの中だけに残る。</p>
-    <p>受注生産 3-4 週間。差別的・違法・第三者を傷つける表現が含まれる場合、TYP0stet は注文を受け付けない。出るべきでないものを街に出さないために、人の目で確認する。</p>
-  </div>
+  <h3>06. 受注生産で、<em>過剰在庫を作らない</em>。</h3>
+  <p class="body">Vol.1 Tee は <em>先行予約</em> 制。実際に着る人の数だけ作る。過剰在庫を出して廃棄するアパレル業界の構造に対する、私たちの小さな抵抗。<br>※ Year 2 以降に在庫モデル併用する場合も、廃棄ゼロを目標に保つ。</p>
 
-  <div class="clause">
-    <div class="num">08 / 撤退の自由を保証する</div>
-    <h2>消したい時に、消せる。</h2>
-    <p>アカウント削除をリクエストすれば、あなたの typo・公開デザイン・ブックマーク・個人情報は、即時に削除される。注文履歴のみ、日本の税法に基づいて 7 年間 匿名化された状態で保管される（あなたを特定できない形で）。</p>
-    <p>「やめる」ボタンは、Profile 画面のうしろではなく、画面に出ている所に置く。引き止めるダークパターンは使わない。</p>
-  </div>
-
-  <div class="clause">
-    <div class="num">+ 番外 / 他人の typo を着るとき</div>
-    <h2>購入の半分は、creator に届く。</h2>
-    <p>みんなの typo で公開されている誰かの design を「これを着る」で購入すると、購入額の<strong>半分は creator に届く</strong>（plus 製造原価控除後）。残りの半分が TYP0stet の運営費。</p>
-    <p>あなたが他人の typo を着る = その人を匿名のまま支援する装置になっている。誰のものかは分からないままで、その人の暮らしには少しだけ届く。これが「話しかけても大丈夫」を経済で支える仕組み。</p>
-  </div>
+  <h3>07. <em>typo 本文を、シャツに乗せない</em>。</h3>
+  <p class="body">brand mark は <em>TYP0stet 文字ロゴ + 0 マーク + 4:81 sub mark</em> のみ。user の typo 本文は物理シャツに印字しない。typo は user 自身が SNS や日々の会話で <em>誇りとして</em> 出す。<br>※ ブランド側が user の失敗を「シャツに焼き付ける」設計を、あえて選ばなかったという宣言。</p>
 
   <div class="closing">
-    <div class="sig">— TYP<span style="color:var(--mint)">0</span>S, from Okinawa.</div>
-    <div class="meta">FIRST PUBLISHED · 2026.05.23 ／ updated v5.4 · 2026.05.24</div>
+    <h3>失敗できる、を誇りに。</h3>
+    <p>これらの宣言は、ブランドが成長するにつれて、より厳密になっていきます。</p>
+    <div class="four81">4:81</div>
   </div>
 
   <div class="footer">
-    <a href="/">HOME</a>
-    <a href="/terms.html">TERMS</a>
-    <a href="/privacy.html">PRIVACY</a>
-    <a href="/tokutei.html">特定商取引法</a>
+    <p>© 2026 TYP<span style="color:#4F8F6E">0</span>stet — Remoi, K.K. <span class="four81">4:81</span></p>
+    <p style="margin-top: 12px;">
+      <a href="/">Home</a>·
+      <a href="/terms.html">利用規約</a>·
+      <a href="/privacy.html">プライバシー</a>·
+      <a href="/tokutei.html">特定商取引法</a>·
+      <a href="mailto:info@typostet.com">info@typostet.com</a>
+    </p>
   </div>
-
 </div>
-
 </body>
 </html>
