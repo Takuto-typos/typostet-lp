@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TYP0stet — 内タグ design mockup (3×4cm 実寸)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=IBM+Plex+Mono:wght@300;400;500;700&family=IBM+Plex+Sans+JP:wght@300;400;500;700&family=Inconsolata:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0E0E0E;
+  --bone: #F4EDDF;
+  --mint: #92E5BD;
+  --mint-deep: #4F8F6E;
+  --rule: rgba(14,14,14,.12);
+  --soft: rgba(14,14,14,.55);
+  --mute: rgba(14,14,14,.72);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #fafaf6; color: var(--ink); }
+body {
+  font-family: "IBM Plex Sans JP", sans-serif;
+  line-height: 1.6;
+  padding: 48px clamp(20px, 4vw, 64px);
+}
+
+h1 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: clamp(32px, 4.5vw, 52px); margin-bottom: 16px; }
+h1 em { color: var(--mint-deep); }
+.lede { max-width: 760px; font-size: 14px; color: var(--mute); line-height: 1.8; margin-bottom: 32px; }
+.lede em { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--ink); }
+.lede code { font-family: "IBM Plex Mono", monospace; font-size: 12px; background: #f4f0e3; padding: 2px 6px; }
+
+h2 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: clamp(28px, 3.5vw, 40px); margin: 64px 0 8px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
+h2 em { color: var(--mint-deep); }
+.section-desc { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--soft); margin-bottom: 24px; }
+
+/* Inner tag: 30mm × 40mm = 113.4px × 151.2px at 96dpi */
+/* For visibility, render at 3x scale: 90mm × 120mm = 340px × 453px */
+.tag-real-size {
+  width: 113.4px; height: 151.2px;  /* 30mm × 40mm @ 96dpi */
+  position: relative; overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--bone);
+}
+
+.tag-scaled-3x {
+  width: 340px; height: 453px;  /* 3x scaled */
+  position: relative; overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--bone);
+}
+
+.tag-grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 32px 28px;
+  justify-content: flex-start;
+  margin-bottom: 32px;
+  align-items: flex-start;
+}
+
+.variant {
+  display: flex; flex-direction: column; gap: 12px; align-items: center;
+}
+.variant .meta {
+  text-align: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--soft); max-width: 340px;
+}
+.variant .meta strong { color: var(--ink); }
+
+.real-size-row {
+  display: flex; gap: 24px; align-items: center; flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+/* Tag content typography (scaled 3x for design view) */
+.tag-content {
+  width: 100%; height: 100%;
+  padding: 14px 12px;
+  display: flex; flex-direction: column;
+  font-family: "IBM Plex Sans JP", sans-serif;
+  position: relative;
+}
+
+.notes {
+  margin-top: 56px; padding: 32px;
+  border: 1px solid var(--rule); background: #fff;
+  max-width: 920px; font-size: 13px; line-height: 1.85; color: var(--mute);
+}
+.notes em { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--ink); }
+.notes code { font-family: "IBM Plex Mono", monospace; font-size: 12px; background: #f4f0e3; padding: 2px 6px; }
+.notes h3 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 20px; color: var(--ink); margin-bottom: 12px; margin-top: 20px; }
+.notes ul { padding-left: 20px; margin-top: 8px; }
+.notes li { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+
+<h1>TYP0stet — <em>内タグ design mockup</em></h1>
+<p class="lede">
+  Vol.1 athleisure tee の内タグ (3×4cm = 30mm × 40mm)、左裾内側 tagless transfer 想定。<br>
+  <em>4 layout 案</em> + <em>実寸サイズ表示</em> + <em>発注業者 list</em> + <em>spec sheet</em>。
+</p>
+
+<!-- ==================== 実寸表示 ==================== -->
+<h2>1. <em>実寸サイズ</em> (3×4cm)</h2>
+<p class="section-desc">screen でも紙印刷でも physical size を体感、シャツ内側に貼って想像</p>
+
+<div class="real-size-row">
+  <div class="variant">
+    <div class="tag-real-size">
+      <div class="tag-content" style="padding: 4px 3px; gap: 1px;">
+        <img src="/assets/brand/wordmark/tentative-final-light.svg" style="width: 70%; height: auto; margin: 0 auto;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 4px; letter-spacing: .04em; color: var(--ink); margin-top: 2px; line-height: 1.2;">Wave 01 — Recieved</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 4px; letter-spacing: .04em; color: var(--mute); line-height: 1.2;">0:042 · H. lueBlue</div>
+        <div style="flex: 1;"></div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+          <img src="/assets/brand/monogram/tentative-final.svg" style="width: 30%; height: auto;">
+          <span style="font-family: 'Inconsolata', monospace; font-weight: 900; font-size: 5px; color: var(--mint-deep);">4:81</span>
+        </div>
+      </div>
+    </div>
+    <span class="meta"><strong>実寸 3×4cm</strong><br>30mm × 40mm</span>
+  </div>
+  <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; color: var(--mute); max-width: 280px; line-height: 1.8;">
+    ↑ これが実寸サイズ。<br>
+    親指の爪より少し大きい、名刺の 1/8、5 円玉と同じ縦幅。<br>
+    実物は布 (poly satin or cotton twill) に印刷。
+  </div>
+</div>
+
+<!-- ==================== 4 Layout 案 (3x scaled) ==================== -->
+<h2>2. <em>Layout 案 4 つ</em> (3x scale で確認)</h2>
+<p class="section-desc">各案 30mm × 40mm の design 想定、3 倍に拡大して詳細確認用</p>
+
+<div class="tag-grid">
+
+  <!-- Layout A: classic certificate (vertical stack) -->
+  <div class="variant">
+    <div class="tag-scaled-3x">
+      <div class="tag-content" style="padding: 24px 18px; gap: 6px;">
+        <img src="/assets/brand/wordmark/tentative-final-light.svg" style="width: 80%; height: auto; margin: 0 auto 8px;">
+        <div style="height: 1px; background: var(--rule); margin: 4px 0;"></div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: .08em; color: var(--ink); line-height: 1.4;">
+          Vol.1 — Recieved
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: .08em; color: var(--mute); line-height: 1.4;">
+          0:042 / H. lueBlue
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: .08em; color: var(--soft); line-height: 1.4; margin-top: 4px;">
+          Made in Japan<br>Printed in Okinawa<br>2026
+        </div>
+        <div style="flex: 1;"></div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+          <img src="/assets/brand/monogram/tentative-final.svg" style="width: 28%; height: auto;">
+          <span style="font-family: 'Inconsolata', monospace; font-weight: 900; font-size: 14px; color: var(--mint-deep);">4:81</span>
+        </div>
+      </div>
+    </div>
+    <span class="meta"><strong>A · Classic certificate</strong><br>vertical stack、全部情報入り</span>
+  </div>
+
+  <!-- Layout B: minimal — monogram large + serial mini -->
+  <div class="variant">
+    <div class="tag-scaled-3x">
+      <div class="tag-content" style="padding: 24px 18px; gap: 0; align-items: center; justify-content: center;">
+        <img src="/assets/brand/monogram/tentative-final.svg" style="width: 60%; height: auto; margin-bottom: 12px;">
+        <div style="font-family: 'Inconsolata', monospace; font-weight: 700; font-size: 11px; letter-spacing: .12em; color: var(--mint-deep); margin-bottom: 16px;">0:042</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: .08em; color: var(--soft); text-align: center; line-height: 1.5;">
+          TYP0stet · Vol.1<br>H. lueBlue · Wave 01
+        </div>
+        <div style="flex: 1; min-height: 12px;"></div>
+        <div style="font-family: 'Inconsolata', monospace; font-weight: 900; font-size: 11px; color: var(--mint-deep); align-self: flex-end;">4:81</div>
+      </div>
+    </div>
+    <span class="meta"><strong>B · Minimal monogram</strong><br>0+dots 主役、Loro Piana 流儀</span>
+  </div>
+
+  <!-- Layout C: editorial horizontal -->
+  <div class="variant">
+    <div class="tag-scaled-3x">
+      <div class="tag-content" style="padding: 22px 16px; gap: 6px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <img src="/assets/brand/wordmark/tentative-final-light.svg" style="width: 55%; height: auto;">
+          <img src="/assets/brand/monogram/tentative-final.svg" style="width: 22%; height: auto;">
+        </div>
+        <div style="height: 1px; background: var(--rule); margin: 8px 0;"></div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: .08em; color: var(--ink); line-height: 1.5;">
+          <div style="display: flex; justify-content: space-between;"><span>Vol.1</span><span>2026.10</span></div>
+          <div style="display: flex; justify-content: space-between;"><span>Wave 01</span><span>0:042</span></div>
+          <div style="display: flex; justify-content: space-between;"><span>House</span><span>lueBlue</span></div>
+        </div>
+        <div style="flex: 1;"></div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 7px; letter-spacing: .1em; color: var(--soft); line-height: 1.3;">Made in Japan<br>Printed in Okinawa</div>
+          <span style="font-family: 'Inconsolata', monospace; font-weight: 900; font-size: 12px; color: var(--mint-deep);">4:81</span>
+        </div>
+      </div>
+    </div>
+    <span class="meta"><strong>C · Editorial horizontal</strong><br>2 col layout、最も情報密度高い</span>
+  </div>
+
+  <!-- Layout D: dark version (for Olive/Black tee) -->
+  <div class="variant">
+    <div class="tag-scaled-3x" style="background: var(--ink);">
+      <div class="tag-content" style="padding: 24px 18px; gap: 6px;">
+        <img src="/assets/brand/wordmark/tentative-final-dark.svg" style="width: 80%; height: auto; margin: 0 auto 8px;">
+        <div style="height: 1px; background: rgba(244,237,223,.2); margin: 4px 0;"></div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: .08em; color: var(--bone); line-height: 1.4;">
+          Vol.1 — Recieved
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: .08em; color: rgba(244,237,223,.7); line-height: 1.4;">
+          0:042 / H. lueBlue
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: .08em; color: rgba(244,237,223,.5); line-height: 1.4; margin-top: 4px;">
+          Made in Japan<br>Printed in Okinawa<br>2026
+        </div>
+        <div style="flex: 1;"></div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+          <img src="/assets/brand/monogram/tentative-final.svg" style="width: 28%; height: auto;">
+          <span style="font-family: 'Inconsolata', monospace; font-weight: 900; font-size: 14px; color: var(--mint);">4:81</span>
+        </div>
+      </div>
+    </div>
+    <span class="meta"><strong>D · Dark version</strong><br>Olive/Black tee 用、A の inverse</span>
+  </div>
+
+  <!-- Layout E: hand-touched (the brushed monogram + manifesto line) -->
+  <div class="variant">
+    <div class="tag-scaled-3x">
+      <div class="tag-content" style="padding: 22px 18px; gap: 4px;">
+        <img src="/assets/brand/wordmark/tentative-final-light.svg" style="width: 75%; height: auto; margin: 0 auto;">
+        <div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; color: var(--mint-deep); text-align: center; margin: 8px 0;">stet — let it stand</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: .08em; color: var(--ink); line-height: 1.5; text-align: center;">
+          0:042 · H. lueBlue<br>Wave 01 — Recieved
+        </div>
+        <div style="flex: 1;"></div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+          <img src="/assets/brand/monogram/tentative-final.svg" style="width: 25%; height: auto;">
+          <div style="text-align: right;">
+            <div style="font-family: 'Inconsolata', monospace; font-weight: 900; font-size: 11px; color: var(--mint-deep);">4:81</div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 6px; color: var(--soft); letter-spacing: .08em;">OKINAWA 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="meta"><strong>E · stet manifesto</strong><br>"let it stand" 1 行入り、editorial</span>
+  </div>
+
+  <!-- Layout F: ultra minimal (just monogram + serial) -->
+  <div class="variant">
+    <div class="tag-scaled-3x">
+      <div class="tag-content" style="padding: 28px 20px; align-items: center; justify-content: center; gap: 16px;">
+        <img src="/assets/brand/monogram/tentative-final.svg" style="width: 70%; height: auto;">
+        <div style="font-family: 'Inconsolata', monospace; font-weight: 900; font-size: 13px; letter-spacing: .12em; color: var(--mint-deep); text-align: center;">
+          0:042<br>4:81
+        </div>
+      </div>
+    </div>
+    <span class="meta"><strong>F · Ultra minimal</strong><br>monogram + 番号 のみ、Margiela 0 流儀</span>
+  </div>
+
+</div>
+
+<!-- ==================== Notes ==================== -->
+<div class="notes">
+  <h3>各 layout の特徴</h3>
+  <ul>
+    <li><strong>A · Classic certificate</strong>: 全情報入り、初心者向け、買った人が「これは特別なもの」と認識しやすい。document 感、Real McCoy's / Visvim 系</li>
+    <li><strong>B · Minimal monogram</strong>: 0+dots を hero に、serial 番号と House だけ。Loro Piana / Margiela 0 line 系の quiet luxe</li>
+    <li><strong>C · Editorial horizontal</strong>: 2 col で情報密度最高、Visvim / Real McCoy's の "many details" 流儀</li>
+    <li><strong>D · Dark version</strong>: A の inverse、Olive / Black tee 用</li>
+    <li><strong>E · stet manifesto</strong>: "let it stand" 1 行を mantra 風に、brand thesis を内タグに密かに込める</li>
+    <li><strong>F · Ultra minimal</strong>: monogram + 番号のみ、究極の cult。Margiela 0 / Tekla 系</li>
+  </ul>
+
+  <h3>発注先 (research 結果)</h3>
+  <p><strong>Phase 1 試作 (5-20 枚)</strong>: <a href="https://originalprint.jp/" target="_blank">オリジナルプリント.jp 「襟タグ 10 枚セット」</a><br>
+  ¥61.6/枚 + 印刷費 ¥177.1/枚 (10 枚時) = <em>¥2,388 で 10 枚試作可</em>、サイズ 4×3cm (TYP0stet 仕様と同寸)、版代ゼロ、データ要件: AI / PDF。</p>
+
+  <p><strong>Phase 2 量産 (50-100 枚以上)</strong>: <a href="https://kakee.jp/pages/ori-name" target="_blank">カケエ・コーポレーション 織りネーム</a><br>
+  1 枚から発注可、単価 ¥25/枚 (幅 30mm 1 色)、初回型代 ¥18,000~。100 枚で 1 枚あたり <em>¥205 (型代込み)</em>。納期 2-3 週間、premium feel。AI/PDF/SVG 全対応。</p>
+
+  <p><strong>タグレス転写 (Patagonia 方式)</strong>: <a href="https://tagless-print.site/" target="_blank">特殊阿部製版所 tagless-print.site</a><br>
+  版代 ¥6,500~、印刷費 ¥80~/枚、最大 φ60mm (3×4cm 入る)、洗濯 50 回耐性、ただし最小ロット非公開 → <em>要問い合わせ</em>。日本唯一の専業に近い業者、Patagonia / Outdoor Voices の流儀採用したい場合 priority 高い。</p>
+
+  <p><strong>沖縄業者 (OEM 一括の場合のみ検討)</strong>: <a href="https://ahagon.com/" target="_blank">阿波根商事</a> (10 枚 OEM 受注、内タグ単体は要交渉)、<a href="https://www.seabow.jp/" target="_blank">SEABOW</a> (印刷主力、内タグ記載なし)。OEM 込みで頼むときの選択肢。</p>
+
+  <h3>発注前 checklist</h3>
+  <ul>
+    <li>選定 layout (A/B/C/D/E/F のいずれか) → tig 決定</li>
+    <li>素材 (poly satin / cotton twill / 二重織) → 業者と相談</li>
+    <li>サイズ (確定 30×40mm or 変更) → layout で確定</li>
+    <li>取り付け方法 (タグレス転写 / 縫い付け / 熱転写) → tee 業者 (アバンティ等) との連携要</li>
+    <li><strong>洗濯表示</strong>: 家庭用品品質表示法で <em>洗濯表示 mark + 組成 (poly50/cot50) + 国名</em> を別途必要、内タグに統合 or 別タグ</li>
+    <li>入稿データ形式: AI / PDF / SVG いずれか、CMYK 推奨</li>
+    <li>納期確認: Vol.1 = 2026.10 発送、内タグ印刷 = <em>2026.08 中に発注</em>必須 (2-3 週間納期想定)</li>
+  </ul>
+
+  <h3>注意点 (web research より)</h3>
+  <ul>
+    <li><strong>織りネーム 型代</strong>: 1 枚から発注可能でも初回型代 ¥18,000~ は必須。5 枚だと 1 枚あたり ¥3,625、100 枚だと ¥205 と劇的に下がる → <em>100 枚以上を一気に作る方が経済合理</em></li>
+    <li><strong>タグレス転写の限界</strong>: φ60mm 以内なので 3×4cm はギリギリ入る、1-2 色推奨、フルカラー難しい</li>
+    <li><strong>家庭用品品質表示法</strong>: 内タグに洗濯表示 (洗濯マーク + 組成 + 原産国) を含めないと法的に NG。brand 表記 + 洗濯表示の <em>2 段構成</em>を最初から想定</li>
+    <li><strong>納期 buffer</strong>: 業者によって 2-4 週間、Vol.1 launch (2026.10) から逆算して <em>2026.08 中</em>に発注、修正含めて 2026.07 中にデザイン確定が安全</li>
+  </ul>
+</div>
+
+</body>
+</html>

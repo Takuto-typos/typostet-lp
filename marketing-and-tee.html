@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TYP0stet — Marketing assets + Tee mockup v5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=IBM+Plex+Mono:wght@300;400;500;700&family=IBM+Plex+Sans+JP:wght@300;400;500;700&family=Inconsolata:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0E0E0E;
+  --bone: #F4EDDF;
+  --mint: #92E5BD;
+  --mint-deep: #4F8F6E;
+  --olive: #5E6638;
+  --terra: #C7553E;
+  --sand: #D9C9A8;
+  --rule: rgba(14,14,14,.12);
+  --soft: rgba(14,14,14,.55);
+  --mute: rgba(14,14,14,.72);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #fafaf6; color: var(--ink); }
+body {
+  font-family: "IBM Plex Sans JP", sans-serif;
+  line-height: 1.6;
+  padding: 48px clamp(20px, 4vw, 64px);
+}
+
+h1 {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: clamp(32px, 4.5vw, 52px);
+  margin-bottom: 16px;
+}
+h1 em { color: var(--mint-deep); }
+.lede {
+  max-width: 760px; font-size: 14px; color: var(--mute);
+  line-height: 1.8; margin-bottom: 32px;
+}
+.lede em { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--ink); }
+.lede code { font-family: "IBM Plex Mono", monospace; font-size: 12px; background: #f4f0e3; padding: 2px 6px; }
+
+h2 {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: clamp(28px, 3.5vw, 40px);
+  margin: 56px 0 8px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+h2 em { color: var(--mint-deep); }
+.section-desc {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--soft); margin-bottom: 24px;
+}
+
+h3.subhead {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--mint-deep);
+  margin: 32px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--rule);
+}
+
+/* ==================== Asset preview cells ==================== */
+.asset-row {
+  display: flex; gap: 24px; flex-wrap: wrap;
+  margin-bottom: 32px; align-items: flex-start;
+}
+
+.asset {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.asset .canvas {
+  position: relative; overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.asset .canvas.bone { background: var(--bone); }
+.asset .canvas.mint { background: var(--mint); }
+.asset .canvas.olive { background: var(--olive); }
+.asset .canvas.ink { background: var(--ink); }
+.asset .canvas.white { background: #F5F5F5; }
+.asset .canvas.sand { background: var(--sand); }
+.asset .label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--soft);
+}
+
+/* IG profile / square 1:1 */
+.canvas.ig-profile, .canvas.ig-square { width: 280px; height: 280px; }
+
+/* IG story 9:16 */
+.canvas.ig-story { width: 240px; height: 426px; }
+
+/* X header 3:1 */
+.canvas.x-header { width: 720px; height: 240px; }
+
+/* X post 16:9 */
+.canvas.x-post { width: 540px; height: 304px; }
+
+/* OG image */
+.canvas.og { width: 600px; height: 315px; }
+
+/* IG grid (mini 3x3) */
+.ig-grid-3x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(3, 200px);
+  gap: 2px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-bottom: 16px;
+}
+.ig-tile {
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ==================== Mark positioning inside canvas ==================== */
+.mark {
+  position: absolute;
+  display: flex; align-items: center; justify-content: center;
+}
+.mark img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+/* Center large wordmark */
+.mark-wordmark-hero {
+  top: 25%; left: 15%; right: 15%; bottom: 25%;
+}
+
+/* Monogram center hero */
+.mark-monogram-hero {
+  top: 20%; left: 30%; right: 30%; bottom: 20%;
+}
+
+/* Timestamp center */
+.mark-timestamp-hero {
+  top: 35%; left: 20%; right: 20%; bottom: 35%;
+}
+
+/* X header positions */
+.x-wordmark-left { top: 30%; left: 5%; right: 50%; bottom: 30%; }
+.x-monogram-right { top: 15%; left: 70%; right: 10%; bottom: 35%; }
+.x-timestamp-right-bottom { top: 70%; left: 70%; right: 10%; bottom: 10%; }
+
+/* Quote text overlay */
+.quote {
+  position: absolute;
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  color: var(--ink); text-align: center;
+  display: flex; align-items: center; justify-content: center;
+}
+.quote.dark { color: var(--bone); }
+.quote em { color: var(--mint-deep); }
+.quote.dark em { color: var(--mint); }
+
+/* IG Story compositions */
+.story-top { top: 8%; left: 15%; right: 15%; bottom: 65%; }
+.story-mid { top: 38%; left: 10%; right: 10%; bottom: 38%; font-size: 24px; line-height: 1.3; }
+.story-bottom { top: 75%; left: 30%; right: 30%; bottom: 12%; }
+
+/* Mono text */
+.mono-overlay {
+  position: absolute;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--mint-deep);
+}
+.mono-overlay.dark { color: var(--mint); }
+
+/* ==================== Tee mockup ==================== */
+.tee-grid {
+  display: grid;
+  grid-template-columns: 100px repeat(5, 1fr);
+  gap: 14px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+.tee-cell {
+  aspect-ratio: 4/5;
+  position: relative; overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.tee-cell.white { background: #F5F5F5; }
+.tee-cell.bone  { background: var(--bone); }
+.tee-cell.mint  { background: var(--mint); }
+.tee-cell.olive { background: var(--olive); }
+.tee-cell.black { background: #1A1A1A; }
+.tee-cell svg.tee-silhouette { width: 92%; height: auto; display: block; margin: 0 auto; }
+.tee-cell .tee-label {
+  position: absolute; bottom: 6px; left: 6px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(14,14,14,.45);
+}
+.tee-cell.olive .tee-label,
+.tee-cell.black .tee-label { color: rgba(244,237,223,.6); }
+
+.row-header {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 16px 12px; border-right: 1px solid var(--rule);
+}
+.row-header h2 {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: 22px; line-height: 1.1; border: none; padding: 0; margin: 0 0 8px;
+}
+
+/* Mark overlays inside SVG-positioned tee */
+.tee-overlay {
+  position: absolute;
+  display: flex; align-items: center; justify-content: center;
+}
+.tee-overlay img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+/* Front chest mark (center, upper-mid chest) */
+.tee-front-chest {
+  top: 32%; left: 38%; right: 38%; height: 8%;
+}
+/* Back lower-left monogram */
+.tee-back-mono {
+  top: 60%; left: 22%; width: 18%; height: 16%;
+}
+/* Hem 4:81 */
+.tee-hem {
+  bottom: 4%; left: 40%; right: 40%; height: 3%;
+}
+
+/* Notes */
+.notes {
+  margin-top: 48px; padding: 28px;
+  border: 1px solid var(--rule); background: #fff;
+  max-width: 920px; font-size: 13px; line-height: 1.85; color: var(--mute);
+}
+.notes em { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--ink); }
+.notes code { font-family: "IBM Plex Mono", monospace; font-size: 12px; background: #f4f0e3; padding: 2px 6px; }
+.notes h3 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 20px; color: var(--ink); margin-bottom: 12px; }
+.notes ul { padding-left: 20px; margin-top: 8px; }
+.notes li { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+
+<h1>TYP0stet — <em>Marketing assets + Tee mockup</em></h1>
+<p class="lede">
+  tig Canva 制作 logo を実 application size で見せる。<br>
+  使用 SVG = <code>monogram = M-1</code> / <code>wordmark = W-1 (light bg) / W-3-bone (dark bg)</code> / <code>timestamp = T-1</code> (取り急ぎ)。<br>
+  全 asset は <em>1:1 / 9:16 / 3:1 / 16:9</em> 等の実 platform size 比率で。
+</p>
+
+<!-- ==================== File location ==================== -->
+<h2><em>Brand assets</em> — 保存場所</h2>
+<p class="section-desc">repo 内 organized location、tentative-final.svg が「取り急ぎ採用」alias</p>
+
+<div class="notes">
+  <h3>正式 location</h3>
+  <pre style="background: #f4f0e3; padding: 16px; font-size: 11px; line-height: 1.6; overflow-x: auto;">
+typostet-lp/assets/brand/
+├── monogram/
+│   ├── 1.svg ~ 6.svg (Canva 全 6 variation)
+│   └── tentative-final.svg   <- M-1 alias (brushed/textured)
+├── wordmark/
+│   ├── 1.svg ~ 4.svg (Canva 4 variation)
+│   ├── 3-bone.svg, 4-bone.svg (私生成 bone cream 版)
+│   ├── tentative-final-light.svg  <- W-1 alias (clean Inter Bold)
+│   └── tentative-final-dark.svg   <- W-3-bone alias (clean, dark bg)
+└── timestamp/
+    ├── 1.svg ~ 4.svg (Canva 4 variation)
+    └── tentative-final.svg  <- T-1 alias</pre>
+  <p style="margin-top: 12px;">final 確定時に <code>tentative-final-*.svg</code> を <code>final.svg</code> に rename + 古い候補は archive へ移動するだけ。</p>
+</div>
+
+<!-- ==================== Profile / Avatar (1:1) ==================== -->
+<h2>1. <em>Profile avatar</em> (1:1)</h2>
+<p class="section-desc">SNS profile image (Twitter/IG/Threads/note 共通)、1080×1080 px、推奨 minimalist</p>
+
+<div class="asset-row">
+  <div class="asset">
+    <div class="canvas ig-profile bone">
+      <div class="mark mark-monogram-hero"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+    </div>
+    <span class="label">avatar · M-1 on bone</span>
+  </div>
+  <div class="asset">
+    <div class="canvas ig-profile ink">
+      <div class="mark mark-monogram-hero"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+    </div>
+    <span class="label">avatar · M-1 on ink (黒)</span>
+  </div>
+  <div class="asset">
+    <div class="canvas ig-profile mint">
+      <div class="mark mark-monogram-hero"><img src="/assets/brand/monogram/tentative-final.svg" style="filter: brightness(0.55);"></div>
+    </div>
+    <span class="label">avatar · M-1 on mint (tonal)</span>
+  </div>
+  <div class="asset">
+    <div class="canvas ig-profile bone">
+      <div class="mark mark-wordmark-hero"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+    </div>
+    <span class="label">avatar · wordmark variation</span>
+  </div>
+</div>
+
+<!-- ==================== X Header (3:1) ==================== -->
+<h2>2. <em>X (Twitter) header</em> (3:1)</h2>
+<p class="section-desc">1500×500 px、wordmark + monogram + 4:81 を horizontal composition</p>
+
+<h3 class="subhead">★ 推奨: 3 要素 横並び (TYP0 / 4:81 / 0)</h3>
+<div class="asset-row">
+  <div class="asset">
+    <div class="canvas x-header bone" style="display: flex; align-items: center; justify-content: space-around; padding: 0 60px;">
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; max-height: 55%;"><img src="/assets/brand/wordmark/tentative-final-light.svg" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; max-height: 50%;"><img src="/assets/brand/timestamp/tentative-final.svg" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; max-height: 70%;"><img src="/assets/brand/monogram/tentative-final.svg" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+    </div>
+    <span class="label">★ X header · bone · 3 要素 横並び (推奨)</span>
+  </div>
+</div>
+
+<div class="asset-row">
+  <div class="asset">
+    <div class="canvas x-header ink" style="display: flex; align-items: center; justify-content: space-around; padding: 0 60px;">
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; max-height: 55%;"><img src="/assets/brand/wordmark/tentative-final-dark.svg" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; max-height: 50%;"><img src="/assets/brand/timestamp/tentative-final.svg" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; max-height: 70%;"><img src="/assets/brand/monogram/tentative-final.svg" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+    </div>
+    <span class="label">★ X header · ink · 3 要素 横並び</span>
+  </div>
+</div>
+
+<div class="asset-row">
+  <div class="asset">
+    <div class="canvas x-header mint" style="display: flex; align-items: center; justify-content: space-around; padding: 0 60px;">
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; max-height: 55%;"><img src="/assets/brand/wordmark/tentative-final-light.svg" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; max-height: 50%;"><img src="/assets/brand/timestamp/tentative-final.svg" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: brightness(0.5);"></div>
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; max-height: 70%;"><img src="/assets/brand/monogram/tentative-final.svg" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: brightness(0.5);"></div>
+    </div>
+    <span class="label">★ X header · mint · 3 要素 横並び (tonal)</span>
+  </div>
+</div>
+
+<div class="asset-row">
+  <div class="asset">
+    <div class="canvas x-header bone" style="display: flex; align-items: center; justify-content: space-around; padding: 0 60px;">
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; max-height: 55%;"><img src="/assets/brand/wordmark/tentative-final-light.svg" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+      <div style="width: 1px; align-self: stretch; background: var(--rule); margin: 30% 0;"></div>
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; max-height: 50%;"><img src="/assets/brand/timestamp/tentative-final.svg" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+      <div style="width: 1px; align-self: stretch; background: var(--rule); margin: 30% 0;"></div>
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; max-height: 70%;"><img src="/assets/brand/monogram/tentative-final.svg" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+    </div>
+    <span class="label">★ X header · bone + dividers (editorial sectioned)</span>
+  </div>
+</div>
+
+<h3 class="subhead">alternative: 編成 A: wordmark 主役</h3>
+<div class="asset-row">
+  <div class="asset">
+    <div class="canvas x-header bone">
+      <div class="mark x-wordmark-left"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+      <div class="mark x-monogram-right"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+      <div class="mark x-timestamp-right-bottom"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    </div>
+    <span class="label">X header · bone bg · wordmark + monogram + 4:81</span>
+  </div>
+</div>
+
+<h3 class="subhead">編成 B: minimal — wordmark のみ center</h3>
+<div class="asset-row">
+  <div class="asset">
+    <div class="canvas x-header bone">
+      <div class="mark" style="top: 25%; left: 25%; right: 25%; bottom: 25%;"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+    </div>
+    <span class="label">X header · bone bg · wordmark only center</span>
+  </div>
+</div>
+
+<h3 class="subhead">編成 C: ink (黒) bg</h3>
+<div class="asset-row">
+  <div class="asset">
+    <div class="canvas x-header ink">
+      <div class="mark x-wordmark-left"><img src="/assets/brand/wordmark/tentative-final-dark.svg"></div>
+      <div class="mark x-monogram-right"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+      <div class="mark x-timestamp-right-bottom"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    </div>
+    <span class="label">X header · ink bg · 全要素 (mint で立つ)</span>
+  </div>
+</div>
+
+<h3 class="subhead">編成 D: editorial — 失敗 quote 込み</h3>
+<div class="asset-row">
+  <div class="asset">
+    <div class="canvas x-header bone">
+      <div class="mark" style="top: 20%; left: 5%; right: 60%; bottom: 30%;"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+      <div class="quote" style="top: 35%; left: 42%; right: 5%; bottom: 35%; font-size: 26px; text-align: left; justify-content: flex-start;">失敗できる、<em>を誇りに</em>。</div>
+      <div class="mono-overlay" style="bottom: 10%; right: 5%;">4:81 / FROM OKINAWA</div>
+    </div>
+    <span class="label">X header · bone bg · wordmark + quote (editorial)</span>
+  </div>
+</div>
+
+<!-- ==================== Instagram Grid (3x3) ==================== -->
+<h2>3. <em>Instagram</em> grid (3×3 = 9 tile)</h2>
+<p class="section-desc">各 1080×1080 px、9 連続投稿でプロフィール grid を完成形に</p>
+
+<div class="ig-grid-3x3">
+  <!-- Tile 1: Wordmark hero -->
+  <div class="ig-tile" style="background: var(--bone);">
+    <div style="position: absolute; top: 30%; left: 15%; right: 15%; bottom: 30%; display: flex; align-items: center; justify-content: center;"><img src="/assets/brand/wordmark/tentative-final-light.svg" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+  </div>
+
+  <!-- Tile 2: Monogram hero -->
+  <div class="ig-tile" style="background: var(--mint);">
+    <div style="position: absolute; top: 18%; left: 25%; right: 25%; bottom: 18%; display: flex; align-items: center; justify-content: center;"><img src="/assets/brand/monogram/tentative-final.svg" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: brightness(0.5);"></div>
+  </div>
+
+  <!-- Tile 3: 失敗 quote -->
+  <div class="ig-tile" style="background: var(--bone); padding: 20px;">
+    <div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: 28px; line-height: 1.2; color: var(--ink); text-align: center;">
+      失敗<br>できる、<br><span style="color: var(--mint-deep);">を誇りに</span>。
+    </div>
+  </div>
+
+  <!-- Tile 4: Olive 4:81 -->
+  <div class="ig-tile" style="background: var(--olive);">
+    <div style="position: absolute; top: 38%; left: 20%; right: 20%; bottom: 38%; display: flex; align-items: center; justify-content: center;"><img src="/assets/brand/timestamp/tentative-final.svg" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+  </div>
+
+  <!-- Tile 5: 3 marks stacked -->
+  <div class="ig-tile" style="background: var(--bone); flex-direction: column; gap: 16px; padding: 24px;">
+    <img src="/assets/brand/wordmark/tentative-final-light.svg" style="width: 70%; height: auto;">
+    <img src="/assets/brand/monogram/tentative-final.svg" style="width: 22%; height: auto;">
+    <img src="/assets/brand/timestamp/tentative-final.svg" style="width: 40%; height: auto;">
+  </div>
+
+  <!-- Tile 6: typewriter manifesto -->
+  <div class="ig-tile" style="background: #F5F5F5; padding: 20px; align-items: flex-start; justify-content: flex-start;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.5; color: var(--ink); text-align: left;">
+      typo = <span style="color: var(--mint-deep);">失敗</span><br>
+      stet = <span style="color: var(--mint-deep);">そのまま、生かせ</span><br><br>
+      TYP<span style="color: var(--mint-deep);">0</span>stet =<br>
+      <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px;">人間の証明書。</span>
+    </div>
+  </div>
+
+  <!-- Tile 7: ink bg + bone wordmark -->
+  <div class="ig-tile" style="background: var(--ink);">
+    <div style="position: absolute; top: 30%; left: 15%; right: 15%; bottom: 30%; display: flex; align-items: center; justify-content: center;"><img src="/assets/brand/wordmark/tentative-final-dark.svg" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+  </div>
+
+  <!-- Tile 8: monogram + tag -->
+  <div class="ig-tile" style="background: var(--bone); flex-direction: column; gap: 12px; padding: 24px;">
+    <img src="/assets/brand/monogram/tentative-final.svg" style="width: 50%; height: auto;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; color: var(--mint-deep); text-transform: uppercase;">Wave 01 — Recieved</div>
+  </div>
+
+  <!-- Tile 9: 4:81 + manifesto -->
+  <div class="ig-tile" style="background: var(--mint);">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 24px; color: var(--mint-deep); text-align: center;">
+      <span style="font-family: 'Inconsolata'; font-weight: 900; font-size: 64px;">4:81</span><br>
+      <span style="font-size: 11px; letter-spacing: .16em; text-transform: uppercase;">し(4)っ(8)ぱい(1)</span>
+    </div>
+  </div>
+</div>
+
+<p class="mono-overlay" style="position: static; display: block; margin-bottom: 32px;">↑ 1 page で 9 連続投稿 → IG プロフィール grid が完成。各 tile は独立投稿としても成立</p>
+
+<!-- ==================== IG Story (9:16) ==================== -->
+<h2>4. <em>Instagram Story</em> (9:16)</h2>
+<p class="section-desc">1080×1920 px、縦長 narrative</p>
+
+<div class="asset-row">
+  <div class="asset">
+    <div class="canvas ig-story bone">
+      <div class="mark story-top"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+      <div class="quote story-mid">失敗できる、<br><em>を誇りに</em>。</div>
+      <div class="mark story-bottom"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+    </div>
+    <span class="label">story · bone bg · wordmark + quote + monogram</span>
+  </div>
+
+  <div class="asset">
+    <div class="canvas ig-story ink">
+      <div class="mark" style="top: 10%; left: 20%; right: 20%; bottom: 75%;"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+      <div class="quote dark" style="top: 32%; left: 10%; right: 10%; bottom: 42%; font-size: 22px; line-height: 1.3;">typo = <em>失敗</em>。<br>stet = <em>生かせ</em>。</div>
+      <div class="mark" style="top: 62%; left: 18%; right: 18%; bottom: 25%;"><img src="/assets/brand/wordmark/tentative-final-dark.svg"></div>
+      <div class="mono-overlay dark" style="bottom: 8%; left: 50%; transform: translateX(-50%);">4:81 · Vol.1 — 2026.10</div>
+    </div>
+    <span class="label">story · ink bg · narrative 全部</span>
+  </div>
+
+  <div class="asset">
+    <div class="canvas ig-story olive">
+      <div class="mark" style="top: 35%; left: 30%; right: 30%; bottom: 45%;"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+      <div class="mono-overlay dark" style="bottom: 15%; left: 50%; transform: translateX(-50%); text-align: center; width: 80%;">気付くと、いる<br>4:81 — TYP0stet</div>
+    </div>
+    <span class="label">story · olive bg · 4:81 hero</span>
+  </div>
+</div>
+
+<!-- ==================== OG Image ==================== -->
+<h2>5. <em>OG image</em> (1200×630)</h2>
+<p class="section-desc">SNS 共有 / web カード用</p>
+
+<div class="asset-row">
+  <div class="asset">
+    <div class="canvas og bone">
+      <div class="mark" style="top: 25%; left: 20%; right: 20%; bottom: 45%;"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+      <div class="quote" style="top: 60%; left: 10%; right: 10%; bottom: 22%; font-size: 22px;">失敗できる、<em>を誇りに</em>。</div>
+      <div class="mono-overlay" style="bottom: 8%; left: 5%;">FROM OKINAWA · 2026</div>
+      <div class="mono-overlay" style="bottom: 8%; right: 5%;">4:81</div>
+    </div>
+    <span class="label">og · bone bg · 標準</span>
+  </div>
+
+  <div class="asset">
+    <div class="canvas og ink">
+      <div class="mark" style="top: 25%; left: 20%; right: 20%; bottom: 45%;"><img src="/assets/brand/wordmark/tentative-final-dark.svg"></div>
+      <div class="quote dark" style="top: 60%; left: 10%; right: 10%; bottom: 22%; font-size: 22px;">失敗できる、<em>を誇りに</em>。</div>
+      <div class="mono-overlay dark" style="bottom: 8%; left: 5%;">FROM OKINAWA · 2026</div>
+      <div class="mono-overlay dark" style="bottom: 8%; right: 5%;">4:81</div>
+    </div>
+    <span class="label">og · ink bg · dark version</span>
+  </div>
+</div>
+
+<!-- ==================== X Post (16:9) ==================== -->
+<h2>6. <em>X / SNS post</em> (16:9)</h2>
+<p class="section-desc">1200×675 px、SNS 拡散用 単発 image</p>
+
+<div class="asset-row">
+  <div class="asset">
+    <div class="canvas x-post bone">
+      <div class="mark" style="top: 15%; left: 15%; right: 15%; bottom: 50%;"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+      <div class="quote" style="top: 55%; left: 5%; right: 5%; bottom: 15%; font-size: 24px;">人間にしか、<em>失敗できない</em>。</div>
+    </div>
+    <span class="label">X post · 人間 vs AI quote</span>
+  </div>
+  <div class="asset">
+    <div class="canvas x-post mint">
+      <div class="mark" style="top: 20%; left: 35%; right: 35%; bottom: 55%;"><img src="/assets/brand/monogram/tentative-final.svg" style="filter: brightness(0.5);"></div>
+      <div class="quote" style="top: 60%; left: 10%; right: 10%; bottom: 12%; font-size: 22px;">stet — <em>そのまま、生かせ</em>。</div>
+    </div>
+    <span class="label">X post · monogram + stet 語源</span>
+  </div>
+</div>
+
+<!-- ==================== Tee Mockup v5 ==================== -->
+<h2>7. <em>Tee mockup v5</em> — Canva logo 適用版</h2>
+<p class="section-desc">5 shirts (W/Bone/Mint/Olive/Black) × Front/Back、W-1 wordmark + M-1 monogram + T-1 4:81</p>
+
+<div class="tee-grid">
+  <div></div>
+  <div style="text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; color: var(--soft); padding: 12px 0; align-self: end;">WHITE</div>
+  <div style="text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; color: var(--soft); padding: 12px 0; align-self: end;">BONE</div>
+  <div style="text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; color: var(--soft); padding: 12px 0; align-self: end;">MINT</div>
+  <div style="text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; color: var(--soft); padding: 12px 0; align-self: end;">OLIVE</div>
+  <div style="text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; color: var(--soft); padding: 12px 0; align-self: end;">BLACK</div>
+
+  <!-- FRONT row -->
+  <div class="row-header"><h2>Front</h2></div>
+  <!-- Front × 5 colors -->
+  <div class="tee-cell white">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F5F5F5" stroke="#0E0E0E" stroke-width=".6"/><path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/></svg>
+    <div class="tee-overlay tee-front-chest"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">F · White</span>
+  </div>
+  <div class="tee-cell bone">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F4EDDF" stroke="#0E0E0E" stroke-width=".6"/><path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/></svg>
+    <div class="tee-overlay tee-front-chest"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">F · Bone</span>
+  </div>
+  <div class="tee-cell mint">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#92E5BD" stroke="#0E0E0E" stroke-width=".6"/><path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/></svg>
+    <div class="tee-overlay tee-front-chest"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg" style="filter: brightness(0.5);"></div>
+    <span class="tee-label">F · Mint</span>
+  </div>
+  <div class="tee-cell olive">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#5E6638" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/><path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".7"/></svg>
+    <div class="tee-overlay tee-front-chest"><img src="/assets/brand/wordmark/tentative-final-dark.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">F · Olive</span>
+  </div>
+  <div class="tee-cell black">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#1A1A1A" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/><path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".7"/></svg>
+    <div class="tee-overlay tee-front-chest"><img src="/assets/brand/wordmark/tentative-final-dark.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">F · Black</span>
+  </div>
+
+  <!-- BACK row -->
+  <div class="row-header"><h2>Back</h2></div>
+  <div class="tee-cell white">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F5F5F5" stroke="#0E0E0E" stroke-width=".6"/><path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#0E0E0E" stroke-width=".5" opacity=".5"/></svg>
+    <div class="tee-overlay tee-back-mono"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">B · White</span>
+  </div>
+  <div class="tee-cell bone">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F4EDDF" stroke="#0E0E0E" stroke-width=".6"/><path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#0E0E0E" stroke-width=".5" opacity=".5"/></svg>
+    <div class="tee-overlay tee-back-mono"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">B · Bone</span>
+  </div>
+  <div class="tee-cell mint">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#92E5BD" stroke="#0E0E0E" stroke-width=".6"/><path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#0E0E0E" stroke-width=".5" opacity=".5"/></svg>
+    <div class="tee-overlay tee-back-mono"><img src="/assets/brand/monogram/tentative-final.svg" style="filter: brightness(0.5);"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg" style="filter: brightness(0.5);"></div>
+    <span class="tee-label">B · Mint</span>
+  </div>
+  <div class="tee-cell olive">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#5E6638" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/><path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".5"/></svg>
+    <div class="tee-overlay tee-back-mono"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">B · Olive</span>
+  </div>
+  <div class="tee-cell black">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#1A1A1A" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/><path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".5"/></svg>
+    <div class="tee-overlay tee-back-mono"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">B · Black</span>
+  </div>
+</div>
+
+<!-- ==================== Tee Mockup v5-alt (reversed: monogram front / wordmark back) ==================== -->
+<h2>8. <em>Tee mockup v5-alt</em> — 0+dots 正面 / TYP0 stet 背面左下</h2>
+<p class="section-desc">v5 の reverse 配置版 — Margiela 0 line 流儀の subversion (前=象徴 / 後=名前)</p>
+
+<div class="tee-grid">
+  <div></div>
+  <div style="text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; color: var(--soft); padding: 12px 0; align-self: end;">WHITE</div>
+  <div style="text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; color: var(--soft); padding: 12px 0; align-self: end;">BONE</div>
+  <div style="text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; color: var(--soft); padding: 12px 0; align-self: end;">MINT</div>
+  <div style="text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; color: var(--soft); padding: 12px 0; align-self: end;">OLIVE</div>
+  <div style="text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; color: var(--soft); padding: 12px 0; align-self: end;">BLACK</div>
+
+  <!-- FRONT row: 0 + dots monogram center -->
+  <div class="row-header"><h2>Front</h2></div>
+  <div class="tee-cell white">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F5F5F5" stroke="#0E0E0E" stroke-width=".6"/><path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/></svg>
+    <div class="tee-overlay" style="top: 28%; left: 42%; right: 42%; height: 14%;"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">F-alt · White</span>
+  </div>
+  <div class="tee-cell bone">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F4EDDF" stroke="#0E0E0E" stroke-width=".6"/><path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/></svg>
+    <div class="tee-overlay" style="top: 28%; left: 42%; right: 42%; height: 14%;"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">F-alt · Bone</span>
+  </div>
+  <div class="tee-cell mint">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#92E5BD" stroke="#0E0E0E" stroke-width=".6"/><path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/></svg>
+    <div class="tee-overlay" style="top: 28%; left: 42%; right: 42%; height: 14%;"><img src="/assets/brand/monogram/tentative-final.svg" style="filter: brightness(0.5);"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg" style="filter: brightness(0.5);"></div>
+    <span class="tee-label">F-alt · Mint</span>
+  </div>
+  <div class="tee-cell olive">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#5E6638" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/><path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".7"/></svg>
+    <div class="tee-overlay" style="top: 28%; left: 42%; right: 42%; height: 14%;"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">F-alt · Olive</span>
+  </div>
+  <div class="tee-cell black">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#1A1A1A" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/><path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".7"/></svg>
+    <div class="tee-overlay" style="top: 28%; left: 42%; right: 42%; height: 14%;"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">F-alt · Black</span>
+  </div>
+
+  <!-- BACK row: TYP0 stet wordmark lower-left -->
+  <div class="row-header"><h2>Back</h2></div>
+  <div class="tee-cell white">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F5F5F5" stroke="#0E0E0E" stroke-width=".6"/><path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#0E0E0E" stroke-width=".5" opacity=".5"/></svg>
+    <div class="tee-overlay" style="top: 60%; left: 22%; width: 32%; height: 12%;"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">B-alt · White</span>
+  </div>
+  <div class="tee-cell bone">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F4EDDF" stroke="#0E0E0E" stroke-width=".6"/><path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#0E0E0E" stroke-width=".5" opacity=".5"/></svg>
+    <div class="tee-overlay" style="top: 60%; left: 22%; width: 32%; height: 12%;"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">B-alt · Bone</span>
+  </div>
+  <div class="tee-cell mint">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#92E5BD" stroke="#0E0E0E" stroke-width=".6"/><path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#0E0E0E" stroke-width=".5" opacity=".5"/></svg>
+    <div class="tee-overlay" style="top: 60%; left: 22%; width: 32%; height: 12%;"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg" style="filter: brightness(0.5);"></div>
+    <span class="tee-label">B-alt · Mint</span>
+  </div>
+  <div class="tee-cell olive">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#5E6638" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/><path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".5"/></svg>
+    <div class="tee-overlay" style="top: 60%; left: 22%; width: 32%; height: 12%;"><img src="/assets/brand/wordmark/tentative-final-dark.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">B-alt · Olive</span>
+  </div>
+  <div class="tee-cell black">
+    <svg class="tee-silhouette" viewBox="0 0 200 240"><path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#1A1A1A" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/><path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".5"/></svg>
+    <div class="tee-overlay" style="top: 60%; left: 22%; width: 32%; height: 12%;"><img src="/assets/brand/wordmark/tentative-final-dark.svg"></div>
+    <div class="tee-overlay tee-hem"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+    <span class="tee-label">B-alt · Black</span>
+  </div>
+</div>
+
+<div class="notes" style="margin-top: 24px;">
+  <h3>v5 vs v5-alt 比較</h3>
+  <ul>
+    <li><strong>v5 (上)</strong>: Front = TYP0 stet wordmark (center) / Back = 0+dots (lower-left)<br>
+      → conventional brand convention、Stüssy / Awake NY 流儀。「これは TYP0stet」と即読める</li>
+    <li><strong>v5-alt (下)</strong>: Front = 0+dots monogram (center) / Back = TYP0 stet (lower-left)<br>
+      → Margiela 0 line 流儀 subversion。「謎の 0 mark」→ 歩き去ると名前判明、cult 強度高</li>
+  </ul>
+  <p>v5 = 商業的に正解、v5-alt = brand 強度高。Vol.1 launch では <em>両方作って drop ごとに切り替える</em>選択肢もあり (Wave 01 = v5 / Wave 02 = v5-alt 等)。</p>
+</div>
+
+<div class="notes">
+  <h3>使い方</h3>
+  <ul>
+    <li><strong>Marketing assets</strong>: 各 canvas を browser で右クリック → 「画像として保存」 OR スクリーンショット → SNS にそのままアップ可</li>
+    <li><strong>解像度</strong>: 現在 preview は scaled-down、final 投稿時は Canva で SVG を import → 高解像度 export (1080×1080 / 1200×630 etc)</li>
+    <li><strong>Tee mockup</strong>: あくまで CSS 配置 sketch、実 mockup は AI 画像生成 (Midjourney 等) or 印刷 sample で確認</li>
+    <li><strong>IG grid</strong>: 9 tile を順番 (tile 1 → 9) で post すると profile grid が完成。3×3 既に埋まる</li>
+    <li><strong>Story テンプレ</strong>: 上 wordmark、中 quote、下 monogram の 3 段構成が brand-coherent</li>
+  </ul>
+</div>
+
+</body>
+</html>

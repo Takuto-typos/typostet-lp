@@ -6,11 +6,11 @@
 <meta name="theme-color" content="#0E0E0E">
 
 <title>TYP0stet — 失敗できる、を誇りに。</title>
-<meta name="description" content="TYP0stet (タイポステット) は AI 時代の人間性ブランド。typo = 失敗、stet = 校正記号「生かせ」。失敗を恥じない文化を、沖縄から。">
+<meta name="description" content="TYP0stet (タイポステット) は AI 時代の人間性ブランド。typo = 失敗、stet = 校正記号「生かせ」。Vol.1 athleisure tee、2026 年 10 月発送。">
 <meta name="keywords" content="TYP0stet, タイポステット, typo, stet, 失敗, 人間の証明書, アパレル, athleisure, 沖縄, AI時代, ブランド">
 
 <meta property="og:title" content="TYP0stet — 失敗できる、を誇りに。">
-<meta property="og:description" content="typo = 失敗、stet = 校正記号「生かせ」。AI 時代の人間性ブランド、沖縄から。">
+<meta property="og:description" content="typo = 失敗、stet = 校正記号「生かせ」。AI 時代の人間性ブランド、沖縄から。Vol.1 ¥12,800。">
 <meta property="og:url" content="https://typostet.com">
 <meta property="og:image" content="https://typostet.com/img/og-image.png">
 <meta property="og:site_name" content="TYP0stet">
@@ -21,6 +21,7 @@
 <meta name="twitter:description" content="typo = 失敗、stet = 校正記号「生かせ」。AI 時代の人間性ブランド、沖縄から。">
 <meta name="twitter:image" content="https://typostet.com/img/og-image.png">
 
+<link rel="icon" type="image/svg+xml" href="/assets/brand/monogram/tentative-final.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -66,10 +67,10 @@
   --deep: #1E3A4A;
   --pur: #6B4F8A;
   --yel: #D9B547;
-  --rule: rgba(14,14,14,.15);
+  --rule: rgba(14,14,14,.12);
   --rule-strong: rgba(14,14,14,.4);
   --soft: rgba(14,14,14,.55);
-  --mute: rgba(14,14,14,.7);
+  --mute: rgba(14,14,14,.72);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -79,265 +80,885 @@ body {
   font-feature-settings: "palt" 1;
   line-height: 1.65; letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  position: relative;
 }
 .italic, em { font-family: "Cormorant Garamond", "Times", serif; font-style: italic; font-weight: 500; }
 .mono { font-family: "IBM Plex Mono", monospace; }
 a { color: inherit; text-underline-offset: 3px; }
 button { font-family: inherit; cursor: pointer; }
 img, svg { display: block; max-width: 100%; }
-.wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
 
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 64px); position: relative; z-index: 1; }
+
+/* ---------- Kinetic background canvas ---------- */
+#kinetic-bg {
+  position: fixed; inset: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------- Topbar ---------- */
 .topbar {
   position: sticky; top: 0; z-index: 50;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 32px;
-  background: rgba(244,237,223,.92);
-  backdrop-filter: blur(12px);
+  padding: 16px clamp(22px, 4vw, 48px);
+  background: rgba(244,237,223,.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--rule);
 }
 .brand { display: flex; align-items: baseline; gap: 6px; text-decoration: none; }
-.brand .name { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 22px; letter-spacing: .04em; }
+.brand .name { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 24px; letter-spacing: .04em; }
 .brand .name .zero { color: var(--mint-deep); font-style: italic; }
-.brand .stet { font-family: "Permanent Marker", cursive; font-size: 14px; color: var(--terra); transform: translateY(-2px); letter-spacing: .03em; }
-.topbar nav { display: none; gap: 22px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--soft); }
-.topbar nav a { text-decoration: none; transition: color .2s; }
+.brand .stet { font-family: "Permanent Marker", cursive; font-size: 14px; color: var(--terra); transform: translateY(-2px) rotate(-3deg); letter-spacing: .03em; }
+.topbar nav { display: none; gap: 28px; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--soft); }
+.topbar nav a { text-decoration: none; transition: color .25s; }
 .topbar nav a:hover { color: var(--ink); }
 .topbar .cta {
   background: var(--ink); color: var(--bone);
-  padding: 8px 16px; border: none;
+  padding: 10px 18px; border: none;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
-  text-decoration: none; transition: opacity .2s;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  text-decoration: none; transition: opacity .25s;
 }
 .topbar .cta:hover { opacity: .85; }
-@media (min-width: 880px) { .topbar nav { display: flex; } }
+@media (min-width: 960px) { .topbar nav { display: flex; } }
 
-.hero { min-height: 92vh; display: flex; align-items: center; padding: 96px 0 64px; position: relative; overflow: hidden; }
-.hero .grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; width: 100%; }
-.hero .copy h1 { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: clamp(58px, 8vw, 132px); line-height: 0.92; letter-spacing: -0.022em; }
-.hero .copy h1 em { font-style: italic; color: var(--ink); }
-.hero .copy h1 .accent { color: var(--mint-deep); font-style: italic; }
-.hero .copy .strap { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mint-deep); margin-bottom: 22px; }
-.hero .copy .lede { margin-top: 36px; max-width: 540px; font-size: 15px; line-height: 1.85; color: var(--mute); }
-.hero .copy .lede em { color: var(--ink); }
-.hero .copy .actions { margin-top: 44px; display: flex; gap: 14px; flex-wrap: wrap; }
-.btn-primary, .btn-secondary {
-  padding: 14px 24px;
+/* ---------- Hero ---------- */
+.hero {
+  min-height: 92vh;
+  display: flex; align-items: center;
+  padding: clamp(72px, 12vh, 120px) 0 clamp(56px, 10vh, 96px);
+  position: relative;
+}
+.hero .grid {
+  display: grid; grid-template-columns: 1.05fr 1fr;
+  gap: clamp(40px, 6vw, 88px); align-items: center; width: 100%;
+}
+.hero .copy .strap {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+  font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--mint-deep); margin-bottom: 28px;
+}
+.hero .copy h1 {
+  font-family: "Cormorant Garamond", serif; font-weight: 500;
+  font-size: clamp(64px, 10vw, 152px); line-height: 0.92; letter-spacing: -0.024em;
+}
+.hero .copy h1 em { font-style: italic; color: var(--mint-deep); }
+.hero .copy .lede {
+  margin-top: 40px; max-width: 520px;
+  font-size: 15px; line-height: 1.95; color: var(--mute);
+}
+.hero .copy .lede em { color: var(--ink); font-style: italic; }
+.hero .copy .actions { margin-top: 48px; display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary, .btn-secondary {
+  padding: 16px 28px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
   text-decoration: none; border: 1px solid var(--ink);
-  transition: all .2s; display: inline-block;
+  transition: opacity .25s, background .25s, color .25s; display: inline-block;
 }
 .btn-primary { background: var(--ink); color: var(--bone); }
-.btn-primary:hover { opacity: .88; }
+.btn-primary:hover { opacity: .85; }
 .btn-secondary { background: transparent; color: var(--ink); }
 .btn-secondary:hover { background: var(--ink); color: var(--bone); }
 .hero .visual { display: flex; justify-content: center; align-items: center; }
-.hero .visual svg { width: 100%; max-width: 500px; height: auto; }
-.hero .four81-mark { position: absolute; top: 88px; right: 32px; font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--mint-deep); letter-spacing: .14em; opacity: .6; }
+.hero .four81-mark {
+  position: absolute; top: clamp(80px, 12vh, 100px); right: clamp(22px, 4vw, 64px);
+  font-family: "IBM Plex Mono", monospace; font-size: 13px;
+  color: var(--mint-deep); letter-spacing: .18em; opacity: .55;
+}
 
-section { padding: 110px 0; border-top: 1px solid var(--rule); position: relative; }
-section .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--mint-deep); margin-bottom: 18px; }
-section h2 { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: clamp(36px, 4.5vw, 64px); line-height: 1.05; letter-spacing: -0.012em; max-width: 920px; }
+/* ---------- Image slots (placeholder until AI images dropped in) ---------- */
+.img-slot {
+  width: 100%; aspect-ratio: 4/5;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px; text-align: center;
+  position: relative; overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.img-slot[data-color="bone"]  { background: #F4EDDF; }
+.img-slot[data-color="mint"]  { background: #92E5BD; }
+.img-slot[data-color="olive"] { background: #5E6638; }
+.img-slot[data-color="sand"]  { background: #D9C9A8; }
+.img-slot[data-color="mint-light"] { background: #C8EFD8; }
+.img-slot.square { aspect-ratio: 1/1; }
+.img-slot .caption {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+  color: rgba(14,14,14,.55);
+}
+.img-slot .caption em { color: rgba(14,14,14,.4); font-style: italic; }
+.img-slot[data-color="olive"] .caption { color: rgba(244,237,223,.7); }
+.img-slot[data-color="olive"] .caption em { color: rgba(244,237,223,.5); }
+.img-slot img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Generic section ---------- */
+section {
+  padding: clamp(96px, 14vh, 160px) 0;
+  border-top: 1px solid var(--rule);
+  position: relative;
+  background: var(--bone);
+}
+section.no-bg { background: transparent; }
+section .eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--mint-deep); margin-bottom: 22px;
+}
+section h2 {
+  font-family: "Cormorant Garamond", serif; font-weight: 500;
+  font-size: clamp(40px, 5.5vw, 76px); line-height: 1.02; letter-spacing: -0.014em;
+  max-width: 980px;
+}
 section h2 em { font-style: italic; color: var(--mint-deep); }
 section h2 .terra { color: var(--terra); font-style: italic; }
-section .lede { margin-top: 22px; max-width: 720px; color: var(--mute); font-size: 15px; line-height: 1.9; }
-section .lede em { color: var(--ink); }
-
-.stet-wrap { margin-top: 56px; display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center; }
-.stet-glyph {
-  background: var(--bone); border: 1px solid var(--rule); padding: 64px 44px;
-  aspect-ratio: 1/1; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 18px;
+section .lede {
+  margin-top: 28px; max-width: 680px;
+  color: var(--mute); font-size: 15px; line-height: 1.95;
 }
-.stet-glyph .crossed { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 64px; font-weight: 500; color: var(--ink); position: relative; }
-.stet-glyph .crossed::before { content: ""; position: absolute; left: -10%; right: -10%; top: 48%; height: 3px; background: var(--terra); transform: rotate(-3deg); }
-.stet-glyph .dots { display: flex; gap: 14px; margin-top: -4px; }
+section .lede em { color: var(--ink); font-style: italic; }
+
+/* ---------- Vol.1 / 3 colorway preview grid ---------- */
+.colorway-grid {
+  margin-top: clamp(48px, 7vh, 80px);
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 28px);
+}
+.colorway-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 14px; transition: opacity .25s; }
+.colorway-card:hover { opacity: .9; }
+.colorway-card .meta {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding-top: 4px;
+}
+.colorway-card .name {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: 22px;
+}
+.colorway-card .price {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px; color: var(--ink); letter-spacing: .04em;
+}
+
+/* ---------- Product detail (per colorway) ---------- */
+.product-detail { padding: clamp(120px, 18vh, 200px) 0; }
+.product-detail.bone-bg  { background: var(--bone); }
+.product-detail.mint-bg  { background: #E8F8EF; }
+.product-detail.olive-bg { background: #EEE9D8; }
+.product-detail .product-eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--mint-deep); margin-bottom: 18px;
+}
+.product-detail .product-name {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: clamp(48px, 7vw, 96px); line-height: 1; letter-spacing: -0.018em;
+  margin-bottom: clamp(40px, 6vh, 64px);
+}
+.product-detail .main-image-row {
+  display: grid; grid-template-columns: 1.4fr 1fr;
+  gap: clamp(40px, 6vw, 80px); align-items: start;
+}
+.product-detail .spec-block { padding-top: 8px; }
+.product-detail .spec-block p {
+  font-size: 14px; line-height: 1.95; color: var(--mute);
+  max-width: 420px; margin-bottom: 6px;
+}
+.product-detail .spec-block .label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--soft); margin-top: 32px; margin-bottom: 10px;
+}
+.product-detail .size-row { margin-top: 36px; }
+.product-detail .size-options { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.product-detail .size-options button {
+  width: 48px; height: 48px;
+  background: transparent; color: var(--ink);
+  border: 1px solid var(--rule);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px; letter-spacing: .04em;
+  transition: border-color .25s, background .25s;
+}
+.product-detail .size-options button:hover { border-color: var(--ink); }
+.product-detail .size-options button.selected {
+  background: var(--ink); color: var(--bone); border-color: var(--ink);
+}
+.product-detail .cta-row {
+  margin-top: 40px; padding-top: 32px;
+  border-top: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+}
+.product-detail .price-stack { display: flex; flex-direction: column; gap: 4px; }
+.product-detail .price-stack .price {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 17px; font-weight: 700; letter-spacing: .04em;
+}
+.product-detail .price-stack .sub {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; color: var(--soft); letter-spacing: .1em;
+}
+.product-detail .btn-reserve {
+  padding: 18px 32px; background: var(--ink); color: var(--bone);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+  text-decoration: none; border: none;
+  transition: opacity .25s;
+}
+.product-detail .btn-reserve:hover { opacity: .85; }
+
+.product-detail .divider {
+  margin: clamp(72px, 10vh, 120px) 0 clamp(40px, 6vh, 64px);
+  display: flex; align-items: center; gap: 24px;
+}
+.product-detail .divider .line { flex: 1; height: 1px; background: var(--rule); }
+.product-detail .divider .label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--soft);
+}
+
+.product-detail .back-image { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: start; }
+.product-detail .back-image .note {
+  padding-top: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--soft); max-width: 280px; line-height: 1.8;
+}
+
+.product-detail .detail-row { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
+.product-detail .detail-row .note p {
+  font-size: 14px; line-height: 1.9; color: var(--mute);
+  max-width: 360px;
+}
+.product-detail .detail-row .note h4 {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: 32px; margin-bottom: 16px;
+}
+
+/* ---------- Extras (Sticker + Tote) ---------- */
+.extras-grid {
+  margin-top: clamp(48px, 7vh, 80px);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 48px);
+}
+.extra-card { display: flex; flex-direction: column; gap: 24px; }
+.extra-card .meta { display: flex; flex-direction: column; gap: 10px; }
+.extra-card h3 {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: 32px;
+}
+.extra-card .desc {
+  font-size: 14px; line-height: 1.85; color: var(--mute);
+  max-width: 420px;
+}
+.extra-card .meta-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-top: 8px; padding-top: 14px; border-top: 1px solid var(--rule);
+}
+.extra-card .price {
+  font-family: "IBM Plex Mono", monospace; font-weight: 700;
+  font-size: 15px; letter-spacing: .04em;
+}
+.extra-card .price .sub { font-weight: 400; color: var(--soft); font-size: 10px; margin-left: 4px; letter-spacing: .1em; }
+.extra-card .btn-mini {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  text-decoration: none; padding: 10px 16px;
+  background: var(--ink); color: var(--bone); border: none;
+  transition: opacity .25s;
+}
+.extra-card .btn-mini:hover { opacity: .85; }
+.extra-card .btn-mini.soon {
+  background: transparent; color: var(--soft);
+  border: 1px solid var(--rule); cursor: default;
+}
+
+/* ---------- stet とは ---------- */
+.stet-wrap {
+  margin-top: clamp(48px, 7vh, 80px);
+  display: grid; grid-template-columns: 1fr 1.1fr;
+  gap: clamp(48px, 7vw, 96px); align-items: center;
+}
+.stet-glyph {
+  background: #fff; border: 1px solid var(--rule);
+  padding: clamp(56px, 7vh, 80px) clamp(40px, 5vw, 56px);
+  aspect-ratio: 1/1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 22px;
+}
+.stet-glyph .crossed {
+  font-family: "Cormorant Garamond", serif; font-style: italic;
+  font-size: clamp(56px, 7vw, 80px); font-weight: 500;
+  color: var(--ink); position: relative;
+}
+.stet-glyph .crossed::before {
+  content: ""; position: absolute; left: -10%; right: -10%; top: 48%;
+  height: 3px; background: var(--terra); transform: rotate(-3deg);
+}
+.stet-glyph .dots { display: flex; gap: 16px; margin-top: -4px; }
 .stet-glyph .dots span { width: 9px; height: 9px; background: var(--terra); border-radius: 50%; }
-.stet-glyph .stet-write { font-family: "Permanent Marker", cursive; font-size: 42px; color: var(--terra); transform: rotate(-2deg) translateY(8px); }
-.stet-glyph .caption { margin-top: 18px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--soft); letter-spacing: .14em; text-transform: uppercase; }
-.stet-text dt { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 24px; color: var(--ink); margin-top: 30px; }
+.stet-glyph .stet-write {
+  font-family: "Permanent Marker", cursive;
+  font-size: clamp(40px, 5vw, 56px); color: var(--terra);
+  transform: rotate(-2deg) translateY(8px);
+}
+.stet-glyph .caption {
+  margin-top: 18px;
+  font-family: "IBM Plex Mono", monospace; font-size: 10px;
+  color: var(--soft); letter-spacing: .16em; text-transform: uppercase;
+  text-align: center;
+}
+.stet-text dt {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: 26px; color: var(--ink); margin-top: 36px;
+}
 .stet-text dt:first-child { margin-top: 0; }
-.stet-text dd { margin-top: 8px; color: var(--mute); font-size: 14px; line-height: 1.85; }
-.stet-text dd em { color: var(--ink); }
+.stet-text dd { margin-top: 10px; color: var(--mute); font-size: 14px; line-height: 1.95; }
+.stet-text dd em { color: var(--ink); font-style: italic; }
 
-.products-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-.product { background: #fff; border: 1px solid var(--rule); padding: 28px; display: flex; flex-direction: column; gap: 14px; transition: transform .2s, border-color .2s; }
-.product:hover { transform: translateY(-3px); border-color: var(--rule-strong); }
-.product .visual { aspect-ratio: 1/1; background: var(--bone); display: flex; align-items: center; justify-content: center; border: 1px solid var(--rule); padding: 24px; }
-.product .label { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: .12em; color: var(--mint-deep); text-transform: uppercase; }
-.product h3 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 22px; }
-.product .desc { font-size: 12px; color: var(--mute); line-height: 1.7; }
-.product .price-row { display: flex; align-items: baseline; justify-content: space-between; margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--rule); }
-.product .price { font-family: "IBM Plex Mono", monospace; font-size: 14px; font-weight: 700; }
-.product .price .sub { color: var(--soft); font-weight: 400; font-size: 10px; margin-left: 4px; }
-.product .btn-mini { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; padding: 8px 12px; background: var(--ink); color: var(--bone); border: none; transition: opacity .2s; }
-.product .btn-mini:hover { opacity: .85; }
-.product .btn-mini.soon { background: transparent; color: var(--soft); border: 1px solid var(--rule); cursor: not-allowed; }
-.product .btn-mini.preorder { background: var(--mint-deep); }
-
-.houses-section { background: #fff; }
-.houses-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-.house { border: 1px solid var(--rule); padding: 28px 22px; background: var(--bone); position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 12px; }
+/* ---------- 5 House + 4:81 (merge) ---------- */
+.houses-grid {
+  margin-top: clamp(48px, 7vh, 80px);
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+.house {
+  border: 1px solid var(--rule); padding: 32px 24px;
+  background: #fff; position: relative; overflow: hidden;
+  display: flex; flex-direction: column; gap: 14px;
+}
 .house::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; }
-.house.erd::before { background: var(--terra); }
+.house.erd::before   { background: var(--terra); }
 .house.green::before { background: var(--mint-deep); }
-.house.pur::before { background: var(--pur); }
-.house.lue::before { background: var(--deep); }
-.house.yel::before { background: var(--yel); }
-.house h3 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 700; font-size: 24px; letter-spacing: -0.01em; }
+.house.pur::before   { background: var(--pur); }
+.house.lue::before   { background: var(--deep); }
+.house.yel::before   { background: var(--yel); }
+.house h3 {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 700;
+  font-size: 26px; letter-spacing: -0.01em;
+}
 .house h3 .typo { color: var(--mint-deep); }
-.house .hour { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--soft); letter-spacing: .08em; }
+.house .hour {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px;
+  color: var(--soft); letter-spacing: .1em;
+}
 .house .blurb { font-size: 13px; line-height: 1.7; color: var(--mute); }
-.house .tag { margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--ink); background: #fff; padding: 4px 8px; border: 1px solid var(--rule); align-self: flex-start; letter-spacing: .08em; }
-.houses-foot { margin-top: 36px; font-size: 13px; color: var(--soft); text-align: center; }
+.house .tag {
+  margin-top: auto; padding-top: 12px;
+  font-family: "IBM Plex Mono", monospace; font-size: 10px;
+  color: var(--ink); letter-spacing: .14em;
+  border-top: 1px solid var(--rule); align-self: stretch;
+}
+.houses-foot {
+  margin-top: 36px;
+  font-size: 13px; color: var(--soft); text-align: center;
+  line-height: 1.85;
+}
 
-.four81-section { background: var(--ink); color: var(--bone); }
-.four81-section h2 { color: var(--bone); }
-.four81-section h2 em { color: var(--mint); }
-.four81-section .lede { color: rgba(244,237,223,.7); }
-.four81-section .lede em { color: var(--bone); }
-.four81-section .eyebrow { color: var(--mint); }
-.scatter-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-.scatter-card { background: rgba(244,237,223,.04); border: 1px solid rgba(244,237,223,.15); padding: 28px 22px; display: flex; flex-direction: column; gap: 14px; aspect-ratio: 1/1.05; }
-.scatter-card .where { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .12em; color: var(--mint); text-transform: uppercase; }
+.four81-band {
+  margin-top: clamp(72px, 10vh, 120px);
+  padding-top: clamp(48px, 7vh, 80px);
+  border-top: 1px solid var(--rule);
+  display: grid; grid-template-columns: 1fr 1.3fr;
+  gap: clamp(40px, 6vw, 80px); align-items: center;
+}
+.four81-band .four81-text .eyebrow { color: var(--terra); }
+.four81-band .four81-text h3 {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: clamp(32px, 4vw, 48px); line-height: 1.1; letter-spacing: -0.012em;
+  margin-bottom: 18px;
+}
+.four81-band .four81-text h3 em { color: var(--mint-deep); }
+.four81-band .four81-text p {
+  font-size: 14px; line-height: 1.95; color: var(--mute);
+  max-width: 460px;
+}
+.four81-band .four81-text p em { color: var(--ink); font-style: italic; }
+.scatter-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.scatter-card {
+  background: var(--ink); color: var(--bone);
+  border: 1px solid var(--ink);
+  padding: 22px 18px;
+  display: flex; flex-direction: column; gap: 12px;
+  aspect-ratio: 1/1.1;
+}
+.scatter-card .where {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; letter-spacing: .14em;
+  color: var(--mint); text-transform: uppercase;
+}
 .scatter-card .sketch { flex: 1; display: flex; align-items: center; justify-content: center; }
-.scatter-card .blurb { font-size: 12px; color: rgba(244,237,223,.55); line-height: 1.6; }
+.scatter-card .blurb {
+  font-size: 11px; color: rgba(244,237,223,.6); line-height: 1.6;
+}
 
-.manifesto-section { background: var(--bone); }
-.manifesto-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; }
-.tenet { background: #fff; border: 1px solid var(--rule); padding: 36px; }
-.tenet .num { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--mint-deep); letter-spacing: .14em; }
-.tenet h3 { margin-top: 8px; font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 30px; }
-.tenet p { margin-top: 14px; color: var(--mute); font-size: 14px; line-height: 1.85; }
+/* ---------- Manifesto inline ---------- */
+.manifesto-list {
+  margin-top: clamp(48px, 7vh, 80px);
+  list-style: none;
+  display: flex; flex-direction: column;
+  gap: clamp(32px, 4vh, 56px);
+  max-width: 880px;
+}
+.manifesto-list li {
+  display: grid; grid-template-columns: 80px 1fr;
+  gap: 24px; align-items: baseline;
+  padding-bottom: clamp(32px, 4vh, 48px);
+  border-bottom: 1px solid var(--rule);
+}
+.manifesto-list li:last-child { border-bottom: none; }
+.manifesto-list .num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: .2em; color: var(--mint-deep);
+}
+.manifesto-list .body strong {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: clamp(28px, 3.5vw, 40px); line-height: 1.15;
+  display: block; margin-bottom: 12px; color: var(--ink);
+}
+.manifesto-list .body p {
+  font-size: 14px; line-height: 1.95; color: var(--mute);
+  max-width: 560px;
+}
+.manifesto-foot { margin-top: clamp(48px, 7vh, 64px); }
 
+/* ---------- Founder ---------- */
 .founder-section { background: #fff; }
-.founder-grid { margin-top: 56px; display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; align-items: center; }
-.founder-portrait { aspect-ratio: 4/5; background: var(--bone); border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; color: var(--soft); font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; text-align: center; padding: 20px; }
-.founder-text h3 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 36px; margin-bottom: 16px; }
-.founder-text p { font-size: 14px; line-height: 1.95; color: var(--mute); margin-top: 16px; }
-.founder-text p em { color: var(--ink); }
-.founder-meta { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--soft); letter-spacing: .08em; display: grid; gap: 8px; }
+.founder-wrap {
+  margin-top: clamp(48px, 7vh, 80px);
+  display: grid; grid-template-columns: 1fr 1.3fr;
+  gap: clamp(48px, 7vw, 96px); align-items: start;
+}
+.founder-portrait {
+  aspect-ratio: 4/5; background: var(--bone); border: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--soft);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase; text-align: center;
+  padding: 24px;
+}
+.founder-text h3 {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: clamp(28px, 3.5vw, 40px); line-height: 1.15;
+  margin-bottom: 22px;
+}
+.founder-text p {
+  font-size: 15px; line-height: 1.95; color: var(--mute);
+  margin-top: 18px; max-width: 580px;
+}
+.founder-text p em { color: var(--ink); font-style: italic; }
+.founder-meta {
+  margin-top: 36px; padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; color: var(--soft); letter-spacing: .12em;
+  display: grid; gap: 8px;
+}
 
-.ugc-section { background: var(--bone); }
-.ugc-prompt { margin-top: 56px; padding: 56px 36px; background: #fff; border: 1px solid var(--rule); text-align: center; }
-.ugc-prompt .question { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: clamp(24px, 3.5vw, 36px); line-height: 1.3; color: var(--ink); max-width: 720px; margin: 0 auto; }
-.ugc-prompt .question em { color: var(--mint-deep); }
-.ugc-prompt .hashtags { margin-top: 22px; font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--soft); letter-spacing: .08em; }
-.ugc-prompt .hashtags span { margin: 0 8px; }
-.ugc-cta { margin-top: 28px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
-
+/* ---------- Newsletter ---------- */
 .newsletter-section { background: var(--ink); color: var(--bone); }
 .newsletter-section h2 { color: var(--bone); }
 .newsletter-section h2 em { color: var(--mint); }
 .newsletter-section .eyebrow { color: var(--mint); }
 .newsletter-section .lede { color: rgba(244,237,223,.7); }
 .newsletter-section .lede em { color: var(--bone); }
-.newsletter-grid { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-.newsletter-cta { padding: 36px; background: rgba(244,237,223,.04); border: 1px solid rgba(244,237,223,.15); }
-.newsletter-cta h3 { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 28px; font-weight: 500; color: var(--bone); margin-bottom: 16px; }
-.newsletter-cta p { color: rgba(244,237,223,.7); font-size: 13px; line-height: 1.8; margin-bottom: 24px; }
-.newsletter-cta a { display: inline-block; padding: 14px 24px; background: var(--mint); color: var(--ink); font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; transition: opacity .2s; }
-.newsletter-cta a:hover { opacity: .9; }
+.newsletter-action { margin-top: clamp(40px, 6vh, 56px); }
+.btn-primary-large {
+  display: inline-block; padding: 22px 40px;
+  background: var(--mint); color: var(--ink);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px; letter-spacing: .16em; text-transform: uppercase;
+  text-decoration: none; transition: opacity .25s;
+}
+.btn-primary-large:hover { opacity: .9; }
 
-footer { border-top: 1px solid var(--rule); padding: 64px 0 40px; background: var(--bone); }
-footer .grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer .col h4 { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--soft); margin-bottom: 16px; }
+/* ---------- Footer ---------- */
+footer {
+  border-top: 1px solid var(--rule);
+  padding: clamp(56px, 8vh, 80px) 0 40px;
+  background: var(--bone);
+  position: relative; z-index: 1;
+}
+footer .grid {
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: clamp(28px, 4vw, 48px);
+  padding-bottom: 40px; border-bottom: 1px solid var(--rule);
+}
+footer .col h4 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--soft); margin-bottom: 18px;
+}
 footer .col ul { list-style: none; }
 footer .col li { margin-top: 10px; font-size: 13px; }
-footer .col a { color: var(--ink); text-decoration: none; transition: color .2s; }
+footer .col a { color: var(--ink); text-decoration: none; transition: color .25s; }
 footer .col a:hover { color: var(--mint-deep); }
-footer .brand-col .brand { margin-bottom: 14px; }
-footer .brand-col .tagline { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 18px; color: var(--ink); margin-bottom: 14px; }
-footer .brand-col .place { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--soft); letter-spacing: .08em; }
-footer .copyright { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--soft); letter-spacing: .08em; }
-footer .copyright .right { display: flex; gap: 22px; }
+footer .brand-col .brand { margin-bottom: 16px; }
+footer .brand-col .tagline {
+  font-family: "Cormorant Garamond", serif; font-style: italic;
+  font-size: 19px; color: var(--ink); margin-bottom: 16px;
+}
+footer .brand-col .place {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; color: var(--soft); letter-spacing: .1em; line-height: 1.85;
+}
+footer .copyright {
+  margin-top: 32px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+  font-family: "IBM Plex Mono", monospace; font-size: 11px;
+  color: var(--soft); letter-spacing: .1em;
+}
+footer .copyright .right { display: flex; gap: 22px; align-items: center; }
 footer .copyright .four81 { color: var(--mint-deep); font-weight: 700; }
 
+/* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
-  .hero .grid { grid-template-columns: 1fr; gap: 40px; }
-  .hero .visual { order: -1; }
-  .stet-wrap, .founder-grid, .newsletter-grid { grid-template-columns: 1fr; gap: 36px; }
-  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero .grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero .visual { order: -1; max-width: 480px; margin: 0 auto; width: 100%; }
+  .stet-wrap, .founder-wrap, .four81-band { grid-template-columns: 1fr; gap: 40px; }
+  .colorway-grid { grid-template-columns: 1fr; gap: 40px; }
   .houses-grid { grid-template-columns: repeat(2, 1fr); }
   .scatter-grid { grid-template-columns: repeat(2, 1fr); }
-  .manifesto-grid { grid-template-columns: 1fr; }
+  .extras-grid { grid-template-columns: 1fr; }
+  .product-detail .main-image-row,
+  .product-detail .back-image,
+  .product-detail .detail-row { grid-template-columns: 1fr; }
   footer .grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
-  .wrap { padding: 0 22px; }
-  .topbar { padding: 12px 22px; }
-  .hero { min-height: auto; padding: 64px 0 56px; }
+  .hero { min-height: auto; padding: 56px 0 64px; }
   .hero .four81-mark { top: 70px; right: 22px; font-size: 11px; }
-  section { padding: 72px 0; }
-  .products-grid, .houses-grid { grid-template-columns: 1fr; }
+  section { padding: 80px 0; }
+  .product-detail { padding: 96px 0; }
+  .houses-grid { grid-template-columns: 1fr; }
   footer .grid { grid-template-columns: 1fr; }
   .stet-glyph { padding: 44px 28px; }
-  .stet-glyph .crossed { font-size: 48px; }
-  .stet-glyph .stet-write { font-size: 32px; }
+  .manifesto-list li { grid-template-columns: 60px 1fr; gap: 16px; }
 }
 </style>
 </head>
 <body>
 
+<canvas id="kinetic-bg" aria-hidden="true"></canvas>
+
 <header class="topbar">
   <a href="/" class="brand">
-    <span class="name">TYP<span class="zero">0</span>stet</span>
-    <span class="stet">stet</span>
+    <img src="/assets/brand/wordmark/tentative-final-light.svg" alt="TYP0stet" style="height: 40px; width: auto; display: block;">
   </a>
   <nav>
-    <a href="#stet">stet?</a>
     <a href="#vol1">Vol.1</a>
+    <a href="#stet-about">stet</a>
     <a href="#house">House</a>
     <a href="#manifesto">Manifesto</a>
-    <a href="#newsletter">Newsletter</a>
   </nav>
-  <a href="#vol1" class="cta">Pre-order</a>
+  <a href="#vol1" class="cta">Reserve</a>
 </header>
 
+<!-- ============ Hero ============ -->
 <section class="hero">
   <div class="four81-mark">4:81</div>
   <div class="wrap grid">
     <div class="copy">
       <div class="strap">AI 時代の人間性ブランド / from Okinawa</div>
-      <h1>失敗できる、<br>を<em>誇りに</em>。</h1>
+      <h1>失敗できる、<br><em>を誇りに</em>。</h1>
       <p class="lede">
         typo = <em>失敗</em>。stet = 校正記号「<em>そのまま、生かせ</em>」。<br>
         AI が完璧を量産する世界で、<em>失敗できる</em>のは人間にだけ残された特権。<br>
         TYP0stet は、それを物理的に身につけられるブランド。
       </p>
       <div class="actions">
-        <a href="#vol1" class="btn-primary">Vol.1 先行予約</a>
-        <a href="#stet" class="btn-secondary">stet とは</a>
+        <a href="#vol1" class="btn-primary">Vol.1 を見る</a>
+        <a href="#stet-about" class="btn-secondary">stet とは</a>
       </div>
     </div>
     <div class="visual">
-      <svg viewBox="0 0 420 520" xmlns="http://www.w3.org/2000/svg" aria-label="TYP0stet Vol.1 athleisure tee">
-        <defs>
-          <linearGradient id="bonefade" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stop-color="#FFF8E8"/>
-            <stop offset="1" stop-color="#E8DCC0"/>
-          </linearGradient>
-        </defs>
-        <path d="M 60 80 L 110 60 L 130 50 L 175 65 L 245 65 L 290 50 L 310 60 L 360 80 L 380 130 L 360 150 L 340 142 L 340 380 L 350 420 L 350 470 Q 210 510 70 470 L 70 420 L 80 380 L 80 142 L 60 150 L 40 130 Z" fill="url(#bonefade)" stroke="#0E0E0E" stroke-width="1.2"/>
-        <path d="M 175 65 Q 210 85 245 65" fill="none" stroke="#0E0E0E" stroke-width="1.2"/>
-        <g transform="translate(126 156)">
-          <text x="0" y="0" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="18" fill="#0E0E0E" letter-spacing="-0.4">TYP<tspan fill="#4F8F6E">0</tspan></text>
-          <text x="12" y="15" font-family="Permanent Marker, cursive" font-size="11" fill="#C7553E" transform="rotate(-3 12 15)">stet</text>
-        </g>
-        <g transform="translate(268 165)">
-          <ellipse cx="0" cy="0" rx="14" ry="18" fill="none" stroke="#0E0E0E" stroke-width="2.6"/>
-          <ellipse cx="-3" cy="-2" rx="3" ry="5" fill="#92E5BD" opacity=".75"/>
-        </g>
-        <text x="56" y="155" font-family="IBM Plex Mono, monospace" font-size="6" fill="#4F8F6E" letter-spacing="0.5">4:81</text>
-        <path d="M 80 460 Q 210 500 340 460" fill="none" stroke="rgba(14,14,14,.5)" stroke-width="0.8" stroke-dasharray="2,2"/>
-        <text x="210" y="495" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="rgba(14,14,14,.55)" letter-spacing="0.15em">DROP TAIL HEM +6cm</text>
-      </svg>
+      <div class="img-slot" data-color="bone">
+        <span class="caption">Vol.1 — Bone (Front)<br><em>image coming</em></span>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="stet">
+<!-- ============ Vol.1 / 3 colorway preview ============ -->
+<section id="vol1">
+  <div class="wrap">
+    <div class="eyebrow">Vol.1 / Released 2026.10</div>
+    <h2>3 colorway, <em>made to order</em>.</h2>
+    <p class="lede">
+      Athleisure Tee, 4.5oz poly/cotton Repreve, drop-tail hem +6cm.<br>
+      <em>Bone / Mint / Olive</em> ─ 受注生産、沖縄プリント。<br>
+      Vol.1 は <em>2026 年 10 月発送</em>、予約金 ¥1,000。
+    </p>
+    <div class="colorway-grid">
+      <a href="#bone" class="colorway-card">
+        <div class="img-slot" data-color="bone">
+          <span class="caption">Bone<br><em>image coming</em></span>
+        </div>
+        <div class="meta">
+          <span class="name">Vol.1 — Bone</span>
+          <span class="price">¥12,800</span>
+        </div>
+      </a>
+      <a href="#mint" class="colorway-card">
+        <div class="img-slot" data-color="mint">
+          <span class="caption">Mint<br><em>image coming</em></span>
+        </div>
+        <div class="meta">
+          <span class="name">Vol.1 — Mint</span>
+          <span class="price">¥12,800</span>
+        </div>
+      </a>
+      <a href="#olive" class="colorway-card">
+        <div class="img-slot" data-color="olive">
+          <span class="caption">Olive<br><em>image coming</em></span>
+        </div>
+        <div class="meta">
+          <span class="name">Vol.1 — Olive</span>
+          <span class="price">¥12,800</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Product Detail — Bone ============ -->
+<section id="bone" class="product-detail bone-bg">
+  <div class="wrap">
+    <div class="product-eyebrow">Vol.1 — Bone / Athleisure Tee</div>
+    <h2 class="product-name">Bone.</h2>
+    <div class="main-image-row">
+      <div class="img-slot" data-color="bone">
+        <span class="caption">Front view<br><em>image coming</em></span>
+      </div>
+      <div class="spec-block">
+        <p>warm bone cream の base に、ink black の TYP0 stet。<br>
+           mint green の 0、terracotta red の stet。<br>
+           右腕に 4:81 monospace の刻印。</p>
+        <div class="label">Specification</div>
+        <p>4.5oz polyester/cotton blend (Repreve recycled poly)</p>
+        <p>Drop-tail hem +6cm at center back</p>
+        <p>Printed in Okinawa, made to order</p>
+        <p>Vol.1 released 2026.10</p>
+        <div class="size-row">
+          <div class="label">Size</div>
+          <div class="size-options">
+            <button>S</button>
+            <button class="selected">M</button>
+            <button>L</button>
+            <button>XL</button>
+            <button>XXL</button>
+          </div>
+        </div>
+        <div class="cta-row">
+          <div class="price-stack">
+            <span class="price">¥12,800</span>
+            <span class="sub">Reserve / ¥1,000</span>
+          </div>
+          <a href="https://note.com/typostet" class="btn-reserve">Reserve →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="label">Back</span><span class="line"></span></div>
+    <div class="back-image">
+      <div class="img-slot" data-color="bone">
+        <span class="caption">Back view<br><em>image coming</em></span>
+      </div>
+      <div class="note">
+        背面左下に TYP0 stet。<br>
+        Drop-tail hem は背面中央で +6cm 下がる。<br>
+        タグレス、ネック内側に転写。
+      </div>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="label">Detail / 4:81</span><span class="line"></span></div>
+    <div class="detail-row">
+      <div class="note">
+        <h4>右腕、2cm の刻印。</h4>
+        <p>4:81 は存在しない時刻。し(4)っ(8)ぱい(1) の語呂。<br>
+           右腕の outer に mint で 2cm、見えるけど主張しない位置。<br>
+           袖をまくると現れる、自分だけが知っている印。</p>
+      </div>
+      <div class="img-slot square" data-color="bone">
+        <span class="caption">4:81 sleeve close-up<br><em>image coming</em></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Product Detail — Mint ============ -->
+<section id="mint" class="product-detail mint-bg">
+  <div class="wrap">
+    <div class="product-eyebrow">Vol.1 — Mint / Athleisure Tee</div>
+    <h2 class="product-name">Mint.</h2>
+    <div class="main-image-row">
+      <div class="img-slot" data-color="mint">
+        <span class="caption">Front view<br><em>image coming</em></span>
+      </div>
+      <div class="spec-block">
+        <p>pistachio sea mint の base に、ink black の TYP0 stet。<br>
+           tonal な deeper mint の 0、terracotta red の stet。<br>
+           右腕に 4:81、low contrast で潜む。</p>
+        <div class="label">Specification</div>
+        <p>4.5oz polyester/cotton blend (Repreve recycled poly)</p>
+        <p>Drop-tail hem +6cm at center back</p>
+        <p>Printed in Okinawa, made to order</p>
+        <p>Vol.1 released 2026.10</p>
+        <div class="size-row">
+          <div class="label">Size</div>
+          <div class="size-options">
+            <button>S</button>
+            <button class="selected">M</button>
+            <button>L</button>
+            <button>XL</button>
+            <button>XXL</button>
+          </div>
+        </div>
+        <div class="cta-row">
+          <div class="price-stack">
+            <span class="price">¥12,800</span>
+            <span class="sub">Reserve / ¥1,000</span>
+          </div>
+          <a href="https://note.com/typostet" class="btn-reserve">Reserve →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="label">Back</span><span class="line"></span></div>
+    <div class="back-image">
+      <div class="img-slot" data-color="mint">
+        <span class="caption">Back view<br><em>image coming</em></span>
+      </div>
+      <div class="note">
+        背面左下に TYP0 stet。<br>
+        Drop-tail hem は背面中央で +6cm 下がる。<br>
+        タグレス、ネック内側に転写。
+      </div>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="label">Detail / 4:81</span><span class="line"></span></div>
+    <div class="detail-row">
+      <div class="note">
+        <h4>Mint の上に、Mint で潜む。</h4>
+        <p>4:81 は deeper mint + hairline ink で legibility 確保。<br>
+           近づかないと見えない、それが正解。<br>
+           tonal な dive、自分だけが見つける刻印。</p>
+      </div>
+      <div class="img-slot square" data-color="mint">
+        <span class="caption">4:81 sleeve close-up<br><em>image coming</em></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Product Detail — Olive ============ -->
+<section id="olive" class="product-detail olive-bg">
+  <div class="wrap">
+    <div class="product-eyebrow">Vol.1 — Olive / Athleisure Tee</div>
+    <h2 class="product-name">Olive.</h2>
+    <div class="main-image-row">
+      <div class="img-slot" data-color="olive">
+        <span class="caption">Front view<br><em>image coming</em></span>
+      </div>
+      <div class="spec-block">
+        <p>washed olive green の base に、warm bone cream の TYP0 stet。<br>
+           mint green の 0、terracotta red の stet。<br>
+           右腕に 4:81 mint で 2cm。</p>
+        <div class="label">Specification</div>
+        <p>4.5oz polyester/cotton blend (Repreve recycled poly)</p>
+        <p>Drop-tail hem +6cm at center back</p>
+        <p>Printed in Okinawa, made to order</p>
+        <p>Vol.1 released 2026.10</p>
+        <div class="size-row">
+          <div class="label">Size</div>
+          <div class="size-options">
+            <button>S</button>
+            <button class="selected">M</button>
+            <button>L</button>
+            <button>XL</button>
+            <button>XXL</button>
+          </div>
+        </div>
+        <div class="cta-row">
+          <div class="price-stack">
+            <span class="price">¥12,800</span>
+            <span class="sub">Reserve / ¥1,000</span>
+          </div>
+          <a href="https://note.com/typostet" class="btn-reserve">Reserve →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="label">Back</span><span class="line"></span></div>
+    <div class="back-image">
+      <div class="img-slot" data-color="olive">
+        <span class="caption">Back view<br><em>image coming</em></span>
+      </div>
+      <div class="note">
+        背面左下に TYP0 stet、bone color で contrast。<br>
+        Drop-tail hem は背面中央で +6cm 下がる。<br>
+        タグレス、ネック内側に転写。
+      </div>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="label">Detail / 4:81</span><span class="line"></span></div>
+    <div class="detail-row">
+      <div class="note">
+        <h4>Olive の中の、Mint の点。</h4>
+        <p>濃い olive に mint が落ちる、最も visible な配置。<br>
+           それでも 2cm、主張しない大きさ。<br>
+           袖の outer、自分の右腕でだけ確認できる。</p>
+      </div>
+      <div class="img-slot square" data-color="olive">
+        <span class="caption">4:81 sleeve close-up<br><em>image coming</em></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Extras (Sticker + Tote) ============ -->
+<section id="extras">
+  <div class="wrap">
+    <div class="eyebrow">Extras / Sticker + Tote</div>
+    <h2>brand を、<em>持ち歩く</em>。</h2>
+    <div class="extras-grid">
+      <article class="extra-card">
+        <div class="img-slot square" data-color="bone">
+          <span class="caption">Sticker<br><em>image coming</em></span>
+        </div>
+        <div class="meta">
+          <h3>Sticker</h3>
+          <p class="desc">8cm 円形、防水 PVC、glossy 仕上げ。<br>水筒・PC・ヘルメットに貼って brand を持ち歩く。</p>
+          <div class="meta-row">
+            <span class="price">¥500</span>
+            <a href="https://note.com/typostet" class="btn-mini">Reserve</a>
+          </div>
+        </div>
+      </article>
+      <article class="extra-card">
+        <div class="img-slot" data-color="sand">
+          <span class="caption">Tote<br><em>image coming</em></span>
+        </div>
+        <div class="meta">
+          <h3>Tote</h3>
+          <p class="desc">12oz heavy canvas、undyed natural sand。<br>front center に TYP0 stet、右下に 4:81。</p>
+          <div class="meta-row">
+            <span class="price">¥6,800<span class="sub">(予定)</span></span>
+            <span class="btn-mini soon">Year 1 後半</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ stet とは ============ -->
+<section id="stet-about">
   <div class="wrap">
     <div class="eyebrow">What is "stet"</div>
     <h2>校正記号で、<em>「やっぱり、そのまま」</em>。</h2>
@@ -362,155 +983,14 @@ footer .copyright .four81 { color: var(--mint-deep); font-weight: 700; }
   </div>
 </section>
 
-<section id="vol1">
-  <div class="wrap">
-    <div class="eyebrow">Product Lineup / 2026</div>
-    <h2>シャツ、ステッカー、トート、<br><em>Newsletter</em>。</h2>
-    <p class="lede">
-      Vol.1 Flagship Tee は <em>2026 年 10 月発送</em>、先行予約金 ¥1,000 で受付開始。<br>
-      他のプロダクトは順次。Newsletter (note) は今すぐ購読可能。
-    </p>
-    <div class="products-grid">
-      <article class="product">
-        <div class="visual">
-          <svg viewBox="0 0 180 220">
-            <path d="M 30 40 L 50 30 L 60 25 L 80 32 L 100 32 L 120 25 L 130 30 L 150 40 L 160 65 L 150 75 L 140 71 L 140 175 L 145 200 L 145 215 Q 90 225 35 215 L 35 200 L 40 175 L 40 71 L 30 75 L 20 65 Z" fill="#F4EDDF" stroke="#0E0E0E" stroke-width="1"/>
-            <path d="M 80 32 Q 90 42 100 32" fill="none" stroke="#0E0E0E" stroke-width="1"/>
-            <g transform="translate(55 70)">
-              <text x="0" y="0" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="9" fill="#0E0E0E">TYP<tspan fill="#4F8F6E">0</tspan></text>
-              <text x="6" y="7" font-family="Permanent Marker, cursive" font-size="5.5" fill="#C7553E">stet</text>
-            </g>
-            <ellipse cx="123" cy="75" rx="6" ry="8" fill="none" stroke="#0E0E0E" stroke-width="1.4"/>
-          </svg>
-        </div>
-        <span class="label">Vol.1 / Flagship Tee</span>
-        <h3>Athleisure Tee</h3>
-        <p class="desc">poly50/cot50 4.5oz Repreve / drop tail hem / 3 色 (Bone / Mint / Olive) / 沖縄 SEABOW プリント</p>
-        <div class="price-row">
-          <span class="price">¥9,800<span class="sub">(予約金 ¥1,000)</span></span>
-          <a href="#preorder-tee" class="btn-mini preorder">予約</a>
-        </div>
-      </article>
-
-      <article class="product">
-        <div class="visual">
-          <svg viewBox="0 0 180 180">
-            <rect x="20" y="20" width="140" height="140" rx="14" fill="#92E5BD"/>
-            <text x="90" y="105" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="40" fill="#0E0E0E">TYP<tspan fill="#FFF">0</tspan></text>
-            <text x="98" y="130" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="22" fill="#C7553E" transform="rotate(-3 98 130)">stet</text>
-          </svg>
-        </div>
-        <span class="label">Entry / Vol.0</span>
-        <h3>Sticker Pack</h3>
-        <p class="desc">防水 PVC、3 種ロゴ × 2 枚。水筒・PC・ヘルメットに貼って brand 拡散。</p>
-        <div class="price-row">
-          <span class="price">¥500</span>
-          <a href="#preorder-sticker" class="btn-mini preorder">予約</a>
-        </div>
-      </article>
-
-      <article class="product">
-        <div class="visual">
-          <svg viewBox="0 0 180 180">
-            <path d="M 50 60 L 50 160 L 130 160 L 130 60 Z" fill="#D9C9A8" stroke="#0E0E0E" stroke-width="1"/>
-            <path d="M 65 60 Q 65 30 90 30 Q 115 30 115 60" fill="none" stroke="#0E0E0E" stroke-width="2"/>
-            <g transform="translate(72 105)">
-              <text x="0" y="0" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="14" fill="#0E0E0E">TYP<tspan fill="#4F8F6E">0</tspan></text>
-              <text x="10" y="11" font-family="Permanent Marker, cursive" font-size="9" fill="#C7553E">stet</text>
-            </g>
-          </svg>
-        </div>
-        <span class="label">Coming Soon / Year 1</span>
-        <h3>Tote Bag</h3>
-        <p class="desc">沖縄ヘンプ or オーガニックコットン 12oz。日常 carry の signal、conversation starter。</p>
-        <div class="price-row">
-          <span class="price">¥6,800<span class="sub">(予定)</span></span>
-          <span class="btn-mini soon">Soon</span>
-        </div>
-      </article>
-
-      <article class="product">
-        <div class="visual">
-          <svg viewBox="0 0 180 180">
-            <rect x="30" y="50" width="120" height="90" fill="#fff" stroke="#0E0E0E" stroke-width="1.2"/>
-            <path d="M 30 50 L 90 100 L 150 50" fill="none" stroke="#0E0E0E" stroke-width="1.2"/>
-            <text x="90" y="160" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4F8F6E" letter-spacing="0.12em">NEWSLETTER</text>
-            <text x="90" y="100" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="14" fill="#C7553E" transform="rotate(-3 90 100)">stet</text>
-          </svg>
-        </div>
-        <span class="label">Free / Monthly</span>
-        <h3>Newsletter</h3>
-        <p class="desc">note 主軸、月 2-4 本。AI 時代の人間性、ものづくり、失敗の記録。</p>
-        <div class="price-row">
-          <span class="price">無料</span>
-          <a href="https://note.com/typostet" target="_blank" rel="noopener" class="btn-mini">購読</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="481" class="four81-section">
-  <div class="wrap">
-    <div class="eyebrow">Sub Mark — 4:81</div>
-    <h2>し(4)っ(8)ぱい(1)。<br><em>存在しない時刻</em>。</h2>
-    <p class="lede">
-      4:81 は物理的に存在しない時刻。AI が generate しない時間 = 人間にだけある記憶の歪み。<br>
-      「気づけば 4:81 だった」「あれは 2:60 のこと」 ── 失敗を反芻するときの時間感覚は、いつも壊れている。<br>
-      シャツのどこかに、必ず。<em>気付くと、いる</em>。
-    </p>
-    <div class="scatter-grid">
-      <div class="scatter-card">
-        <span class="where">袖口内側</span>
-        <div class="sketch">
-          <svg viewBox="0 0 120 120" width="100">
-            <path d="M 20 30 L 80 25 L 95 40 L 100 60 L 95 80 L 80 95 L 50 100 L 25 90 L 15 70 L 18 45 Z" fill="none" stroke="#F4EDDF" stroke-width="0.8" opacity=".5"/>
-            <text x="60" y="62" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#92E5BD" letter-spacing="0.12em">4:81</text>
-          </svg>
-        </div>
-        <span class="blurb">袖をまくると、見える</span>
-      </div>
-      <div class="scatter-card">
-        <span class="where">裾内側</span>
-        <div class="sketch">
-          <svg viewBox="0 0 120 120" width="100">
-            <path d="M 10 30 L 110 30 L 110 90 Q 60 105 10 90 Z" fill="none" stroke="#F4EDDF" stroke-width="0.8" opacity=".5"/>
-            <text x="60" y="65" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#92E5BD" letter-spacing="0.12em">4:81</text>
-          </svg>
-        </div>
-        <span class="blurb">内タグの右下、ひっそりと</span>
-      </div>
-      <div class="scatter-card">
-        <span class="where">型紙レシート</span>
-        <div class="sketch">
-          <svg viewBox="0 0 120 120" width="100">
-            <rect x="20" y="15" width="80" height="90" fill="none" stroke="#F4EDDF" stroke-width="0.8" opacity=".5" stroke-dasharray="2,2"/>
-            <text x="92" y="100" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#92E5BD" letter-spacing="0.12em">4:81</text>
-          </svg>
-        </div>
-        <span class="blurb">時刻 stamp 風、右下に</span>
-      </div>
-      <div class="scatter-card">
-        <span class="where">Pin Badge 裏</span>
-        <div class="sketch">
-          <svg viewBox="0 0 120 120" width="100">
-            <circle cx="60" cy="60" r="36" fill="none" stroke="#F4EDDF" stroke-width="0.8" opacity=".5"/>
-            <text x="60" y="65" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#92E5BD" letter-spacing="0.12em">4:81</text>
-          </svg>
-        </div>
-        <span class="blurb">外しても、刻印で残る</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="house" class="houses-section">
+<!-- ============ 5 House + 4:81 ============ -->
+<section id="house">
   <div class="wrap">
     <div class="eyebrow">5 House System</div>
     <h2>あなたは、<em>何時に</em>失敗する人。</h2>
     <p class="lede">
       購入時刻から自動 assign される 5 つの House (組)。色 × typo の組名前。<br>
-      内タグに刻まれて、街で同じ House の人と出会ったら ─ 「<em>Wave 1 だね</em>」「<em>lueBlue 組?</em>」が起きる。
+      内タグに刻まれて、街で同じ House の人と出会ったら ─ 「<em>lueBlue 組?</em>」が起きる。
     </p>
     <div class="houses-grid">
       <div class="house erd">
@@ -548,46 +1028,109 @@ footer .copyright .four81 { color: var(--mint-deep); font-weight: 700; }
       ※ 人間は本当は無限のタイプ。5 つに分けるのは、人間っぽい乱暴さの brand 装置として。<br>
       Year 2+ で House はパーソナライズで進化していきます。
     </p>
+
+    <div class="four81-band">
+      <div class="four81-text">
+        <div class="eyebrow">Sub Mark — 4:81</div>
+        <h3>し(4)っ(8)ぱい(1)。<em>存在しない時刻</em>。</h3>
+        <p>
+          4:81 は物理的に存在しない時刻。AI が generate しない時間 = 人間にだけある記憶の歪み。<br>
+          シャツの 4 箇所に散りばめられる。<em>気付くと、いる</em>。
+        </p>
+      </div>
+      <div class="scatter-grid">
+        <div class="scatter-card">
+          <span class="where">袖口内側</span>
+          <div class="sketch">
+            <svg viewBox="0 0 120 120" width="90">
+              <path d="M 20 30 L 80 25 L 95 40 L 100 60 L 95 80 L 80 95 L 50 100 L 25 90 L 15 70 L 18 45 Z" fill="none" stroke="#F4EDDF" stroke-width="0.8" opacity=".5"/>
+              <text x="60" y="62" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#92E5BD" letter-spacing="0.12em">4:81</text>
+            </svg>
+          </div>
+          <span class="blurb">袖をまくると、見える</span>
+        </div>
+        <div class="scatter-card">
+          <span class="where">内タグ右下</span>
+          <div class="sketch">
+            <svg viewBox="0 0 120 120" width="90">
+              <path d="M 10 30 L 110 30 L 110 90 Q 60 105 10 90 Z" fill="none" stroke="#F4EDDF" stroke-width="0.8" opacity=".5"/>
+              <text x="60" y="65" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#92E5BD" letter-spacing="0.12em">4:81</text>
+            </svg>
+          </div>
+          <span class="blurb">タグレス転写、右下に</span>
+        </div>
+        <div class="scatter-card">
+          <span class="where">型紙レシート</span>
+          <div class="sketch">
+            <svg viewBox="0 0 120 120" width="90">
+              <rect x="20" y="15" width="80" height="90" fill="none" stroke="#F4EDDF" stroke-width="0.8" opacity=".5" stroke-dasharray="2,2"/>
+              <text x="92" y="100" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#92E5BD" letter-spacing="0.12em">4:81</text>
+            </svg>
+          </div>
+          <span class="blurb">時刻 stamp 風、右下</span>
+        </div>
+        <div class="scatter-card">
+          <span class="where">Pin Badge 裏</span>
+          <div class="sketch">
+            <svg viewBox="0 0 120 120" width="90">
+              <circle cx="60" cy="60" r="36" fill="none" stroke="#F4EDDF" stroke-width="0.8" opacity=".5"/>
+              <text x="60" y="65" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#92E5BD" letter-spacing="0.12em">4:81</text>
+            </svg>
+          </div>
+          <span class="blurb">外しても、刻印で残る</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="manifesto" class="manifesto-section">
+<!-- ============ Manifesto inline ============ -->
+<section id="manifesto">
   <div class="wrap">
     <div class="eyebrow">Manifesto</div>
     <h2>4 つの宣言。</h2>
-    <div class="manifesto-grid">
-      <article class="tenet">
-        <div class="num">01 / Thesis</div>
-        <h3>人間の証明書。</h3>
-        <p>AI が完璧を量産する時代に、typo (失敗) は人間にしか残せない痕跡。<br>TYP0stet はその痕跡を、物理的に身につけられるブランド。</p>
-      </article>
-      <article class="tenet">
-        <div class="num">02 / Mission</div>
-        <h3>やらかしで、繋がる。</h3>
-        <p>同じ TYP0stet を着てる人同士で「あ、あなたも誇りに思ってるんですね」。<br>失敗が会話の入口になる文化を、街に増やす。</p>
-      </article>
-      <article class="tenet">
-        <div class="num">03 / Vision</div>
-        <h3>失敗を恥じない文化を作る。</h3>
-        <p>「失敗を語る」じゃなく「失敗を誇る」。<br>誇りは語りたくなる、ミスは隠したくなる。voice を能動に。</p>
-      </article>
-      <article class="tenet">
-        <div class="num">04 / Tone</div>
-        <h3>クールに。</h3>
-        <p>痛くない。押しつけない。語りすぎない。<br>沖縄 base の slow speak で、AI に書かれない物作りを淡々と。</p>
-      </article>
-    </div>
-    <div style="margin-top: 40px; text-align: center;">
+    <ol class="manifesto-list">
+      <li>
+        <span class="num">01 / Thesis</span>
+        <div class="body">
+          <strong>人間の証明書。</strong>
+          <p>AI が完璧を量産する時代に、typo (失敗) は人間にしか残せない痕跡。<br>TYP0stet はその痕跡を、物理的に身につけられるブランド。</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">02 / Mission</span>
+        <div class="body">
+          <strong>やらかしで、繋がる。</strong>
+          <p>同じ TYP0stet を着てる人同士で「あ、あなたも誇りに思ってるんですね」。<br>失敗が会話の入口になる文化を、街に増やす。</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">03 / Vision</span>
+        <div class="body">
+          <strong>失敗を恥じない文化を作る。</strong>
+          <p>「失敗を語る」じゃなく「失敗を誇る」。<br>誇りは語りたくなる、ミスは隠したくなる。voice を能動に。</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">04 / Tone</span>
+        <div class="body">
+          <strong>クールに。</strong>
+          <p>痛くない。押しつけない。語りすぎない。<br>沖縄 base の slow speak で、AI に書かれない物作りを淡々と。</p>
+        </div>
+      </li>
+    </ol>
+    <div class="manifesto-foot">
       <a href="/manifest.html" class="btn-secondary">倫理憲章を読む</a>
     </div>
   </div>
 </section>
 
+<!-- ============ Founder ============ -->
 <section id="founder" class="founder-section">
   <div class="wrap">
     <div class="eyebrow">Founder</div>
     <h2><em>沖縄から</em>、tig。</h2>
-    <div class="founder-grid">
+    <div class="founder-wrap">
       <div class="founder-portrait">Founder Portrait<br>(coming 2026.07)</div>
       <div class="founder-text">
         <h3>19 歳、ポルトガルで気づいた。</h3>
@@ -603,25 +1146,7 @@ footer .copyright .four81 { color: var(--mint-deep); font-weight: 700; }
   </div>
 </section>
 
-<section id="ugc" class="ugc-section">
-  <div class="wrap">
-    <div class="eyebrow">Join the culture</div>
-    <h2>あなたも、<em>誇りに</em>思ってるんですね。</h2>
-    <p class="lede">
-      街で TYP0stet を着てる人同士は、もう同志。<br>
-      SNS にも、その入口を。最近、あなたが <em>誇りに思った失敗</em> を 1 行で。
-    </p>
-    <div class="ugc-prompt">
-      <p class="question">「最近どんな <em>誇り</em>、ありました?」</p>
-      <p class="hashtags"><span>#失敗できる</span><span>#TYP0stet日</span><span>#H_lueBlue</span><span>#人間の証明書</span></p>
-      <div class="ugc-cta">
-        <a href="https://twitter.com/intent/tweet?text=%23TYP0stet%E6%97%A5%20%23%E5%A4%B1%E6%95%97%E3%81%A7%E3%81%8D%E3%82%8B" target="_blank" rel="noopener" class="btn-primary">X で投稿</a>
-        <a href="https://www.instagram.com/typostet/" target="_blank" rel="noopener" class="btn-secondary">Instagram</a>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- ============ Newsletter ============ -->
 <section id="newsletter" class="newsletter-section">
   <div class="wrap">
     <div class="eyebrow">Newsletter</div>
@@ -630,28 +1155,19 @@ footer .copyright .four81 { color: var(--mint-deep); font-weight: 700; }
       ものづくりの工程、brand の進捗、tig の文章。月 2-4 本、note に書きます。<br>
       購読は無料。<em>失敗を、誇りに思ってる人</em>へ。
     </p>
-    <div class="newsletter-grid">
-      <div class="newsletter-cta">
-        <h3>note 主軸で配信</h3>
-        <p>第 1 号:「AI 時代に typo を着る理由」<br>manifesto を tig 言語で、長文 1 本。</p>
-        <a href="https://note.com/typostet" target="_blank" rel="noopener">note で購読する →</a>
-      </div>
-      <div class="newsletter-cta">
-        <h3>SNS でも</h3>
-        <p>Newsletter の短い断片や日常の voice は SNS で。<br>X / Instagram / Threads いずれも。</p>
-        <a href="https://twitter.com/typostet481" target="_blank" rel="noopener">@typostet481 を見る →</a>
-      </div>
+    <div class="newsletter-action">
+      <a href="https://note.com/typostet" target="_blank" rel="noopener" class="btn-primary-large">note で購読する →</a>
     </div>
   </div>
 </section>
 
+<!-- ============ Footer ============ -->
 <footer>
   <div class="wrap">
     <div class="grid">
       <div class="col brand-col">
         <a href="/" class="brand">
-          <span class="name">TYP<span class="zero">0</span>stet</span>
-          <span class="stet">stet</span>
+          <img src="/assets/brand/wordmark/tentative-final-light.svg" alt="TYP0stet" style="height: 40px; width: auto; display: block; margin-bottom: 4px;">
         </a>
         <p class="tagline">失敗できる、を誇りに。</p>
         <p class="place">Designed in Okinawa<br>Made in Japan / Printed in Okinawa</p>
@@ -660,17 +1176,17 @@ footer .copyright .four81 { color: var(--mint-deep); font-weight: 700; }
         <h4>Products</h4>
         <ul>
           <li><a href="#vol1">Vol.1 Tee</a></li>
-          <li><a href="#vol1">Sticker</a></li>
-          <li><a href="#vol1">Tote (soon)</a></li>
+          <li><a href="#extras">Sticker</a></li>
+          <li><a href="#extras">Tote (soon)</a></li>
           <li><a href="#newsletter">Newsletter</a></li>
         </ul>
       </div>
       <div class="col">
         <h4>Brand</h4>
         <ul>
-          <li><a href="#stet">stet とは</a></li>
-          <li><a href="#481">4:81</a></li>
+          <li><a href="#stet-about">stet とは</a></li>
           <li><a href="#house">5 House</a></li>
+          <li><a href="#house">4:81</a></li>
           <li><a href="#manifesto">Manifesto</a></li>
           <li><a href="/manifest.html">倫理憲章</a></li>
         </ul>
@@ -697,6 +1213,8 @@ footer .copyright .four81 { color: var(--mint-deep); font-weight: 700; }
     </div>
   </div>
 </footer>
+
+<script defer src="/js/kinetic-bg.js"></script>
 
 </body>
 </html>

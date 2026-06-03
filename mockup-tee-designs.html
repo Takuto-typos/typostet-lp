@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TYP0stet — v4 · Center TYP0 stet × 5 shirt × 3 stet color</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@300;400;500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0E0E0E;
+  --bone: #F4EDDF;
+  --mint: #92E5BD;
+  --mint-deep: #4F8F6E;
+  --olive: #5E6638;
+  --terra: #C7553E;
+  --orange: #E89A4E;
+  --rule: rgba(14,14,14,.15);
+  --soft: rgba(14,14,14,.55);
+  --mute: rgba(14,14,14,.72);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #fafaf6; color: var(--ink); }
+body {
+  font-family: "IBM Plex Sans JP", "Inter", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding: 40px clamp(20px, 4vw, 64px);
+}
+
+h1 {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 12px;
+}
+h2.section-title {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: 32px; margin: 56px 0 24px;
+  padding-bottom: 12px; border-bottom: 1px solid var(--rule);
+}
+.lede {
+  max-width: 800px; font-size: 14px; color: var(--mute);
+  line-height: 1.8; margin-bottom: 32px;
+}
+.lede em { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--ink); }
+.version-tag {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--mint-deep);
+  border: 1px solid var(--mint-deep); padding: 4px 10px;
+  margin-bottom: 12px;
+}
+
+.spec-table {
+  margin-bottom: 40px;
+  display: grid; grid-template-columns: 1fr 2fr; gap: 8px 24px;
+  max-width: 920px;
+  font-size: 13px; line-height: 1.6;
+}
+.spec-table dt {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--mint-deep); padding-top: 2px;
+}
+.spec-table dd { color: var(--mute); }
+.spec-table dd em { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--ink); }
+.spec-table dd code {
+  font-family: "IBM Plex Mono", monospace; font-size: 12px;
+  background: #f4f0e3; padding: 2px 6px; border-radius: 2px;
+}
+
+/* FRONT grid: 5 rows (shirt colors) × 4 cols (label + 3 stet variations) */
+.front-grid {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr 1fr;
+  gap: 14px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+
+/* BACK grid: 1 row × 6 cols (label + 5 shirts) */
+.back-grid {
+  display: grid;
+  grid-template-columns: 100px repeat(5, 1fr);
+  gap: 14px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+
+.col-header {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--soft); text-align: center; padding: 12px 0;
+  align-self: end;
+}
+
+.row-header {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 16px 12px;
+  border-right: 1px solid var(--rule);
+}
+.row-header .shirt-name {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: 20px; line-height: 1.1; margin-bottom: 4px;
+}
+.row-header .shirt-hex {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; letter-spacing: .1em; color: var(--soft);
+}
+.row-header .typ0-color {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px; letter-spacing: .1em; color: var(--mint-deep);
+  margin-top: 6px;
+}
+
+.tee-cell {
+  aspect-ratio: 4/5;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.tee-cell.white { background: #F5F5F5; }
+.tee-cell.bone  { background: var(--bone); }
+.tee-cell.mint  { background: var(--mint); }
+.tee-cell.olive { background: var(--olive); }
+.tee-cell.black { background: #1A1A1A; }
+
+.tee-cell svg { width: 92%; height: auto; }
+
+.tee-cell .label {
+  position: absolute; bottom: 6px; left: 6px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(14,14,14,.45);
+}
+.tee-cell.olive .label,
+.tee-cell.black .label { color: rgba(244,237,223,.6); }
+
+.notes {
+  margin-top: 56px;
+  padding: 32px; border: 1px solid var(--rule); background: #fff;
+  max-width: 920px;
+}
+.notes h3 {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: 22px; margin-bottom: 16px;
+}
+.notes p { font-size: 13px; line-height: 1.85; color: var(--mute); margin-bottom: 12px; }
+.notes p em { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--ink); }
+.notes code {
+  font-family: "IBM Plex Mono", monospace; font-size: 12px;
+  background: #f4f0e3; padding: 2px 6px; border-radius: 2px;
+}
+
+@media (max-width: 1200px) {
+  .front-grid, .back-grid { grid-template-columns: 1fr; }
+  .col-header { display: none; }
+  .row-header { border-right: none; border-bottom: 1px solid var(--rule); padding: 16px 0; }
+}
+</style>
+</head>
+<body>
+
+<span class="version-tag">v4 · center TYP0 stet · 5 shirt × 3 stet color</span>
+<h1>TYP0stet Vol.1 — <em>Pattern Matrix</em></h1>
+<p class="lede">
+  Front: center chest <em>TYP0 stet</em> (TYP0 = ink/bone 自動、stet = mint / red / orange の 3 variation)。<br>
+  Back: 左下に <em>0 logo</em> + 真下に <em>····</em> (校正記号 stet 同義)。<br>
+  Hem center: <em>4:81</em> mint 固定。Shirt 5 色 × stet 3 色 = 15 front + 5 back = 20 mockup。
+</p>
+
+<dl class="spec-table">
+  <dt>TYP0 color rule</dt><dd>白 base = <code>#0E0E0E</code> ink / 暗い base = <code>#F4EDDF</code> bone (可読性優先)</dd>
+  <dt>stet color (3 variants)</dt><dd>
+    <code>mint #92E5BD</code> (Mint base のみ deeper <code>#4F8F6E</code>) /
+    <code>red #C7553E</code> /
+    <code>orange #E89A4E</code>
+  </dd>
+  <dt>0 logo (back)</dt><dd><code>#92E5BD</code> mint 固定、Cormorant Italic Bold 18-22pt</dd>
+  <dt>···· dots (back)</dt><dd><code>#92E5BD</code> mint 固定、0 logo の真下 horizontal 4 dot</dd>
+  <dt>4:81 (hem)</dt><dd><code>#92E5BD</code> mint 固定、IBM Plex Mono、裾 center</dd>
+  <dt>Shirt colors</dt><dd>White / Bone / Mint / Olive / Black</dd>
+</dl>
+
+<!-- ============================================================ -->
+<h2 class="section-title">Front — center TYP0 stet, 3 stet color variations</h2>
+<div class="front-grid">
+  <div></div>
+  <div class="col-header">stet · mint</div>
+  <div class="col-header">stet · red</div>
+  <div class="col-header">stet · orange</div>
+
+  <!-- ===================== WHITE ===================== -->
+  <div class="row-header">
+    <span class="shirt-name">White</span>
+    <span class="shirt-hex">#F5F5F5</span>
+    <span class="typ0-color">TYP0: ink</span>
+  </div>
+  <!-- W × mint -->
+  <div class="tee-cell white">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F5F5F5" stroke="#0E0E0E" stroke-width=".6"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#0E0E0E" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#92E5BD" transform="rotate(-3 2 8)">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#4F8F6E" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">W · mint</span>
+  </div>
+  <!-- W × red -->
+  <div class="tee-cell white">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F5F5F5" stroke="#0E0E0E" stroke-width=".6"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#0E0E0E" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#C7553E" transform="rotate(-3 2 8)">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#4F8F6E" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">W · red</span>
+  </div>
+  <!-- W × orange -->
+  <div class="tee-cell white">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F5F5F5" stroke="#0E0E0E" stroke-width=".6"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#0E0E0E" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#E89A4E" transform="rotate(-3 2 8)">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#4F8F6E" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">W · orange</span>
+  </div>
+
+  <!-- ===================== BONE ===================== -->
+  <div class="row-header">
+    <span class="shirt-name">Bone</span>
+    <span class="shirt-hex">#F4EDDF</span>
+    <span class="typ0-color">TYP0: ink</span>
+  </div>
+  <div class="tee-cell bone">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F4EDDF" stroke="#0E0E0E" stroke-width=".6"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#0E0E0E" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#92E5BD" transform="rotate(-3 2 8)">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#4F8F6E" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">Bone · mint</span>
+  </div>
+  <div class="tee-cell bone">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F4EDDF" stroke="#0E0E0E" stroke-width=".6"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#0E0E0E" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#C7553E" transform="rotate(-3 2 8)">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#4F8F6E" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">Bone · red</span>
+  </div>
+  <div class="tee-cell bone">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F4EDDF" stroke="#0E0E0E" stroke-width=".6"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#0E0E0E" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#E89A4E" transform="rotate(-3 2 8)">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#4F8F6E" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">Bone · orange</span>
+  </div>
+
+  <!-- ===================== MINT ===================== -->
+  <div class="row-header">
+    <span class="shirt-name">Mint</span>
+    <span class="shirt-hex">#92E5BD</span>
+    <span class="typ0-color">TYP0: ink</span>
+  </div>
+  <div class="tee-cell mint">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#92E5BD" stroke="#0E0E0E" stroke-width=".6"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#0E0E0E" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#4F8F6E" transform="rotate(-3 2 8)" stroke="#0E0E0E" stroke-width=".1">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#4F8F6E" letter-spacing="0.15em" stroke="#0E0E0E" stroke-width=".08">4:81</text>
+    </svg>
+    <span class="label">Mint · mint*</span>
+  </div>
+  <div class="tee-cell mint">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#92E5BD" stroke="#0E0E0E" stroke-width=".6"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#0E0E0E" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#C7553E" transform="rotate(-3 2 8)">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#4F8F6E" letter-spacing="0.15em" stroke="#0E0E0E" stroke-width=".08">4:81</text>
+    </svg>
+    <span class="label">Mint · red</span>
+  </div>
+  <div class="tee-cell mint">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#92E5BD" stroke="#0E0E0E" stroke-width=".6"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#0E0E0E" stroke-width=".6"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#0E0E0E" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#E89A4E" transform="rotate(-3 2 8)">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#4F8F6E" letter-spacing="0.15em" stroke="#0E0E0E" stroke-width=".08">4:81</text>
+    </svg>
+    <span class="label">Mint · orange</span>
+  </div>
+
+  <!-- ===================== OLIVE ===================== -->
+  <div class="row-header">
+    <span class="shirt-name">Olive</span>
+    <span class="shirt-hex">#5E6638</span>
+    <span class="typ0-color">TYP0: bone</span>
+  </div>
+  <div class="tee-cell olive">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#5E6638" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".7"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#F4EDDF" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#92E5BD" transform="rotate(-3 2 8)">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#92E5BD" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">Olive · mint</span>
+  </div>
+  <div class="tee-cell olive">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#5E6638" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".7"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#F4EDDF" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#C7553E" transform="rotate(-3 2 8)">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#92E5BD" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">Olive · red</span>
+  </div>
+  <div class="tee-cell olive">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#5E6638" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".7"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#F4EDDF" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#E89A4E" transform="rotate(-3 2 8)">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#92E5BD" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">Olive · orange</span>
+  </div>
+
+  <!-- ===================== BLACK ===================== -->
+  <div class="row-header">
+    <span class="shirt-name">Black</span>
+    <span class="shirt-hex">#1A1A1A</span>
+    <span class="typ0-color">TYP0: bone</span>
+  </div>
+  <div class="tee-cell black">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#1A1A1A" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".7"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#F4EDDF" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#92E5BD" transform="rotate(-3 2 8)">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#92E5BD" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">Black · mint</span>
+  </div>
+  <div class="tee-cell black">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#1A1A1A" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".7"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#F4EDDF" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#C7553E" transform="rotate(-3 2 8)">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#92E5BD" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">Black · red</span>
+  </div>
+  <div class="tee-cell black">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 52 29 L 62 24 L 83 31 Q 100 38 117 31 L 138 24 L 148 29 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 243 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#1A1A1A" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/>
+      <path d="M 83 31 Q 100 42 117 31" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".7"/>
+      <g transform="translate(100 90)">
+        <text x="0" y="0" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="13" fill="#F4EDDF" letter-spacing="-0.3">TYP0</text>
+        <text x="2" y="8" text-anchor="middle" font-family="Permanent Marker, cursive" font-size="8" fill="#E89A4E" transform="rotate(-3 2 8)">stet</text>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#92E5BD" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">Black · orange</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section-title">Back — 左下 0 + ···· + 裾 4:81 (5 shirts, 全部 mint 固定)</h2>
+<div class="back-grid">
+  <div></div>
+  <div class="col-header">White</div>
+  <div class="col-header">Bone</div>
+  <div class="col-header">Mint</div>
+  <div class="col-header">Olive</div>
+  <div class="col-header">Black</div>
+
+  <div class="row-header">
+    <span class="shirt-name">Back</span>
+    <span class="shirt-hex">all mint</span>
+  </div>
+
+  <!-- Back × White -->
+  <div class="tee-cell white">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F5F5F5" stroke="#0E0E0E" stroke-width=".6"/>
+      <path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#0E0E0E" stroke-width=".5" opacity=".5"/>
+      <!-- Lower left: 0 logo -->
+      <text x="68" y="175" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="22" fill="#92E5BD">0</text>
+      <!-- Dots directly below 0 -->
+      <g fill="#92E5BD">
+        <circle cx="61" cy="186" r="1.5"/>
+        <circle cx="66" cy="186" r="1.5"/>
+        <circle cx="71" cy="186" r="1.5"/>
+        <circle cx="76" cy="186" r="1.5"/>
+      </g>
+      <!-- Hem 4:81 -->
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#4F8F6E" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">Back · White</span>
+  </div>
+
+  <!-- Back × Bone -->
+  <div class="tee-cell bone">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#F4EDDF" stroke="#0E0E0E" stroke-width=".6"/>
+      <path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#0E0E0E" stroke-width=".5" opacity=".5"/>
+      <text x="68" y="175" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="22" fill="#92E5BD">0</text>
+      <g fill="#92E5BD">
+        <circle cx="61" cy="186" r="1.5"/>
+        <circle cx="66" cy="186" r="1.5"/>
+        <circle cx="71" cy="186" r="1.5"/>
+        <circle cx="76" cy="186" r="1.5"/>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#4F8F6E" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">Back · Bone</span>
+  </div>
+
+  <!-- Back × Mint -->
+  <div class="tee-cell mint">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#92E5BD" stroke="#0E0E0E" stroke-width=".6"/>
+      <path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#0E0E0E" stroke-width=".5" opacity=".5"/>
+      <text x="68" y="175" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="22" fill="#4F8F6E" stroke="#0E0E0E" stroke-width=".15">0</text>
+      <g fill="#4F8F6E" stroke="#0E0E0E" stroke-width=".1">
+        <circle cx="61" cy="186" r="1.5"/>
+        <circle cx="66" cy="186" r="1.5"/>
+        <circle cx="71" cy="186" r="1.5"/>
+        <circle cx="76" cy="186" r="1.5"/>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#4F8F6E" letter-spacing="0.15em" stroke="#0E0E0E" stroke-width=".08">4:81</text>
+    </svg>
+    <span class="label">Back · Mint</span>
+  </div>
+
+  <!-- Back × Olive -->
+  <div class="tee-cell olive">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#5E6638" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/>
+      <path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".5"/>
+      <text x="68" y="175" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="22" fill="#92E5BD">0</text>
+      <g fill="#92E5BD">
+        <circle cx="61" cy="186" r="1.5"/>
+        <circle cx="66" cy="186" r="1.5"/>
+        <circle cx="71" cy="186" r="1.5"/>
+        <circle cx="76" cy="186" r="1.5"/>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#92E5BD" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">Back · Olive</span>
+  </div>
+
+  <!-- Back × Black -->
+  <div class="tee-cell black">
+    <svg viewBox="0 0 200 240">
+      <path d="M 29 38 L 80 30 Q 100 33 120 30 L 171 38 L 181 62 L 171 71 L 162 68 L 162 181 L 167 200 L 167 224 Q 100 252 33 224 L 33 200 L 38 181 L 38 68 L 29 71 L 19 62 Z" fill="#1A1A1A" stroke="#F4EDDF" stroke-width=".4" opacity=".95"/>
+      <path d="M 85 33 Q 100 38 115 33" fill="none" stroke="#F4EDDF" stroke-width=".4" opacity=".5"/>
+      <text x="68" y="175" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="22" fill="#92E5BD">0</text>
+      <g fill="#92E5BD">
+        <circle cx="61" cy="186" r="1.5"/>
+        <circle cx="66" cy="186" r="1.5"/>
+        <circle cx="71" cy="186" r="1.5"/>
+        <circle cx="76" cy="186" r="1.5"/>
+      </g>
+      <text x="100" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#92E5BD" letter-spacing="0.15em">4:81</text>
+    </svg>
+    <span class="label">Back · Black</span>
+  </div>
+</div>
+
+<div class="notes">
+  <h3>v4 観察ポイント</h3>
+
+  <p><strong>Mint × mint stet (*)</strong>: 同系色は invisibility 寄り、deeper mint + hairline ink outline で救済。tonal は luxe sign だがほぼ読めない trade-off。</p>
+
+  <p><strong>White / Black の punch</strong>: white と black base は stet 3 色全部が cleanly 立つ、最も "wear it loud" 寄り。P4 subculture target には black + red の punch が刺さる可能性大。</p>
+
+  <p><strong>Orange の地位</strong>: red より warm、ink との contrast 強い。Bone + orange は editorial 寄り、Black + orange は subculture punch、Olive + orange は autumnal。red より一段 sophisticated に感じる可能性。</p>
+
+  <p><strong>Bone + red</strong>: tig 元 Canva 案の DNA、最も "校正者の赤ペン" semantic を保つ。</p>
+
+  <p><strong>Back の universal mint</strong>: 全 shirt 共通の back signature。Black/Olive base に mint 0 + dots = 強く立つ。White/Bone は subtle で adult。</p>
+
+  <p><strong>裾 4:81</strong>: 全 shirt mint 固定。tonal な Mint base ではほぼ invisible、ink outline で救済済。</p>
+</div>
+
+</body>
+</html>

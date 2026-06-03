@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TYP0stet — tig Canva 制作 logo review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=IBM+Plex+Mono:wght@300;400;500;700&family=IBM+Plex+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0E0E0E;
+  --bone: #F4EDDF;
+  --mint: #92E5BD;
+  --mint-deep: #4F8F6E;
+  --rule: rgba(14,14,14,.12);
+  --soft: rgba(14,14,14,.55);
+  --mute: rgba(14,14,14,.72);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #fafaf6; color: var(--ink); }
+body {
+  font-family: "IBM Plex Sans JP", sans-serif;
+  line-height: 1.6;
+  padding: 48px clamp(20px, 4vw, 64px);
+}
+
+h1 {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: clamp(32px, 4.5vw, 52px);
+  margin-bottom: 16px;
+}
+.lede {
+  max-width: 720px; font-size: 14px; color: var(--mute);
+  line-height: 1.8; margin-bottom: 40px;
+}
+.lede em { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--ink); }
+
+h2 {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: clamp(28px, 3.5vw, 40px);
+  margin: 64px 0 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+h2 em { color: var(--mint-deep); }
+.desc {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--soft); margin-bottom: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.cell {
+  background: #fff;
+  border: 1px solid var(--rule);
+  aspect-ratio: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 32px 24px;
+  position: relative;
+}
+.cell.bone { background: var(--bone); }
+.cell.ink { background: var(--ink); }
+.cell img {
+  max-width: 80%; max-height: 80%;
+  object-fit: contain;
+}
+.cell .num {
+  position: absolute; top: 10px; left: 10px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; color: var(--soft); letter-spacing: .1em;
+}
+.cell .label {
+  position: absolute;
+  bottom: 10px; left: 10px; right: 10px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--soft); text-align: center;
+  border-top: 1px dashed var(--rule);
+  padding-top: 8px;
+}
+.cell.ink .label { color: rgba(244,237,223,.6); }
+.cell.ink .num { color: rgba(244,237,223,.55); }
+
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<h1>TYP0stet — <em>tig Canva 制作 logo の review</em></h1>
+<p class="lede">
+  tig が Canva で書き出した SVG を 3 カテゴリ × 全 variation 並べて review。<br>
+  各 logo は白 / bone / ink (黒) 3 背景で見せて、application 別の見え方を確認。
+</p>
+
+<!-- ===================== 0 マーク (monogram) ===================== -->
+<h2>1. <em>0 マーク</em> — monogram (6 variations)</h2>
+<p class="desc">~/Downloads/0 マーク/ から 6 SVG</p>
+
+<div class="grid">
+  <div class="cell"><span class="num">M-1</span><img src="/assets/tig-logos/monogram/1.svg" alt="0 mark variant 1"><span class="label">monogram 1</span></div>
+  <div class="cell"><span class="num">M-2</span><img src="/assets/tig-logos/monogram/2.svg" alt="0 mark variant 2"><span class="label">monogram 2</span></div>
+  <div class="cell"><span class="num">M-3</span><img src="/assets/tig-logos/monogram/3.svg" alt="0 mark variant 3"><span class="label">monogram 3</span></div>
+  <div class="cell"><span class="num">M-4</span><img src="/assets/tig-logos/monogram/4.svg" alt="0 mark variant 4"><span class="label">monogram 4</span></div>
+  <div class="cell"><span class="num">M-5</span><img src="/assets/tig-logos/monogram/5.svg" alt="0 mark variant 5"><span class="label">monogram 5</span></div>
+  <div class="cell"><span class="num">M-6</span><img src="/assets/tig-logos/monogram/6.svg" alt="0 mark variant 6"><span class="label">monogram 6</span></div>
+</div>
+
+<h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--soft); margin: 24px 0 16px;">同じ logo を bone & ink 背景で</h3>
+<div class="grid">
+  <div class="cell bone"><span class="num">M-1 · bone bg</span><img src="/assets/tig-logos/monogram/1.svg"><span class="label">on bone</span></div>
+  <div class="cell ink"><span class="num">M-1 · ink bg</span><img src="/assets/tig-logos/monogram/1.svg"><span class="label">on ink (黒背景)</span></div>
+  <div class="cell"><span class="num">M-1 · white</span><img src="/assets/tig-logos/monogram/1.svg"><span class="label">on white</span></div>
+</div>
+
+<!-- ===================== TYP0 文字ロゴ (wordmark) ===================== -->
+<h2>2. <em>TYP0 文字ロゴ</em> — wordmark (4 variations)</h2>
+<p class="desc">~/Downloads/TYP0文字ロゴ/ から 4 SVG</p>
+
+<p class="desc" style="margin-top: -16px; color: var(--mint-deep);">※ W-1 / W-2 = light bg 用 (TYP0=黒) / W-3 / W-4 = dark bg 用 (TYP0=白)。下記正しい背景で表示。</p>
+<div class="grid">
+  <div class="cell"><span class="num">W-1</span><img src="/assets/tig-logos/wordmark/1.svg" alt="wordmark 1"><span class="label">wordmark 1 · light bg ver</span></div>
+  <div class="cell"><span class="num">W-2</span><img src="/assets/tig-logos/wordmark/2.svg" alt="wordmark 2"><span class="label">wordmark 2 · light bg ver</span></div>
+  <div class="cell ink"><span class="num">W-3</span><img src="/assets/tig-logos/wordmark/3.svg" alt="wordmark 3"><span class="label">W-3 dark · 純白 TYP0</span></div>
+  <div class="cell ink"><span class="num">W-4</span><img src="/assets/tig-logos/wordmark/4.svg" alt="wordmark 4"><span class="label">W-4 dark · 純白 TYP0</span></div>
+</div>
+
+<h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--mint-deep); margin: 24px 0 16px;">★ W-3 / W-4 を bone cream (#F4EDDF) 版にした比較 (私が SVG 直接編集生成)</h3>
+<div class="grid">
+  <div class="cell ink"><span class="num">W-3</span><img src="/assets/tig-logos/wordmark/3.svg"><span class="label">W-3 · 純白 (元)</span></div>
+  <div class="cell ink"><span class="num">W-3-bone</span><img src="/assets/tig-logos/wordmark/3-bone.svg"><span class="label">★ W-3 · bone #F4EDDF</span></div>
+  <div style="display: flex; align-items: center; justify-content: center; padding: 24px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--mute); text-align: center; line-height: 1.7;">→ bone 版は<br>少し warmth 出る、<br>brand 統合感 ◎</div>
+</div>
+<div class="grid">
+  <div class="cell ink"><span class="num">W-4</span><img src="/assets/tig-logos/wordmark/4.svg"><span class="label">W-4 · 純白 (元)</span></div>
+  <div class="cell ink"><span class="num">W-4-bone</span><img src="/assets/tig-logos/wordmark/4-bone.svg"><span class="label">★ W-4 · bone #F4EDDF</span></div>
+  <div></div>
+</div>
+
+<h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--mint-deep); margin: 24px 0 16px;">★ 取り急ぎ candidate: M-1 (brushed monogram)</h3>
+<div class="grid">
+  <div class="cell"><span class="num">M-1 · white</span><img src="/assets/tig-logos/monogram/1.svg"><span class="label">M-1 on white</span></div>
+  <div class="cell bone"><span class="num">M-1 · bone</span><img src="/assets/tig-logos/monogram/1.svg"><span class="label">M-1 on bone</span></div>
+  <div class="cell ink"><span class="num">M-1 · ink</span><img src="/assets/tig-logos/monogram/1.svg"><span class="label">M-1 on ink (黒)</span></div>
+</div>
+
+<h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--soft); margin: 24px 0 16px;">W-1 を bone & ink 背景で</h3>
+<div class="grid">
+  <div class="cell bone"><span class="num">W-1 · bone</span><img src="/assets/tig-logos/wordmark/1.svg"><span class="label">on bone</span></div>
+  <div class="cell ink"><span class="num">W-1 · ink</span><img src="/assets/tig-logos/wordmark/1.svg"><span class="label">on ink</span></div>
+  <div class="cell"><span class="num">W-1 · white</span><img src="/assets/tig-logos/wordmark/1.svg"><span class="label">on white</span></div>
+</div>
+
+<!-- ===================== 4:81 timestamp ===================== -->
+<h2>3. <em>4:81</em> — timestamp (4 variations)</h2>
+<p class="desc">~/Downloads/481/ から 4 SVG</p>
+
+<div class="grid">
+  <div class="cell"><span class="num">T-1</span><img src="/assets/tig-logos/timestamp/1.svg" alt="4:81 variant 1"><span class="label">timestamp 1</span></div>
+  <div class="cell"><span class="num">T-2</span><img src="/assets/tig-logos/timestamp/2.svg" alt="4:81 variant 2"><span class="label">timestamp 2</span></div>
+  <div class="cell"><span class="num">T-3</span><img src="/assets/tig-logos/timestamp/3.svg" alt="4:81 variant 3"><span class="label">timestamp 3</span></div>
+  <div class="cell"><span class="num">T-4</span><img src="/assets/tig-logos/timestamp/4.svg" alt="4:81 variant 4"><span class="label">timestamp 4</span></div>
+</div>
+
+<h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--soft); margin: 24px 0 16px;">T-1 を bone & ink 背景で</h3>
+<div class="grid">
+  <div class="cell bone"><span class="num">T-1 · bone</span><img src="/assets/tig-logos/timestamp/1.svg"><span class="label">on bone</span></div>
+  <div class="cell ink"><span class="num">T-1 · ink</span><img src="/assets/tig-logos/timestamp/1.svg"><span class="label">on ink</span></div>
+  <div class="cell"><span class="num">T-1 · white</span><img src="/assets/tig-logos/timestamp/1.svg"><span class="label">on white</span></div>
+</div>
+
+</body>
+</html>

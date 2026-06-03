@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TYP0stet — Logo Exploration v3 (wordmark refine + brand system)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=B612+Mono:wght@400;700&family=Bebas+Neue&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500;700&family=IBM+Plex+Sans+JP:wght@300;400;500;700&family=Inconsolata:wght@400;700;900&family=JetBrains+Mono:wght@400;700&family=Jost:ital,wght@0,400..900;1,400..900&family=Lalezar&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0E0E0E;
+  --bone: #F4EDDF;
+  --mint: #92E5BD;
+  --mint-deep: #4F8F6E;
+  --terra: #C7553E;
+  --rule: rgba(14,14,14,.12);
+  --soft: rgba(14,14,14,.55);
+  --mute: rgba(14,14,14,.72);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #fafaf6; color: var(--ink); }
+body {
+  font-family: "IBM Plex Sans JP", "Inter", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding: 48px clamp(20px, 4vw, 64px);
+}
+
+h1.title {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: clamp(32px, 4.5vw, 52px);
+  letter-spacing: -0.014em; line-height: 1.05;
+  margin-bottom: 16px;
+}
+.lede {
+  max-width: 760px; font-size: 14px; color: var(--mute);
+  line-height: 1.8; margin-bottom: 32px;
+}
+.lede em { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--ink); }
+.lede code { font-family: "IBM Plex Mono", monospace; font-size: 12px; background: #f4f0e3; padding: 2px 6px; }
+.version-tag {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--mint-deep);
+  border: 1px solid var(--mint-deep); padding: 4px 10px;
+  margin-bottom: 12px;
+}
+
+h2.section-title {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: clamp(28px, 3.5vw, 40px);
+  margin: 64px 0 8px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+  letter-spacing: -0.01em;
+}
+h2.section-title em { color: var(--mint-deep); }
+.section-desc {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 28px;
+}
+
+.mark-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.mark-grid.col-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.mark-cell {
+  background: #fff;
+  border: 1px solid var(--rule);
+  aspect-ratio: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 32px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mark-cell .mark-area {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  width: 100%;
+}
+
+.mark-cell .zero {
+  color: var(--mint);
+  line-height: 0.85;
+}
+.zero {
+  color: var(--mint);
+  line-height: 0.85;
+}
+.dots {
+  display: flex; gap: 0.08em; margin-top: 0.1em;
+  justify-content: center;
+}
+.dots span {
+  background: var(--mint);
+  border-radius: 50%;
+  width: 11px; height: 11px;
+  display: inline-block;
+}
+.dots.lg span { width: 14px; height: 14px; }
+.dots.sm span { width: 8px; height: 8px; }
+
+.mark-cell .wordmark {
+  color: var(--ink);
+  line-height: 1;
+}
+
+.mark-cell .timestamp {
+  color: var(--mint-deep);
+  line-height: 1;
+}
+
+.mark-cell .label {
+  position: absolute;
+  bottom: 10px; left: 10px; right: 10px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--soft); text-align: center;
+  border-top: 1px dashed var(--rule);
+  padding-top: 8px;
+}
+.mark-cell .num {
+  position: absolute;
+  top: 10px; left: 10px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; color: var(--soft);
+  letter-spacing: .1em;
+}
+
+/* Confirmed-card style (for top section) */
+.confirmed-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.confirmed-cell {
+  background: #fff;
+  border: 1px solid var(--mint);
+  aspect-ratio: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 24px;
+  position: relative;
+}
+.confirmed-cell .badge {
+  position: absolute; top: 8px; left: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px; letter-spacing: .14em; color: var(--mint-deep);
+}
+.confirmed-cell .badge-label {
+  position: absolute; bottom: 8px; left: 8px; right: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--soft); text-align: center;
+}
+
+/* Brand system preview row */
+.system-row {
+  background: #fff;
+  border: 1px solid var(--rule);
+  padding: 48px 40px;
+  margin-bottom: 16px;
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px; align-items: center;
+}
+.system-row .slot {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px;
+  border-right: 1px dashed var(--rule);
+  padding: 0 16px;
+}
+.system-row .slot:last-child { border-right: none; }
+.system-row .slot-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--soft); margin-top: 16px;
+}
+.system-row .system-title {
+  position: absolute;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; letter-spacing: .2em; color: var(--mint-deep);
+  text-transform: uppercase;
+}
+
+/* Font shorthands */
+.f-cormorant-i7  { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 700; }
+.f-anton         { font-family: "Anton", sans-serif; font-weight: 400; }
+.f-bebas         { font-family: "Bebas Neue", sans-serif; font-weight: 400; }
+.f-jost-b        { font-family: "Jost", sans-serif; font-weight: 900; }
+.f-caveat-7      { font-family: "Caveat", cursive; font-weight: 700; }
+.f-marker        { font-family: "Permanent Marker", cursive; }
+.f-lalezar       { font-family: "Lalezar", display; }
+.f-bodoni-r9     { font-family: "Bodoni Moda", serif; font-style: normal; font-weight: 900; }
+.f-playfair-r9   { font-family: "Playfair Display", serif; font-style: normal; font-weight: 900; }
+.f-dm-r          { font-family: "DM Serif Display", serif; font-style: normal; font-weight: 400; }
+.f-inconsolata-9 { font-family: "Inconsolata", monospace; font-weight: 900; }
+
+.notes {
+  margin-top: 64px; padding: 32px;
+  border: 1px solid var(--rule); background: #fff;
+  max-width: 920px;
+}
+.notes h3 {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: 22px; margin-bottom: 14px;
+}
+.notes p { font-size: 13px; line-height: 1.85; color: var(--mute); margin-bottom: 10px; }
+.notes em { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--ink); }
+.notes code { font-family: "IBM Plex Mono", monospace; font-size: 12px; background: #f4f0e3; padding: 2px 6px; }
+
+@media (max-width: 900px) {
+  .mark-grid, .confirmed-grid, .system-row { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .mark-grid, .confirmed-grid, .system-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<span class="version-tag">v3 · wordmark refine (TYP0 all-black) + brand system preview</span>
+<h1 class="title">TYP0stet — <em>Logo Exploration v3</em></h1>
+<p class="lede">
+  確定: monogram = <em>M13 (Lalezar)</em> + <em>M14 (Jost Black)</em>。4:81 = <em>T08 (Inconsolata)</em> + <em>T11 (Bebas Neue)</em>。<br>
+  新規 task: TYP0 の <em>0 を TYP と同じ黒</em> に (mint じゃなく)、stet は mint のまま、複数 font で variation。<br>
+  最後に <em>brand system preview</em> で monogram + wordmark + 4:81 の 3 logo 並べて系統見る。
+</p>
+
+<!-- ===================== Confirmed selections ===================== -->
+<h2 class="section-title">確定済 <em>candidates</em></h2>
+<div class="confirmed-grid">
+  <div class="confirmed-cell">
+    <span class="badge">M13 ✓</span>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div class="zero f-lalezar" style="font-size: 110px;">0</div>
+      <div class="dots lg"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <span class="badge-label">Lalezar chunky</span>
+  </div>
+
+  <div class="confirmed-cell">
+    <span class="badge">M14 ✓</span>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div class="zero f-jost-b" style="font-size: 100px;">0</div>
+      <div class="dots"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <span class="badge-label">Jost Black</span>
+  </div>
+
+  <div class="confirmed-cell">
+    <span class="badge">T08 ✓</span>
+    <div class="timestamp f-inconsolata-9" style="font-size: 64px;">4:81</div>
+    <span class="badge-label">Inconsolata Black</span>
+  </div>
+
+  <div class="confirmed-cell">
+    <span class="badge">T11 ✓</span>
+    <div class="timestamp f-bebas" style="font-size: 80px; letter-spacing: 0.02em;">4:81</div>
+    <span class="badge-label">Bebas Neue</span>
+  </div>
+</div>
+
+<!-- ===================== Section 2: Wordmark — TYP0 all-black ===================== -->
+<h2 class="section-title">TYP0stet wordmark — <em>0 を TYP と同じ黒</em>に</h2>
+<p class="section-desc">8 variations — all-black TYP0 (mint 削除) + mint stet handwritten</p>
+
+<div class="mark-grid">
+
+  <!-- W10 Lalezar + Marker (match M13) -->
+  <div class="mark-cell"><span class="num">W10</span>
+    <div class="mark-area">
+      <div class="wordmark f-lalezar" style="font-size: 76px; text-align: center;">
+        TYP0
+        <div class="f-marker" style="font-size: 36px; color: var(--mint); margin-top: -8px; transform: rotate(-3deg);">stet</div>
+      </div>
+    </div>
+    <div class="label">★ Lalezar + Marker stet (match M13)</div>
+  </div>
+
+  <!-- W11 Jost Black + Marker (match M14) -->
+  <div class="mark-cell"><span class="num">W11</span>
+    <div class="mark-area">
+      <div class="wordmark f-jost-b" style="font-size: 64px; text-align: center; letter-spacing: -0.02em;">
+        TYP0
+        <div class="f-marker" style="font-size: 30px; color: var(--mint); margin-top: 0; transform: rotate(-3deg);">stet</div>
+      </div>
+    </div>
+    <div class="label">★ Jost Black + Marker stet (match M14)</div>
+  </div>
+
+  <!-- W12 Anton + Marker -->
+  <div class="mark-cell"><span class="num">W12</span>
+    <div class="mark-area">
+      <div class="wordmark f-anton" style="font-size: 78px; text-align: center;">
+        TYP0
+        <div class="f-marker" style="font-size: 32px; color: var(--mint); margin-top: -2px; transform: rotate(-3deg);">stet</div>
+      </div>
+    </div>
+    <div class="label">Anton + Marker stet</div>
+  </div>
+
+  <!-- W13 Bebas Neue + Marker -->
+  <div class="mark-cell"><span class="num">W13</span>
+    <div class="mark-area">
+      <div class="wordmark f-bebas" style="font-size: 82px; text-align: center; letter-spacing: 0.02em;">
+        TYP0
+        <div class="f-marker" style="font-size: 32px; color: var(--mint); margin-top: 0; transform: rotate(-3deg);">stet</div>
+      </div>
+    </div>
+    <div class="label">Bebas Neue + Marker stet</div>
+  </div>
+
+  <!-- W14 Lalezar + Caveat -->
+  <div class="mark-cell"><span class="num">W14</span>
+    <div class="mark-area">
+      <div class="wordmark f-lalezar" style="font-size: 76px; text-align: center;">
+        TYP0
+        <div class="f-caveat-7" style="font-size: 40px; color: var(--mint); margin-top: -10px; transform: rotate(-2deg);">stet</div>
+      </div>
+    </div>
+    <div class="label">Lalezar + Caveat stet (script alt)</div>
+  </div>
+
+  <!-- W15 Jost Black + Caveat -->
+  <div class="mark-cell"><span class="num">W15</span>
+    <div class="mark-area">
+      <div class="wordmark f-jost-b" style="font-size: 64px; text-align: center; letter-spacing: -0.02em;">
+        TYP0
+        <div class="f-caveat-7" style="font-size: 38px; color: var(--mint); margin-top: -4px; transform: rotate(-2deg);">stet</div>
+      </div>
+    </div>
+    <div class="label">Jost Black + Caveat stet (script alt)</div>
+  </div>
+
+  <!-- W16 DM Serif Display + Marker -->
+  <div class="mark-cell"><span class="num">W16</span>
+    <div class="mark-area">
+      <div class="wordmark f-dm-r" style="font-size: 64px; text-align: center;">
+        TYP0
+        <div class="f-marker" style="font-size: 32px; color: var(--mint); margin-top: 2px; transform: rotate(-3deg);">stet</div>
+      </div>
+    </div>
+    <div class="label">DM Serif Display + Marker stet</div>
+  </div>
+
+  <!-- W17 Playfair Display Black + Marker -->
+  <div class="mark-cell"><span class="num">W17</span>
+    <div class="mark-area">
+      <div class="wordmark f-playfair-r9" style="font-size: 60px; text-align: center;">
+        TYP0
+        <div class="f-marker" style="font-size: 32px; color: var(--mint); margin-top: 2px; transform: rotate(-3deg);">stet</div>
+      </div>
+    </div>
+    <div class="label">Playfair Display Black + Marker stet</div>
+  </div>
+
+  <!-- W18 Lalezar TYP + smaller 0 inline (option for lockup) -->
+  <div class="mark-cell"><span class="num">W18</span>
+    <div class="mark-area">
+      <div class="wordmark f-lalezar" style="font-size: 60px; text-align: center; line-height: 1;">
+        TYP0&nbsp;<span class="f-marker" style="font-size: 36px; color: var(--mint); display: inline-block; transform: rotate(-3deg); vertical-align: middle;">stet</span>
+      </div>
+    </div>
+    <div class="label">Lalezar TYP0 + Marker stet INLINE (lockup)</div>
+  </div>
+
+</div>
+
+<!-- ===================== Section 3: Brand system preview ===================== -->
+<h2 class="section-title"><em>Brand system</em> preview — 3 logo combo</h2>
+<p class="section-desc">monogram + wordmark + 4:81 を並べて系統感を見る</p>
+
+<!-- Combo 1: M13 Lalezar -->
+<div class="system-row">
+  <div class="slot">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div class="zero f-lalezar" style="font-size: 100px; color: var(--mint);">0</div>
+      <div class="dots lg"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <span class="slot-label">M13 · Lalezar monogram</span>
+  </div>
+  <div class="slot">
+    <div class="wordmark f-lalezar" style="font-size: 60px; text-align: center;">
+      TYP0
+      <div class="f-marker" style="font-size: 30px; color: var(--mint); margin-top: -6px; transform: rotate(-3deg);">stet</div>
+    </div>
+    <span class="slot-label">W10 · Lalezar + Marker</span>
+  </div>
+  <div class="slot">
+    <div class="timestamp f-inconsolata-9" style="font-size: 56px; color: var(--mint-deep);">4:81</div>
+    <span class="slot-label">T08 · Inconsolata</span>
+  </div>
+</div>
+
+<!-- Combo 2: M13 + W10 + T11 -->
+<div class="system-row">
+  <div class="slot">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div class="zero f-lalezar" style="font-size: 100px; color: var(--mint);">0</div>
+      <div class="dots lg"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <span class="slot-label">M13 · Lalezar monogram</span>
+  </div>
+  <div class="slot">
+    <div class="wordmark f-lalezar" style="font-size: 60px; text-align: center;">
+      TYP0
+      <div class="f-marker" style="font-size: 30px; color: var(--mint); margin-top: -6px; transform: rotate(-3deg);">stet</div>
+    </div>
+    <span class="slot-label">W10 · Lalezar + Marker</span>
+  </div>
+  <div class="slot">
+    <div class="timestamp f-bebas" style="font-size: 68px; color: var(--mint-deep); letter-spacing: 0.02em;">4:81</div>
+    <span class="slot-label">T11 · Bebas Neue</span>
+  </div>
+</div>
+
+<!-- Combo 3: M14 Jost Black -->
+<div class="system-row">
+  <div class="slot">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div class="zero f-jost-b" style="font-size: 90px; color: var(--mint);">0</div>
+      <div class="dots"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <span class="slot-label">M14 · Jost Black monogram</span>
+  </div>
+  <div class="slot">
+    <div class="wordmark f-jost-b" style="font-size: 56px; text-align: center; letter-spacing: -0.02em;">
+      TYP0
+      <div class="f-marker" style="font-size: 28px; color: var(--mint); margin-top: 0; transform: rotate(-3deg);">stet</div>
+    </div>
+    <span class="slot-label">W11 · Jost Black + Marker</span>
+  </div>
+  <div class="slot">
+    <div class="timestamp f-inconsolata-9" style="font-size: 56px; color: var(--mint-deep);">4:81</div>
+    <span class="slot-label">T08 · Inconsolata</span>
+  </div>
+</div>
+
+<!-- Combo 4: M14 + W11 + T11 -->
+<div class="system-row">
+  <div class="slot">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div class="zero f-jost-b" style="font-size: 90px; color: var(--mint);">0</div>
+      <div class="dots"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <span class="slot-label">M14 · Jost Black monogram</span>
+  </div>
+  <div class="slot">
+    <div class="wordmark f-jost-b" style="font-size: 56px; text-align: center; letter-spacing: -0.02em;">
+      TYP0
+      <div class="f-marker" style="font-size: 28px; color: var(--mint); margin-top: 0; transform: rotate(-3deg);">stet</div>
+    </div>
+    <span class="slot-label">W11 · Jost Black + Marker</span>
+  </div>
+  <div class="slot">
+    <div class="timestamp f-bebas" style="font-size: 68px; color: var(--mint-deep); letter-spacing: 0.02em;">4:81</div>
+    <span class="slot-label">T11 · Bebas Neue</span>
+  </div>
+</div>
+
+<!-- Combo 5: mixed - M13 monogram + W11 wordmark -->
+<div class="system-row">
+  <div class="slot">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div class="zero f-lalezar" style="font-size: 100px; color: var(--mint);">0</div>
+      <div class="dots lg"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <span class="slot-label">M13 · Lalezar (chunky)</span>
+  </div>
+  <div class="slot">
+    <div class="wordmark f-jost-b" style="font-size: 56px; text-align: center; letter-spacing: -0.02em;">
+      TYP0
+      <div class="f-marker" style="font-size: 28px; color: var(--mint); margin-top: 0; transform: rotate(-3deg);">stet</div>
+    </div>
+    <span class="slot-label">W11 · Jost Black (mixed)</span>
+  </div>
+  <div class="slot">
+    <div class="timestamp f-inconsolata-9" style="font-size: 56px; color: var(--mint-deep);">4:81</div>
+    <span class="slot-label">T08 · Inconsolata</span>
+  </div>
+</div>
+
+<div class="notes">
+  <h3>v3 notes</h3>
+  <p><strong>W10-W18: all-black TYP0</strong> — 0 を mint から ink black に変更。brand monogram (0 + dots = mint) と <em>visually separate</em> な役割になる: monogram = mint mark / wordmark = black name。色で機能を分ける design system。</p>
+
+  <p><strong>★ W10 (Lalezar) と W11 (Jost Black)</strong> = 確定 monogram と font 一致するので brand 統合感が最強。一番素直な選択。</p>
+
+  <p><strong>Brand system preview</strong>: 5 通り combo 並べた:</p>
+  <ul style="padding-left: 20px; margin: 8px 0;">
+    <li>combo 1: M13 + W10 + T08 (Lalezar 統一 + Inconsolata 時刻)</li>
+    <li>combo 2: M13 + W10 + T11 (Lalezar 統一 + Bebas Neue station)</li>
+    <li>combo 3: M14 + W11 + T08 (Jost 統一 + Inconsolata)</li>
+    <li>combo 4: M14 + W11 + T11 (Jost 統一 + Bebas Neue)</li>
+    <li>combo 5: M13 monogram + W11 wordmark + T08 (混合: chunky 0 + sans wordmark)</li>
+  </ul>
+
+  <p><strong>designer 観察</strong>:</p>
+  <ul style="padding-left: 20px; margin: 8px 0;">
+    <li>Lalezar 統一 (combo 1, 2) = CPFM / Brain Dead 寄り、P4 subculture punch</li>
+    <li>Jost 統一 (combo 3, 4) = geometric sans modernist、editorial quiet luxe 寄り</li>
+    <li>混合 (combo 5) = brand mark (chunky) と wordmark (clean) を contrast、Margiela / ALD 系の "logo system" 流儀</li>
+    <li>T08 Inconsolata = terminal 系、4:81 が「コードの時刻表記」感、cult 寄り</li>
+    <li>T11 Bebas Neue = vintage station / scoreboard 系、4:81 が「物理的な時刻表示」感、loud</li>
+  </ul>
+
+  <p><strong>提案</strong>: combo 1 (Lalezar 統一 + Inconsolata) か combo 5 (混合) が brand 強度高い。tig 好み次第。</p>
+</div>
+
+</body>
+</html>
