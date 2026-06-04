@@ -1,0 +1,51 @@
+{
+  "_note": "Stripe TEST mode payment links. Generated 2026-06-05. Live mode keys need separate product creation.",
+  "_account": "acct_1TVnhvL7mWzHXi4K (TYP0S)",
+  "_livemode": false,
+  "products": {
+    "tee": {
+      "name": "TYP0stet Stet 01 — Recieved. Tee",
+      "product_id": "prod_Udufy6mAYseOx9",
+      "price_id": "price_1TecqVL7mWzHXi4K3e5d5jOS",
+      "price_jpy": 9800,
+      "payment_link": "https://buy.stripe.com/test_bJe5kEcfI9XzfI53f36Na02"
+    },
+    "sticker": {
+      "name": "TYP0stet Sticker Pack (3 sheets)",
+      "product_id": "prod_UdufziWli1Ine4",
+      "price_id": "price_1TecqoL7mWzHXi4Kj7D54ztz",
+      "price_jpy": 800,
+      "payment_link": "https://buy.stripe.com/test_8x26oI7Zsd9LfI5cPD6Na03"
+    },
+    "tote": {
+      "name": "TYP0stet Tote Bag",
+      "product_id": "prod_UdufEmVIGSf71P",
+      "price_id": "price_1TecqrL7mWzHXi4KySicjOAF",
+      "price_jpy": 3800,
+      "payment_link": "https://buy.stripe.com/test_dRm00k7Zsc5HfI53f36Na04"
+    },
+    "cap": {
+      "name": "TYP0stet Cap",
+      "product_id": "prod_UdufjrcMHwlsS9",
+      "price_id": "price_1TecqtL7mWzHXi4KEKO6Tdgl",
+      "price_jpy": 6800,
+      "payment_link": "https://buy.stripe.com/test_5kQ7sMfrU7PrgM9dTH6Na05"
+    },
+    "pin": {
+      "name": "TYP0stet Pin Badge",
+      "product_id": "prod_UdugBNXR3FKhxb",
+      "price_id": "price_1TecqvL7mWzHXi4KfzMKym2P",
+      "price_jpy": 800,
+      "payment_link": "https://buy.stripe.com/test_6oUfZi6Vo8Tv2Vj8zn6Na06"
+    }
+  },
+  "_to_go_live": [
+    "1. Stripe Dashboard で test→live mode 切替",
+    "2. Live mode で同じ 5 products を再作成 (Test の data は live に migrate されない)",
+    "3. Live Payment Link URL でこの file 更新",
+    "4. site の各 CTA を Live URL に置換",
+    "5. shipping rate (¥600 全国一律) を Dashboard で設定 (MCP 未対応)",
+    "6. Customer notification mail の設定 (Dashboard 手動)",
+    "7. webhook endpoint (Dashboard 手動) ─ 必要なら"
+  ]
+}
