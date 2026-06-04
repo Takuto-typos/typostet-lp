@@ -45,13 +45,13 @@ LOGO = {
 
 MONO_DX_BY_SHIRT = {
     "bone-front":  -260,
-    "olive-front": -180,
+    "olive-front": -240,
 }
 
 TS_DX_BY_SHIRT = {
     "bone-front":  +380,
-    "mint-front":  +500,
-    "olive-front": +400,
+    "mint-front":  +540,
+    "olive-front": +340,
 }
 
 # 4:81 sleeve engraving angle (degrees). Positive = counter-clockwise so the
