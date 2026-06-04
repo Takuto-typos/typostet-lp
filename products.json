@@ -51,11 +51,6 @@
         "https://typostet.com/img/shirts/black-front.jpg",
         "https://typostet.com/img/shirts/black-back.jpg"
       ],
-      "stetNumber": {
-        "format": "4-digit serial",
-        "location": "内タグ右下",
-        "firstHundred": "Stet 01 first 100 = #0001 to #0100"
-      }
     }
   ],
   "shipping": {
