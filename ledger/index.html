@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4EDDF">
+
+<title>Owner Ledger ─ TYP0stet</title>
+<meta name="description" content="TYP0stet Stet # archive。注文ごとに振られる 4 桁の固有番号と、opt-in で持ち主の memo。">
+
+<link rel="canonical" href="https://typostet.com/ledger/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://typostet.com/ledger/">
+<meta property="og:title" content="Owner Ledger ─ TYP0stet">
+<meta property="og:description" content="Stet # と、それを着る人の memo。">
+<meta property="og:image" content="https://typostet.com/img/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="/assets/brand/monogram/tentative-final.svg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Owner Ledger — TYP0stet",
+  "url": "https://typostet.com/ledger/",
+  "description": "TYP0stet の購入者 Stet # 一覧と、opt-in による memo。",
+  "publisher": {
+    "@type": "Organization",
+    "name": "TYP0stet",
+    "url": "https://typostet.com"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=IBM+Plex+Sans+JP:wght@300;400;500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Inconsolata:wght@400;700;900&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bone: #F4EDDF;
+    --bone-deep: #ECE3CF;
+    --ink: #0E0E0E;
+    --mint: #92E5BD;
+    --olive: #5E6638;
+    --terracotta: #C7553E;
+    --rule: rgba(14, 14, 14, 0.12);
+    --muted: rgba(14, 14, 14, 0.55);
+
+    --serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+    --sans:  "IBM Plex Sans JP", "Helvetica Neue", Arial, sans-serif;
+    --mono:  "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --num:   "Inconsolata", ui-monospace, Menlo, monospace;
+    --hand-jp: "Klee One", serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bone); color: var(--ink);
+    font-family: var(--sans); line-height: 1.75;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  .site-header {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(244, 237, 223, 0.92);
+    backdrop-filter: saturate(180%) blur(8px);
+    -webkit-backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-header__inner {
+    max-width: 1320px; margin: 0 auto;
+    padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  }
+  .site-header__brand img { width: 200px; }
+  .site-nav { display: flex; gap: 28px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .site-nav a { padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 200ms ease, opacity 200ms ease; opacity: 0.7; }
+  .site-nav a:hover { border-bottom-color: var(--ink); opacity: 1; }
+  .site-nav a.is-current { opacity: 1; border-bottom-color: var(--ink); }
+  .site-nav a.cart-link { font-style: italic; font-weight: 400; letter-spacing: 0.06em; text-transform: lowercase; opacity: 0.92; }
+  .nav-toggle { display: none; background: none; border: none; padding: 8px; font-family: var(--mono); font-size: 18px; }
+
+  .page-hero {
+    padding: 120px 28px 56px;
+    text-align: center;
+    border-bottom: 1px solid var(--rule);
+  }
+  .page-hero p.eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .page-hero h1 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+  .page-hero h1 em {
+    font-style: normal;
+    font-family: var(--hand-jp);
+    color: var(--mint);
+  }
+  .page-hero p.intro {
+    font-family: var(--serif); font-size: 16px;
+    color: var(--muted); line-height: 1.85;
+    max-width: 580px; margin: 0 auto;
+  }
+
+  .ledger-stats {
+    max-width: 1080px; margin: 0 auto;
+    padding: 56px 28px 0;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+  }
+  .stat .num {
+    font-family: var(--num); font-weight: 900;
+    font-size: 48px; line-height: 1;
+    color: var(--ink);
+  }
+  .stat .num em { font-style: normal; color: var(--mint); }
+  .stat .label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    color: var(--muted); text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  .ledger {
+    max-width: 1080px; margin: 0 auto;
+    padding: 64px 28px 80px;
+  }
+
+  .filters {
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 18px 0;
+    margin-bottom: 32px;
+    flex-wrap: wrap; gap: 14px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .filters__group { display: flex; gap: 22px; align-items: center; }
+  .filters__group button {
+    background: none; border: none; padding: 4px 0;
+    font-family: inherit; font-size: inherit; letter-spacing: inherit;
+    text-transform: inherit; color: var(--muted);
+    border-bottom: 1px solid transparent; cursor: pointer;
+    transition: color 200ms ease, border-color 200ms ease;
+  }
+  .filters__group button.is-active {
+    color: var(--ink); border-bottom-color: var(--ink);
+  }
+  .filters__group button:hover { color: var(--ink); }
+
+  .ledger-table {
+    width: 100%; border-collapse: collapse;
+    font-family: var(--mono); font-size: 13px;
+  }
+  .ledger-table thead { border-bottom: 1px solid var(--ink); }
+  .ledger-table th {
+    text-align: left; padding: 16px 8px;
+    font-size: 11px; letter-spacing: 0.16em;
+    color: var(--muted); text-transform: uppercase;
+    font-weight: 500;
+  }
+  .ledger-table td {
+    padding: 18px 8px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .ledger-table tr.is-claimed td:first-child {
+    color: var(--ink); font-weight: 500;
+  }
+  .ledger-table td:first-child {
+    font-family: var(--num); font-weight: 700;
+    font-size: 18px;
+    color: var(--muted);
+    width: 80px;
+    letter-spacing: 0.04em;
+  }
+  .ledger-table .color-dot {
+    display: inline-block;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 1px solid var(--rule);
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  .color-dot.bone  { background: var(--bone-deep); }
+  .color-dot.mint  { background: var(--mint); }
+  .color-dot.olive { background: var(--olive); }
+  .color-dot.black { background: #1A1A1A; }
+  .ledger-table .owner {
+    font-family: var(--serif); font-size: 15px;
+    color: var(--ink);
+  }
+  .ledger-table .owner.unclaimed {
+    font-family: var(--hand-jp); color: var(--muted); font-style: italic;
+  }
+  .ledger-table .memo {
+    font-family: var(--serif); font-size: 14px; line-height: 1.7;
+    color: var(--muted);
+    max-width: 360px;
+  }
+  .ledger-table .memo.unclaimed {
+    color: rgba(14, 14, 14, 0.18);
+  }
+  .ledger-table .dash {
+    color: rgba(14, 14, 14, 0.2);
+  }
+
+  .ledger-empty {
+    padding: 64px 0;
+    text-align: center;
+  }
+  .ledger-empty p {
+    font-family: var(--serif); font-size: 16px;
+    color: var(--muted); line-height: 1.85;
+    margin-bottom: 24px;
+  }
+  .ledger-empty .btn {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 16px 28px;
+    background: var(--ink); color: var(--bone);
+    border: 1px solid var(--ink);
+    transition: background 240ms ease, color 240ms ease;
+  }
+  .ledger-empty .btn:hover { background: var(--bone); color: var(--ink); }
+  .ledger-empty .btn::after { content: "→"; }
+
+  .optin {
+    margin-top: 64px;
+    padding: 40px 32px;
+    background: var(--bone-deep);
+    border: 1px solid var(--rule);
+    text-align: center;
+  }
+  .optin h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+  .optin p {
+    font-family: var(--serif); font-size: 14px;
+    color: var(--muted); line-height: 1.85;
+    max-width: 520px; margin: 0 auto 20px;
+  }
+  .optin a.email {
+    font-family: var(--mono); font-size: 13px;
+    color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px;
+  }
+
+  .site-footer {
+    background: var(--bone-deep);
+    border-top: 1px solid var(--rule);
+    padding: 64px 28px 28px;
+  }
+  .site-footer__inner {
+    max-width: 1320px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .site-footer__copy {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+  .site-footer__nav {
+    display: flex; gap: 22px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--muted); text-transform: uppercase;
+  }
+  .site-footer__nav a:hover { color: var(--ink); }
+
+  @media (max-width: 720px) {
+    .site-header__inner { padding: 12px 20px; }
+    .site-header__brand img { width: 150px; }
+    .site-nav {
+      display: none;
+      position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 6px;
+      background: var(--bone); padding: 18px 24px 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .site-nav.is-open { display: flex; }
+    .nav-toggle { display: inline-flex; }
+    .ledger-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .ledger { padding: 48px 16px 64px; }
+    .ledger-table th:nth-child(3), .ledger-table td:nth-child(3),
+    .ledger-table th:nth-child(4), .ledger-table td:nth-child(4) { display: none; }
+    .ledger-table td:first-child { width: 56px; font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-header__brand" aria-label="TYP0stet home">
+      <img src="/assets/brand/wordmark/tentative-final-light.svg" alt="TYP0stet">
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="primary">
+      <a href="/#stet">Shop</a>
+      <a href="/stories/">Stories</a>
+      <a href="/manifest.html">Manifesto</a>
+      <a href="/about.html">About</a>
+      <a href="#cart" class="cart-link" aria-label="Cart">cart</a>
+    </nav>
+    <button class="nav-toggle" aria-label="menu" aria-controls="site-nav" aria-expanded="false">≡</button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <p class="eyebrow">Owner Ledger</p>
+  <h1>Stet # の<em>台帳</em>。</h1>
+  <p class="intro">注文ごとに 4 桁の Stet # が振られ、内タグ右下に印字される。ここはその台帳。opt-in で持ち主の memo が載る。</p>
+</section>
+
+<div class="ledger-stats">
+  <div class="stat"><p class="num">0</p><p class="label">Claimed</p></div>
+  <div class="stat"><p class="num"><em>100</em></p><p class="label">Stet 01 Reserved</p></div>
+  <div class="stat"><p class="num">4</p><p class="label">Colors</p></div>
+  <div class="stat"><p class="num">5</p><p class="label">Sizes</p></div>
+</div>
+
+<section class="ledger">
+  <div class="filters">
+    <div class="filters__group">
+      <span style="opacity:0.7">Stet</span>
+      <button class="is-active">01 — Recieved.</button>
+    </div>
+    <div class="filters__group" id="color-filter">
+      <span style="opacity:0.7">Color</span>
+      <button class="is-active" data-color="all">all</button>
+      <button data-color="bone">bone</button>
+      <button data-color="mint">mint</button>
+      <button data-color="olive">olive</button>
+      <button data-color="black">ink black</button>
+    </div>
+  </div>
+
+  <table class="ledger-table" id="ledger-table">
+    <thead>
+      <tr>
+        <th>Stet #</th>
+        <th>Color</th>
+        <th>Size</th>
+        <th>Owner</th>
+        <th>Memo</th>
+      </tr>
+    </thead>
+    <tbody id="ledger-body"></tbody>
+  </table>
+
+  <div class="ledger-empty" id="ledger-empty">
+    <p>Stet 01 の最初の 100 枚は #0001 から #0100。<br>1 枚目が誰かに届いた瞬間、ここが埋まりはじめる。</p>
+    <a href="/#stet" class="btn">Stet 01 を見る</a>
+  </div>
+
+  <aside class="optin">
+    <h2>自分の Stet # を、ここに残したい？</h2>
+    <p>持ち主の handle と、できれば短い memo (どんな失敗をしたか / どんな日に着るか) を送ってくれたら、ここに載せます。匿名 OK、後から消すのも OK。</p>
+    <a class="email" href="mailto:info@typostet.com?subject=Stet%20%23%20%E3%82%92%E5%8F%B0%E5%B8%B3%E3%81%AB">info@typostet.com</a>
+  </aside>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</p>
+    <nav class="site-footer__nav">
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/tokutei.html">特定商取引法</a>
+      <a href="mailto:info@typostet.com">contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  (function () {
+    var btn = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? '×' : '≡';
+    });
+  })();
+
+  // ─── Ledger data (replace as orders come in) ───
+  // Each entry: { stet, color, size, owner, memo, claimed }
+  // color: "bone" | "mint" | "olive" | "black"
+  var LEDGER = [
+    { stet: "#0001", color: null, size: "—", owner: null, memo: null, claimed: false },
+    { stet: "#0002", color: null, size: "—", owner: null, memo: null, claimed: false },
+    { stet: "#0003", color: null, size: "—", owner: null, memo: null, claimed: false },
+    { stet: "#0004", color: null, size: "—", owner: null, memo: null, claimed: false },
+    { stet: "#0005", color: null, size: "—", owner: null, memo: null, claimed: false },
+    { stet: "#0006", color: null, size: "—", owner: null, memo: null, claimed: false },
+    { stet: "#0007", color: null, size: "—", owner: null, memo: null, claimed: false },
+    { stet: "#0008", color: null, size: "—", owner: null, memo: null, claimed: false },
+    { stet: "#0009", color: null, size: "—", owner: null, memo: null, claimed: false },
+    { stet: "#0010", color: null, size: "—", owner: null, memo: null, claimed: false }
+  ];
+  var COLOR_LABEL = { bone: "BONE", mint: "MINT", olive: "OLIVE", black: "INK BLACK" };
+
+  function el(tag, opts) {
+    var node = document.createElement(tag);
+    if (!opts) return node;
+    if (opts.className) node.className = opts.className;
+    if (opts.text != null) node.textContent = opts.text;
+    return node;
+  }
+
+  function renderColorCell(td, color) {
+    if (!color) {
+      td.appendChild(el('span', { className: 'dash', text: '—' }));
+      return;
+    }
+    td.appendChild(el('span', { className: 'color-dot ' + color }));
+    td.appendChild(document.createTextNode(COLOR_LABEL[color] || ''));
+  }
+
+  function render(filter) {
+    var tbody = document.getElementById('ledger-body');
+    while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
+    var any = false;
+    LEDGER.forEach(function (e) {
+      if (filter && filter !== 'all' && e.color !== filter) return;
+      any = true;
+      var tr = document.createElement('tr');
+      if (e.claimed) tr.classList.add('is-claimed');
+      // Stet #
+      tr.appendChild(el('td', { text: e.stet }));
+      // Color
+      var colorTd = el('td');
+      renderColorCell(colorTd, e.color);
+      tr.appendChild(colorTd);
+      // Size
+      tr.appendChild(el('td', { text: e.size }));
+      // Owner
+      var ownerTd = el('td');
+      ownerTd.appendChild(el('span', {
+        className: 'owner' + (e.claimed ? '' : ' unclaimed'),
+        text: e.claimed ? (e.owner || '—') : '未注文'
+      }));
+      tr.appendChild(ownerTd);
+      // Memo
+      var memoTd = el('td');
+      memoTd.appendChild(el('span', {
+        className: 'memo' + (e.claimed ? '' : ' unclaimed'),
+        text: e.claimed ? (e.memo || '') : '─'
+      }));
+      tr.appendChild(memoTd);
+      tbody.appendChild(tr);
+    });
+    document.getElementById('ledger-empty').style.display = any ? 'none' : '';
+  }
+
+  document.querySelectorAll('#color-filter button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('#color-filter button').forEach(function (x) { x.classList.remove('is-active'); });
+      b.classList.add('is-active');
+      render(b.dataset.color);
+    });
+  });
+
+  render('all');
+</script>
+
+</body>
+</html>

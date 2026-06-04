@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4EDDF">
+
+<title>Stories ─ TYP0stet</title>
+<meta name="description" content="TYP0stet の note 記事 index。失敗を扱う brand から、思想と日々のメモ。">
+
+<link rel="canonical" href="https://typostet.com/stories/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://typostet.com/stories/">
+<meta property="og:title" content="Stories ─ TYP0stet">
+<meta property="og:description" content="失敗を扱う brand から、思想と日々のメモ。">
+<meta property="og:image" content="https://typostet.com/img/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="/assets/brand/monogram/tentative-final.svg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Stories — TYP0stet",
+  "url": "https://typostet.com/stories/",
+  "description": "TYP0stet の note 記事と思想ノート。",
+  "publisher": {
+    "@type": "Organization",
+    "name": "TYP0stet",
+    "url": "https://typostet.com"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=IBM+Plex+Sans+JP:wght@300;400;500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Inconsolata:wght@400;700;900&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bone: #F4EDDF;
+    --bone-deep: #ECE3CF;
+    --ink: #0E0E0E;
+    --mint: #92E5BD;
+    --olive: #5E6638;
+    --terracotta: #C7553E;
+    --rule: rgba(14, 14, 14, 0.12);
+    --muted: rgba(14, 14, 14, 0.55);
+
+    --serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+    --sans:  "IBM Plex Sans JP", "Helvetica Neue", Arial, sans-serif;
+    --mono:  "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --num:   "Inconsolata", ui-monospace, Menlo, monospace;
+    --hand-jp: "Klee One", serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bone); color: var(--ink);
+    font-family: var(--sans); line-height: 1.75;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  .site-header {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(244, 237, 223, 0.92);
+    backdrop-filter: saturate(180%) blur(8px);
+    -webkit-backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-header__inner {
+    max-width: 1320px; margin: 0 auto;
+    padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  }
+  .site-header__brand img { width: 200px; }
+  .site-nav { display: flex; gap: 28px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .site-nav a { padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 200ms ease, opacity 200ms ease; opacity: 0.7; }
+  .site-nav a:hover { border-bottom-color: var(--ink); opacity: 1; }
+  .site-nav a.is-current { opacity: 1; border-bottom-color: var(--ink); }
+  .site-nav a.cart-link { font-style: italic; font-weight: 400; letter-spacing: 0.06em; text-transform: lowercase; opacity: 0.92; }
+  .nav-toggle { display: none; background: none; border: none; padding: 8px; font-family: var(--mono); font-size: 18px; }
+
+  .page-hero {
+    padding: 120px 28px 80px;
+    text-align: center;
+    border-bottom: 1px solid var(--rule);
+  }
+  .page-hero p.eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .page-hero h1 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1.15;
+  }
+  .page-hero h1 em {
+    font-style: normal;
+    font-family: var(--hand-jp);
+    color: var(--mint);
+  }
+
+  .stories {
+    max-width: 1280px; margin: 0 auto;
+    padding: 80px 28px 120px;
+  }
+  .stories__head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 56px; flex-wrap: wrap; gap: 16px;
+  }
+  .stories__head h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 22px;
+  }
+  .stories__head a {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    color: var(--muted); text-transform: uppercase;
+  }
+  .stories__head a:hover { color: var(--ink); }
+  .stories__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+  }
+  .story-card { display: block; }
+  .story-card__thumb {
+    aspect-ratio: 4 / 5;
+    background: var(--bone-deep);
+    border: 1px solid var(--rule);
+    margin-bottom: 18px;
+    overflow: hidden;
+    position: relative;
+    transition: opacity 240ms ease;
+  }
+  .story-card__thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 600ms ease;
+  }
+  .story-card:hover .story-card__thumb img { transform: scale(1.03); }
+  .story-card__thumb--blank {
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-style: italic; font-size: 64px;
+    color: rgba(14,14,14,0.18);
+  }
+  .story-card__meta {
+    display: flex; gap: 14px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .story-card__meta .tag { color: var(--mint); }
+  .story-card h3 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: 17px; line-height: 1.6;
+    margin-bottom: 6px;
+  }
+  .story-card .excerpt {
+    font-family: var(--serif); font-size: 14px; line-height: 1.8;
+    color: var(--muted);
+  }
+
+  .empty {
+    padding: 96px 0;
+    text-align: center;
+  }
+  .empty h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 28px; margin-bottom: 16px;
+  }
+  .empty p {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .empty .btn {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 16px 28px;
+    background: var(--ink); color: var(--bone);
+    border: 1px solid var(--ink);
+    transition: background 240ms ease, color 240ms ease;
+  }
+  .empty .btn:hover { background: var(--bone); color: var(--ink); }
+  .empty .btn::after { content: "↗"; }
+
+  .site-footer {
+    background: var(--bone-deep);
+    border-top: 1px solid var(--rule);
+    padding: 64px 28px 28px;
+  }
+  .site-footer__inner {
+    max-width: 1320px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .site-footer__copy {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+  .site-footer__nav {
+    display: flex; gap: 22px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--muted); text-transform: uppercase;
+  }
+  .site-footer__nav a:hover { color: var(--ink); }
+
+  @media (max-width: 960px) {
+    .stories__grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+  }
+  @media (max-width: 720px) {
+    .site-header__inner { padding: 12px 20px; }
+    .site-header__brand img { width: 150px; }
+    .site-nav {
+      display: none;
+      position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 6px;
+      background: var(--bone); padding: 18px 24px 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .site-nav.is-open { display: flex; }
+    .nav-toggle { display: inline-flex; }
+    .stories__grid { grid-template-columns: 1fr; gap: 24px; }
+    .stories { padding: 56px 20px 80px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-header__brand" aria-label="TYP0stet home">
+      <img src="/assets/brand/wordmark/tentative-final-light.svg" alt="TYP0stet">
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="primary">
+      <a href="/#stet">Shop</a>
+      <a href="/stories/" class="is-current">Stories</a>
+      <a href="/manifest.html">Manifesto</a>
+      <a href="/about.html">About</a>
+      <a href="#cart" class="cart-link" aria-label="Cart">cart</a>
+    </nav>
+    <button class="nav-toggle" aria-label="menu" aria-controls="site-nav" aria-expanded="false">≡</button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <p class="eyebrow">Stories</p>
+  <h1>失敗の<em>記録</em>。</h1>
+</section>
+
+<section class="stories">
+  <div class="stories__head">
+    <h2>note より</h2>
+    <a href="https://note.com/typostet" target="_blank" rel="noopener">@typostet on note ↗</a>
+  </div>
+
+  <!-- STORY CARDS — published note 記事をここに追加 -->
+  <div class="stories__grid" id="stories-grid">
+    <!-- Empty state until first article goes live -->
+  </div>
+
+  <!-- Fallback when grid is empty -->
+  <div class="empty" id="empty-state">
+    <h2>準備中。</h2>
+    <p>もうすぐ最初の記事が公開されます。</p>
+    <a class="btn" href="https://note.com/typostet" target="_blank" rel="noopener">note でフォロー</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</p>
+    <nav class="site-footer__nav">
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/tokutei.html">特定商取引法</a>
+      <a href="mailto:info@typostet.com">contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  (function () {
+    var btn = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? '×' : '≡';
+    });
+  })();
+
+  // Hide empty state if grid has children
+  (function () {
+    var grid = document.getElementById('stories-grid');
+    var empty = document.getElementById('empty-state');
+    if (grid && grid.children.length > 0 && empty) empty.style.display = 'none';
+  })();
+</script>
+
+</body>
+</html>
