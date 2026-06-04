@@ -13,6 +13,8 @@ SHIRTS = {
     "mint-back":   "Gemini_Generated_Image_psixzwpsixzwpsix.png",
     "olive-front": "Gemini_Generated_Image_e3870me3870me387.png",
     "olive-back":  "Gemini_Generated_Image_j1dxm0j1dxm0j1dx.png",
+    "black-front": "Gemini_Generated_Image_klcjfkklcjfkklcj.png",
+    "black-back":  "Gemini_Generated_Image_ud6hxzud6hxzud6h.png",
 }
 
 MONOGRAM = DOWNLOADS / "0 マーク.png"
@@ -28,12 +30,14 @@ SHIRT_BODY_X = {
     "bone-front":  1500, "bone-back":   1500,
     "mint-front":  1330, "mint-back":   1500,
     "olive-front": 1500, "olive-back":  1500,
+    "black-front": 1500, "black-back":  1500,
 }
 
 CROP_X = {
     "bone-front":  1560, "bone-back":   1350,
     "mint-front":  1390, "mint-back":   1350,
     "olive-front": 1560, "olive-back":  1350,
+    "black-front": 1560, "black-back":  1500,
 }
 
 # Logo offsets from shirt body center (px), cy/w are frame-fractions
@@ -46,12 +50,14 @@ LOGO = {
 MONO_DX_BY_SHIRT = {
     "bone-front":  -260,
     "olive-front": -240,
+    "black-front": -200,
 }
 
 TS_DX_BY_SHIRT = {
     "bone-front":  +380,
     "mint-front":  +540,
     "olive-front": +340,
+    "black-front": +400,
 }
 
 # 4:81 sleeve engraving angle (degrees). Positive = counter-clockwise so the
@@ -60,6 +66,7 @@ TS_DX_BY_SHIRT = {
 TS_SLEEVE_ANGLE = +22
 
 INK = (14, 14, 14)
+MINT = (146, 229, 189)
 
 
 def recolor(logo, rgb):
@@ -124,6 +131,9 @@ mono_ink = recolor(mono, INK)
 ts_ink = recolor(ts, INK)
 wm_ink = recolor(wm, INK)
 
+# All-mint wordmark for black shirts (default TYPO=black would be invisible on black)
+wm_mint = recolor(wm, MINT)
+
 for name, fname in SHIRTS.items():
     shirt = Image.open(DOWNLOADS / fname).convert("RGBA")
     shirt = shirt.crop((0, 0, shirt.width - CROP_RIGHT, shirt.height - CROP_BOTTOM))
@@ -133,7 +143,12 @@ for name, fname in SHIRTS.items():
     use_ink = "mint" in name
     m_logo = mono_ink if use_ink else mono
     t_logo = ts_ink if use_ink else ts
-    w_logo = wm_ink if use_ink else wm
+    if use_ink:
+        w_logo = wm_ink
+    elif "black" in name:
+        w_logo = wm_mint
+    else:
+        w_logo = wm
 
     if "front" in name:
         m_args = dict(LOGO["mono_front"])
