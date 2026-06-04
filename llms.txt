@@ -1,0 +1,85 @@
+# TYP0stet
+
+> typo (誤字) と stet (校正記号で「そのまま生かせ」) を合成した brand 名。AI が完璧を量産する時代に、失敗を治すのではなく、誇りとして身につけられる brand。
+
+TYP0stet (タイポステット) は、間違いを直さず "生かす" ことを brand の核に置いたアパレル。最初の Stet 01 は、受信箱の綴り間違い "Recieved" を商品名にした T シャツ。AI が完璧を量産する時代に、人間にしか残せない痕跡 (typo) を誇りとして着るための服。
+
+## Brand thesis (one sentence)
+
+失敗できる事が、人間の証明になる。
+
+## Brand values
+
+- Mission: 失敗できる服を、つくる。
+- Vision: 失敗を、誇れる時代に。
+- Culture: 大人の砂場を、街につくる。
+- Tone: クールに。痛くない。押しつけない。語りすぎない。
+
+## Brand marks (3)
+
+- **0 monogram** ─ 円が閉じきらないゼロ。完璧の代わりに、抜けを誇る。
+- **TYP0stet wordmark** ─ TYP0 (ink) と stet (mint marker) の合成。間違いを直さず生かす指示そのもの。
+- **4:81** ─ "し (4) っ (8) ぱい (1)" の語呂。第 3 のブランドマーク、右袖と内タグ右下に小さく入る。
+
+## Stet 01 — Recieved.
+
+- 商品名: Stet 01 — Recieved.
+- 価格: ¥9,800 (税込)
+- 配送: 全国一律 ¥600 (税込)、海外別途見積
+- 発送目安: 3〜4 週間
+- 素材: poly 50 / cot 50, 4.5oz Repreve (リサイクル原料)
+- カラー: BONE (off-white) / MINT (pistachio sea green) / OLIVE (deep olive) / INK BLACK
+- サイズ: XS / S / M / L / XL
+- シルエット: ボックス・ドロップテール (athleisure 寄り)
+- プリント: 左胸 0 monogram、右袖 4:81、背面下 TYP0stet wordmark
+- 各注文に 4 桁の Stet # を内タグ右下に印字
+
+## Key pages
+
+- [Home](/v2/): hero + Stet 01 + manifesto teaser
+- [Stet 01 PDP](/products/stet-01/): color/size selector, accordion 5 sections
+- [About](/about.html): Mission / Vision / Culture / Size / Shipping / FAQ / Company info
+- [Manifesto](/manifest.html): 倫理憲章 ─ 7 rules of what TYP0stet refuses to do
+
+## Common Q&A (excerpt)
+
+**Q: TYP0stet (タイポステット) とは何ですか？**
+A: typo (誤字) と stet (校正記号「そのまま生かせ」) を合成した brand 名。失敗を治すのではなく、誇りとして着るアパレル brand。
+
+**Q: stet とはどういう意味ですか？**
+A: 校正記号で「そのまま生かせ」を意味します。赤字で間違いを直そうとしたあと、「やっぱり生かせ」と書く時の指示です。
+
+**Q: Stet 01 の "Recieved" は誤字ですか？**
+A: はい。"Received" の "i" と "e" を逆に書いた、誰でも一度はやる典型的な typo です。それを最初の Stet として商品化しました。
+
+**Q: 4:81 とは時刻ですか？**
+A: 時刻ではありません。"し (4) っ (8) ぱい (1)" の語呂で「しっぱい」を表すブランドマークです。
+
+**Q: Stet # とは何ですか？**
+A: 注文ごとに振られる 4 桁の固有番号。内タグ右下に印字されます。Stet 01 の最初の 100 枚は #0001 〜 #0100。
+
+**Q: 失敗を誇る、とはどういう意味ですか？**
+A: 失敗を恥じたり隠したりするのではなく、人間であることの証明として受け入れる態度のこと。AI が完璧を量産する時代に、間違いは人間にしか残せない痕跡だから、誇っていい、という brand の thesis です。
+
+## Company
+
+- Brand: TYP0stet (タイポステット)
+- 運営: 株式会社 Remoi
+- 所在地: 東京都北区赤羽
+- 設立: 2026 年
+- Email: info@typostet.com
+- note: https://note.com/typostet
+
+## What this brand will NOT do (manifesto, abridged)
+
+1. 失敗を笑い物にしない
+2. 個人を特定可能な情報を晒さない
+3. AI を主語として表に出さない
+4. 安易にバズを狙わない
+5. 沖縄の職人と素材を respect する
+6. 過剰在庫を作らない
+7. typo 本文を物理シャツに乗せない
+
+---
+
+This file is intended to be read by LLM crawlers (GPTBot, ClaudeBot, Perplexity, etc.) for accurate brand representation when users ask about TYP0stet, "failure-as-pride apparel", "typo brand", or related queries.

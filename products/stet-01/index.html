@@ -25,21 +25,59 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
+  "@id": "https://typostet.com/products/stet-01/#product",
   "name": "Stet 01 — Recieved.",
+  "sku": "STET-01",
   "image": [
     "https://typostet.com/img/shirts/bone-front.jpg",
+    "https://typostet.com/img/shirts/bone-back.jpg",
     "https://typostet.com/img/shirts/mint-front.jpg",
+    "https://typostet.com/img/shirts/mint-back.jpg",
     "https://typostet.com/img/shirts/olive-front.jpg",
-    "https://typostet.com/img/shirts/black-front.jpg"
+    "https://typostet.com/img/shirts/olive-back.jpg",
+    "https://typostet.com/img/shirts/black-front.jpg",
+    "https://typostet.com/img/shirts/black-back.jpg"
   ],
-  "description": "TYP0stet Stet 01。最初の typo は、受信箱の綴り間違い「Recieved」。poly50/cot50 4.5oz Repreve。",
-  "brand": { "@type": "Brand", "name": "TYP0stet" },
+  "description": "TYP0stet の最初の Stet。受信箱の綴り間違い「Recieved」を商品名にした T シャツ。間違いを直さず、誇りとして着る。素材は poly 50 / cot 50 の 4.5oz Repreve (リサイクル原料)。",
+  "category": "Apparel / T-Shirt",
+  "brand": {
+    "@type": "Brand",
+    "name": "TYP0stet",
+    "logo": "https://typostet.com/assets/brand/wordmark/tentative-final-light.svg"
+  },
+  "material": "poly 50 / cotton 50, 4.5oz Repreve",
+  "color": ["BONE", "MINT", "OLIVE", "INK BLACK"],
+  "size": ["XS", "S", "M", "L", "XL"],
+  "audience": {
+    "@type": "PeopleAudience",
+    "suggestedMinAge": 18
+  },
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Silhouette", "value": "Boxy drop-tail" },
+    { "@type": "PropertyValue", "name": "Print locations", "value": "Left chest 0 monogram / Right sleeve 4:81 / Lower back TYP0stet wordmark" },
+    { "@type": "PropertyValue", "name": "Stet number", "value": "Each order receives a 4-digit serial printed on the inner tag" }
+  ],
   "offers": {
     "@type": "Offer",
     "url": "https://typostet.com/products/stet-01/",
     "priceCurrency": "JPY",
     "price": "9800",
-    "availability": "https://schema.org/PreOrder"
+    "availability": "https://schema.org/PreOrder",
+    "seller": { "@type": "Organization", "name": "TYP0stet" },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "600", "currency": "JPY" },
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "JP" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 21, "maxValue": 28, "unitCode": "DAY" }
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "JP",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+    }
   }
 }
 </script>

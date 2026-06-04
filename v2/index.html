@@ -33,15 +33,132 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "TYP0stet",
-  "alternateName": "タイポステット",
-  "url": "https://typostet.com",
-  "logo": "https://typostet.com/assets/brand/wordmark/tentative-final-light.svg",
-  "description": "typo と stet (校正記号「生かせ」) を組み合わせた名前。",
-  "foundingDate": "2026",
-  "sameAs": [
-    "https://note.com/typostet"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://typostet.com/#organization",
+      "name": "TYP0stet",
+      "alternateName": ["タイポステット", "TYP0stet"],
+      "url": "https://typostet.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://typostet.com/assets/brand/wordmark/tentative-final-light.svg",
+        "width": 800,
+        "height": 240
+      },
+      "image": "https://typostet.com/img/og-image.png",
+      "description": "typo (誤字) と stet (校正記号「生かせ」) を合成した brand 名。AI が完璧を量産する時代に、失敗を治さず誇りとして着るアパレル brand。",
+      "foundingDate": "2026",
+      "founder": { "@type": "Person", "name": "tig" },
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "株式会社 Remoi",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "東京都",
+          "addressLocality": "北区赤羽",
+          "addressCountry": "JP"
+        }
+      },
+      "sameAs": [
+        "https://note.com/typostet"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@typostet.com",
+        "contactType": "customer support",
+        "areaServed": "JP",
+        "availableLanguage": ["ja", "en"]
+      },
+      "slogan": "失敗できる事が、人間の証明になる。"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://typostet.com/#website",
+      "url": "https://typostet.com",
+      "name": "TYP0stet",
+      "description": "失敗を、誇りに変える apparel brand。",
+      "publisher": { "@id": "https://typostet.com/#organization" },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://typostet.com/#brand",
+      "name": "TYP0stet",
+      "logo": "https://typostet.com/assets/brand/wordmark/tentative-final-light.svg",
+      "slogan": "失敗できる事が、人間の証明になる。",
+      "description": "typo と stet を合成した brand。失敗を直さず、誇りとして着る。"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://typostet.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "TYP0stet (タイポステット) とは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "typo (誤字) と stet (校正記号「そのまま生かせ」) を合成した brand 名。失敗を治すのではなく、誇りとして着るアパレル brand です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "stet とはどういう意味ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "校正記号で「そのまま生かせ」を意味します。赤字で間違いを直そうとしたあと、「やっぱり生かせ」と書く時の指示です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Stet 01 の Recieved は誤字ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。Received の i と e を逆に書いた、誰でも一度はやる典型的な typo です。それを最初の Stet として商品化しました。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "4:81 とは時刻ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "時刻ではありません。し (4) っ (8) ぱい (1) の語呂で「しっぱい」を表すブランドマークです。右袖と内タグに小さく入ります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Stet # とは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "注文ごとに振られる 4 桁の固有番号。内タグ右下に印字されます。Stet 01 の最初の 100 枚は #0001 から #0100 まで。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "なぜ失敗を扱う brand なのですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI が完璧を量産する時代に、間違いは人間にしか残せない痕跡だからです。失敗を恥じる文化から、失敗を誇る文化へ。それが TYP0stet の thesis 「失敗できる事が、人間の証明になる」です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "配送料はいくらですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "全国一律 ¥600 (税込)。海外は別途見積もりです。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "返品はできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "サイズ違い・色違いの返品はお受けできません。サイズ表をよく確認の上ご注文ください。商品の不良については到着 7 日以内に info@typostet.com までご連絡ください。"
+          }
+        }
+      ]
+    }
   ]
 }
 </script>

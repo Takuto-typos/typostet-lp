@@ -1,0 +1,70 @@
+{
+  "$schema": "https://schema.org/Product",
+  "brand": {
+    "name": "TYP0stet",
+    "alternateName": "タイポステット",
+    "url": "https://typostet.com",
+    "description": "typo (誤字) と stet (校正記号「生かせ」) を合成した brand 名。失敗を治さず、誇りとして身につけるアパレル。",
+    "operatingCompany": "株式会社 Remoi",
+    "location": "東京都北区赤羽",
+    "founded": "2026",
+    "thesis": "失敗できる事が、人間の証明になる。"
+  },
+  "products": [
+    {
+      "id": "stet-01",
+      "name": "Stet 01 — Recieved.",
+      "description": "TYP0stet の最初の Stet。受信箱の綴り間違い「Recieved」を商品名にした T シャツ。AI が完璧を量産する時代に、人間にしか残せない typo を誇りとして着る。",
+      "url": "https://typostet.com/products/stet-01/",
+      "category": "Apparel / T-shirt",
+      "price": 9800,
+      "priceCurrency": "JPY",
+      "availability": "PreOrder",
+      "leadTimeWeeks": [3, 4],
+      "material": "poly 50 / cot 50, 4.5oz Repreve (recycled)",
+      "silhouette": "boxy drop-tail (athleisure)",
+      "prints": {
+        "leftChest": "0 monogram",
+        "rightSleeve": "4:81",
+        "lowerBack": "TYP0stet wordmark"
+      },
+      "colors": [
+        { "name": "BONE", "hex": "#ECE3CF", "logoColor": "ink" },
+        { "name": "MINT", "hex": "#92E5BD", "logoColor": "ink" },
+        { "name": "OLIVE", "hex": "#5E6638", "logoColor": "bone" },
+        { "name": "INK BLACK", "hex": "#1A1A1A", "logoColor": "bone" }
+      ],
+      "sizes": [
+        { "size": "XS", "chestCm": 48, "lengthBackCm": 67, "lengthFrontCm": 63, "shoulderCm": 43, "sleeveCm": 20 },
+        { "size": "S",  "chestCm": 51, "lengthBackCm": 70, "lengthFrontCm": 66, "shoulderCm": 46, "sleeveCm": 21 },
+        { "size": "M",  "chestCm": 54, "lengthBackCm": 73, "lengthFrontCm": 69, "shoulderCm": 49, "sleeveCm": 22 },
+        { "size": "L",  "chestCm": 57, "lengthBackCm": 76, "lengthFrontCm": 72, "shoulderCm": 52, "sleeveCm": 23 },
+        { "size": "XL", "chestCm": 60, "lengthBackCm": 79, "lengthFrontCm": 75, "shoulderCm": 55, "sleeveCm": 24 }
+      ],
+      "images": [
+        "https://typostet.com/img/shirts/bone-front.jpg",
+        "https://typostet.com/img/shirts/bone-back.jpg",
+        "https://typostet.com/img/shirts/mint-front.jpg",
+        "https://typostet.com/img/shirts/mint-back.jpg",
+        "https://typostet.com/img/shirts/olive-front.jpg",
+        "https://typostet.com/img/shirts/olive-back.jpg",
+        "https://typostet.com/img/shirts/black-front.jpg",
+        "https://typostet.com/img/shirts/black-back.jpg"
+      ],
+      "stetNumber": {
+        "format": "4-digit serial",
+        "location": "内タグ右下",
+        "firstHundred": "Stet 01 first 100 = #0001 to #0100"
+      }
+    }
+  ],
+  "shipping": {
+    "domesticJP": { "fee": 600, "currency": "JPY", "carrier": "TBD" },
+    "international": { "fee": "quote-based", "contact": "info@typostet.com" }
+  },
+  "policy": {
+    "returns": "サイズ違い・色違いの返品不可。不良品は到着 7 日以内に info@typostet.com まで。",
+    "language": ["ja", "en"]
+  },
+  "lastUpdated": "2026-06-04"
+}
