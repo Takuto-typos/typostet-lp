@@ -22,17 +22,18 @@ WORDMARK = DOWNLOADS / "TYP0文字ロゴ (1)/2.png"
 CROP_RIGHT = 320
 CROP_BOTTOM = 180
 
-# Per-shirt horizontal body center (re-measured: bone body actually centers at 1540)
+# Per-shirt horizontal body center (re-measured 06-04 via /tmp/measure_bodies.py
+# scanning the chest band; visual chest-LEFT relative to actual body, not photo center)
 SHIRT_BODY_X = {
-    "bone-front":  1500, "bone-back":   1500,
+    "bone-front":  1580, "bone-back":   1500,
     "mint-front":  1330, "mint-back":   1500,
-    "olive-front": 1500, "olive-back":  1500,
+    "olive-front": 1280, "olive-back":  1500,
 }
 
 CROP_X = {
-    "bone-front":  1560, "bone-back":   1350,
+    "bone-front":  1640, "bone-back":   1350,
     "mint-front":  1390, "mint-back":   1350,
-    "olive-front": 1560, "olive-back":  1350,
+    "olive-front": 1340, "olive-back":  1350,
 }
 
 # Logo offsets from shirt body center (px), cy/w are frame-fractions
@@ -47,9 +48,10 @@ TS_DX_BY_SHIRT = {
     "mint-front": +500,
 }
 
-# 4:81 sleeve engraving angle (degrees). Negative = rotated clockwise so the
-# text follows the sleeve seam falling down-right on viewer-right sleeve.
-TS_SLEEVE_ANGLE = -22
+# 4:81 sleeve engraving angle (degrees). Positive = counter-clockwise so the
+# text runs parallel to the sleeve seam (rising from inner edge to outer edge
+# on the viewer-right sleeve).
+TS_SLEEVE_ANGLE = +22
 
 INK = (14, 14, 14)
 
