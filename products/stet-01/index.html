@@ -206,6 +206,12 @@
     margin-bottom: 28px;
     max-width: 480px;
   }
+  .pdp__narrative {
+    font-family: var(--serif); font-size: 15px; line-height: 1.95;
+    color: var(--muted);
+    margin-bottom: 28px;
+    max-width: 480px;
+  }
   .pdp__price {
     font-family: var(--num); font-weight: 700;
     font-size: 26px;
@@ -277,6 +283,12 @@
   .pdp__cta:hover { background: var(--bone); color: var(--ink); }
   .pdp__cta::after { content: "→"; }
   .pdp__cta[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
+  .pdp__cta-note {
+    font-family: var(--mono); font-style: italic; font-size: 11px;
+    letter-spacing: 0.04em; color: var(--muted);
+    text-align: center;
+    margin-bottom: 24px;
+  }
 
   .pdp__delivery {
     font-family: var(--serif); font-size: 14px; line-height: 1.7;
@@ -404,6 +416,7 @@
     </a>
     <nav class="site-nav" id="site-nav" aria-label="primary">
       <a href="/#stet">Shop</a>
+      <a href="/#objects">Objects</a>
       <a href="/stories/">Stories</a>
       <a href="/manifest.html">Manifesto</a>
       <a href="/about.html">About</a>
@@ -437,7 +450,8 @@
   <section class="pdp__info">
     <p class="pdp__eyebrow">Stet 01</p>
     <h1 class="pdp__title">Recieved<em>.</em></h1>
-    <p class="pdp__price">¥9,800 <small>税込・送料別</small></p>
+    <p class="pdp__narrative">最初の Stet は、誰でも一度はやる "Received" の綴り間違い。返信もできないまま、誰かに届いてしまった夜のために。直さず、着る。</p>
+    <p class="pdp__price">¥9,800 <small>税込・送料 ¥600</small></p>
 
     <!-- Color -->
     <div class="selector">
@@ -463,7 +477,8 @@
       <a href="#size-guide" class="size-guide-link">sizes are honest — guide はこちら ↓</a>
     </div>
 
-    <a id="cta" href="#" class="pdp__cta" aria-disabled="true">先行予約 (準備中)</a>
+    <a id="cta" href="https://buy.stripe.com/test_bJe5kEcfI9XzfI53f36Na02" target="_blank" rel="noopener" class="pdp__cta">Buy ─ ¥9,800</a>
+    <p class="pdp__cta-note">Stripe で安全に決済 ─ Apple Pay / Google Pay / 主要カード / コンビニ対応</p>
 
     <p class="pdp__delivery">
       <strong>お届けまで 3〜4 週間</strong>。
