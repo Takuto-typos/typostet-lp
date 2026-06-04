@@ -25,27 +25,35 @@ CROP_BOTTOM = 180
 # Per-shirt horizontal body center (re-measured 06-04 via /tmp/measure_bodies.py
 # scanning the chest band; visual chest-LEFT relative to actual body, not photo center)
 SHIRT_BODY_X = {
-    "bone-front":  1580, "bone-back":   1500,
+    "bone-front":  1500, "bone-back":   1500,
     "mint-front":  1330, "mint-back":   1500,
-    "olive-front": 1280, "olive-back":  1500,
+    "olive-front": 1500, "olive-back":  1500,
 }
 
 CROP_X = {
-    "bone-front":  1640, "bone-back":   1350,
+    "bone-front":  1560, "bone-back":   1350,
     "mint-front":  1390, "mint-back":   1350,
-    "olive-front": 1340, "olive-back":  1350,
+    "olive-front": 1560, "olive-back":  1350,
 }
 
 # Logo offsets from shirt body center (px), cy/w are frame-fractions
 LOGO = {
-    "mono_front": dict(dx=-120, cy=0.30, w=0.035),  # viewer-LEFT chest, one size smaller
-    "ts_front":   dict(dx=+400, cy=0.38, w=0.035),  # right sleeve; rotated to sleeve angle
-    "wm_back":    dict(dx=-240, cy=0.76, w=0.095),  # viewer-LEFT lower back, smaller, within body
+    "mono_front": dict(dx=-120, cy=0.30, w=0.035),
+    "ts_front":   dict(dx=+400, cy=0.38, w=0.035),
+    "wm_back":    dict(dx=-240, cy=0.76, w=0.095),
 }
 
-# Per-shirt ts_dx override (mint shirt has wider body, sleeve further right)
+# Per-shirt mono dx override (shirts are not at the same x-offset in their photos)
+MONO_DX_BY_SHIRT = {
+    "bone-front":  -200,
+    "olive-front": -80,
+}
+
+# Per-shirt ts dx override
 TS_DX_BY_SHIRT = {
-    "mint-front": +500,
+    "bone-front":  +480,
+    "mint-front":  +560,
+    "olive-front": +320,
 }
 
 # 4:81 sleeve engraving angle (degrees). Positive = counter-clockwise so the
@@ -130,7 +138,10 @@ for name, fname in SHIRTS.items():
     w_logo = wm_ink if use_ink else wm
 
     if "front" in name:
-        place(shirt, m_logo, body_x, **LOGO["mono_front"])
+        m_args = dict(LOGO["mono_front"])
+        if name in MONO_DX_BY_SHIRT:
+            m_args["dx"] = MONO_DX_BY_SHIRT[name]
+        place(shirt, m_logo, body_x, **m_args)
         ts_args = dict(LOGO["ts_front"])
         if name in TS_DX_BY_SHIRT:
             ts_args["dx"] = TS_DX_BY_SHIRT[name]
