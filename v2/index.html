@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F4EDDF">
 
-<title>TYP0stet ── 失敗できる事が、人間の証明になる。沖縄発アパレル</title>
-<meta name="description" content="typo (誤字) と stet (校正記号「生かせ」) の合成名。沖縄発・受注生産のアパレル brand。Stet 01 - Recieved. poly50/cot50 4.5oz / ¥9,800。">
-<meta name="keywords" content="TYP0stet, タイポステット, typo, stet, 失敗, アパレル, 沖縄, 受注生産, athleisure, Tシャツ">
+<title>TYP0stet ── 失敗できる事が、人間の証明になる。</title>
+<meta name="description" content="typo (誤字) と stet (校正記号「生かせ」) の合成名。Stet 01 - Recieved. poly50/cot50 4.5oz / ¥9,800。">
+<meta name="keywords" content="TYP0stet, タイポステット, typo, stet, 失敗, アパレル, athleisure, Tシャツ">
 
 <link rel="canonical" href="https://typostet.com/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://typostet.com/">
 <meta property="og:title" content="TYP0stet ── 失敗できる事が、人間の証明になる。">
-<meta property="og:description" content="失敗したい日に、着よう。沖縄発・受注生産アパレル。Stet 01 - Recieved.">
+<meta property="og:description" content="失敗したい日に、着よう。Stet 01 - Recieved.">
 <meta property="og:image" content="https://typostet.com/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@typostet">
 <meta name="twitter:title" content="TYP0stet ── 失敗できる事が、人間の証明になる。">
-<meta name="twitter:description" content="失敗したい日に、着よう。沖縄発・受注生産アパレル。">
+<meta name="twitter:description" content="失敗したい日に、着よう。">
 <meta name="twitter:image" content="https://typostet.com/img/og-image.png">
 
 <link rel="icon" type="image/svg+xml" href="/assets/brand/monogram/tentative-final.svg">
@@ -38,12 +38,8 @@
   "alternateName": "タイポステット",
   "url": "https://typostet.com",
   "logo": "https://typostet.com/assets/brand/wordmark/tentative-final-light.svg",
-  "description": "typo と stet (校正記号「生かせ」) を組み合わせた名前。沖縄発・受注生産のアパレル brand。",
+  "description": "typo と stet (校正記号「生かせ」) を組み合わせた名前。",
   "foundingDate": "2026",
-  "foundingLocation": {
-    "@type": "Place",
-    "name": "沖縄県南城市"
-  },
   "sameAs": [
     "https://note.com/typostet"
   ]
@@ -52,7 +48,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@300;400;500;600&family=Inconsolata:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=IBM+Plex+Sans+JP:wght@300;400;500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Inconsolata:wght@400;700;900&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -66,9 +62,12 @@
     --rule: rgba(14, 14, 14, 0.12);
     --muted: rgba(14, 14, 14, 0.55);
 
-    --sans: "IBM Plex Sans JP", "Helvetica Neue", Arial, sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-    --num:  "Inconsolata", ui-monospace, Menlo, monospace;
+    --serif: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    --sans:  "IBM Plex Sans JP", "Helvetica Neue", Arial, sans-serif;
+    --mono:  "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --num:   "Inconsolata", ui-monospace, Menlo, monospace;
+    --hand-jp: "Klee One", "Shippori Mincho", serif;
+    --hand-en: "IBM Plex Mono", ui-monospace, monospace;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -92,419 +91,585 @@
   }
   .skip:focus { left: 0; }
 
-  /* --- Ticker (utility banner, fixed top) --- */
-  .ticker {
-    position: sticky; top: 0; z-index: 50;
-    background: var(--ink); color: var(--bone);
-    font-family: var(--mono);
-    font-size: 11px; letter-spacing: 0.08em;
-    height: 32px; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .ticker__list { list-style: none; position: relative; height: 100%; width: 100%; }
-  .ticker__list li {
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0; transition: opacity 800ms ease;
-    padding: 0 24px; text-align: center;
-  }
-  .ticker__list li.is-active { opacity: 1; }
-
   /* --- Header --- */
   .site-header {
-    position: sticky; top: 32px; z-index: 40;
+    position: sticky; top: 0; z-index: 40;
     background: rgba(244, 237, 223, 0.92);
     backdrop-filter: saturate(180%) blur(8px);
     -webkit-backdrop-filter: saturate(180%) blur(8px);
     border-bottom: 1px solid var(--rule);
   }
   .site-header__inner {
-    max-width: 1240px; margin: 0 auto;
-    padding: 12px 28px;
+    max-width: 1320px; margin: 0 auto;
+    padding: 14px 28px;
     display: flex; align-items: center; justify-content: space-between; gap: 32px;
   }
   .site-header__brand { display: block; }
-  .site-header__brand img { width: 220px; height: auto; }
-  .site-nav { display: flex; gap: 32px; font-size: 14px; letter-spacing: 0.04em; }
-  .site-nav a { padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 200ms ease; }
-  .site-nav a:hover { border-bottom-color: var(--ink); }
+  .site-header__brand img { width: 200px; height: auto; }
+  .site-nav { display: flex; gap: 28px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .site-nav a { padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 200ms ease, opacity 200ms ease; opacity: 0.7; }
+  .site-nav a:hover { border-bottom-color: var(--ink); opacity: 1; }
+  .site-nav a.is-current { opacity: 1; border-bottom-color: var(--ink); }
+  .site-nav a.cart-link { font-style: italic; font-weight: 400; letter-spacing: 0.06em; text-transform: lowercase; opacity: 0.92; }
+
+  .nav-toggle {
+    display: none;
+    background: none; border: none; padding: 8px;
+    font-family: var(--mono); font-size: 18px;
+    cursor: pointer;
+  }
 
   /* --- Sections --- */
-  section { padding: 96px 28px; }
+  section { padding: 112px 28px; }
   .container { max-width: 960px; margin: 0 auto; }
-  .container--wide { max-width: 1240px; margin: 0 auto; }
+  .container--wide { max-width: 1320px; margin: 0 auto; }
 
   .eyebrow {
     font-family: var(--mono);
-    font-size: 11px; letter-spacing: 0.18em;
+    font-size: 11px; letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--muted);
   }
 
+  .ruler { /* subtle section separator: ─── 4:81 ─── */
+    display: flex; align-items: center; justify-content: center;
+    gap: 18px; margin: 0 auto 40px;
+    font-family: var(--num);
+    font-weight: 700;
+    font-size: 18px; letter-spacing: 0.1em;
+    color: var(--mint);
+    opacity: 0.85;
+  }
+  .ruler::before, .ruler::after {
+    content: "";
+    width: clamp(40px, 8vw, 80px);
+    height: 1px;
+    background: currentColor;
+    opacity: 0.45;
+  }
+
   /* --- Hero --- */
   .hero {
-    min-height: calc(100svh - 96px);
-    padding-top: 64px; padding-bottom: 96px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center;
+    position: relative;
+    min-height: 88svh;
+    padding: 0;
+    display: flex; align-items: flex-end; justify-content: flex-start;
+    overflow: hidden;
+    background: var(--bone-deep);
   }
-  .hero__monogram {
-    width: clamp(180px, 22vw, 280px); height: auto;
-    margin-bottom: 56px;
+  .hero__bg {
+    position: absolute; inset: 0;
+    background: var(--bone-deep);
+  }
+  .hero__slides {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+  }
+  .hero__slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    opacity: 0;
+    transition: opacity 1400ms ease;
+    pointer-events: none;
+  }
+  .hero__slide.is-active { opacity: 1; }
+  .hero__bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(244,237,223,0) 35%, rgba(244,237,223,0.55) 100%),
+                linear-gradient(90deg, rgba(244,237,223,0.45) 0%, rgba(244,237,223,0) 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hero__dots {
+    position: absolute;
+    bottom: 28px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 8px;
+    z-index: 3;
+  }
+  .hero__dot {
+    width: 24px; height: 1px;
+    background: rgba(14,14,14,0.25);
+    border: none; padding: 0;
+    cursor: pointer;
+    transition: background 280ms ease, height 280ms ease;
+  }
+  .hero__dot.is-active {
+    background: var(--ink);
+    height: 2px;
+  }
+  .hero__inner {
+    position: relative; z-index: 2;
+    padding: 56px 32px 72px;
+    max-width: 720px;
+  }
+  .hero__eyebrow {
+    margin-bottom: 22px;
   }
   .hero__title {
-    font-family: var(--sans);
-    font-weight: 500;
-    font-size: clamp(38px, 7vw, 84px);
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(40px, 7vw, 92px);
     line-height: 1.18;
-    letter-spacing: -0.02em;
-    margin-bottom: 24px;
+    letter-spacing: 0.01em;
+    margin-bottom: 28px;
+    /* deliberate off-center to break AI symmetry */
+    margin-left: clamp(0px, 1.5vw, 18px);
+  }
+  .hero__title em {
+    font-style: normal;
+    font-family: var(--hand-jp);
+    font-weight: 400;
+    color: var(--mint);
+    background: linear-gradient(180deg, transparent 60%, rgba(146,229,189,0.22) 60%);
+    padding: 0 4px;
   }
   .hero__sub {
     font-family: var(--mono);
     font-size: 13px; letter-spacing: 0.12em;
     color: var(--muted);
-    margin-bottom: 56px;
+    margin-bottom: 40px;
+    max-width: 480px;
   }
-  .hero__cta {
-    display: inline-flex; align-items: center; gap: 12px;
-    font-size: 13px; letter-spacing: 0.08em;
-    padding: 14px 24px;
+  .btn {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-family: var(--mono);
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 16px 26px;
+    background: var(--ink); color: var(--bone);
     border: 1px solid var(--ink);
-    transition: background 200ms ease, color 200ms ease;
+    transition: background 240ms ease, color 240ms ease, transform 240ms ease;
+    cursor: pointer;
   }
-  .hero__cta:hover { background: var(--ink); color: var(--bone); }
-  .hero__cta::after { content: "→"; font-family: var(--mono); }
+  .btn:hover { background: var(--bone); color: var(--ink); transform: translateY(-1px); }
+  .btn::after { content: "→"; font-family: var(--mono); }
+  .btn--ghost { background: transparent; color: var(--ink); }
+  .btn--ghost:hover { background: var(--ink); color: var(--bone); }
+  .btn[aria-disabled="true"] { cursor: not-allowed; opacity: 0.45; pointer-events: none; }
 
-  /* --- About --- */
-  .about { background: var(--bone); padding: 120px 28px; text-align: center; }
+  /* --- About / Tagline --- */
+  .about { background: var(--bone); padding: 140px 28px; text-align: center; }
   .about__line {
-    font-size: clamp(22px, 3vw, 32px);
-    font-weight: 400; line-height: 1.6;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(26px, 4vw, 42px);
+    line-height: 1.55;
+    letter-spacing: 0.01em;
+  }
+  .about__line em {
+    font-style: normal;
+    font-family: var(--hand-jp);
+    color: var(--terracotta);
+  }
+  .about__caption {
+    margin-top: 32px;
+    font-family: var(--mono);
+    font-size: 12px; letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
   }
 
-  /* --- Stet 01 --- */
-  .wave { background: var(--bone-deep); }
-  .wave__head { text-align: center; margin-bottom: 64px; }
-  .wave__index {
+  /* --- Stet 01 (product section) --- */
+  .stet { background: var(--bone-deep); }
+  .stet__head { text-align: center; margin-bottom: 56px; }
+  .stet__index {
     font-family: var(--num); font-weight: 400;
     font-size: 13px; letter-spacing: 0.1em;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     color: var(--muted);
   }
-  .wave__title {
-    font-family: var(--sans);
-    font-weight: 500;
-    font-size: clamp(36px, 6vw, 64px);
-    letter-spacing: -0.01em;
+  .stet__title {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(40px, 6vw, 72px);
+    letter-spacing: 0.01em;
   }
-  .wave__grid {
+  .stet__title em {
+    font-style: italic;
+    font-family: var(--hand-jp);
+    font-weight: 400;
+    color: var(--mint);
+  }
+  .stet__caption {
+    margin-top: 18px;
+    font-family: var(--serif); font-size: 16px;
+    color: var(--muted);
+    max-width: 540px; margin-left: auto; margin-right: auto;
+    line-height: 1.7;
+  }
+  .stet__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    margin-bottom: 64px;
+    margin-bottom: 72px;
   }
-  .wave__card { display: block; }
-  .wave__swatch-wrap {
+  .stet__card {
+    display: block;
+    transition: transform 280ms ease;
+  }
+  .stet__card:hover { transform: translateY(-4px); }
+  .stet__swatch-wrap {
     position: relative;
     aspect-ratio: 1 / 1;
     width: 100%;
     margin-bottom: 18px;
-    background: var(--bone-deep);
+    background: var(--bone);
     overflow: hidden;
     cursor: pointer;
+    border: 1px solid var(--rule);
   }
-  .wave__swatch {
+  .stet__swatch {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: opacity 200ms ease;
+    transition: opacity 200ms ease, transform 600ms ease;
   }
-  .wave__swatch--back {
+  .stet__card:hover .stet__swatch--front { transform: scale(1.025); }
+  .stet__swatch--back {
     position: absolute;
     right: 10px;
     bottom: 10px;
-    width: 30%;
-    height: 30%;
+    width: 28%;
+    height: 28%;
     border: 2px solid var(--bone);
     box-shadow: 0 2px 10px rgba(14, 14, 14, 0.14);
     transition: transform 240ms ease, opacity 200ms ease;
   }
-  .wave__swatch-wrap:hover .wave__swatch--back {
-    transform: scale(1.06);
-  }
-  .wave__swatch-wrap.is-swapping .wave__swatch {
-    opacity: 0;
-  }
-  .wave__card h3 {
+  .stet__swatch-wrap:hover .stet__swatch--back { transform: scale(1.06); }
+  .stet__swatch-wrap.is-swapping .stet__swatch { opacity: 0; }
+  .stet__card h3 {
     font-family: var(--mono); font-weight: 500;
-    font-size: 12px; letter-spacing: 0.14em;
-    margin-bottom: 6px;
+    font-size: 11px; letter-spacing: 0.18em;
+    margin-bottom: 4px;
+    text-transform: uppercase;
   }
-  .wave__card p { font-size: 14px; color: var(--muted); }
-  .wave__spec {
-    max-width: 560px; margin: 0 auto 56px;
+  .stet__card .price {
+    font-family: var(--serif); font-size: 15px;
+    color: var(--muted);
+  }
+  .stet__spec {
+    max-width: 620px; margin: 0 auto 56px;
     border-top: 1px solid var(--rule);
   }
-  .wave__spec > div {
-    display: grid; grid-template-columns: 120px 1fr;
-    gap: 24px; padding: 14px 0;
+  .stet__spec > div {
+    display: grid; grid-template-columns: 130px 1fr;
+    gap: 24px; padding: 16px 0;
     border-bottom: 1px solid var(--rule);
-    font-size: 13px;
+    font-family: var(--serif);
+    font-size: 14px;
   }
-  .wave__spec dt { font-family: var(--mono); color: var(--muted); letter-spacing: 0.08em; }
-  .wave__cta-wrap { text-align: center; }
-  .wave__cta {
-    display: inline-flex; align-items: center; gap: 12px;
-    font-size: 13px; letter-spacing: 0.08em;
-    padding: 14px 28px;
-    border: 1px solid var(--ink);
-    background: var(--ink); color: var(--bone);
-    transition: opacity 200ms ease;
-    cursor: not-allowed;
-    opacity: 0.45;
+  .stet__spec dt {
+    font-family: var(--mono); color: var(--muted);
+    letter-spacing: 0.08em; font-size: 12px;
+    text-transform: uppercase;
   }
-  .wave__cta::after { content: "→"; font-family: var(--mono); }
+  .stet__cta-wrap { text-align: center; }
+  .stet__live { /* deliberate human micro-detail */
+    margin-top: 18px;
+    font-family: var(--mono);
+    font-style: italic; font-weight: 400;
+    font-size: 13px; letter-spacing: 0.04em;
+    color: var(--muted);
+  }
 
   /* --- Stories --- */
-  .stories { background: var(--bone-deep); padding: 120px 28px; }
+  .stories { background: var(--bone); padding: 140px 28px; }
   .stories__head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 56px; }
-  .stories__head h2 { font-weight: 500; font-size: 28px; letter-spacing: -0.01em; }
-  .stories__head a { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--muted); }
-  .stories__grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+  .stories__head h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 3.5vw, 40px);
+    letter-spacing: 0.01em;
   }
-  .stories__card { display: block; cursor: pointer; }
+  .stories__head h2 em {
+    font-style: normal;
+    font-family: var(--hand-jp);
+    color: var(--mint);
+  }
+  .stories__head a {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    color: var(--muted); text-transform: uppercase;
+  }
+  .stories__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+  .stories__card { display: block; }
   .stories__thumb {
     aspect-ratio: 4 / 5;
-    background: var(--bone);
+    background: var(--bone-deep);
     border: 1px solid var(--rule);
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     transition: opacity 200ms ease;
     position: relative; overflow: hidden;
   }
   .stories__card:hover .stories__thumb { opacity: 0.85; }
-  .stories__date { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 4px; }
-  .stories__card h3 { font-weight: 400; font-size: 16px; line-height: 1.5; }
+  .stories__date {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--muted); margin-bottom: 4px;
+  }
+  .stories__card h3 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: 17px; line-height: 1.55;
+  }
 
   /* --- Manifesto --- */
   .manifesto {
     background: var(--ink); color: var(--bone);
-    padding: 140px 28px; text-align: center;
+    padding: 160px 28px; text-align: center;
   }
   .manifesto__lead {
-    font-family: var(--sans); font-weight: 500;
-    font-size: clamp(28px, 4vw, 44px);
-    line-height: 1.4; letter-spacing: -0.01em;
-    margin-bottom: 40px;
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(30px, 4.5vw, 52px);
+    line-height: 1.4; letter-spacing: 0.005em;
+    margin-bottom: 44px;
+  }
+  .manifesto__lead em {
+    font-style: normal;
+    font-family: var(--hand-jp);
+    color: var(--mint);
   }
   .manifesto__body {
-    max-width: 560px; margin: 0 auto;
-    font-size: 15px; line-height: 2;
-    color: rgba(244, 237, 223, 0.78);
+    max-width: 600px; margin: 0 auto 48px;
+    font-family: var(--serif);
+    font-size: 17px; line-height: 2;
+    color: rgba(244, 237, 223, 0.82);
+  }
+  .manifesto__body p + p { margin-top: 18px; }
+  .manifesto .btn--ghost {
+    color: var(--bone); border-color: var(--bone);
+  }
+  .manifesto .btn--ghost:hover {
+    background: var(--bone); color: var(--ink);
   }
 
   /* --- Newsletter --- */
-  .newsletter { background: var(--bone); padding: 120px 28px; text-align: center; }
+  .newsletter { background: var(--bone); padding: 140px 28px; text-align: center; }
   .newsletter__lead {
-    font-size: clamp(22px, 3vw, 30px);
-    margin-bottom: 32px;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(24px, 3.2vw, 36px);
+    margin-bottom: 14px;
   }
-  .newsletter__cta {
-    display: inline-flex; align-items: center; gap: 12px;
-    padding: 14px 28px;
-    font-size: 13px; letter-spacing: 0.08em;
-    border: 1px solid var(--ink);
-    transition: background 200ms ease, color 200ms ease;
+  .newsletter__sub {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 36px;
   }
-  .newsletter__cta:hover { background: var(--ink); color: var(--bone); }
-  .newsletter__cta::after { content: "↗"; font-family: var(--mono); }
 
-  /* --- Footer (4:81 lives at the hem) --- */
+  /* --- Footer --- */
   .site-footer {
     background: var(--bone);
     border-top: 1px solid var(--rule);
-    padding: 56px 28px 24px;
+    padding: 72px 28px 32px;
     position: relative;
   }
-  .site-footer__inner { max-width: 1240px; margin: 0 auto; }
-  .site-footer__nav {
-    display: flex; flex-wrap: wrap; gap: 24px;
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
-    color: var(--muted);
-    padding-bottom: 32px;
+  .site-footer__inner { max-width: 1320px; margin: 0 auto; }
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
     border-bottom: 1px solid var(--rule);
   }
-  .site-footer__nav a:hover { color: var(--ink); }
+  .site-footer__col h4 {
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .site-footer__col ul { list-style: none; }
+  .site-footer__col li {
+    font-family: var(--serif); font-size: 14px; line-height: 2;
+  }
+  .site-footer__col li a:hover { color: var(--mint); }
+  .site-footer__about {
+    font-family: var(--serif); font-size: 14px; line-height: 1.85;
+    color: var(--muted);
+    max-width: 320px;
+  }
+  .site-footer__about img { width: 160px; margin-bottom: 16px; }
+  .site-footer__live { /* tig live status — deliberate human micro-detail */
+    font-family: var(--mono);
+    font-style: italic; font-weight: 400;
+    font-size: 13px; letter-spacing: 0.03em;
+    color: var(--ink);
+    margin-top: 16px; line-height: 1.55;
+  }
   .site-footer__base {
     display: flex; justify-content: space-between; align-items: flex-end;
-    margin-top: 24px; gap: 32px;
+    margin-top: 32px; gap: 32px; flex-wrap: wrap;
   }
   .site-footer__copy {
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
     color: var(--muted);
   }
-  .site-footer__hem {
-    width: 64px; opacity: 0.5;
+  .site-footer__pay {
+    display: flex; gap: 10px; align-items: center;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+    color: var(--muted); text-transform: uppercase;
   }
+  .site-footer__hem { width: 64px; opacity: 0.5; }
 
   /* --- Reveal on scroll --- */
-  .reveal { opacity: 0; transform: translateY(12px); transition: opacity 600ms ease, transform 600ms ease; }
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 700ms ease, transform 700ms ease; }
   .reveal.is-revealed { opacity: 1; transform: none; }
 
   /* --- Responsive --- */
-  @media (max-width: 480px) {
-    .wave__grid { grid-template-columns: 1fr; gap: 16px; }
-    .wave__swatch--back { width: 26%; height: 26%; }
+  @media (max-width: 960px) {
+    .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .stories__grid { grid-template-columns: 1fr 1fr; }
   }
-
   @media (max-width: 720px) {
-    .site-header__inner { padding: 10px 20px; }
-    .site-header__brand img { width: 160px; }
-    .site-nav { gap: 18px; font-size: 13px; }
-    .site-nav a:nth-child(3) { display: none; } /* About */
-    section { padding: 72px 20px; }
-    .wave__grid { gap: 12px; }
-    .stories__grid { grid-template-columns: 1fr; gap: 24px; }
+    .site-header__inner { padding: 12px 20px; }
+    .site-header__brand img { width: 150px; }
+    .site-nav {
+      display: none;
+      position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 6px;
+      background: var(--bone);
+      padding: 18px 24px 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .site-nav.is-open { display: flex; }
+    .nav-toggle { display: inline-flex; }
+    section { padding: 88px 20px; }
+    .hero { min-height: 76svh; }
+    .hero__inner { padding: 40px 24px 56px; max-width: 100%; }
+    .stet__grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .stories__grid { grid-template-columns: 1fr; gap: 28px; }
     .stories__head { flex-direction: column; gap: 8px; align-items: flex-start; }
-    .site-footer__base { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .site-footer__grid { grid-template-columns: 1fr; gap: 36px; }
+    .site-footer__base { flex-direction: column; align-items: flex-start; gap: 18px; }
   }
 
-  /* --- Motion preference --- */
   @media (prefers-reduced-motion: reduce) {
-    .ticker__list li { transition: none; }
     .reveal { opacity: 1; transform: none; transition: none; }
+    .stet__card { transition: none; }
   }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">本文へスキップ</a>
 
-<div class="ticker" aria-live="polite" aria-label="brand voice">
-  <ul class="ticker__list">
-    <li>失敗できることを、誇りに思ってる。</li>
-    <li>やらかしで、繋がる。</li>
-    <li>Stet 01 ─ Recieved.</li>
-  </ul>
-</div>
-
 <header class="site-header">
   <div class="site-header__inner">
-    <a href="/" class="site-header__brand" aria-label="TYP0stet home">
+    <a href="/v2/" class="site-header__brand" aria-label="TYP0stet home">
       <img src="/assets/brand/wordmark/tentative-final-light.svg" alt="TYP0stet">
     </a>
-    <nav class="site-nav" aria-label="primary">
-      <a href="#stet">Stet 01</a>
-      <a href="#stories">Stories</a>
-      <a href="#about">About</a>
-      <a href="#newsletter" class="site-nav__cart">Cart</a>
+    <nav class="site-nav" id="site-nav" aria-label="primary">
+      <a href="#stet">Shop</a>
+      <a href="/manifest.html">Manifesto</a>
+      <a href="/about.html">About</a>
+      <a href="#cart" class="cart-link" aria-label="Cart (準備中)">cart</a>
     </nav>
+    <button class="nav-toggle" aria-label="menu" aria-controls="site-nav" aria-expanded="false">≡</button>
   </div>
 </header>
 
 <main id="main">
 
-  <section class="hero">
-    <img src="/assets/brand/monogram/tentative-final.svg" alt="" class="hero__monogram">
-    <h1 class="hero__title">失敗したい日に、<br>着よう。</h1>
-    <a href="#stet" class="hero__cta">Stet 01 を見る</a>
+  <!-- HERO -->
+  <section class="hero" aria-label="hero">
+    <div class="hero__bg">
+      <div class="hero__slides" id="hero-slides">
+        <img class="hero__slide is-active" src="/img/hero/output/hero-1.jpg" alt="" loading="eager">
+        <img class="hero__slide" src="/img/hero/output/hero-2.jpg" alt="" loading="eager">
+        <img class="hero__slide" src="/img/hero/output/hero-3.jpg" alt="" loading="lazy">
+        <img class="hero__slide" src="/img/hero/output/hero-4.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+    <div class="hero__inner">
+      <h1 class="hero__title">失敗したい日に、<br><em>着よう。</em></h1>
+      <a href="#stet" class="btn">Shop Stet 01</a>
+    </div>
+    <div class="hero__dots" id="hero-dots" aria-hidden="true">
+      <button class="hero__dot is-active" aria-label="slide 1"></button>
+      <button class="hero__dot" aria-label="slide 2"></button>
+      <button class="hero__dot" aria-label="slide 3"></button>
+      <button class="hero__dot" aria-label="slide 4"></button>
+    </div>
   </section>
 
+  <!-- ABOUT (one-line tagline) -->
   <section id="about" class="about reveal">
     <div class="container">
-      <h2 class="about__line">失敗できる事が、人間の証明になる。</h2>
+      <h2 class="about__line">失敗できる事が、<em>人間の証明</em>になる。</h2>
     </div>
   </section>
 
-  <section id="stet" class="wave reveal">
-    <div class="container">
-      <div class="wave__head">
-        <p class="wave__index">Stet 01</p>
-        <h2 class="wave__title">Recieved.</h2>
+  <!-- STET 01 (product preview) -->
+  <section id="stet" class="stet reveal">
+    <div class="container--wide">
+      <div class="stet__head">
+        <p class="stet__index">Stet 01</p>
+        <h2 class="stet__title">Recieved<em>.</em></h2>
       </div>
-      <div class="wave__grid">
-        <article class="wave__card">
-          <div class="wave__swatch-wrap">
-            <img class="wave__swatch wave__swatch--front" src="/img/shirts/bone-front.jpg" alt="TYP0stet Stet 01 — BONE 正面" loading="lazy">
-            <img class="wave__swatch wave__swatch--back" src="/img/shirts/bone-back.jpg" alt="BONE 背面" loading="lazy">
+
+      <div class="stet__grid">
+        <a class="stet__card" href="/products/stet-01/?color=bone">
+          <div class="stet__swatch-wrap">
+            <img class="stet__swatch stet__swatch--front" src="/img/shirts/bone-front.jpg" alt="TYP0stet Stet 01 — BONE 正面" loading="lazy">
+            <img class="stet__swatch stet__swatch--back" src="/img/shirts/bone-back.jpg" alt="BONE 背面" loading="lazy">
           </div>
           <h3>BONE</h3>
-        </article>
-        <article class="wave__card">
-          <div class="wave__swatch-wrap">
-            <img class="wave__swatch wave__swatch--front" src="/img/shirts/mint-front.jpg" alt="TYP0stet Stet 01 — MINT 正面" loading="lazy">
-            <img class="wave__swatch wave__swatch--back" src="/img/shirts/mint-back.jpg" alt="MINT 背面" loading="lazy">
+          <p class="price">¥9,800</p>
+        </a>
+        <a class="stet__card" href="/products/stet-01/?color=mint">
+          <div class="stet__swatch-wrap">
+            <img class="stet__swatch stet__swatch--front" src="/img/shirts/mint-front.jpg" alt="TYP0stet Stet 01 — MINT 正面" loading="lazy">
+            <img class="stet__swatch stet__swatch--back" src="/img/shirts/mint-back.jpg" alt="MINT 背面" loading="lazy">
           </div>
           <h3>MINT</h3>
-        </article>
-        <article class="wave__card">
-          <div class="wave__swatch-wrap">
-            <img class="wave__swatch wave__swatch--front" src="/img/shirts/olive-front.jpg" alt="TYP0stet Stet 01 — OLIVE 正面" loading="lazy">
-            <img class="wave__swatch wave__swatch--back" src="/img/shirts/olive-back.jpg" alt="OLIVE 背面" loading="lazy">
+          <p class="price">¥9,800</p>
+        </a>
+        <a class="stet__card" href="/products/stet-01/?color=olive">
+          <div class="stet__swatch-wrap">
+            <img class="stet__swatch stet__swatch--front" src="/img/shirts/olive-front.jpg" alt="TYP0stet Stet 01 — OLIVE 正面" loading="lazy">
+            <img class="stet__swatch stet__swatch--back" src="/img/shirts/olive-back.jpg" alt="OLIVE 背面" loading="lazy">
           </div>
           <h3>OLIVE</h3>
-        </article>
-        <article class="wave__card">
-          <div class="wave__swatch-wrap">
-            <img class="wave__swatch wave__swatch--front" src="/img/shirts/black-front.jpg" alt="TYP0stet Stet 01 — BLACK 正面" loading="lazy">
-            <img class="wave__swatch wave__swatch--back" src="/img/shirts/black-back.jpg" alt="BLACK 背面" loading="lazy">
+          <p class="price">¥9,800</p>
+        </a>
+        <a class="stet__card" href="/products/stet-01/?color=black">
+          <div class="stet__swatch-wrap">
+            <img class="stet__swatch stet__swatch--front" src="/img/shirts/black-front.jpg" alt="TYP0stet Stet 01 — INK BLACK 正面" loading="lazy">
+            <img class="stet__swatch stet__swatch--back" src="/img/shirts/black-back.jpg" alt="INK BLACK 背面" loading="lazy">
           </div>
-          <h3>BLACK</h3>
-        </article>
+          <h3>INK BLACK</h3>
+          <p class="price">¥9,800</p>
+        </a>
       </div>
-      <dl class="wave__spec">
+
+      <dl class="stet__spec">
         <div><dt>素材</dt><dd>poly 50 / cot 50 ─ 4.5oz Repreve</dd></div>
-        <div><dt>製法</dt><dd>受注生産 ─ 発送まで 3〜4 週間</dd></div>
+        <div><dt>発送</dt><dd>3〜4 週間</dd></div>
+        <div><dt>サイズ</dt><dd>XS / S / M / L / XL ─ 詳細は商品ページのサイズ表を</dd></div>
+        <div><dt>Stet #</dt><dd>注文ごとに 4 桁の Stet # が刻まれる (内タグ右下、4:81)</dd></div>
         <div><dt>価格</dt><dd>¥9,800 (税込)</dd></div>
       </dl>
-      <div class="wave__cta-wrap">
-        <a href="#" class="wave__cta" aria-disabled="true">先行予約 (準備中)</a>
+      <div class="stet__cta-wrap">
+        <a href="/products/stet-01/" class="btn">商品ページへ</a>
       </div>
     </div>
   </section>
 
-  <section id="stories" class="stories reveal">
-    <div class="container--wide">
-      <div class="stories__head">
-        <h2>Stories.</h2>
-        <a href="#">すべて見る →</a>
-      </div>
-      <div class="stories__grid">
-        <a class="stories__card" href="#">
-          <div class="stories__thumb"></div>
-          <p class="stories__date">2026 . 06</p>
-          <h3>Stet 01 = Recieved の話</h3>
-        </a>
-        <a class="stories__card" href="#">
-          <div class="stories__thumb"></div>
-          <p class="stories__date">2026 . 06</p>
-          <h3>なぜ typo を着るのか</h3>
-        </a>
-        <a class="stories__card" href="#">
-          <div class="stories__thumb"></div>
-          <p class="stories__date">2026 . 06</p>
-          <h3>誇り、という reframe</h3>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="manifesto reveal">
+  <!-- MANIFESTO -->
+  <section id="manifesto" class="manifesto reveal">
     <div class="container">
-      <p class="manifesto__lead">失敗できることを、誇りに思ってる。</p>
-      <p class="manifesto__body">
-        間違わない時代に、私たちは間違える。<br>
-        やらかして、書き直して、また着る。<br>
-        それは弱さではなく、人間であることの証明だ。
-      </p>
+      <p class="manifesto__lead">失敗できることを、<em>誇りに思ってる</em>。</p>
+      <a href="/manifest.html" class="btn btn--ghost">Manifesto →</a>
     </div>
   </section>
 
+  <!-- NEWSLETTER -->
   <section id="newsletter" class="newsletter reveal">
     <div class="container">
-      <p class="newsletter__lead">次の Stet を、最初に。</p>
-      <a href="https://note.com/typostet" class="newsletter__cta" target="_blank" rel="noopener">note でフォロー</a>
+      <p class="newsletter__lead">次の Stet を、誰より先に。</p>
+      <a href="https://note.com/typostet" class="btn" target="_blank" rel="noopener">Follow on note</a>
     </div>
   </section>
 
@@ -512,35 +677,79 @@
 
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <nav class="site-footer__nav" aria-label="footer">
-      <a href="#stet">Stet 01</a>
-      <a href="#stories">Stories</a>
-      <a href="#about">About</a>
-      <a href="/manifest.html">Manifesto</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/tokutei.html">特定商取引法に基づく表記</a>
-    </nav>
+    <div class="site-footer__grid">
+      <div class="site-footer__col">
+        <img src="/assets/brand/wordmark/tentative-final-light.svg" alt="TYP0stet">
+      </div>
+      <div class="site-footer__col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="/products/stet-01/">Stet 01 — Recieved.</a></li>
+          <li><a href="#newsletter">次の Stet を待つ</a></li>
+          <li><a href="/about.html#size">サイズガイド</a></li>
+          <li><a href="/about.html#shipping">配送について</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Read</h4>
+        <ul>
+          <li><a href="/manifest.html">Manifesto</a></li>
+          <li><a href="https://note.com/typostet" target="_blank" rel="noopener">note ↗</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/terms.html">Terms</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/tokutei.html">特定商取引法</a></li>
+          <li><a href="mailto:info@typostet.com">info@typostet.com</a></li>
+        </ul>
+      </div>
+    </div>
     <div class="site-footer__base">
-      <p class="site-footer__copy">© 2026 TYP0stet</p>
+      <p class="site-footer__copy">© 2026 TYP0stet ─ Made in 沖縄</p>
+      <p class="site-footer__pay">Visa / Master / Amex / Apple Pay / コンビニ</p>
       <img src="/assets/brand/timestamp/tentative-final.svg" alt="" class="site-footer__hem">
     </div>
   </div>
 </footer>
 
 <script>
-  // Ticker — rotate brand voice phrases (cross-fade)
+  // Hero slider (auto-rotate + dot click + tap to advance)
   (function () {
-    var items = document.querySelectorAll('.ticker__list li');
-    if (!items.length) return;
+    var slides = document.querySelectorAll('.hero__slide');
+    var dots = document.querySelectorAll('.hero__dot');
+    if (slides.length <= 1) return;
     var i = 0;
-    items[0].classList.add('is-active');
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    setInterval(function () {
-      items[i].classList.remove('is-active');
-      i = (i + 1) % items.length;
-      items[i].classList.add('is-active');
-    }, 6000);
+    var timer;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function show(n) {
+      slides[i].classList.remove('is-active');
+      dots[i] && dots[i].classList.remove('is-active');
+      i = (n + slides.length) % slides.length;
+      slides[i].classList.add('is-active');
+      dots[i] && dots[i].classList.add('is-active');
+    }
+    function next() { show(i + 1); }
+    function start() { if (!reduce) timer = setInterval(next, 6500); }
+    function stop() { clearInterval(timer); }
+
+    dots.forEach(function (d, idx) {
+      d.addEventListener('click', function () { stop(); show(idx); start(); });
+    });
+
+    // Tap on hero (excluding inner content) advances on mobile
+    var hero = document.querySelector('.hero');
+    if (hero) {
+      hero.addEventListener('click', function (ev) {
+        if (ev.target.closest('.hero__inner')) return;
+        if (ev.target.closest('.hero__dot')) return;
+        stop(); next(); start();
+      });
+    }
+    start();
   })();
 
   // Section reveal on scroll
@@ -557,16 +766,19 @@
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     els.forEach(function (el) { io.observe(el); });
   })();
 
   // Tap to swap front <-> back on Stet product cards
   (function () {
-    document.querySelectorAll('.wave__swatch-wrap').forEach(function (wrap) {
-      wrap.addEventListener('click', function () {
-        var front = wrap.querySelector('.wave__swatch--front');
-        var back = wrap.querySelector('.wave__swatch--back');
+    document.querySelectorAll('.stet__swatch-wrap').forEach(function (wrap) {
+      wrap.addEventListener('click', function (ev) {
+        // If the card is wrapped in <a>, let it navigate. Only swap on the small back PIP.
+        if (!ev.target.classList.contains('stet__swatch--back')) return;
+        ev.preventDefault();
+        var front = wrap.querySelector('.stet__swatch--front');
+        var back = wrap.querySelector('.stet__swatch--back');
         if (!front || !back) return;
         wrap.classList.add('is-swapping');
         setTimeout(function () {
@@ -575,6 +787,25 @@
           back.src = s; back.alt = a;
           wrap.classList.remove('is-swapping');
         }, 180);
+      });
+    });
+  })();
+
+  // Mobile nav toggle
+  (function () {
+    var btn = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? '×' : '≡';
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        nav.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.textContent = '≡';
       });
     });
   })();

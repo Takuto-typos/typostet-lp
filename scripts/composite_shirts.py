@@ -50,14 +50,19 @@ LOGO = {
 MONO_DX_BY_SHIRT = {
     "bone-front":  -260,
     "olive-front": -240,
-    "black-front": -200,
+    "black-front": -260,
 }
 
 TS_DX_BY_SHIRT = {
     "bone-front":  +380,
     "mint-front":  +540,
-    "olive-front": +340,
-    "black-front": +400,
+    "olive-front": +380,
+    "black-front": +360,
+}
+
+TS_CY_BY_SHIRT = {
+    "olive-front": 0.46,
+    "black-front": 0.45,
 }
 
 # 4:81 sleeve engraving angle (degrees). Positive = counter-clockwise so the
@@ -67,6 +72,7 @@ TS_SLEEVE_ANGLE = +22
 
 INK = (14, 14, 14)
 MINT = (146, 229, 189)
+BONE = (244, 237, 223)
 
 
 def recolor(logo, rgb):
@@ -126,13 +132,15 @@ wm = trim(Image.open(WORDMARK).convert("RGBA"))
 # Rotate 4:81 to follow sleeve seam angle, then re-trim to drop transparent margins.
 ts = trim(ts_raw.rotate(TS_SLEEVE_ANGLE, resample=Image.BICUBIC, expand=True))
 
-# Ink-recolored variants for mint shirts
+# Ink-recolored variants (used on bone + mint shirts)
 mono_ink = recolor(mono, INK)
 ts_ink = recolor(ts, INK)
 wm_ink = recolor(wm, INK)
 
-# All-mint wordmark for black shirts (default TYPO=black would be invisible on black)
-wm_mint = recolor(wm, MINT)
+# Bone-recolored variants (used on olive + black shirts)
+mono_bone = recolor(mono, BONE)
+ts_bone = recolor(ts, BONE)
+wm_bone = recolor(wm, BONE)
 
 for name, fname in SHIRTS.items():
     shirt = Image.open(DOWNLOADS / fname).convert("RGBA")
@@ -140,15 +148,11 @@ for name, fname in SHIRTS.items():
 
     body_x = SHIRT_BODY_X[name]
     crop_x = CROP_X[name]
-    use_ink = "mint" in name
-    m_logo = mono_ink if use_ink else mono
-    t_logo = ts_ink if use_ink else ts
-    if use_ink:
-        w_logo = wm_ink
-    elif "black" in name:
-        w_logo = wm_mint
+    # bone + mint shirts → all-ink logos; olive + black → all-bone logos
+    if "bone" in name or "mint" in name:
+        m_logo, t_logo, w_logo = mono_ink, ts_ink, wm_ink
     else:
-        w_logo = wm
+        m_logo, t_logo, w_logo = mono_bone, ts_bone, wm_bone
 
     if "front" in name:
         m_args = dict(LOGO["mono_front"])
@@ -158,6 +162,8 @@ for name, fname in SHIRTS.items():
         ts_args = dict(LOGO["ts_front"])
         if name in TS_DX_BY_SHIRT:
             ts_args["dx"] = TS_DX_BY_SHIRT[name]
+        if name in TS_CY_BY_SHIRT:
+            ts_args["cy"] = TS_CY_BY_SHIRT[name]
         place(shirt, t_logo, body_x, **ts_args)
     else:
         place(shirt, w_logo, body_x, **LOGO["wm_back"])

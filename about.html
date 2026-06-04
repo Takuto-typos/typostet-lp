@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4EDDF">
+
+<title>About ─ TYP0stet</title>
+<meta name="description" content="TYP0stet について。Mission / Vision / Culture / サイズ / 配送 / 会社概要。">
+
+<link rel="canonical" href="https://typostet.com/about.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://typostet.com/about.html">
+<meta property="og:title" content="About ─ TYP0stet">
+<meta property="og:description" content="TYP0stet について。">
+<meta property="og:image" content="https://typostet.com/img/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="/assets/brand/monogram/tentative-final.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=IBM+Plex+Sans+JP:wght@300;400;500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Inconsolata:wght@400;700;900&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bone: #F4EDDF;
+    --bone-deep: #ECE3CF;
+    --ink: #0E0E0E;
+    --mint: #92E5BD;
+    --olive: #5E6638;
+    --terracotta: #C7553E;
+    --rule: rgba(14, 14, 14, 0.12);
+    --muted: rgba(14, 14, 14, 0.55);
+
+    --serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+    --sans:  "IBM Plex Sans JP", "Helvetica Neue", Arial, sans-serif;
+    --mono:  "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --num:   "Inconsolata", ui-monospace, Menlo, monospace;
+    --hand-jp: "Klee One", serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 80px; }
+  body {
+    background: var(--bone); color: var(--ink);
+    font-family: var(--sans); line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  .site-header {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(244, 237, 223, 0.92);
+    backdrop-filter: saturate(180%) blur(8px);
+    -webkit-backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-header__inner {
+    max-width: 1320px; margin: 0 auto;
+    padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  }
+  .site-header__brand img { width: 200px; }
+  .site-nav { display: flex; gap: 28px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .site-nav a { padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 200ms ease, opacity 200ms ease; opacity: 0.7; }
+  .site-nav a:hover { border-bottom-color: var(--ink); opacity: 1; }
+  .site-nav a.is-current { opacity: 1; border-bottom-color: var(--ink); }
+  .site-nav a.cart-link { font-style: italic; font-weight: 400; letter-spacing: 0.06em; text-transform: lowercase; opacity: 0.92; }
+  .nav-toggle { display: none; background: none; border: none; padding: 8px; font-family: var(--mono); font-size: 18px; }
+
+  .about-hero {
+    padding: 96px 28px 56px;
+    text-align: center;
+    background: var(--bone);
+    border-bottom: 1px solid var(--rule);
+  }
+  .about-hero p {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
+    color: var(--muted); text-transform: uppercase;
+  }
+
+  .anchor-tabs {
+    position: sticky; top: 64px; z-index: 30;
+    background: rgba(244, 237, 223, 0.94);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 28px;
+    text-align: center;
+  }
+  .anchor-tabs a {
+    display: inline-block;
+    margin: 0 14px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+    color: var(--muted); text-transform: uppercase;
+    padding: 4px 0; border-bottom: 1px solid transparent;
+    transition: color 200ms ease, border-color 200ms ease;
+  }
+  .anchor-tabs a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+  section.block {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 72px 28px;
+    border-bottom: 1px solid var(--rule);
+  }
+  section.block:last-of-type { border-bottom: none; }
+  .micro {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .block h2 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.25;
+    margin-bottom: 24px;
+  }
+  .block p {
+    font-family: var(--serif); font-size: 17px; line-height: 1.95;
+    color: var(--ink);
+    max-width: 620px;
+  }
+  .block p + p { margin-top: 14px; }
+
+  .block table {
+    width: 100%; border-collapse: collapse; margin-top: 8px;
+    font-family: var(--mono); font-size: 13px;
+  }
+  .block th, .block td {
+    text-align: left; padding: 12px 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .block th { color: var(--ink); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; font-size: 11px; }
+  .block .table-note {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+    color: var(--muted); margin-top: 14px;
+  }
+
+  .block ul { list-style: none; padding-left: 0; margin-top: 6px; }
+  .block ul li {
+    font-family: var(--serif); font-size: 15px; line-height: 1.95;
+    padding-left: 20px; position: relative;
+  }
+  .block ul li::before { content: "─"; position: absolute; left: 0; color: var(--mint); }
+
+  details {
+    border-top: 1px solid var(--rule);
+    padding: 16px 0;
+  }
+  details:last-of-type { border-bottom: 1px solid var(--rule); }
+  details summary {
+    list-style: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after {
+    content: "+"; font-family: var(--serif); font-size: 18px;
+    transition: transform 220ms ease;
+  }
+  details[open] summary::after { transform: rotate(45deg); }
+  details > p, details > div {
+    margin-top: 12px;
+    font-family: var(--serif); font-size: 15px; line-height: 1.95;
+    color: var(--muted);
+  }
+
+  /* Company info table */
+  .company {
+    background: var(--bone-deep);
+    border: 1px solid var(--rule);
+    padding: 32px;
+    margin-top: 8px;
+  }
+  .company dl {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 14px 24px;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  .company dt {
+    color: var(--muted); letter-spacing: 0.1em;
+    text-transform: uppercase; font-size: 11px;
+  }
+  .company dd {
+    color: var(--ink); font-family: var(--serif); font-size: 15px;
+  }
+
+  .site-footer {
+    background: var(--bone-deep);
+    border-top: 1px solid var(--rule);
+    padding: 64px 28px 28px;
+  }
+  .site-footer__inner {
+    max-width: 1320px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .site-footer__copy {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+  .site-footer__nav {
+    display: flex; gap: 22px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--muted); text-transform: uppercase;
+  }
+  .site-footer__nav a:hover { color: var(--ink); }
+
+  @media (max-width: 720px) {
+    .site-header__inner { padding: 12px 20px; }
+    .site-header__brand img { width: 150px; }
+    .site-nav {
+      display: none;
+      position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 6px;
+      background: var(--bone); padding: 18px 24px 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .site-nav.is-open { display: flex; }
+    .nav-toggle { display: inline-flex; }
+    .anchor-tabs a { margin: 0 8px; font-size: 10px; }
+    section.block { padding: 56px 20px; }
+    .company dl { grid-template-columns: 1fr; gap: 4px; }
+    .company dt { margin-top: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/v2/" class="site-header__brand" aria-label="TYP0stet home">
+      <img src="/assets/brand/wordmark/tentative-final-light.svg" alt="TYP0stet">
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="primary">
+      <a href="/v2/#stet">Shop</a>
+      <a href="/manifest.html">Manifesto</a>
+      <a href="/about.html" class="is-current">About</a>
+      <a href="#cart" class="cart-link" aria-label="Cart">cart</a>
+    </nav>
+    <button class="nav-toggle" aria-label="menu" aria-controls="site-nav" aria-expanded="false">≡</button>
+  </div>
+</header>
+
+<section class="about-hero">
+  <p>About — TYP0stet</p>
+</section>
+
+<nav class="anchor-tabs" aria-label="page sections">
+  <a href="#mission">Mission</a>
+  <a href="#vision">Vision</a>
+  <a href="#culture">Culture</a>
+  <a href="#size">Size</a>
+  <a href="#shipping">Shipping</a>
+  <a href="#company">Company</a>
+</nav>
+
+<section id="mission" class="block">
+  <p class="micro">01 — Mission</p>
+  <h2>失敗できる服を、つくる。</h2>
+  <p>typo と stet (校正記号「生かせ」) を合成した brand。間違いを直さず、誇りとして着る。それが TYP0stet がつくる服です。</p>
+</section>
+
+<section id="vision" class="block">
+  <p class="micro">02 — Vision</p>
+  <h2>失敗を、誇れる時代に。</h2>
+  <p>AI が完璧を量産する時代に、間違いは人間にしか残せない痕跡になる。TYP0stet はその痕跡を、誇りに変える brand を目指します。</p>
+</section>
+
+<section id="culture" class="block">
+  <p class="micro">03 — Culture</p>
+  <h2>大人の砂場を、街につくる。</h2>
+  <p>失敗を恥じる文化から、失敗を誇る文化へ。同じ TYP0stet を着ている人どうしが、やらかしを入口に繋がる。そういう小さな砂場を、街にいくつもつくっていきます。</p>
+</section>
+
+<section id="size" class="block">
+  <p class="micro">04 — Size</p>
+  <h2>サイズ表。</h2>
+  <table>
+    <thead><tr><th>Size</th><th>身幅</th><th>着丈 (後)</th><th>着丈 (前)</th><th>肩幅</th><th>袖丈</th></tr></thead>
+    <tbody>
+      <tr><td>XS</td><td>48</td><td>67</td><td>63</td><td>43</td><td>20</td></tr>
+      <tr><td>S</td><td>51</td><td>70</td><td>66</td><td>46</td><td>21</td></tr>
+      <tr><td>M</td><td>54</td><td>73</td><td>69</td><td>49</td><td>22</td></tr>
+      <tr><td>L</td><td>57</td><td>76</td><td>72</td><td>52</td><td>23</td></tr>
+      <tr><td>XL</td><td>60</td><td>79</td><td>75</td><td>55</td><td>24</td></tr>
+    </tbody>
+  </table>
+  <p class="table-note">単位 cm / 平置き寸法 / 誤差 ±1cm / シルエットはボックス・ドロップテール。</p>
+</section>
+
+<section id="shipping" class="block">
+  <p class="micro">05 — Shipping</p>
+  <h2>配送と返品。</h2>
+  <ul>
+    <li>全国一律 ─ ¥600 (税込)</li>
+    <li>海外 ─ 別途見積</li>
+    <li>発送目安 ─ 3〜4 週間</li>
+    <li>返品 ─ サイズ違い・色違いの返品はお受けできません</li>
+    <li>不良品 ─ 到着 7 日以内に info@typostet.com まで</li>
+  </ul>
+</section>
+
+<section id="faq" class="block">
+  <p class="micro">06 — FAQ</p>
+  <h2>よくある質問。</h2>
+
+  <details>
+    <summary>Stet って何？</summary>
+    <p>校正記号で「そのまま生かせ」の意味。間違いを消さずに残す指示です。</p>
+  </details>
+
+  <details>
+    <summary>Stet 01 = "Recieved" は誤字？</summary>
+    <p>はい。"Received" の "i" と "e" を逆に書いてしまった綴り間違いです。</p>
+  </details>
+
+  <details>
+    <summary>4:81 とは。</summary>
+    <p>「し (4) っ (8) ぱい (1)」の語呂。右袖と内タグに小さく入る、第 3 のブランドマークです。</p>
+  </details>
+
+  <details>
+    <summary>Stet # とは。</summary>
+    <p>注文ごとに振られる 4 桁の固有番号。内タグ右下に印字されます。Stet 01 の最初の 100 枚は #0001 〜 #0100。</p>
+  </details>
+</section>
+
+<section id="company" class="block">
+  <p class="micro">07 — Company</p>
+  <h2>会社概要。</h2>
+  <div class="company">
+    <dl>
+      <dt>Brand</dt><dd>TYP0stet (タイポステット)</dd>
+      <dt>運営会社</dt><dd>株式会社 Remoi</dd>
+      <dt>所在地</dt><dd>東京都北区赤羽</dd>
+      <dt>設立</dt><dd>2026 年</dd>
+      <dt>Email</dt><dd><a href="mailto:info@typostet.com">info@typostet.com</a></dd>
+      <dt>note</dt><dd><a href="https://note.com/typostet" target="_blank" rel="noopener">note.com/typostet ↗</a></dd>
+      <dt>法的表記</dt><dd>
+        <a href="/tokutei.html">特定商取引法に基づく表記</a> /
+        <a href="/terms.html">利用規約</a> /
+        <a href="/privacy.html">プライバシー</a>
+      </dd>
+    </dl>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</p>
+    <nav class="site-footer__nav">
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/tokutei.html">特定商取引法</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? '×' : '≡';
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -8,3 +8,5 @@ dist/
 .vercel/
 .wrangler/
 .gstack/
+img/hero/output/Gemini_Generated_Image_*.png
+.DS_Store
