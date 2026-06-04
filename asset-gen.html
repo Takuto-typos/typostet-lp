@@ -1,0 +1,249 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans+JP:wght@300;400;500;700&family=Inconsolata:wght@900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #fafaf6; font-family: "IBM Plex Sans JP", sans-serif; }
+
+/* Canvas wrappers - each fixed at exact final dimensions */
+.canvas {
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  margin: 0;
+}
+.canvas.bone { background: #F4EDDF; }
+.canvas.ink  { background: #1A1A1A; }
+.canvas.mint { background: #92E5BD; }
+.canvas.olive { background: #5E6638; }
+.canvas.white { background: #F5F5F5; }
+
+/* Profile avatar 1:1 (1080×1080) */
+.canvas.profile { width: 1080px; height: 1080px; }
+.profile img { width: 60%; height: auto; }
+
+/* X header 3:1 (1500×500) */
+.canvas.xheader { width: 1500px; height: 500px;
+  flex-direction: row; gap: 0; padding: 0 100px;
+  justify-content: space-around; }
+.xheader > * { flex: 1; display: flex; align-items: center; justify-content: center; }
+.xheader .wordmark { max-height: 65%; }
+.xheader .timestamp { max-height: 50%; }
+.xheader .monogram { max-height: 80%; }
+.xheader img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+/* IG square tile (1080×1080) */
+.canvas.ig-tile { width: 1080px; height: 1080px; }
+
+/* IG story 9:16 (1080×1920) */
+.canvas.ig-story { width: 1080px; height: 1920px;
+  flex-direction: column; padding: 80px 60px; justify-content: space-between; }
+.ig-story .slot { display: flex; align-items: center; justify-content: center; width: 100%; }
+.ig-story .top { flex: 0 0 30%; }
+.ig-story .mid { flex: 1; text-align: center;
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: 96px; line-height: 1.2; color: #0E0E0E; padding: 40px 0; }
+.ig-story.dark .mid { color: #F4EDDF; }
+.ig-story .mid em { color: #4F8F6E; }
+.ig-story.dark .mid em { color: #92E5BD; }
+.ig-story .bottom { flex: 0 0 22%; }
+.ig-story .bottom img { max-width: 50%; max-height: 100%; object-fit: contain; }
+.ig-story .top img { max-width: 70%; max-height: 100%; object-fit: contain; }
+.ig-story .meta { font-family: "IBM Plex Mono", monospace;
+  font-size: 32px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: #4F8F6E; margin-top: 24px; text-align: center; }
+.ig-story.dark .meta { color: #92E5BD; }
+
+/* X post 16:9 (1200×675) */
+.canvas.xpost { width: 1200px; height: 675px;
+  flex-direction: column; padding: 60px 80px; }
+.xpost .hero { flex: 0 0 50%; display: flex; align-items: center; justify-content: center; }
+.xpost .hero img { max-height: 100%; max-width: 70%; object-fit: contain; }
+.xpost .hero img.monogram { max-width: 40%; }
+.xpost .quote { flex: 1; display: flex; align-items: center; justify-content: center;
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: 64px; color: #0E0E0E; text-align: center; line-height: 1.2; }
+.canvas.xpost.mint .quote { color: #0E0E0E; }
+.xpost .quote em { color: #4F8F6E; }
+
+/* IG tile typography for quotes */
+.ig-tile .quote-large {
+  font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+  font-size: 144px; line-height: 1.1; color: #0E0E0E; text-align: center;
+}
+.ig-tile .quote-large em { color: #4F8F6E; }
+.ig-tile.ink .wordmark-img { max-width: 65%; }
+.ig-tile.mint .monogram-img { max-width: 50%; filter: brightness(0.5); }
+.ig-tile .monogram-img { max-width: 55%; }
+.ig-tile .wordmark-img { max-width: 70%; }
+.ig-tile .timestamp-img { max-width: 50%; }
+.ig-tile.olive .timestamp-img { filter: none; }
+
+.ig-tile .stack { display: flex; flex-direction: column; align-items: center; gap: 48px; padding: 80px; }
+.ig-tile .stack img.w { width: 65%; height: auto; }
+.ig-tile .stack img.m { width: 22%; height: auto; }
+.ig-tile .stack img.t { width: 35%; height: auto; }
+
+.ig-tile .typewriter {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 48px; line-height: 1.5; color: #0E0E0E; padding: 100px;
+  text-align: left; align-self: flex-start;
+}
+.ig-tile .typewriter span.mint { color: #4F8F6E; }
+.ig-tile .typewriter .manifesto {
+  font-family: "Cormorant Garamond", serif; font-style: italic;
+  font-size: 72px; margin-top: 32px; display: block;
+}
+
+.ig-tile .wave-stack { display: flex; flex-direction: column; align-items: center; gap: 32px; padding: 100px; }
+.ig-tile .wave-stack img { width: 50%; height: auto; }
+.ig-tile .wave-stack .tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 44px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: #4F8F6E;
+}
+
+.ig-tile.mint .big-481 {
+  text-align: center; font-family: "Inconsolata", monospace; font-weight: 900;
+  color: #4F8F6E; font-size: 360px; line-height: 1;
+}
+.ig-tile.mint .big-481-label {
+  font-family: "IBM Plex Mono", monospace; color: #4F8F6E;
+  font-size: 44px; letter-spacing: 0.18em; text-transform: uppercase;
+  text-align: center; margin-top: 32px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Routing via URL hash: load page then JS shows correct one -->
+<script>
+function show(id) {
+  document.querySelectorAll('.canvas').forEach(c => c.style.display = 'none');
+  const el = document.getElementById(id);
+  if (el) el.style.display = 'flex';
+}
+window.addEventListener('load', () => {
+  const h = window.location.hash.slice(1) || 'profile-bone';
+  show(h);
+});
+window.addEventListener('hashchange', () => {
+  show(window.location.hash.slice(1));
+});
+</script>
+
+<!-- Profile avatars 1080x1080 -->
+<div id="profile-bone" class="canvas profile bone">
+  <img src="/assets/brand/monogram/tentative-final.svg">
+</div>
+<div id="profile-ink" class="canvas profile ink">
+  <img src="/assets/brand/monogram/tentative-final.svg">
+</div>
+<div id="profile-mint" class="canvas profile mint">
+  <img src="/assets/brand/monogram/tentative-final.svg" style="filter: brightness(0.5);">
+</div>
+<div id="profile-wordmark-bone" class="canvas profile bone">
+  <img src="/assets/brand/wordmark/tentative-final-light.svg" style="width: 80%; height: auto;">
+</div>
+
+<!-- X headers 1500x500 -->
+<div id="xheader-bone" class="canvas xheader bone">
+  <div class="wordmark"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+  <div class="timestamp"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+  <div class="monogram"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+</div>
+<div id="xheader-ink" class="canvas xheader ink">
+  <div class="wordmark"><img src="/assets/brand/wordmark/tentative-final-dark.svg"></div>
+  <div class="timestamp"><img src="/assets/brand/timestamp/tentative-final.svg"></div>
+  <div class="monogram"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+</div>
+<div id="xheader-mint" class="canvas xheader mint">
+  <div class="wordmark"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+  <div class="timestamp"><img src="/assets/brand/timestamp/tentative-final.svg" style="filter: brightness(0.5);"></div>
+  <div class="monogram"><img src="/assets/brand/monogram/tentative-final.svg" style="filter: brightness(0.5);"></div>
+</div>
+
+<!-- IG tiles 1080x1080 -->
+<div id="ig-tile-1" class="canvas ig-tile bone">
+  <img class="wordmark-img" src="/assets/brand/wordmark/tentative-final-light.svg">
+</div>
+<div id="ig-tile-2" class="canvas ig-tile mint">
+  <img class="monogram-img" src="/assets/brand/monogram/tentative-final.svg" style="filter: brightness(0.5);">
+</div>
+<div id="ig-tile-3" class="canvas ig-tile bone">
+  <div class="quote-large">失敗<br>できる、<br><em>を誇りに</em>。</div>
+</div>
+<div id="ig-tile-4" class="canvas ig-tile olive">
+  <img class="timestamp-img" src="/assets/brand/timestamp/tentative-final.svg">
+</div>
+<div id="ig-tile-5" class="canvas ig-tile bone">
+  <div class="stack">
+    <img class="w" src="/assets/brand/wordmark/tentative-final-light.svg">
+    <img class="m" src="/assets/brand/monogram/tentative-final.svg">
+    <img class="t" src="/assets/brand/timestamp/tentative-final.svg">
+  </div>
+</div>
+<div id="ig-tile-6" class="canvas ig-tile white">
+  <div class="typewriter">
+    typo = <span class="mint">失敗</span><br>
+    stet = <span class="mint">そのまま、生かせ</span><br><br>
+    TYP<span class="mint">0</span>stet =<br>
+    <span class="manifesto">人間の証明書。</span>
+  </div>
+</div>
+<div id="ig-tile-7" class="canvas ig-tile ink">
+  <img class="wordmark-img" src="/assets/brand/wordmark/tentative-final-dark.svg">
+</div>
+<div id="ig-tile-8" class="canvas ig-tile bone">
+  <div class="wave-stack">
+    <img src="/assets/brand/monogram/tentative-final.svg">
+    <div class="tag">Wave 01 — Recieved</div>
+  </div>
+</div>
+<div id="ig-tile-9" class="canvas ig-tile mint">
+  <div>
+    <div class="big-481">4:81</div>
+    <div class="big-481-label">し(4)っ(8)ぱい(1)</div>
+  </div>
+</div>
+
+<!-- IG story 1080x1920 -->
+<div id="ig-story-bone" class="canvas ig-story bone">
+  <div class="slot top"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+  <div class="slot mid">失敗できる、<br><em>を誇りに</em>。</div>
+  <div class="slot bottom" style="flex-direction: column;">
+    <img src="/assets/brand/monogram/tentative-final.svg">
+    <div class="meta">4:81 · VOL.1 — 2026.10</div>
+  </div>
+</div>
+<div id="ig-story-ink" class="canvas ig-story ink dark">
+  <div class="slot top"><img src="/assets/brand/monogram/tentative-final.svg"></div>
+  <div class="slot mid" style="font-size: 80px;">typo = <em>失敗</em>。<br>stet = <em>生かせ</em>。</div>
+  <div class="slot bottom" style="flex-direction: column;">
+    <img src="/assets/brand/wordmark/tentative-final-dark.svg">
+    <div class="meta">4:81 · VOL.1 — 2026.10</div>
+  </div>
+</div>
+<div id="ig-story-olive" class="canvas ig-story olive dark">
+  <div class="slot top"></div>
+  <div class="slot mid"><img src="/assets/brand/timestamp/tentative-final.svg" style="height: 240px; width: auto;"></div>
+  <div class="slot bottom" style="flex-direction: column;">
+    <div class="meta" style="font-size: 36px; color: #92E5BD;">気付くと、いる<br>4:81 — TYP0stet</div>
+  </div>
+</div>
+
+<!-- X posts 1200x675 -->
+<div id="xpost-quote" class="canvas xpost bone">
+  <div class="hero"><img src="/assets/brand/wordmark/tentative-final-light.svg"></div>
+  <div class="quote">人間にしか、<em>失敗できない</em>。</div>
+</div>
+<div id="xpost-stet" class="canvas xpost mint">
+  <div class="hero"><img class="monogram" src="/assets/brand/monogram/tentative-final.svg" style="filter: brightness(0.5);"></div>
+  <div class="quote">stet — <em>そのまま、生かせ</em>。</div>
+</div>
+
+</body>
+</html>
