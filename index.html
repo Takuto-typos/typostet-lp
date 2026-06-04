@@ -337,11 +337,14 @@
     padding: 0 4px;
   }
   .hero__sub {
-    font-family: var(--mono);
-    font-size: 13px; letter-spacing: 0.12em;
-    color: var(--muted);
-    margin-bottom: 40px;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(14px, 1.4vw, 17px);
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin-bottom: 36px;
     max-width: 480px;
+    opacity: 0.85;
   }
   .btn {
     display: inline-flex; align-items: center; gap: 14px;
@@ -483,6 +486,84 @@
     font-style: italic; font-weight: 400;
     font-size: 13px; letter-spacing: 0.04em;
     color: var(--muted);
+  }
+
+  /* --- Objects (Sticker / Tote / Cap / Pin) --- */
+  .objects { background: var(--bone); padding: 120px 28px; }
+  .objects__head { text-align: center; margin-bottom: 56px; }
+  .objects__caption {
+    margin-top: 18px;
+    font-family: var(--serif); font-size: 16px;
+    color: var(--muted);
+    max-width: 480px; margin-left: auto; margin-right: auto;
+    line-height: 1.7;
+  }
+  .objects__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .object-card {
+    display: block;
+    background: var(--bone-deep);
+    border: 1px solid var(--rule);
+    padding: 0;
+    transition: transform 280ms ease, box-shadow 280ms ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .object-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px -16px rgba(14,14,14,0.2);
+  }
+  .object-card__visual {
+    aspect-ratio: 1 / 1;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bone-deep);
+    border-bottom: 1px solid var(--rule);
+    transition: background 320ms ease;
+  }
+  .object-card[data-color="ink"] .object-card__visual { background: var(--ink); color: var(--bone); }
+  .object-card[data-color="mint"] .object-card__visual { background: var(--mint); color: var(--ink); }
+  .object-card[data-color="terracotta"] .object-card__visual { background: var(--terracotta); color: var(--bone); }
+  .object-card__mark {
+    font-family: var(--num);
+    font-weight: 900;
+    font-size: clamp(48px, 5vw, 72px);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    position: relative;
+  }
+  .object-card__mark.serif {
+    font-family: var(--serif);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .object-card__mark .dots {
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+    bottom: -22px;
+    font-size: 0.4em;
+    letter-spacing: 0.1em;
+    color: var(--mint);
+  }
+  .object-card[data-color="ink"] .object-card__mark .dots { color: var(--mint); }
+  .object-card__type {
+    font-family: var(--mono); font-weight: 500;
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted);
+    padding: 18px 18px 4px;
+  }
+  .object-card__sub {
+    font-family: var(--serif); font-size: 13px;
+    color: var(--muted); line-height: 1.6;
+    padding: 0 18px 12px;
+  }
+  .object-card__price {
+    font-family: var(--num); font-weight: 700;
+    font-size: 18px;
+    padding: 0 18px 18px;
+    color: var(--ink);
   }
 
   /* --- Stories --- */
@@ -649,6 +730,8 @@
     .hero { min-height: 76svh; }
     .hero__inner { padding: 40px 24px 56px; max-width: 100%; }
     .stet__grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .objects__grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .objects { padding: 80px 20px; }
     .stories__grid { grid-template-columns: 1fr; gap: 28px; }
     .stories__head { flex-direction: column; gap: 8px; align-items: flex-start; }
     .site-footer__grid { grid-template-columns: 1fr; gap: 36px; }
@@ -671,10 +754,11 @@
     </a>
     <nav class="site-nav" id="site-nav" aria-label="primary">
       <a href="#stet">Shop</a>
+      <a href="#objects">Objects</a>
       <a href="/stories/">Stories</a>
       <a href="/manifest.html">Manifesto</a>
       <a href="/about.html">About</a>
-      <a href="#cart" class="cart-link" aria-label="Cart (準備中)">cart</a>
+      <a href="#cart" class="cart-link" aria-label="Cart">cart</a>
     </nav>
     <button class="nav-toggle" aria-label="menu" aria-controls="site-nav" aria-expanded="false">≡</button>
   </div>
@@ -694,6 +778,7 @@
     </div>
     <div class="hero__inner">
       <h1 class="hero__title">失敗したい日に、<br><em>着よう。</em></h1>
+      <p class="hero__sub">typo (誤字) を、誇って着る brand。</p>
       <a href="#stet" class="btn">Shop Stet 01</a>
     </div>
     <div class="hero__dots" id="hero-dots" aria-hidden="true">
@@ -766,10 +851,60 @@
     </div>
   </section>
 
+  <!-- OBJECTS (Sticker / Tote / Cap / Pin) -->
+  <section id="objects" class="objects reveal">
+    <div class="container--wide">
+      <div class="objects__head">
+        <p class="stet__index">Objects</p>
+        <h2 class="stet__title">小物<em>たち。</em></h2>
+        <p class="objects__caption">brand mark を、もう少し気軽に身につけられるもの。</p>
+      </div>
+      <div class="objects__grid">
+
+        <a class="object-card" data-color="bone" href="https://buy.stripe.com/test_8x26oI7Zsd9LfI5cPD6Na03" target="_blank" rel="noopener">
+          <div class="object-card__visual">
+            <span class="object-card__mark">0<span class="dots">····</span></span>
+          </div>
+          <p class="object-card__type">Sticker Pack</p>
+          <p class="object-card__sub">0 / 4:81 / wordmark, 3 sheets</p>
+          <p class="object-card__price">¥800</p>
+        </a>
+
+        <a class="object-card" data-color="ink" href="https://buy.stripe.com/test_dRm00k7Zsc5HfI53f36Na04" target="_blank" rel="noopener">
+          <div class="object-card__visual">
+            <span class="object-card__mark serif">TOTE</span>
+          </div>
+          <p class="object-card__type">Tote Bag</p>
+          <p class="object-card__sub">12oz canvas, bone or ink</p>
+          <p class="object-card__price">¥3,800</p>
+        </a>
+
+        <a class="object-card" data-color="mint" href="https://buy.stripe.com/test_5kQ7sMfrU7PrgM9dTH6Na05" target="_blank" rel="noopener">
+          <div class="object-card__visual">
+            <span class="object-card__mark serif">CAP</span>
+          </div>
+          <p class="object-card__type">Cap</p>
+          <p class="object-card__sub">6-panel cotton twill, bone or ink</p>
+          <p class="object-card__price">¥6,800</p>
+        </a>
+
+        <a class="object-card" data-color="terracotta" href="https://buy.stripe.com/test_6oUfZi6Vo8Tv2Vj8zn6Na06" target="_blank" rel="noopener">
+          <div class="object-card__visual">
+            <span class="object-card__mark">4:81</span>
+          </div>
+          <p class="object-card__type">Pin Badge</p>
+          <p class="object-card__sub">20mm 真鍮 + 七宝, 5 種</p>
+          <p class="object-card__price">¥800</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
   <!-- MANIFESTO -->
   <section id="manifesto" class="manifesto reveal">
     <div class="container">
-      <p class="manifesto__lead">失敗できることを、<em>誇りに思ってる</em>。</p>
+      <p class="manifesto__lead">間違わない時代に、<em>私たちは間違える</em>。</p>
       <a href="/manifest.html" class="btn btn--ghost">Manifesto →</a>
     </div>
   </section>
@@ -777,7 +912,7 @@
   <!-- NEWSLETTER -->
   <section id="newsletter" class="newsletter reveal">
     <div class="container">
-      <p class="newsletter__lead">次の Stet を、誰より先に。</p>
+      <p class="newsletter__lead">次の Stet を、最初に着る。</p>
       <a href="https://note.com/typostet" class="btn" target="_blank" rel="noopener">Follow on note</a>
     </div>
   </section>
