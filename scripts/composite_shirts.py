@@ -39,21 +39,19 @@ CROP_X = {
 # Logo offsets from shirt body center (px), cy/w are frame-fractions
 LOGO = {
     "mono_front": dict(dx=-120, cy=0.30, w=0.035),
-    "ts_front":   dict(dx=+400, cy=0.38, w=0.035),
+    "ts_front":   dict(dx=+400, cy=0.43, w=0.035),
     "wm_back":    dict(dx=-240, cy=0.76, w=0.095),
 }
 
-# Per-shirt mono dx override (shirts are not at the same x-offset in their photos)
 MONO_DX_BY_SHIRT = {
-    "bone-front":  -200,
-    "olive-front": -80,
+    "bone-front":  -260,
+    "olive-front": -180,
 }
 
-# Per-shirt ts dx override
 TS_DX_BY_SHIRT = {
-    "bone-front":  +480,
-    "mint-front":  +560,
-    "olive-front": +320,
+    "bone-front":  +380,
+    "mint-front":  +500,
+    "olive-front": +400,
 }
 
 # 4:81 sleeve engraving angle (degrees). Positive = counter-clockwise so the
