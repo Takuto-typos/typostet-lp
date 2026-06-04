@@ -37,15 +37,19 @@ CROP_X = {
 
 # Logo offsets from shirt body center (px), cy/w are frame-fractions
 LOGO = {
-    "mono_front": dict(dx=+120, cy=0.30, w=0.045),
-    "ts_front":   dict(dx=+400, cy=0.38, w=0.035),  # default; bone/olive body is narrow
-    "wm_back":    dict(dx=-380, cy=0.70, w=0.13),
+    "mono_front": dict(dx=-120, cy=0.30, w=0.035),  # viewer-LEFT chest, one size smaller
+    "ts_front":   dict(dx=+400, cy=0.38, w=0.035),  # right sleeve; rotated to sleeve angle
+    "wm_back":    dict(dx=-240, cy=0.76, w=0.095),  # viewer-LEFT lower back, smaller, within body
 }
 
 # Per-shirt ts_dx override (mint shirt has wider body, sleeve further right)
 TS_DX_BY_SHIRT = {
     "mint-front": +500,
 }
+
+# 4:81 sleeve engraving angle (degrees). Negative = rotated clockwise so the
+# text follows the sleeve seam falling down-right on viewer-right sleeve.
+TS_SLEEVE_ANGLE = -22
 
 INK = (14, 14, 14)
 
@@ -101,8 +105,11 @@ def crop_square_at(img, center_x):
 
 
 mono = trim(Image.open(MONOGRAM).convert("RGBA"))
-ts = trim(Image.open(TIMESTAMP).convert("RGBA"))
+ts_raw = trim(Image.open(TIMESTAMP).convert("RGBA"))
 wm = trim(Image.open(WORDMARK).convert("RGBA"))
+
+# Rotate 4:81 to follow sleeve seam angle, then re-trim to drop transparent margins.
+ts = trim(ts_raw.rotate(TS_SLEEVE_ANGLE, resample=Image.BICUBIC, expand=True))
 
 # Ink-recolored variants for mint shirts
 mono_ink = recolor(mono, INK)
