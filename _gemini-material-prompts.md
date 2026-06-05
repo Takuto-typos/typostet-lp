@@ -1,106 +1,180 @@
-# TYP0stet — Gemini material-only prompts (no logos, no prints)
+# TYP0stet — Gemini 一発生成 prompts (logo attachment 込み)
 
-すべて **完全に無地** (NO LOGOS / NO PRINTS / NO TEXT / NO LABELS / NO BRAND MARKS) で生成。ロゴは後で `composite_*.py` で当てはめる。
+ロゴを Gemini に渡して、bag/sticker に直接焼き込んで生成する方式。
+Pillow composite は使わない。
 
----
+## 共通 attachment
 
-## 1. Tote — 白 (Bone)
+各 prompt の頭に **3 枚** 添付:
 
-```
-Product photography of a heavy 12oz natural cotton canvas tote bag in unbleached "BONE" color (warm cream off-white, NOT pure white — slightly creamy with a soft natural undertone). Boxy A4-portrait silhouette, approximately W36 × H40 × D12 cm, self-standing upright on a worn wide-plank light oak floor. Shoulder-length handles (approximately 60cm long) in the SAME canvas fabric, attached securely at the top edge. Visible natural fiber weave with subtle texture, slight natural creases at the bottom from self-standing.
-
-ABSOLUTELY NO LOGOS, NO PRINTS, NO TEXT, NO BRAND MARKS, NO LABELS, NO STITCHED PATCHES — the canvas surface is COMPLETELY PLAIN and BLANK. The handles are plain natural canvas. The inside is plain.
-
-Soft natural northern window light from upper left, gentle elongated shadow falling to the lower right. Camera angle 3/4 front, slightly elevated (approximately 30 degrees from horizontal). Background: out-of-focus pale neutral plaster wall in warm gray-beige (soft bokeh). Nothing else in the frame — no books, no notebooks, no props beside the tote.
-
-Realistic editorial commerce product photography, 8K resolution, sharp focus on the tote, canvas weave clearly visible. No models, no hands, no people, no overlay text, no watermarks, no Gemini signature.
-```
+- **Image 1** — `~/typostet/lp/img/gemini-reference/01-monogram.png` ─ 0 monogram (textured brush '0' + 4 mint dots)
+- **Image 2** — `~/typostet/lp/img/gemini-reference/02-wordmark.png` ─ TYP0stet wordmark (TYP0 ink black + stet mint green)
+- **Image 3** — `~/typostet/lp/img/gemini-reference/03-handdrawn-481.png` ─ 4:81 hand-drawn marker (mint green)
 
 ---
 
-## 2. Tote — 黒 (Ink Black)
+## 1. Sticker pack (3-piece, square 1:1)
 
 ```
-Product photography of a heavy 12oz cotton canvas tote bag in deep INK BLACK color (a soft washed black with a slight warm undertone — NOT pure jet black, more like aged Japanese sumi-ink black). Boxy A4-portrait silhouette, approximately W36 × H40 × D12 cm, self-standing upright on a worn wide-plank light oak floor. Shoulder-length handles (approximately 60cm long) in the SAME ink-black canvas fabric. Visible canvas weave texture (subtly readable on the dark fabric), slight natural creases at the bottom.
+ATTACHED REFERENCE IMAGES (mandatory):
+- Image 1 = TYP0stet '0' monogram (textured brushstroke zero + mint green dots)
+- Image 2 = TYP0stet wordmark "TYP0stet" (TYP0 in ink black + stet in mint green)
+- Image 3 = TYP0stet 4:81 hand-drawn marker (mint green)
 
-ABSOLUTELY NO LOGOS, NO PRINTS, NO TEXT, NO BRAND MARKS, NO LABELS, NO STITCHED PATCHES — the canvas surface is COMPLETELY PLAIN and BLANK.
+CRITICAL: Reproduce these three logos EXACTLY as in the attachments — do not redraw, do not restyle, do not change colors. The mint dots, the ink/mint two-tone wordmark, and the hand-drawn 4:81 must all match the references.
 
-Soft natural northern window light from upper left, lighting tuned to reveal the weave texture on the dark canvas without harsh highlights. Gentle elongated shadow falling to the lower right. Camera angle 3/4 front, slightly elevated 30 degrees. Background: out-of-focus pale neutral plaster wall in warm gray-beige. Nothing else in the frame.
+SCENE:
+Top-down 90-degree flat-lay product photography of a 3-piece die-cut vinyl sticker pack arranged for a PERFECT 1:1 SQUARE composition.
 
-Realistic editorial commerce product photography, 8K resolution, sharp focus on the tote, canvas weave clearly visible. No models, no hands, no people, no overlay text, no watermarks, no Gemini signature.
-```
+STICKER 1 — CIRCULAR die-cut sticker, ~6cm diameter, white vinyl background, slightly tilted at 4 degrees, placed in the UPPER-LEFT area of the frame. The sticker shows Image 1 (the '0' monogram with mint dots) centered on it, at native size and color.
 
----
+STICKER 2 — LARGER horizontal RECTANGULAR die-cut sticker, ~8cm × 2.8cm, white vinyl background, slightly tilted at -3 degrees, placed in the MIDDLE-RIGHT area of the frame. The sticker shows Image 2 (the TYP0stet wordmark, "TYP0" in ink black + "stet" in mint green) centered on it.
 
-## 3. Knapsack — Olive
+STICKER 3 — SMALLER horizontal RECTANGULAR die-cut sticker, ~6.5cm × 2.3cm, white vinyl background, slightly tilted at 6 degrees, placed in the LOWER-LEFT area of the frame. The sticker shows Image 3 (the 4:81 hand-drawn marker, mint green) centered on it.
 
-```
-Product photography of a waxed cotton canvas drawstring knapsack (cinch bag) in muted military OLIVE color (washed olive drab, low saturation, slightly desaturated — NOT bright green). Trapezoidal silhouette, approximately W40 × H46 cm, narrower at the top, wider at the base. Drawstring closure at the top cinched gently with natural ecru cotton cord. The cotton cord exits through reinforced antique brass eyelets at the bottom corners, looping back up to form shoulder straps. Subtle wax-coated sheen on the canvas surface with natural creases, slight wear patina, and visible fabric weave.
+All three stickers have a soft matte vinyl finish, slight gloss only on the cut die edge.
 
-ABSOLUTELY NO LOGOS, NO PRINTS, NO TEXT, NO BRAND MARKS, NO STITCHED PATCHES — the canvas surface is COMPLETELY PLAIN and BLANK. Only the natural antique brass eyelets and ecru cotton cord as functional hardware.
+BACKGROUND: Natural unbleached linen with subtle weave texture. Soft northern window light from upper left creating gentle fabric-weave shadows. A small natural kraft paper envelope partially visible at the upper-right corner of the frame.
 
-The knapsack is photographed hanging from a single matte black nail driven into a raw textured plaster wall (warm pale gray, slightly imperfect surface with subtle natural marks). Soft diagonal cast shadow falls to the right. Natural soft light from the upper left, slightly diffused. Studio product photography with a lived-in editorial catalog vibe (similar mood to A.P.C. or Drake's lookbook).
-
-Realistic editorial commerce product photography, 8K resolution, sharp focus on the bag, wax-canvas texture and fabric weave clearly visible. No models, no hands, no people, no overlay text, no watermarks, no Gemini signature.
+SQUARE 1:1 ASPECT RATIO. Realistic editorial commerce product photography, 8K resolution, sharp focus, linen weave visible. NO additional logos, NO text overlays, NO watermarks, NO Gemini signature.
 ```
 
 ---
 
-## 4. Knapsack — Mint
+## 2. Tote — 白 (Bone) front view, ink black logos
 
 ```
-Product photography of a waxed cotton canvas drawstring knapsack (cinch bag) in soft MINT GREEN color (pistachio sea, hex roughly #92E5BD — washed pale mint, low saturation, NOT bright lime). Trapezoidal silhouette, approximately W40 × H46 cm, narrower at the top, wider at the base. Drawstring closure at the top cinched gently with natural ecru cotton cord. The cotton cord exits through reinforced antique brass eyelets at the bottom corners, looping back up to form shoulder straps. Subtle wax-coated sheen on the mint canvas surface with natural creases, slight wear patina, and visible fabric weave.
+ATTACHED REFERENCE IMAGES (mandatory):
+- Image 1 = TYP0stet '0' monogram
+- Image 2 = TYP0stet wordmark "TYP0stet"
+- Image 3 = TYP0stet 4:81 hand-drawn marker
 
-ABSOLUTELY NO LOGOS, NO PRINTS, NO TEXT, NO BRAND MARKS, NO STITCHED PATCHES — the canvas surface is COMPLETELY PLAIN and BLANK. Only the natural antique brass eyelets and ecru cotton cord as functional hardware.
+CRITICAL: Reproduce the three logos faithfully on the tote — preserve the brushstroke imperfections, the handwritten letterforms, and the hand-drawn quality EXACTLY as in the attachments. The logos must be SILK-SCREEN PRINTED in DEEP INK BLACK (recolor from mint/two-tone to monochrome ink black for printing on the natural canvas — preserve the SHAPE and details, change only the color).
 
-The knapsack is photographed hanging from a single matte black nail driven into a raw textured plaster wall (warm pale gray, slightly imperfect surface). Soft diagonal cast shadow falls to the right. Natural soft light from the upper left, slightly diffused. Studio product photography with a lived-in editorial catalog vibe (similar mood to A.P.C. or Drake's lookbook). The pale mint canvas should look soft and natural against the warm gray wall.
+PRODUCT:
+A heavy 12oz natural cotton canvas tote bag in unbleached "BONE" color (warm cream off-white, NOT pure white). Boxy A4-portrait silhouette, approximately W36 × H40 × D12 cm, self-standing UPRIGHT and facing the CAMERA STRAIGHT-ON (perfect FRONT VIEW, NOT angled, NOT 3/4 view) on a worn wide-plank light oak floor. Shoulder-length handles (~60cm) in the same canvas fabric, both handles visible at the top.
 
-Realistic editorial commerce product photography, 8K resolution, sharp focus on the bag, wax-canvas texture clearly visible. No models, no hands, no people, no overlay text, no watermarks, no Gemini signature.
+LOGO PLACEMENT (silk-screen printed in INK BLACK on the front panel):
+- UPPER-CENTER of the front, in heart position (about 10cm down from the top edge, slightly left of center): Image 1 — the '0' monogram, approximately 5cm wide. SMALL and subtle.
+- MIDDLE-RIGHT of the front (about 3cm in from the right edge, about 22cm down from the top): Image 3 — the 4:81 marker, approximately 3cm wide. SMALL.
+- LOWER-CENTER of the front (about 8cm up from the bottom edge): Image 2 — the TYP0stet wordmark, approximately 10cm wide. The wordmark should be the largest of the three.
+
+All three logos must be SILK-SCREEN PRINTED INTO the canvas (slightly absorbed into the weave, NOT glossy, NOT sticker-like).
+
+SCENE:
+Soft natural window light from upper left, gentle shadow falling to the lower right. The camera is directly in front of the tote (front view, not angled). Background: out-of-focus warm gray plaster wall. Nothing else in the frame — no books, no notebooks, no props.
+
+Realistic editorial commerce product photography, 8K resolution, sharp focus on the tote, canvas weave clearly visible. NO models, NO hands, NO people, NO text overlays, NO watermarks, NO Gemini signature.
 ```
 
 ---
 
-## 5. Sticker — 正方形 1:1 構図 (素材)
+## 3. Tote — 黒 (Ink Black) front view, bone white logos
 
 ```
-Product photography of a 3-piece sticker pack arranged for a PERFECT 1:1 SQUARE composition (please render in square 1:1 aspect ratio).
+ATTACHED REFERENCE IMAGES (mandatory):
+- Image 1 = TYP0stet '0' monogram
+- Image 2 = TYP0stet wordmark "TYP0stet"
+- Image 3 = TYP0stet 4:81 hand-drawn marker
 
-The three stickers are die-cut blank vinyl labels arranged with breathing space between them at slight varied angles (3 to 8 degrees, as if just placed by hand):
+CRITICAL: Reproduce the three logos faithfully on the tote — preserve the brushstroke imperfections, the handwritten letterforms, and the hand-drawn quality EXACTLY as in the attachments. The logos must be SILK-SCREEN PRINTED in BONE / CREAM OFF-WHITE (recolor from mint/two-tone to monochrome bone cream for printing on the dark canvas — preserve the SHAPE and details, change only the color).
 
-1. A CIRCULAR die-cut sticker, approximately 6cm diameter, white background, COMPLETELY BLANK — no logos, no text, no symbols, no graphics
+PRODUCT:
+A heavy 12oz cotton canvas tote bag in deep INK BLACK color (a soft washed black with slight warm undertone, like aged Japanese sumi-ink black, NOT pure jet black). Boxy A4-portrait silhouette, approximately W36 × H40 × D12 cm, self-standing UPRIGHT and facing the CAMERA STRAIGHT-ON (perfect FRONT VIEW, NOT angled) on a worn wide-plank light oak floor. Shoulder-length handles in the same ink black canvas fabric.
 
-2. A horizontal RECTANGULAR die-cut sticker, approximately 7cm × 2.5cm, white background, COMPLETELY BLANK
+LOGO PLACEMENT (silk-screen printed in BONE CREAM on the front panel):
+- UPPER-CENTER of the front, heart position (~10cm from the top, slightly left of center): Image 1 — the '0' monogram, ~5cm wide. SMALL.
+- MIDDLE-RIGHT of the front (~3cm from right edge, ~22cm from top): Image 3 — the 4:81 marker, ~3cm wide. SMALL.
+- LOWER-CENTER of the front (~8cm from the bottom): Image 2 — the TYP0stet wordmark, ~10cm wide. The largest of the three.
 
-3. A horizontal RECTANGULAR die-cut sticker, approximately 8cm × 2.8cm, white background, COMPLETELY BLANK
+All three logos SILK-SCREEN PRINTED in BONE CREAM, slightly absorbed into the dark canvas weave.
 
-ALL THREE STICKERS ARE COMPLETELY PLAIN WHITE VINYL — NO LOGOS, NO TEXT, NO BRAND MARKS, NO GRAPHICS. Soft matte vinyl finish with slight gloss only on the cut die edge.
+SCENE:
+Soft natural window light from upper left, lighting tuned to reveal weave texture on the dark canvas without harsh highlights. Camera directly in front (front view). Background: out-of-focus warm gray plaster wall. Nothing else in the frame.
 
-Arrange the three stickers in a compact composition that fits well within a SQUARE 1:1 frame, with one sticker in the upper portion, one in the middle, and one in the lower portion (or whatever arrangement looks most natural in a square layout — but make sure all 3 are clearly visible).
+Realistic editorial commerce product photography, 8K resolution, sharp focus, canvas weave visible. NO models, NO hands, NO people, NO text overlays, NO watermarks, NO Gemini signature.
+```
 
-Top-down 90-degree flat-lay photography on natural unbleached linen background with subtle weave texture. Soft northern window light from upper left creating gentle fabric-weave shadows. A small natural kraft paper envelope partially visible at one corner of the frame.
+---
 
-SQUARE 1:1 ASPECT RATIO composition. Realistic editorial commerce product photography, 8K resolution, sharp focus on all three stickers, linen weave clearly visible. No people, no hands, no overlay text, no watermarks, no Gemini signature.
+## 4. Knapsack — Mint front view, ink black logos
+
+```
+ATTACHED REFERENCE IMAGES (mandatory):
+- Image 1 = TYP0stet '0' monogram
+- Image 2 = TYP0stet wordmark "TYP0stet"
+- Image 3 = TYP0stet 4:81 hand-drawn marker
+
+CRITICAL: Reproduce the three logos faithfully — preserve brushstroke imperfections, handwritten letterforms, hand-drawn quality EXACTLY as in the attachments. SILK-SCREEN PRINTED in DEEP INK BLACK (recolor from mint to ink black — preserve SHAPE, change only color).
+
+PRODUCT:
+A waxed cotton canvas drawstring knapsack (cinch bag) in soft MINT GREEN color (pistachio sea #92E5BD, washed pale mint, low saturation, NOT bright lime). Trapezoidal silhouette, approximately W40 × H46 cm, narrower at the top, wider at the base. Drawstring closure at the top cinched gently with natural ecru cotton cord. Antique brass eyelets at the bottom corners with the cotton cord exiting and looping back up to form shoulder straps.
+
+The knapsack is photographed FRONT VIEW (facing the camera straight-on, NOT angled, NOT 3/4 view), hanging from a single matte black nail on a raw textured plaster wall.
+
+LOGO PLACEMENT (silk-screen printed in INK BLACK on the front panel):
+- UPPER-CENTER of the front, below the drawstring gathers (about 12cm down from the top cinch): Image 1 — the '0' monogram, ~5cm wide. SMALL.
+- MIDDLE-RIGHT of the front (~3cm from right edge, ~22cm from top): Image 3 — the 4:81 marker, ~3cm wide. SMALL.
+- LOWER-CENTER of the front (about 12cm up from the bottom edge): Image 2 — the TYP0stet wordmark, ~9cm wide. Largest of the three.
+
+All three logos SILK-SCREEN PRINTED in INK BLACK, slightly absorbed into the waxed canvas weave.
+
+SCENE:
+Soft diagonal cast shadow to the right. Natural soft light from upper left, slightly diffused. Background: warm pale gray plaster wall (slightly imperfect). Lived-in editorial catalog vibe (A.P.C. or Drake's lookbook mood).
+
+Realistic editorial commerce product photography, 8K resolution, sharp focus on the bag, wax-canvas texture visible. NO models, NO hands, NO people, NO text overlays, NO watermarks, NO Gemini signature.
+```
+
+---
+
+## 5. Knapsack — Olive front view, bone white logos
+
+```
+ATTACHED REFERENCE IMAGES (mandatory):
+- Image 1 = TYP0stet '0' monogram
+- Image 2 = TYP0stet wordmark "TYP0stet"
+- Image 3 = TYP0stet 4:81 hand-drawn marker
+
+CRITICAL: Reproduce the three logos faithfully — preserve brushstroke imperfections, handwritten letterforms, hand-drawn quality EXACTLY as in the attachments. SILK-SCREEN PRINTED in BONE / CREAM OFF-WHITE (recolor from mint to bone — preserve SHAPE, change only color).
+
+PRODUCT:
+A waxed cotton canvas drawstring knapsack (cinch bag) in muted military OLIVE color (washed olive drab, low saturation, NOT bright). Trapezoidal silhouette, approximately W40 × H46 cm, narrower at the top, wider at the base. Drawstring closure at the top cinched with natural ecru cotton cord. Antique brass eyelets at the bottom corners with the cord exiting and looping back up to form shoulder straps.
+
+The knapsack is photographed FRONT VIEW (facing the camera straight-on, NOT angled, NOT 3/4 view), hanging from a single matte black nail on a raw textured plaster wall.
+
+LOGO PLACEMENT (silk-screen printed in BONE CREAM on the front panel):
+- UPPER-CENTER, below the drawstring gathers (~12cm from top cinch): Image 1 — '0' monogram, ~5cm wide. SMALL.
+- MIDDLE-RIGHT (~3cm from right edge, ~22cm from top): Image 3 — 4:81 marker, ~3cm wide. SMALL.
+- LOWER-CENTER (~12cm from the bottom): Image 2 — TYP0stet wordmark, ~9cm wide. Largest.
+
+All three logos SILK-SCREEN PRINTED in BONE CREAM, slightly absorbed into the waxed olive canvas weave.
+
+SCENE:
+Soft diagonal cast shadow to the right. Natural soft light from upper left. Background: warm pale gray plaster wall. Lived-in editorial catalog vibe.
+
+Realistic editorial commerce product photography, 8K resolution, sharp focus, wax-canvas texture visible. NO models, NO hands, NO people, NO text overlays, NO watermarks, NO Gemini signature.
 ```
 
 ---
 
 ## 注意点
 
-- いずれも **「NO LOGOS / NO PRINTS / NO TEXT」を強調**しないと、Gemini が勝手にロゴや tag を載せがち
-- 「**no Gemini signature**」「**no watermark**」を明示することで右下の ✦ マークが入りにくくなる (完全防止は不可、生成後 Pillow で cut)
-- 生成後の crop は前回と同じ flow: `~/typostet/lp/img/{tote,knapsack,stickers}/raw/` に置く → Pillow で crop + JPEG q82
+- **logo 3 枚 attach 必須** — Gemini に SHAPE を伝えるため
+- **「recolor from mint to ink black / bone cream」「preserve SHAPE, change only color」を強調** — 色だけ変えて形は維持
+- **「SMALL」「approximately Xcm wide」を強調** — Gemini はロゴ巨大化しがち、絶対 size 指示
+- **「FRONT VIEW」「NOT angled」「NOT 3/4」** — bag 正面向きの強制
+- **「NO watermarks」「NO Gemini signature」** — ✦ マーク防止 (完全防止不可、生成後 crop 必要なら)
+- 生成後 → `~/typostet/lp/img/{tote,knapsack,stickers}/raw/` に保存 → 私が crop + LP 入れ替え
 
 ---
 
-# Hero lifestyle — 沖縄海 × ソロ女性 × 4 colors
+# Hero lifestyle — 沖縄海 × ソロ女性 × 4 colors (shirt attachment 必須)
 
-LP の Hero slider (`/img/hero/output/hero-1.jpg` 〜 `hero-4.jpg`) 用。シャツの色ごとに 4 シーン。ロゴは現状なしで生成、後で composite で当てはめる予定 (もしくはこのままでも brand mark がないこと自体が ambient で OK)。
-
-## 6-9. Hero — シャツ着用 (attachment 必須 / 4 色)
+LP の Hero slider (`/img/hero/output/hero-1.jpg` 〜 `hero-4.jpg`) 用。
 
 ### 使い方
 
-各色 1 シーン生成する流れで、Gemini に **2 枚 attach** してから prompt を投げる:
+各色 1 シーン、Gemini に **2 枚 attach**:
 
 | 色 | Image #1 (front) | Image #2 (back) |
 |---|---|---|
@@ -109,7 +183,7 @@ LP の Hero slider (`/img/hero/output/hero-1.jpg` 〜 `hero-4.jpg`) 用。シャ
 | OLIVE | `~/typostet/lp/img/shirts/olive-front.jpg` | `~/typostet/lp/img/shirts/olive-back.jpg` |
 | INK BLACK | `~/typostet/lp/img/shirts/black-front.jpg` | `~/typostet/lp/img/shirts/black-back.jpg` |
 
-### 共通 prompt (4 色とも同じ、{COLOR} と {COLOR_DESC} を差し替え)
+### 共通 prompt (`{COLOR}` と `{COLOR_DESC}` を差し替え)
 
 ```
 ATTACHED REFERENCE IMAGES (mandatory):
@@ -121,32 +195,23 @@ CRITICAL: The woman in the generated image must be wearing THE EXACT SAME SHIRT 
 - Same boxy drop-tail silhouette (crew neck, slightly oversized fit, dropped hem at back)
 - Same '0' monogram print on the LEFT CHEST (small, approximately 4-5cm wide)
 - Same '4:81' marker on the RIGHT SLEEVE (small, approximately 3-4cm wide, slightly tilted along the sleeve seam)
-- DO NOT enlarge, restyle, or move the prints. DO NOT add any logo or text that is not in the reference. The prints must look SMALL and SUBTLE on the shirt as in the reference.
+- DO NOT enlarge, restyle, or move the prints. The prints must look SMALL and SUBTLE.
 
 SCENE:
-Editorial lifestyle photography of a Japanese woman in her late twenties standing alone on a quiet sandy beach in Okinawa, Japan. She is wearing the shirt shown in the attached references. She is also wearing simple natural-tone linen shorts or relaxed cropped trousers in a warm earth tone. Bare feet on white coral sand.
+Editorial lifestyle photography of a Japanese woman in her late twenties standing alone on a quiet sandy beach in Okinawa, Japan. She is wearing the shirt shown in the attached references. She is also wearing simple natural-tone linen shorts or relaxed cropped trousers. Bare feet on white coral sand.
 
-Soft natural side light from the late afternoon sun (golden hour is just starting — light is warm but NOT orange-saturated). Her hair is natural-falling, makeup minimal, expression calm and observational. She is looking slightly AWAY from the camera toward the horizon — NOT a fashion-pose smile, NOT facing the camera directly, NOT posing.
+Soft natural side light from the late afternoon sun (golden hour starting — warm but NOT orange-saturated). Hair natural-falling, minimal makeup, calm observational expression. She is looking slightly AWAY from the camera toward the horizon — NOT a fashion-pose smile, NOT facing the camera, NOT posing.
 
-Background: a calm Okinawan turquoise sea (subtle gradient from pale aqua to deep teal), low gentle waves, white coral sand foreground, a few palm trees in the far distance slightly blurred. Wide editorial composition (16:9 aspect ratio), the woman positioned slightly off-center (rule of thirds, deliberate off-balance).
+Background: calm Okinawan turquoise sea, low gentle waves, white coral sand foreground, a few palm trees in the far distance slightly blurred. Wide editorial composition (16:9), woman slightly off-center.
 
-STYLE: Anti-fashion-shoot vibe — natural, lived-in, "photographed by a friend on a slow day." Reference: Outdoor Voices lookbook + Patagonia editorial + Japanese POPEYE Okinawa issue. 8K resolution, sharp focus on the subject, natural color grading (warm but NOT over-saturated, NOT Instagram-filter-look).
+STYLE: Anti-fashion-shoot vibe — natural, lived-in. Reference: Outdoor Voices lookbook + Patagonia editorial + POPEYE Okinawa. 8K, natural color grading.
 
-NO watermarks, NO overlay text, NO Gemini signature, NO AI-generated artifacts. The prints on the shirt must match the attachments — no extra logos, no oversized prints.
+NO watermarks, NO overlay text, NO Gemini signature, NO AI artifacts.
 ```
 
 ### 色ごとの差し替え値
 
 - **BONE**: `{COLOR}` = `BONE`, `{COLOR_DESC}` = `warm cream off-white, NOT pure white`
 - **MINT**: `{COLOR}` = `MINT`, `{COLOR_DESC}` = `pale mint green #92E5BD pistachio sea, washed soft mint, NOT bright lime`
-- **OLIVE**: `{COLOR}` = `OLIVE`, `{COLOR_DESC}` = `washed military olive, low saturation and earthy, NOT bright kelly green`
-- **INK BLACK**: `{COLOR}` = `INK BLACK`, `{COLOR_DESC}` = `soft washed black with a slight warm undertone, like aged Japanese sumi-ink black, NOT pure jet black` — また prompt 末尾に "lighting tuned so the black shirt retains soft fabric detail (not crushed shadows)" を 1 行 追記
-
----
-
-## Hero lifestyle 共通注意点
-- **2 枚 attach 必須**: front + back の両方を Gemini に渡すことで「この shirt の design」が伝わる
-- **「looking AWAY」「NOT smiling」「NOT facing camera」「anti-fashion-shoot」を強調**しないと、Gemini が typical fashion-pose の笑顔生成しがち
-- **「Reproduce the shirt design FAITHFULLY」「DO NOT enlarge the prints」を強調**しないと、Gemini がロゴを巨大化して描きがち
-- 生成後 → `~/typostet/lp/img/hero/output/hero-{1,2,3,4}.jpg` に bone/mint/olive/black 順で配置
-- LP hero slider 順序は現状 hero-1 〜 hero-4 (rotation 6.5s)、好みの順に並べる
+- **OLIVE**: `{COLOR}` = `OLIVE`, `{COLOR_DESC}` = `washed military olive, low saturation, earthy, NOT bright kelly green`
+- **INK BLACK**: `{COLOR}` = `INK BLACK`, `{COLOR_DESC}` = `soft washed black, warm undertone, like aged Japanese sumi-ink black, NOT pure jet black` — また末尾に "lighting tuned so the black shirt retains soft fabric detail (not crushed shadows)" を 1 行追記
