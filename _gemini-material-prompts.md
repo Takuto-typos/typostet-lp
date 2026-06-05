@@ -45,24 +45,24 @@ SQUARE 1:1 ASPECT RATIO. Realistic editorial commerce product photography, 8K re
 
 ```
 ATTACHED REFERENCE IMAGES (mandatory):
-- Image 1 = TYP0stet '0' monogram
-- Image 2 = TYP0stet wordmark "TYP0stet"
-- Image 3 = TYP0stet 4:81 hand-drawn marker
+- Image 1 = TYP0stet '0' monogram (textured brushstroke zero + mint dots)
+- Image 2 = TYP0stet wordmark "TYP0stet" (TYP0 ink + stet mint)
 
-CRITICAL: Reproduce the three logos faithfully on the tote — preserve the brushstroke imperfections, the handwritten letterforms, and the hand-drawn quality EXACTLY as in the attachments. The logos must be SILK-SCREEN PRINTED in DEEP INK BLACK (recolor from mint/two-tone to monochrome ink black for printing on the natural canvas — preserve the SHAPE and details, change only the color).
+CRITICAL: Reproduce both logos faithfully on the tote — preserve the brushstroke imperfections of the '0', the handwritten letterforms of the wordmark, the dot positions EXACTLY as in the attachments. The logos must be SILK-SCREEN PRINTED in DEEP INK BLACK (recolor from mint/two-tone to monochrome ink black for printing on the natural canvas — preserve the SHAPE and details, change only the color).
 
 PRODUCT:
 A heavy 12oz natural cotton canvas tote bag in unbleached "BONE" color (warm cream off-white, NOT pure white). Boxy A4-portrait silhouette, approximately W36 × H40 × D12 cm, self-standing UPRIGHT and facing the CAMERA STRAIGHT-ON (perfect FRONT VIEW, NOT angled, NOT 3/4 view) on a worn wide-plank light oak floor. Shoulder-length handles (~60cm) in the same canvas fabric, both handles visible at the top.
 
-LOGO PLACEMENT (silk-screen printed in INK BLACK on the front panel):
-- UPPER-CENTER of the front, in heart position (about 10cm down from the top edge, slightly left of center): Image 1 — the '0' monogram, approximately 5cm wide. SMALL and subtle.
-- MIDDLE-RIGHT of the front (about 3cm in from the right edge, about 22cm down from the top): Image 3 — the 4:81 marker, approximately 3cm wide. SMALL.
-- LOWER-CENTER of the front (about 8cm up from the bottom edge): Image 2 — the TYP0stet wordmark, approximately 10cm wide. The wordmark should be the largest of the three.
+LOGO PLACEMENT (silk-screen printed in INK BLACK on the front panel — ONLY two logos, no 4:81):
+- UPPER-CENTER of the front, perfectly centered horizontally (about 11cm down from the top edge): Image 1 — the '0' monogram, approximately 3cm wide. VERY SMALL and subtle, much smaller than typical brand prints.
+- LOWER-CENTER of the front, perfectly centered horizontally (about 10cm up from the bottom edge): Image 2 — the TYP0stet wordmark, approximately 6cm wide. ALSO SMALL and subtle.
 
-All three logos must be SILK-SCREEN PRINTED INTO the canvas (slightly absorbed into the weave, NOT glossy, NOT sticker-like).
+DO NOT print any 4:81 marker, no third logo, no sleeve graphic, no side label — ONLY these two prints, centered, small.
+
+Both logos must be SILK-SCREEN PRINTED INTO the canvas (slightly absorbed into the weave, NOT glossy, NOT sticker-like).
 
 SCENE:
-Soft natural window light from upper left, gentle shadow falling to the lower right. The camera is directly in front of the tote (front view, not angled). Background: out-of-focus warm gray plaster wall. Nothing else in the frame — no books, no notebooks, no props.
+Soft natural window light from upper left, gentle shadow falling to the lower right. Camera directly in front of the tote (front view, not angled). Background: out-of-focus warm gray plaster wall. Nothing else in the frame — no books, no notebooks, no props.
 
 Realistic editorial commerce product photography, 8K resolution, sharp focus on the tote, canvas weave clearly visible. NO models, NO hands, NO people, NO text overlays, NO watermarks, NO Gemini signature.
 ```
@@ -73,21 +73,21 @@ Realistic editorial commerce product photography, 8K resolution, sharp focus on 
 
 ```
 ATTACHED REFERENCE IMAGES (mandatory):
-- Image 1 = TYP0stet '0' monogram
-- Image 2 = TYP0stet wordmark "TYP0stet"
-- Image 3 = TYP0stet 4:81 hand-drawn marker
+- Image 1 = TYP0stet '0' monogram (textured brushstroke zero + mint dots)
+- Image 2 = TYP0stet wordmark "TYP0stet" (TYP0 ink + stet mint)
 
-CRITICAL: Reproduce the three logos faithfully on the tote — preserve the brushstroke imperfections, the handwritten letterforms, and the hand-drawn quality EXACTLY as in the attachments. The logos must be SILK-SCREEN PRINTED in BONE / CREAM OFF-WHITE (recolor from mint/two-tone to monochrome bone cream for printing on the dark canvas — preserve the SHAPE and details, change only the color).
+CRITICAL: Reproduce both logos faithfully on the tote — preserve the brushstroke imperfections, the handwritten letterforms, the dot positions EXACTLY as in the attachments. The logos must be SILK-SCREEN PRINTED in BONE / CREAM OFF-WHITE (recolor from mint/two-tone to monochrome bone cream for printing on the dark canvas — preserve the SHAPE and details, change only the color).
 
 PRODUCT:
 A heavy 12oz cotton canvas tote bag in deep INK BLACK color (a soft washed black with slight warm undertone, like aged Japanese sumi-ink black, NOT pure jet black). Boxy A4-portrait silhouette, approximately W36 × H40 × D12 cm, self-standing UPRIGHT and facing the CAMERA STRAIGHT-ON (perfect FRONT VIEW, NOT angled) on a worn wide-plank light oak floor. Shoulder-length handles in the same ink black canvas fabric.
 
-LOGO PLACEMENT (silk-screen printed in BONE CREAM on the front panel):
-- UPPER-CENTER of the front, heart position (~10cm from the top, slightly left of center): Image 1 — the '0' monogram, ~5cm wide. SMALL.
-- MIDDLE-RIGHT of the front (~3cm from right edge, ~22cm from top): Image 3 — the 4:81 marker, ~3cm wide. SMALL.
-- LOWER-CENTER of the front (~8cm from the bottom): Image 2 — the TYP0stet wordmark, ~10cm wide. The largest of the three.
+LOGO PLACEMENT (silk-screen printed in BONE CREAM on the front panel — ONLY two logos, no 4:81):
+- UPPER-CENTER of the front, perfectly centered horizontally (~11cm from the top): Image 1 — the '0' monogram, ~3cm wide. VERY SMALL and subtle.
+- LOWER-CENTER of the front, perfectly centered horizontally (~10cm from the bottom): Image 2 — the TYP0stet wordmark, ~6cm wide. ALSO SMALL and subtle.
 
-All three logos SILK-SCREEN PRINTED in BONE CREAM, slightly absorbed into the dark canvas weave.
+DO NOT print any 4:81 marker, no third logo, no sleeve graphic, no side label — ONLY these two prints, centered, small.
+
+Both logos SILK-SCREEN PRINTED in BONE CREAM, slightly absorbed into the dark canvas weave.
 
 SCENE:
 Soft natural window light from upper left, lighting tuned to reveal weave texture on the dark canvas without harsh highlights. Camera directly in front (front view). Background: out-of-focus warm gray plaster wall. Nothing else in the frame.
