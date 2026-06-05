@@ -336,6 +336,32 @@
     background: linear-gradient(180deg, transparent 60%, rgba(146,229,189,0.22) 60%);
     padding: 0 4px;
   }
+  /* deliberate校正記号 stet on the word "失敗" — dotted underline + small "stet" red */
+  .hero__stet-mark {
+    position: relative;
+    display: inline-block;
+  }
+  .hero__stet-mark::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -0.18em;
+    height: 6px;
+    background-image: radial-gradient(circle, var(--terracotta) 1.6px, transparent 1.8px);
+    background-size: 12px 6px;
+    background-repeat: repeat-x;
+    background-position: center;
+  }
+  .hero__stet-mark::before {
+    content: "stet";
+    position: absolute;
+    top: -0.32em; right: -1.6em;
+    font-family: var(--hand-jp); font-weight: 600;
+    font-size: 0.22em;
+    color: var(--terracotta);
+    letter-spacing: 0.04em;
+    transform: rotate(-8deg);
+    white-space: nowrap;
+  }
   .hero__sub {
     font-family: var(--serif);
     font-weight: 500;
@@ -551,6 +577,10 @@
     object-fit: cover;
     display: block;
   }
+  .object-card__photo--contain {
+    object-fit: contain;
+    padding: 6% 4%;
+  }
   .object-card__visual--photo { padding: 0; background: var(--bone); }
   /* On colored backgrounds, ensure 4:81 mint stays mint (no filter needed since source is mint) */
   .object-card__mark .dots {
@@ -650,16 +680,60 @@
 
   /* --- Newsletter --- */
   .newsletter { background: var(--bone); padding: 140px 28px; text-align: center; }
-  .newsletter__lead {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: clamp(24px, 3.2vw, 36px);
-    margin-bottom: 14px;
-  }
   .newsletter__sub {
     font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em;
     color: var(--muted); text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .newsletter__lead {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(24px, 3.2vw, 36px);
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  .newsletter__lead em {
+    font-style: normal; font-family: var(--hand-jp); color: var(--mint);
+  }
+  .newsletter__body {
+    font-family: var(--serif); font-size: 15px; line-height: 1.85;
+    color: var(--muted);
+    max-width: 480px; margin: 0 auto 32px;
+  }
+  .newsletter__form {
+    display: flex; gap: 0;
+    max-width: 460px; margin: 0 auto 10px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .newsletter__input {
+    flex: 1;
+    background: transparent; border: none;
+    padding: 14px 4px;
+    font-family: var(--serif); font-size: 16px; color: var(--ink);
+  }
+  .newsletter__input::placeholder { color: var(--muted); }
+  .newsletter__input:focus { outline: none; }
+  .newsletter__submit {
+    background: transparent; border: none;
+    padding: 14px 18px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    color: var(--ink); text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 200ms ease;
+  }
+  .newsletter__submit:hover { opacity: 0.6; }
+  .newsletter__tip {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+    color: var(--muted);
     margin-bottom: 36px;
+  }
+  .newsletter__hashtag {
+    margin-top: 8px;
+    font-family: var(--serif); font-size: 16px; color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+  .newsletter__hashtag em {
+    font-style: normal; font-family: var(--hand-jp);
+    color: var(--mint); font-size: 1.2em;
   }
 
   /* --- Footer --- */
@@ -672,10 +746,17 @@
   .site-footer__inner { max-width: 1320px; margin: 0 auto; }
   .site-footer__grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 48px;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+    gap: 40px;
     padding-bottom: 48px;
     border-bottom: 1px solid var(--rule);
+  }
+  .site-footer__hashtag {
+    font-family: var(--hand-jp);
+    font-size: 15px;
+    color: var(--mint);
+    letter-spacing: 0.02em;
+    margin-top: 4px;
   }
   .site-footer__col h4 {
     font-family: var(--mono);
@@ -756,6 +837,46 @@
     .reveal { opacity: 1; transform: none; transition: none; }
     .stet__card { transition: none; }
   }
+
+  /* --- 4:81 floating time widget --- */
+  .time-widget {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--ink); color: var(--bone);
+    padding: 10px 16px;
+    border-radius: 999px;
+    display: inline-flex; align-items: baseline; gap: 10px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    cursor: help; z-index: 60;
+    box-shadow: 0 8px 24px -12px rgba(14,14,14,0.4);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .time-widget:hover { transform: translateY(-2px); box-shadow: 0 14px 32px -14px rgba(14,14,14,0.45); }
+  .time-widget__label { opacity: 0.6; }
+  .time-widget__clock {
+    font-family: var(--num); font-weight: 700; font-size: 16px;
+    letter-spacing: 0.04em; color: var(--mint); text-transform: none;
+  }
+  .time-widget__tip {
+    position: absolute; bottom: calc(100% + 14px); right: 0;
+    background: var(--ink); color: var(--bone);
+    padding: 14px 18px; width: 240px; border-radius: 4px;
+    font-family: var(--serif); font-size: 13px; line-height: 1.7;
+    letter-spacing: 0; text-transform: none;
+    opacity: 0; pointer-events: none; transform: translateY(6px);
+    transition: opacity 240ms ease, transform 240ms ease;
+  }
+  .time-widget__tip em { font-style: normal; color: var(--mint); font-family: var(--hand-jp); }
+  .time-widget:hover .time-widget__tip,
+  .time-widget:focus-within .time-widget__tip,
+  .time-widget.is-open .time-widget__tip {
+    opacity: 1; transform: none; pointer-events: auto;
+  }
+  @media (max-width: 720px) {
+    .time-widget { bottom: 16px; right: 16px; padding: 8px 12px; gap: 8px; font-size: 10px; }
+    .time-widget__clock { font-size: 14px; }
+    .time-widget__tip { width: 210px; font-size: 12px; }
+  }
 </style>
 </head>
 <body>
@@ -791,7 +912,7 @@
       </div>
     </div>
     <div class="hero__inner">
-      <h1 class="hero__title">失敗したい日に、<br><em>着よう。</em></h1>
+      <h1 class="hero__title"><span class="hero__stet-mark">失敗</span>したい日に、<br><em>着よう。</em></h1>
       <p class="hero__sub">typo (誤字) を、誇って着る brand。</p>
       <a href="#stet" class="btn">Shop Stet 01</a>
     </div>
@@ -877,7 +998,7 @@
 
         <a class="object-card" data-color="bone" href="https://buy.stripe.com/test_8x26oI7Zsd9LfI5cPD6Na03" target="_blank" rel="noopener">
           <div class="object-card__visual object-card__visual--photo">
-            <img class="object-card__photo" src="/img/stickers/sticker-pack.jpg" alt="TYP0stet 3-piece sticker pack: 0 monogram, TYP0stet wordmark, 4:81 hand-drawn marker" loading="lazy">
+            <img class="object-card__photo object-card__photo--contain" src="/img/stickers/sticker-pack.jpg" alt="TYP0stet 3-piece sticker pack: 0 monogram, TYP0stet wordmark, 4:81 hand-drawn marker" loading="lazy">
           </div>
           <p class="object-card__type">Sticker Pack</p>
           <p class="object-card__sub">0 / 4:81 / wordmark, 3 sheets</p>
@@ -917,8 +1038,18 @@
   <!-- NEWSLETTER -->
   <section id="newsletter" class="newsletter reveal">
     <div class="container">
-      <p class="newsletter__lead">次の Stet を、最初に着る。</p>
-      <a href="https://note.com/typostet" class="btn" target="_blank" rel="noopener">Follow on note</a>
+      <p class="newsletter__sub">Newsletter</p>
+      <p class="newsletter__lead">次の Stet を、<em>最初に着る</em>。</p>
+      <p class="newsletter__body">
+        新しい Stet の入荷と、間違えた朝の小さなノート。月に 1 回、不定期に届きます。
+      </p>
+      <!-- TODO: replace action with Buttondown / ConvertKit endpoint after tig signs up -->
+      <form class="newsletter__form" action="https://buttondown.email/api/emails/embed-subscribe/typostet" method="post" target="popupwindow">
+        <input class="newsletter__input" type="email" name="email" placeholder="you@example.com" required aria-label="メールアドレス">
+        <button class="newsletter__submit" type="submit">Subscribe ↗</button>
+      </form>
+      <p class="newsletter__tip">いつでも解除できます。typo は本気で大歓迎。</p>
+      <p class="newsletter__hashtag">あなたの typo を <em>#TYP0stet</em> で投稿してみる。</p>
     </div>
   </section>
 
@@ -944,7 +1075,17 @@
         <ul>
           <li><a href="/stories/">Stories</a></li>
           <li><a href="/manifest.html">Manifesto</a></li>
+          <li><a href="/community/">Community</a></li>
           <li><a href="https://note.com/typostet" target="_blank" rel="noopener">note ↗</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://instagram.com/typostet" target="_blank" rel="noopener">Instagram ↗</a></li>
+          <li><a href="https://threads.net/@typostet" target="_blank" rel="noopener">Threads ↗</a></li>
+          <li><a href="https://x.com/typostet" target="_blank" rel="noopener">X ↗</a></li>
+          <li class="site-footer__hashtag">#TYP0stet</li>
         </ul>
       </div>
       <div class="site-footer__col">
@@ -1060,6 +1201,15 @@
     });
   })();
 </script>
+
+<!-- 4:81 floating time widget -->
+<div class="time-widget" tabindex="0" role="button" aria-label="TYP0stet time" onclick="this.classList.toggle('is-open')">
+  <span class="time-widget__label">stet time</span>
+  <span class="time-widget__clock">4:81</span>
+  <div class="time-widget__tip" role="tooltip">
+    これは時刻ではない。<em>し (4) っ (8) ぱい (1)</em> の語呂。<br>毎日この時刻は、ない。
+  </div>
+</div>
 
 </body>
 </html>

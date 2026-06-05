@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4EDDF">
+
+<title>Community ─ TYP0stet</title>
+<meta name="description" content="TYP0stet を着てる人たち。あなたの typo を #TYP0stet で投稿してください。毎年 4 月 8 日 1 時は、失敗を着る日。">
+
+<link rel="canonical" href="https://typostet.com/community/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://typostet.com/community/">
+<meta property="og:title" content="Community ─ TYP0stet">
+<meta property="og:description" content="TYP0stet を着てる人たちの居場所。">
+<meta property="og:image" content="https://typostet.com/img/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="/assets/brand/monogram/tentative-final.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=IBM+Plex+Sans+JP:wght@300;400;500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Inconsolata:wght@400;700;900&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bone: #F4EDDF;
+    --bone-deep: #ECE3CF;
+    --ink: #0E0E0E;
+    --mint: #92E5BD;
+    --terracotta: #C7553E;
+    --rule: rgba(14, 14, 14, 0.12);
+    --muted: rgba(14, 14, 14, 0.55);
+
+    --serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+    --sans:  "IBM Plex Sans JP", "Helvetica Neue", Arial, sans-serif;
+    --mono:  "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --num:   "Inconsolata", ui-monospace, Menlo, monospace;
+    --hand-jp: "Klee One", serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 72px; }
+  body {
+    background: var(--bone); color: var(--ink);
+    font-family: var(--sans); line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+
+  .site-header {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(244, 237, 223, 0.92);
+    backdrop-filter: saturate(180%) blur(8px);
+    -webkit-backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-header__inner {
+    max-width: 1320px; margin: 0 auto;
+    padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  }
+  .site-header__brand img { width: 200px; }
+  .site-nav { display: flex; gap: 28px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .site-nav a { padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 200ms ease, opacity 200ms ease; opacity: 0.7; }
+  .site-nav a:hover { border-bottom-color: var(--ink); opacity: 1; }
+  .site-nav a.is-current { opacity: 1; border-bottom-color: var(--ink); }
+  .nav-toggle { display: none; background: none; border: none; padding: 8px; font-family: var(--mono); font-size: 18px; }
+
+  .hero {
+    padding: 110px 28px 80px;
+    text-align: center;
+  }
+  .hero p.eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(36px, 5.4vw, 64px);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: normal; font-family: var(--hand-jp); color: var(--mint);
+  }
+  .hero p.lead {
+    font-family: var(--serif); font-size: 17px; line-height: 1.95;
+    color: var(--muted);
+    max-width: 520px; margin: 0 auto;
+  }
+
+  section.block {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 80px 28px;
+    border-top: 1px solid var(--rule);
+  }
+  .micro {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .block h2 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.3;
+    margin-bottom: 18px;
+  }
+  .block h2 em {
+    font-style: normal; font-family: var(--hand-jp); color: var(--mint);
+  }
+  .block p {
+    font-family: var(--serif); font-size: 16px; line-height: 1.95;
+    color: var(--ink);
+    max-width: 620px;
+  }
+  .block p + p { margin-top: 14px; }
+  .block p.muted { color: var(--muted); }
+
+  /* Hashtag wall placeholder */
+  .wall {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .wall__tile {
+    aspect-ratio: 1 / 1;
+    background: var(--bone-deep);
+    border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--hand-jp); font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+    padding: 12px;
+    line-height: 1.5;
+  }
+  .wall__tile--mint { background: var(--mint); color: var(--ink); }
+  .wall__tile--ink { background: var(--ink); color: var(--bone); }
+  .wall__empty {
+    margin-top: 28px;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .hashtag-cta {
+    margin-top: 32px;
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 14px 22px;
+    background: var(--ink); color: var(--bone);
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: background 240ms ease, color 240ms ease;
+  }
+  .hashtag-cta:hover { background: var(--bone); color: var(--ink); border: 1px solid var(--ink); }
+  .hashtag-cta__hash {
+    font-family: var(--hand-jp); font-size: 1.6em;
+    color: var(--mint);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  /* 4:81 event */
+  .event {
+    background: var(--ink); color: var(--bone);
+    border: none;
+  }
+  .event__inner {
+    max-width: 720px; margin: 0 auto;
+    padding: 100px 28px;
+    text-align: center;
+  }
+  .event__micro {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
+    color: rgba(244, 237, 223, 0.5);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .event__date {
+    font-family: var(--num); font-weight: 900;
+    font-size: clamp(72px, 12vw, 140px);
+    line-height: 1; letter-spacing: -0.01em;
+    color: var(--mint);
+    margin-bottom: 24px;
+  }
+  .event__h {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(22px, 3vw, 32px);
+    line-height: 1.5;
+    margin-bottom: 22px;
+    color: var(--bone);
+  }
+  .event__h em { font-style: normal; font-family: var(--hand-jp); color: var(--mint); }
+  .event__body {
+    font-family: var(--serif); font-size: 15px; line-height: 1.95;
+    color: rgba(244, 237, 223, 0.78);
+    max-width: 520px; margin: 0 auto 28px;
+  }
+  .event__tip {
+    font-family: var(--mono); font-style: italic; font-size: 12px;
+    color: rgba(244, 237, 223, 0.55);
+  }
+
+  /* SNS */
+  .sns-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .sns-card {
+    aspect-ratio: 1 / 1.15;
+    border: 1px solid var(--rule);
+    padding: 24px 18px;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    transition: background 240ms ease, color 240ms ease;
+  }
+  .sns-card:hover { background: var(--ink); color: var(--bone); }
+  .sns-card__icon {
+    font-family: var(--num); font-weight: 700; font-size: 28px;
+    color: var(--mint);
+  }
+  .sns-card__name {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .sns-card__handle {
+    font-family: var(--serif); font-size: 14px;
+    color: var(--muted);
+  }
+  .sns-card:hover .sns-card__handle { color: rgba(244, 237, 223, 0.7); }
+
+  .site-footer {
+    background: var(--bone);
+    border-top: 1px solid var(--rule);
+    padding: 64px 28px 28px;
+  }
+  .site-footer__inner {
+    max-width: 1320px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .site-footer__copy {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+  .site-footer__social {
+    display: flex; gap: 18px; align-items: center;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .site-footer__social a:hover { color: var(--ink); }
+  .site-footer__hashtag {
+    font-family: var(--hand-jp); font-size: 13px;
+    color: var(--mint); letter-spacing: 0.02em;
+    text-transform: none;
+  }
+  .site-footer__nav {
+    display: flex; gap: 22px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--muted); text-transform: uppercase;
+  }
+  .site-footer__nav a:hover { color: var(--ink); }
+
+  /* --- 4:81 floating time widget --- */
+  .time-widget {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--ink); color: var(--bone);
+    padding: 10px 16px; border-radius: 999px;
+    display: inline-flex; align-items: baseline; gap: 10px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    cursor: help; z-index: 60;
+    box-shadow: 0 8px 24px -12px rgba(14,14,14,0.4);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .time-widget:hover { transform: translateY(-2px); box-shadow: 0 14px 32px -14px rgba(14,14,14,0.45); }
+  .time-widget__label { opacity: 0.6; }
+  .time-widget__clock {
+    font-family: var(--num); font-weight: 700; font-size: 16px;
+    letter-spacing: 0.04em; color: var(--mint); text-transform: none;
+  }
+  .time-widget__tip {
+    position: absolute; bottom: calc(100% + 14px); right: 0;
+    background: var(--ink); color: var(--bone);
+    padding: 14px 18px; width: 240px; border-radius: 4px;
+    font-family: var(--serif); font-size: 13px; line-height: 1.7;
+    letter-spacing: 0; text-transform: none;
+    opacity: 0; pointer-events: none; transform: translateY(6px);
+    transition: opacity 240ms ease, transform 240ms ease;
+  }
+  .time-widget__tip em { font-style: normal; color: var(--mint); font-family: var(--hand-jp); }
+  .time-widget:hover .time-widget__tip,
+  .time-widget:focus-within .time-widget__tip,
+  .time-widget.is-open .time-widget__tip {
+    opacity: 1; transform: none; pointer-events: auto;
+  }
+
+  @media (max-width: 720px) {
+    .site-header__inner { padding: 12px 20px; }
+    .site-header__brand img { width: 150px; }
+    .site-nav {
+      display: none;
+      position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 6px;
+      background: var(--bone); padding: 18px 24px 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .site-nav.is-open { display: flex; }
+    .nav-toggle { display: inline-flex; }
+    .wall { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .sns-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    section.block { padding: 56px 20px; }
+    .time-widget { bottom: 16px; right: 16px; padding: 8px 12px; gap: 8px; font-size: 10px; }
+    .time-widget__clock { font-size: 14px; }
+    .time-widget__tip { width: 210px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-header__brand" aria-label="TYP0stet home">
+      <img src="/assets/brand/wordmark/tentative-final-light.svg" alt="TYP0stet">
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="primary">
+      <a href="/#stet">Shop</a>
+      <a href="/#objects">Objects</a>
+      <a href="/stories/">Stories</a>
+      <a href="/manifest.html">Manifesto</a>
+      <a href="/about.html">About</a>
+      <a href="/community/" class="is-current">Community</a>
+    </nav>
+    <button class="nav-toggle" aria-label="menu" aria-controls="site-nav" aria-expanded="false">≡</button>
+  </div>
+</header>
+
+<section class="hero">
+  <p class="eyebrow">Community</p>
+  <h1>TYP0stet を、<br><em>着てる人たち</em>。</h1>
+  <p class="lead">
+    失敗は、ひとりで持ってるより、共有した方が軽くなる。<br>
+    あなたの typo を、<strong>#TYP0stet</strong> で投稿してください。
+  </p>
+</section>
+
+<section class="block">
+  <p class="micro">01 — Hashtag Wall</p>
+  <h2>誰かの<em>やらかし</em>を、ここで見る。</h2>
+  <p class="muted">SNS で <strong>#TYP0stet</strong> を付けた投稿を、不定期にここに引いてきます。本人の許諾を取った上で。</p>
+
+  <div class="wall" aria-label="ハッシュタグウォール (準備中)">
+    <div class="wall__tile">Send → Sned</div>
+    <div class="wall__tile wall__tile--mint">てぃし → てぃし、もういい</div>
+    <div class="wall__tile">Recieved.</div>
+    <div class="wall__tile wall__tile--ink">寝坊 4:81</div>
+    <div class="wall__tile">「お世話に」のあと無言</div>
+    <div class="wall__tile">replyall を恐れない朝</div>
+  </div>
+  <p class="wall__empty">─ 実投稿は、最初の購入者から順番に集めます。</p>
+
+  <a class="hashtag-cta" href="https://www.instagram.com/explore/tags/typ0stet/" target="_blank" rel="noopener">
+    <span>あなたの typo を投稿する</span>
+    <span class="hashtag-cta__hash">#TYP0stet</span>
+  </a>
+</section>
+
+<section class="block event">
+  <div class="event__inner">
+    <p class="event__micro">02 — Annual Event</p>
+    <p class="event__date">4:81</p>
+    <h2 class="event__h">毎年 4 月 8 日 1 時は、<em>失敗を着る日</em>。</h2>
+    <p class="event__body">
+      その時刻、世界中の TYP0stet を着てる人が、その日の失敗を SNS にひとつ投げる。<br>
+      たった 1 分間の、静かな祭り。
+    </p>
+    <p class="event__tip">— 次回開催: 2027 年 4 月 8 日 1:00 (JST)</p>
+  </div>
+</section>
+
+<section class="block">
+  <p class="micro">03 — Follow</p>
+  <h2>居場所は、<em>ここ</em>。</h2>
+  <p class="muted">毎日いるわけではない。でも、4:81 ぐらいの頻度では更新します。</p>
+
+  <div class="sns-grid">
+    <a class="sns-card" href="https://instagram.com/typostet" target="_blank" rel="noopener">
+      <div class="sns-card__icon">○</div>
+      <div>
+        <p class="sns-card__name">Instagram</p>
+        <p class="sns-card__handle">@typostet</p>
+      </div>
+    </a>
+    <a class="sns-card" href="https://threads.net/@typostet" target="_blank" rel="noopener">
+      <div class="sns-card__icon">@</div>
+      <div>
+        <p class="sns-card__name">Threads</p>
+        <p class="sns-card__handle">@typostet</p>
+      </div>
+    </a>
+    <a class="sns-card" href="https://x.com/typostet" target="_blank" rel="noopener">
+      <div class="sns-card__icon">×</div>
+      <div>
+        <p class="sns-card__name">X</p>
+        <p class="sns-card__handle">@typostet</p>
+      </div>
+    </a>
+    <a class="sns-card" href="https://note.com/typostet" target="_blank" rel="noopener">
+      <div class="sns-card__icon">≡</div>
+      <div>
+        <p class="sns-card__name">note</p>
+        <p class="sns-card__handle">/typostet</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="block">
+  <p class="micro">04 — Rule of community</p>
+  <h2>ここに、<em>2 つだけ</em>のルール。</h2>
+  <p>① 誰かの失敗を、笑い物にしない。</p>
+  <p>② 自分の失敗を、丁寧に晒す。</p>
+  <p class="muted" style="margin-top: 22px;">それ以外は自由。<br>沖縄の slow speak で、淡々と。</p>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</p>
+    <div class="site-footer__social">
+      <a href="https://instagram.com/typostet" target="_blank" rel="noopener">IG</a>
+      <a href="https://threads.net/@typostet" target="_blank" rel="noopener">Threads</a>
+      <a href="https://x.com/typostet" target="_blank" rel="noopener">X</a>
+      <span class="site-footer__hashtag">#TYP0stet</span>
+    </div>
+    <nav class="site-footer__nav">
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/tokutei.html">特定商取引法</a>
+      <a href="mailto:info@typostet.com">contact</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="time-widget" tabindex="0" role="button" aria-label="TYP0stet time" onclick="this.classList.toggle('is-open')">
+  <span class="time-widget__label">stet time</span>
+  <span class="time-widget__clock">4:81</span>
+  <div class="time-widget__tip" role="tooltip">
+    これは時刻ではない。<em>し (4) っ (8) ぱい (1)</em> の語呂。<br>毎日この時刻は、ない。
+  </div>
+</div>
+
+<script>
+  (function () {
+    var btn = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? '×' : '≡';
+    });
+  })();
+</script>
+
+</body>
+</html>

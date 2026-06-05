@@ -246,6 +246,18 @@
     color: var(--muted); text-transform: uppercase;
   }
   .site-footer__nav a:hover { color: var(--ink); }
+  .site-footer__social {
+    display: flex; gap: 18px; align-items: center;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .site-footer__social a:hover { color: var(--ink); }
+  .site-footer__hashtag {
+    font-family: var(--hand-jp); font-size: 13px;
+    color: var(--mint); letter-spacing: 0.02em;
+    text-transform: none;
+  }
 
   @media (max-width: 720px) {
     .site-header__inner { padding: 12px 20px; }
@@ -263,6 +275,45 @@
     section.block { padding: 56px 20px; }
     .company dl { grid-template-columns: 1fr; gap: 4px; }
     .company dt { margin-top: 14px; }
+  }
+
+  /* --- 4:81 floating time widget --- */
+  .time-widget {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--ink); color: var(--bone);
+    padding: 10px 16px; border-radius: 999px;
+    display: inline-flex; align-items: baseline; gap: 10px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    cursor: help; z-index: 60;
+    box-shadow: 0 8px 24px -12px rgba(14,14,14,0.4);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .time-widget:hover { transform: translateY(-2px); box-shadow: 0 14px 32px -14px rgba(14,14,14,0.45); }
+  .time-widget__label { opacity: 0.6; }
+  .time-widget__clock {
+    font-family: var(--num); font-weight: 700; font-size: 16px;
+    letter-spacing: 0.04em; color: var(--mint); text-transform: none;
+  }
+  .time-widget__tip {
+    position: absolute; bottom: calc(100% + 14px); right: 0;
+    background: var(--ink); color: var(--bone);
+    padding: 14px 18px; width: 240px; border-radius: 4px;
+    font-family: var(--serif); font-size: 13px; line-height: 1.7;
+    letter-spacing: 0; text-transform: none;
+    opacity: 0; pointer-events: none; transform: translateY(6px);
+    transition: opacity 240ms ease, transform 240ms ease;
+  }
+  .time-widget__tip em { font-style: normal; color: var(--mint); font-family: var(--hand-jp); }
+  .time-widget:hover .time-widget__tip,
+  .time-widget:focus-within .time-widget__tip,
+  .time-widget.is-open .time-widget__tip {
+    opacity: 1; transform: none; pointer-events: auto;
+  }
+  @media (max-width: 720px) {
+    .time-widget { bottom: 16px; right: 16px; padding: 8px 12px; gap: 8px; font-size: 10px; }
+    .time-widget__clock { font-size: 14px; }
+    .time-widget__tip { width: 210px; font-size: 12px; }
   }
 </style>
 </head>
@@ -388,7 +439,14 @@
 <footer class="site-footer">
   <div class="site-footer__inner">
     <p class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</p>
+    <div class="site-footer__social">
+      <a href="https://instagram.com/typostet" target="_blank" rel="noopener">IG</a>
+      <a href="https://threads.net/@typostet" target="_blank" rel="noopener">Threads</a>
+      <a href="https://x.com/typostet" target="_blank" rel="noopener">X</a>
+      <span class="site-footer__hashtag">#TYP0stet</span>
+    </div>
     <nav class="site-footer__nav">
+      <a href="/community/">Community</a>
       <a href="/terms.html">Terms</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/tokutei.html">特定商取引法</a>
@@ -408,6 +466,14 @@
     });
   })();
 </script>
+
+<div class="time-widget" tabindex="0" role="button" aria-label="TYP0stet time" onclick="this.classList.toggle('is-open')">
+  <span class="time-widget__label">stet time</span>
+  <span class="time-widget__clock">4:81</span>
+  <div class="time-widget__tip" role="tooltip">
+    これは時刻ではない。<em>し (4) っ (8) ぱい (1)</em> の語呂。<br>毎日この時刻は、ない。
+  </div>
+</div>
 
 </body>
 </html>

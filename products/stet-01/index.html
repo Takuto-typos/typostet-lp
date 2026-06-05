@@ -384,6 +384,18 @@
     color: var(--muted); text-transform: uppercase;
   }
   .site-footer__nav a:hover { color: var(--ink); }
+  .site-footer__social {
+    display: flex; gap: 18px; align-items: center;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .site-footer__social a:hover { color: var(--ink); }
+  .site-footer__hashtag {
+    font-family: var(--hand-jp); font-size: 13px;
+    color: var(--mint); letter-spacing: 0.02em;
+    text-transform: none;
+  }
 
   /* ─── Responsive ─── */
   @media (max-width: 960px) {
@@ -404,6 +416,115 @@
     .site-nav.is-open { display: flex; }
     .nav-toggle { display: inline-flex; }
     .pdp__thumbs { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  }
+
+  /* --- tig より mini-block --- */
+  .pdp__founder {
+    margin-top: 36px;
+    padding: 26px;
+    background: var(--bone-deep);
+    border: 1px solid var(--rule);
+  }
+  .pdp__founder-from {
+    font-family: var(--mono); font-style: italic; font-size: 13px;
+    letter-spacing: 0.06em; color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .pdp__founder p {
+    font-family: var(--serif); font-size: 14px; line-height: 1.95;
+    color: var(--ink);
+  }
+  .pdp__founder-sig {
+    margin-top: 14px !important;
+    font-family: var(--mono); font-style: italic; font-size: 12px !important;
+    color: var(--muted) !important;
+  }
+
+  /* --- cross-link section --- */
+  .cross-link { background: var(--bone); padding: 100px 28px 120px; border-top: 1px solid var(--rule); }
+  .cross-link__inner { max-width: 1320px; margin: 0 auto; }
+  .cross-link__micro {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .cross-link__h {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.25; margin-bottom: 40px;
+  }
+  .cross-link__h em { font-style: normal; font-family: var(--hand-jp); color: var(--mint); }
+  .cross-link__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .cross-card {
+    display: block;
+    background: var(--bone-deep);
+    border: 1px solid var(--rule);
+    transition: transform 240ms ease;
+  }
+  .cross-card:hover { transform: translateY(-4px); }
+  .cross-card__visual {
+    aspect-ratio: 1 / 1; overflow: hidden;
+    background: var(--bone);
+  }
+  .cross-card__visual img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
+  }
+  .cross-card__visual--contain img { object-fit: contain; padding: 6%; box-sizing: border-box; }
+  .cross-card__name {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    color: var(--muted); text-transform: uppercase;
+    padding: 16px 18px 4px;
+  }
+  .cross-card__price {
+    font-family: var(--num); font-weight: 700; font-size: 16px;
+    padding: 0 18px 16px;
+  }
+  @media (max-width: 720px) {
+    .cross-link__grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .cross-link { padding: 64px 20px 80px; }
+  }
+
+  /* --- 4:81 floating time widget --- */
+  .time-widget {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--ink); color: var(--bone);
+    padding: 10px 16px; border-radius: 999px;
+    display: inline-flex; align-items: baseline; gap: 10px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    cursor: help; z-index: 60;
+    box-shadow: 0 8px 24px -12px rgba(14,14,14,0.4);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .time-widget:hover { transform: translateY(-2px); box-shadow: 0 14px 32px -14px rgba(14,14,14,0.45); }
+  .time-widget__label { opacity: 0.6; }
+  .time-widget__clock {
+    font-family: var(--num); font-weight: 700; font-size: 16px;
+    letter-spacing: 0.04em; color: var(--mint); text-transform: none;
+  }
+  .time-widget__tip {
+    position: absolute; bottom: calc(100% + 14px); right: 0;
+    background: var(--ink); color: var(--bone);
+    padding: 14px 18px; width: 240px; border-radius: 4px;
+    font-family: var(--serif); font-size: 13px; line-height: 1.7;
+    letter-spacing: 0; text-transform: none;
+    opacity: 0; pointer-events: none; transform: translateY(6px);
+    transition: opacity 240ms ease, transform 240ms ease;
+  }
+  .time-widget__tip em { font-style: normal; color: var(--mint); font-family: var(--hand-jp); }
+  .time-widget:hover .time-widget__tip,
+  .time-widget:focus-within .time-widget__tip,
+  .time-widget.is-open .time-widget__tip {
+    opacity: 1; transform: none; pointer-events: auto;
+  }
+  @media (max-width: 720px) {
+    .time-widget { bottom: 16px; right: 16px; padding: 8px 12px; gap: 8px; font-size: 10px; }
+    .time-widget__clock { font-size: 14px; }
+    .time-widget__tip { width: 210px; font-size: 12px; }
   }
 </style>
 </head>
@@ -537,14 +658,61 @@
       </div>
     </details>
 
+    <div class="pdp__founder">
+      <p class="pdp__founder-from">tig より。</p>
+      <p>
+        最初の Stet を選んでくれて、ありがとうございます。<br>
+        届いた日は、なるべく失敗する予定の朝に、最初に着てみてください。<br>
+        返信が遅いときは、どこかで小さく失敗してるはず。気にせず、何度でも書いてください。
+      </p>
+      <p class="pdp__founder-sig">— tig, 2026 年 6 月</p>
+    </div>
+
   </section>
 </main>
+
+<section class="cross-link">
+  <div class="cross-link__inner">
+    <p class="cross-link__micro">Objects</p>
+    <h2 class="cross-link__h">Stet 01 と、<em>一緒に</em>。</h2>
+    <div class="cross-link__grid">
+      <a href="/#objects" class="cross-card">
+        <div class="cross-card__visual cross-card__visual--contain">
+          <img src="/img/stickers/sticker-pack.jpg" alt="Sticker Pack" loading="lazy">
+        </div>
+        <p class="cross-card__name">Sticker Pack</p>
+        <p class="cross-card__price">¥800</p>
+      </a>
+      <a href="/#objects" class="cross-card">
+        <div class="cross-card__visual">
+          <img src="/img/tote/tote-main.jpg" alt="Tote Bag" loading="lazy">
+        </div>
+        <p class="cross-card__name">Tote Bag</p>
+        <p class="cross-card__price">¥3,800</p>
+      </a>
+      <a href="/#objects" class="cross-card">
+        <div class="cross-card__visual">
+          <img src="/img/knapsack/knapsack-main.jpg" alt="Knapsack" loading="lazy">
+        </div>
+        <p class="cross-card__name">Knapsack</p>
+        <p class="cross-card__price">¥4,300</p>
+      </a>
+    </div>
+  </div>
+</section>
 
 
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <p class="site-footer__copy">© 2026 TYP0stet ─ Made in 沖縄</p>
+    <p class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</p>
+    <div class="site-footer__social">
+      <a href="https://instagram.com/typostet" target="_blank" rel="noopener">IG</a>
+      <a href="https://threads.net/@typostet" target="_blank" rel="noopener">Threads</a>
+      <a href="https://x.com/typostet" target="_blank" rel="noopener">X</a>
+      <span class="site-footer__hashtag">#TYP0stet</span>
+    </div>
     <nav class="site-footer__nav">
+      <a href="/community/">Community</a>
       <a href="/terms.html">Terms</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/tokutei.html">特定商取引法</a>
@@ -629,6 +797,14 @@
     });
   })();
 </script>
+
+<div class="time-widget" tabindex="0" role="button" aria-label="TYP0stet time" onclick="this.classList.toggle('is-open')">
+  <span class="time-widget__label">stet time</span>
+  <span class="time-widget__clock">4:81</span>
+  <div class="time-widget__tip" role="tooltip">
+    これは時刻ではない。<em>し (4) っ (8) ぱい (1)</em> の語呂。<br>毎日この時刻は、ない。
+  </div>
+</div>
 
 </body>
 </html>

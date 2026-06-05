@@ -279,6 +279,19 @@
     color: var(--muted); text-transform: uppercase;
   }
   .site-footer__nav a:hover { color: var(--ink); }
+  .site-footer__social {
+    display: flex; gap: 18px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+    align-items: center;
+  }
+  .site-footer__social a:hover { color: var(--ink); }
+  .site-footer__hashtag {
+    font-family: var(--hand-jp); font-size: 13px;
+    color: var(--mint); letter-spacing: 0.02em;
+    text-transform: none;
+  }
 
   @media (max-width: 720px) {
     .site-header__inner { padding: 12px 20px; }
@@ -295,6 +308,45 @@
     .pillars { grid-template-columns: 1fr; }
     .container { padding: 56px 20px; }
     .hero { padding: 88px 20px 56px; }
+  }
+
+  /* --- 4:81 floating time widget --- */
+  .time-widget {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--ink); color: var(--bone);
+    padding: 10px 16px; border-radius: 999px;
+    display: inline-flex; align-items: baseline; gap: 10px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    cursor: help; z-index: 60;
+    box-shadow: 0 8px 24px -12px rgba(14,14,14,0.4);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .time-widget:hover { transform: translateY(-2px); box-shadow: 0 14px 32px -14px rgba(14,14,14,0.45); }
+  .time-widget__label { opacity: 0.6; }
+  .time-widget__clock {
+    font-family: var(--num); font-weight: 700; font-size: 16px;
+    letter-spacing: 0.04em; color: var(--mint); text-transform: none;
+  }
+  .time-widget__tip {
+    position: absolute; bottom: calc(100% + 14px); right: 0;
+    background: var(--ink); color: var(--bone);
+    padding: 14px 18px; width: 240px; border-radius: 4px;
+    font-family: var(--serif); font-size: 13px; line-height: 1.7;
+    letter-spacing: 0; text-transform: none;
+    opacity: 0; pointer-events: none; transform: translateY(6px);
+    transition: opacity 240ms ease, transform 240ms ease;
+  }
+  .time-widget__tip em { font-style: normal; color: var(--mint); font-family: var(--hand-jp); }
+  .time-widget:hover .time-widget__tip,
+  .time-widget:focus-within .time-widget__tip,
+  .time-widget.is-open .time-widget__tip {
+    opacity: 1; transform: none; pointer-events: auto;
+  }
+  @media (max-width: 720px) {
+    .time-widget { bottom: 16px; right: 16px; padding: 8px 12px; gap: 8px; font-size: 10px; }
+    .time-widget__clock { font-size: 14px; }
+    .time-widget__tip { width: 210px; font-size: 12px; }
   }
 </style>
 </head>
@@ -359,44 +411,44 @@
 
   <article class="rule">
     <p class="num">01</p>
-    <h3>失敗を、笑い物にしない。</h3>
-    <p>TYP0stet は失敗を<em>誇りに思う</em>ブランド。誰かの失敗を嘲笑する文化にしない。SNS で見つけた user の typo を勝手に晒して笑いを取らない。</p>
+    <h3>失敗を、<em>笑い物にしない</em>。</h3>
+    <p>誰かの失敗は、私たちの教科書。先に書いてくれた人を、笑う理由はない。</p>
   </article>
 
   <article class="rule">
     <p class="num">02</p>
-    <h3>個人を特定可能な情報を、晒さない。</h3>
-    <p>user の投稿を当社の媒体で再掲する際は、<em>必ず本人の許諾</em>を取る。本名・連絡先・SNS handle・写真は本人が公開した範囲のものに限る。</p>
+    <h3>本人が出したものだけ、<em>出す</em>。</h3>
+    <p>名前も、写真も、SNS の handle も。許諾のないものは、影に置く。</p>
   </article>
 
   <article class="rule">
     <p class="num">03</p>
-    <h3>AI を、表に出さない。</h3>
-    <p>「AI が翻訳した」「AI が design した」のような主語を、商品説明や marketing に使わない。<em>人間が選んで人間が着るブランド</em>としての純度を保つ。</p>
+    <h3>AI を、<em>主語にしない</em>。</h3>
+    <p>翻訳したのも、design したのも、結局は人。<em>人間が選ぶ brand</em> としての純度を、保つ。</p>
   </article>
 
   <article class="rule">
     <p class="num">04</p>
-    <h3>安易にバズを狙わない。</h3>
-    <p>cult 純度と speed が衝突したら、純度を取る。「失敗」を chip にした炎上 marketing、過剰な煽りはしない。</p>
+    <h3>バズで、<em>釣らない</em>。</h3>
+    <p>燃やすより、灯す。speed と純度が衝突したら、迷わず純度を取る。</p>
   </article>
 
   <article class="rule">
     <p class="num">05</p>
-    <h3>沖縄の職人と素材を、respect する。</h3>
-    <p>地域素材・地域工房を扱う際は、職人の名前と工程を明示する。「沖縄産」を marketing word として消費しない。</p>
+    <h3>沖縄を、<em>消費しない</em>。</h3>
+    <p>「沖縄産」は marketing word じゃない。職人の名前と工程を、ちゃんと書く。</p>
   </article>
 
   <article class="rule">
     <p class="num">06</p>
-    <h3>過剰在庫を、作らない。</h3>
-    <p>実際に着る人の数だけ作る。アパレル業界の大量廃棄構造に対する、小さな抵抗。</p>
+    <h3>余らせない、<em>作りすぎない</em>。</h3>
+    <p>実際に着る人の数だけ作る。<em>あと 1 枚</em> は、来年の人のために置いておく。</p>
   </article>
 
   <article class="rule">
     <p class="num">07</p>
-    <h3>typo 本文を、シャツに乗せない。</h3>
-    <p>brand mark は <em>0 monogram / 4:81 / TYP0stet wordmark</em> のみ。user の typo 本文を物理シャツに印字しない。typo は user 自身が SNS や会話で誇りとして出す。</p>
+    <h3>typo は、<em>シャツに乗せない</em>。</h3>
+    <p>あなたの失敗は、あなたが誇るもの。<br>シャツは、その背中を、静かに支えるだけ。</p>
   </article>
 
   <div class="founder-letter">
@@ -421,7 +473,14 @@
 <footer class="site-footer">
   <div class="site-footer__inner">
     <p class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</p>
+    <div class="site-footer__social">
+      <a href="https://instagram.com/typostet" target="_blank" rel="noopener">IG</a>
+      <a href="https://threads.net/@typostet" target="_blank" rel="noopener">Threads</a>
+      <a href="https://x.com/typostet" target="_blank" rel="noopener">X</a>
+      <span class="site-footer__hashtag">#TYP0stet</span>
+    </div>
     <nav class="site-footer__nav">
+      <a href="/community/">Community</a>
       <a href="/terms.html">Terms</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/tokutei.html">特定商取引法</a>
@@ -442,6 +501,14 @@
     });
   })();
 </script>
+
+<div class="time-widget" tabindex="0" role="button" aria-label="TYP0stet time" onclick="this.classList.toggle('is-open')">
+  <span class="time-widget__label">stet time</span>
+  <span class="time-widget__clock">4:81</span>
+  <div class="time-widget__tip" role="tooltip">
+    これは時刻ではない。<em>し (4) っ (8) ぱい (1)</em> の語呂。<br>毎日この時刻は、ない。
+  </div>
+</div>
 
 </body>
 </html>
