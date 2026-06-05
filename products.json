@@ -43,20 +43,40 @@
       "contents": "3 sheets"
     },
     {
-      "id": "tote-bag",
-      "name": "Tote Bag",
+      "id": "tote-bone",
+      "name": "Tote — Bone",
       "type": "Bag",
-      "description": "12oz キャンバストート、bone。前面 0 monogram + 右下 4:81。A4 余裕、ショルダー丈ハンドル。",
+      "description": "12oz cotton canvas tote bag in unbleached bone, with a small ink-black 0 monogram silk-screen printed at upper-center. A4-portrait silhouette, shoulder-length handles.",
       "price": 3800,
       "priceCurrency": "JPY",
       "availability": "InStock",
       "leadTimeWeeks": [3, 4]
     },
     {
-      "id": "knapsack",
-      "name": "Knapsack",
+      "id": "tote-ink",
+      "name": "Tote — Ink",
       "type": "Bag",
-      "description": "ワックスドコットンキャンバスの巾着ナップザック、olive。前面 0 monogram + 4:81。軽量デイパック。",
+      "description": "12oz cotton canvas tote bag in deep ink black, with a small bone-cream 0 monogram silk-screen printed at upper-center. A4-portrait silhouette, shoulder-length handles.",
+      "price": 3800,
+      "priceCurrency": "JPY",
+      "availability": "InStock",
+      "leadTimeWeeks": [3, 4]
+    },
+    {
+      "id": "knapsack-olive",
+      "name": "Knapsack — Olive",
+      "type": "Bag",
+      "description": "Waxed cotton canvas drawstring knapsack in muted military olive, with a small bone-cream 0 monogram silk-screen printed at upper-center. Lightweight day pack.",
+      "price": 4300,
+      "priceCurrency": "JPY",
+      "availability": "InStock",
+      "leadTimeWeeks": [3, 4]
+    },
+    {
+      "id": "knapsack-mint",
+      "name": "Knapsack — Mint",
+      "type": "Bag",
+      "description": "Waxed cotton canvas drawstring knapsack in soft mint green, with a small ink-black 0 monogram silk-screen printed at upper-center. Lightweight day pack.",
       "price": 4300,
       "priceCurrency": "JPY",
       "availability": "InStock",
@@ -75,5 +95,5 @@
     "returns": "サイズ違い・色違いの返品不可。不良品は到着 7 日以内に info@typostet.com まで。",
     "language": ["ja", "en"]
   },
-  "lastUpdated": "2026-06-05T17:00:00+09:00"
+  "lastUpdated": "2026-06-06T01:00:00+09:00"
 }

@@ -1,8 +1,8 @@
 {
-  "_note": "Stripe TEST mode payment links. Generated 2026-06-05. Live mode keys need separate product creation.",
+  "_note": "Stripe TEST mode payment links. Generated 2026-06-05, updated 2026-06-06 with bag color variations as independent SKUs.",
   "_account": "acct_1TVnhvL7mWzHXi4K (TYP0S)",
   "_livemode": false,
-  "_lpLineup": ["tee", "sticker", "tote", "knapsack"],
+  "_lpLineup": ["tee", "sticker", "tote_bone", "tote_ink", "knapsack_olive", "knapsack_mint"],
   "_archivedFromLP": ["cap", "pin"],
   "products": {
     "tee": {
@@ -19,19 +19,35 @@
       "price_jpy": 800,
       "payment_link": "https://buy.stripe.com/test_8x26oI7Zsd9LfI5cPD6Na03"
     },
-    "tote": {
-      "name": "TYP0stet Tote Bag",
+    "tote_bone": {
+      "name": "TYP0stet Tote — Bone",
       "product_id": "prod_UdufEmVIGSf71P",
       "price_id": "price_1TecqrL7mWzHXi4KySicjOAF",
       "price_jpy": 3800,
-      "payment_link": "https://buy.stripe.com/test_dRm00k7Zsc5HfI53f36Na04"
+      "payment_link": "https://buy.stripe.com/test_dRm00k7Zsc5HfI53f36Na04",
+      "_note": "Originally created as generic Tote, now treated as the Bone variation"
     },
-    "knapsack": {
-      "name": "TYP0stet Knapsack",
+    "tote_ink": {
+      "name": "TYP0stet Tote — Ink",
+      "product_id": "prod_UeJU19t5tp2eV2",
+      "price_id": "price_1Tf0rxL7mWzHXi4KgGgEvTZW",
+      "price_jpy": 3800,
+      "payment_link": "https://buy.stripe.com/test_28EeVefrU7PreE19Dr6Na08"
+    },
+    "knapsack_olive": {
+      "name": "TYP0stet Knapsack — Olive",
       "product_id": "prod_UeBBdZdRrfHhoS",
       "price_id": "price_1TesozL7mWzHXi4KF1UthU15",
       "price_jpy": 4300,
-      "payment_link": "https://buy.stripe.com/test_8x214oenQ2v70Nb7vj6Na07"
+      "payment_link": "https://buy.stripe.com/test_8x214oenQ2v70Nb7vj6Na07",
+      "_note": "Originally created as generic Knapsack, now treated as the Olive variation"
+    },
+    "knapsack_mint": {
+      "name": "TYP0stet Knapsack — Mint",
+      "product_id": "prod_UeJUTemPaxG9Ug",
+      "price_id": "price_1Tf0rzL7mWzHXi4KxEWNyYga",
+      "price_jpy": 4300,
+      "payment_link": "https://buy.stripe.com/test_4gM00k4NgfhT2Vj9Dr6Na09"
     },
     "_archived_cap": {
       "_note": "Removed from LP on 2026-06-05 evening. Stripe product retained but unlinked from site.",
@@ -52,7 +68,7 @@
   },
   "_to_go_live": [
     "1. Stripe Dashboard で test→live mode 切替",
-    "2. Live mode で 4 products (tee/sticker/tote/knapsack) を再作成 (Test data は live に migrate されない)",
+    "2. Live mode で 6 products (tee/sticker/tote_bone/tote_ink/knapsack_olive/knapsack_mint) を再作成 (Test data は live に migrate されない)",
     "3. Live Payment Link URL でこの file 更新",
     "4. site の各 CTA を Live URL に置換",
     "5. shipping rate (¥600 全国一律) を Dashboard で設定 (MCP 未対応)",
