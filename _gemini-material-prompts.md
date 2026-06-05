@@ -96,66 +96,57 @@ SQUARE 1:1 ASPECT RATIO composition. Realistic editorial commerce product photog
 
 LP の Hero slider (`/img/hero/output/hero-1.jpg` 〜 `hero-4.jpg`) 用。シャツの色ごとに 4 シーン。ロゴは現状なしで生成、後で composite で当てはめる予定 (もしくはこのままでも brand mark がないこと自体が ambient で OK)。
 
-## 6. Hero — BONE (シャツ色 #1)
+## 6-9. Hero — シャツ着用 (attachment 必須 / 4 色)
+
+### 使い方
+
+各色 1 シーン生成する流れで、Gemini に **2 枚 attach** してから prompt を投げる:
+
+| 色 | Image #1 (front) | Image #2 (back) |
+|---|---|---|
+| BONE | `~/typostet/lp/img/shirts/bone-front.jpg` | `~/typostet/lp/img/shirts/bone-back.jpg` |
+| MINT | `~/typostet/lp/img/shirts/mint-front.jpg` | `~/typostet/lp/img/shirts/mint-back.jpg` |
+| OLIVE | `~/typostet/lp/img/shirts/olive-front.jpg` | `~/typostet/lp/img/shirts/olive-back.jpg` |
+| INK BLACK | `~/typostet/lp/img/shirts/black-front.jpg` | `~/typostet/lp/img/shirts/black-back.jpg` |
+
+### 共通 prompt (4 色とも同じ、{COLOR} と {COLOR_DESC} を差し替え)
 
 ```
-Editorial lifestyle photography of a Japanese woman in her late twenties standing alone on a quiet sandy beach in Okinawa, Japan. She is wearing a plain unbleached BONE-colored athleisure T-shirt (boxy fit, drop-tail hem, slight crew neck, looks slightly oversized) — the shirt is COMPLETELY BLANK with no logos, no prints, no text, no graphics, no labels.
+ATTACHED REFERENCE IMAGES (mandatory):
+- Image 1 = the FRONT of the TYP0stet Stet 01 T-shirt in {COLOR}, showing the small '0' monogram print on the left chest and a small '4:81' marker on the right sleeve
+- Image 2 = the BACK of the same shirt, showing the TYP0stet wordmark print across the lower back
 
-She is wearing simple natural-tone linen shorts or relaxed cropped trousers in a warm earth tone. Bare feet on white coral sand. Soft natural side light from the late afternoon sun (golden hour is just starting — light is warm but not orange-saturated). Her hair is natural-falling, makeup minimal, expression calm and observational — looking slightly away from the camera toward the horizon, NOT a typical fashion-pose smile, NOT facing the camera directly.
+CRITICAL: The woman in the generated image must be wearing THE EXACT SAME SHIRT as in the attachments. Reproduce the shirt design FAITHFULLY:
+- Same {COLOR} fabric color ({COLOR_DESC})
+- Same boxy drop-tail silhouette (crew neck, slightly oversized fit, dropped hem at back)
+- Same '0' monogram print on the LEFT CHEST (small, approximately 4-5cm wide)
+- Same '4:81' marker on the RIGHT SLEEVE (small, approximately 3-4cm wide, slightly tilted along the sleeve seam)
+- DO NOT enlarge, restyle, or move the prints. DO NOT add any logo or text that is not in the reference. The prints must look SMALL and SUBTLE on the shirt as in the reference.
 
-Background: a calm Okinawan turquoise sea (subtle gradient from pale aqua to deep teal), low gentle waves, white coral sand foreground, a few palm trees in the far distance slightly blurred. Photographed in a wide editorial composition (16:9), the woman positioned slightly off-center (rule of thirds, deliberate off-balance).
+SCENE:
+Editorial lifestyle photography of a Japanese woman in her late twenties standing alone on a quiet sandy beach in Okinawa, Japan. She is wearing the shirt shown in the attached references. She is also wearing simple natural-tone linen shorts or relaxed cropped trousers in a warm earth tone. Bare feet on white coral sand.
 
-Anti-fashion-shoot vibe — natural, lived-in, "photographed by a friend on a slow day." Style reference: Outdoor Voices lookbook + Patagonia editorial + Japanese POPEYE Okinawa issue. 8K resolution, sharp focus on the subject, natural color grading (warm but NOT over-saturated, NOT Instagram-filter-look).
+Soft natural side light from the late afternoon sun (golden hour is just starting — light is warm but NOT orange-saturated). Her hair is natural-falling, makeup minimal, expression calm and observational. She is looking slightly AWAY from the camera toward the horizon — NOT a fashion-pose smile, NOT facing the camera directly, NOT posing.
 
-No watermarks, no overlay text, no Gemini signature, no AI-generated artifacts visible.
+Background: a calm Okinawan turquoise sea (subtle gradient from pale aqua to deep teal), low gentle waves, white coral sand foreground, a few palm trees in the far distance slightly blurred. Wide editorial composition (16:9 aspect ratio), the woman positioned slightly off-center (rule of thirds, deliberate off-balance).
+
+STYLE: Anti-fashion-shoot vibe — natural, lived-in, "photographed by a friend on a slow day." Reference: Outdoor Voices lookbook + Patagonia editorial + Japanese POPEYE Okinawa issue. 8K resolution, sharp focus on the subject, natural color grading (warm but NOT over-saturated, NOT Instagram-filter-look).
+
+NO watermarks, NO overlay text, NO Gemini signature, NO AI-generated artifacts. The prints on the shirt must match the attachments — no extra logos, no oversized prints.
 ```
 
-## 7. Hero — MINT (シャツ色 #2)
+### 色ごとの差し替え値
 
-```
-Same setup as the BONE shot above. Same Japanese woman in her late twenties, same Okinawan beach (same season, same golden hour timing), but she is now wearing a plain pale MINT GREEN athleisure T-shirt (#92E5BD pistachio sea, washed soft mint — NOT bright lime, NOT teal, NOT pastel candy). The mint shirt should look soft and natural against the turquoise sea, gently echoing the water color without competing.
-
-Same shirt silhouette: boxy fit, drop-tail hem, slight crew neck. COMPLETELY BLANK — no logos, no prints, no text.
-
-Same pose principle: standing alone, looking slightly away from camera, natural posture, NOT facing camera, NOT smiling poseographically. Same natural earth-tone linen shorts or cropped trousers, bare feet on white sand.
-
-Same wide editorial 16:9 composition, woman slightly off-center. Same anti-fashion-shoot vibe (Outdoor Voices / Patagonia / POPEYE Okinawa). 8K, natural color grading.
-
-No watermarks, no Gemini signature, no AI artifacts.
-```
-
-## 8. Hero — OLIVE (シャツ色 #3)
-
-```
-Same setup as the BONE shot. Same Japanese woman in her late twenties, same Okinawan beach, same golden hour, but she is now wearing a plain muted OLIVE GREEN athleisure T-shirt (washed military olive, low saturation, slightly desaturated and earthy — NOT bright kelly green, NOT yellow-olive). The olive shirt should anchor naturally against the bright sea and sand without standing out aggressively.
-
-Same shirt silhouette: boxy fit, drop-tail hem, slight crew neck. COMPLETELY BLANK — no logos, no prints, no text.
-
-Same pose principle: standing alone, looking slightly away, natural unposed posture, NOT facing camera, NOT smiling. Same earth-tone linen shorts or cropped trousers, bare feet.
-
-Same wide editorial 16:9 composition, slightly off-center. Same anti-fashion vibe (Outdoor Voices / Patagonia / POPEYE Okinawa). 8K, natural color grading.
-
-No watermarks, no Gemini signature, no AI artifacts.
-```
-
-## 9. Hero — INK BLACK (シャツ色 #4)
-
-```
-Same setup as the BONE shot. Same Japanese woman in her late twenties, same Okinawan beach, same golden hour, but she is now wearing a plain deep INK BLACK athleisure T-shirt (soft washed black with a slight warm undertone, more like aged Japanese sumi-ink black — NOT pure jet black, NOT neon-contrast black). The black shirt should create a soft but striking contrast against the bright white sand without looking aggressive.
-
-Same shirt silhouette: boxy fit, drop-tail hem, slight crew neck. COMPLETELY BLANK — no logos, no prints, no text.
-
-Same pose principle: standing alone, looking slightly away, natural unposed posture, NOT facing camera, NOT smiling. Same earth-tone linen shorts or cropped trousers, bare feet.
-
-Same wide editorial 16:9 composition, slightly off-center. Same anti-fashion vibe (Outdoor Voices / Patagonia / POPEYE Okinawa). 8K, natural color grading — lighting tuned so the black shirt retains soft fabric detail (not crushed shadows).
-
-No watermarks, no Gemini signature, no AI artifacts.
-```
+- **BONE**: `{COLOR}` = `BONE`, `{COLOR_DESC}` = `warm cream off-white, NOT pure white`
+- **MINT**: `{COLOR}` = `MINT`, `{COLOR_DESC}` = `pale mint green #92E5BD pistachio sea, washed soft mint, NOT bright lime`
+- **OLIVE**: `{COLOR}` = `OLIVE`, `{COLOR_DESC}` = `washed military olive, low saturation and earthy, NOT bright kelly green`
+- **INK BLACK**: `{COLOR}` = `INK BLACK`, `{COLOR_DESC}` = `soft washed black with a slight warm undertone, like aged Japanese sumi-ink black, NOT pure jet black` — また prompt 末尾に "lighting tuned so the black shirt retains soft fabric detail (not crushed shadows)" を 1 行 追記
 
 ---
 
 ## Hero lifestyle 共通注意点
-- **「ソロ」「looking slightly away」「NOT smiling」「anti-fashion-shoot vibe」を強調**しないと、Gemini が typical fashion-pose の女性 (笑顔・カメラ目線) を生成しがち
-- **「same setup as the BONE shot above」**で前 prompt と整合した構図を維持しやすい (Gemini が context 引き継ぐ場合)
-- 生成後 → `~/typostet/lp/img/hero/output/hero-{1,2,3,4}.jpg` に上書き or 新 numbering で並列保存
-- LP の hero slider は 4 枚 rotation、現状 BONE/MINT/OLIVE/BLACK で揃えるのが整合的 (現在は generic な beach 写真)
+- **2 枚 attach 必須**: front + back の両方を Gemini に渡すことで「この shirt の design」が伝わる
+- **「looking AWAY」「NOT smiling」「NOT facing camera」「anti-fashion-shoot」を強調**しないと、Gemini が typical fashion-pose の笑顔生成しがち
+- **「Reproduce the shirt design FAITHFULLY」「DO NOT enlarge the prints」を強調**しないと、Gemini がロゴを巨大化して描きがち
+- 生成後 → `~/typostet/lp/img/hero/output/hero-{1,2,3,4}.jpg` に bone/mint/olive/black 順で配置
+- LP hero slider 順序は現状 hero-1 〜 hero-4 (rotation 6.5s)、好みの順に並べる
