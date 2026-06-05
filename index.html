@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="TYP0stet">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@typostet">
+<meta name="twitter:site" content="@typostet481">
 <meta name="twitter:title" content="TYP0stet ── 失敗できる事が、人間の証明になる。">
 <meta name="twitter:description" content="失敗したい日に、着よう。">
 <meta name="twitter:image" content="https://typostet.com/img/og-image.png">
@@ -336,6 +336,14 @@
     background: linear-gradient(180deg, transparent 60%, rgba(146,229,189,0.22) 60%);
     padding: 0 4px;
   }
+  /* deliberate 4 dots in the hero — like a sentence half-written, half-finished */
+  .hero__dots {
+    font-family: var(--num); font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0.1em;
+  }
+
   /* deliberate校正記号 stet on the word "失敗" — dotted underline + small "stet" red */
   .hero__stet-mark {
     position: relative;
@@ -857,6 +865,11 @@
     font-family: var(--num); font-weight: 700; font-size: 16px;
     letter-spacing: 0.04em; color: var(--mint); text-transform: none;
   }
+  .time-widget__colon {
+    display: inline-block;
+    animation: stet-blink 1.06s steps(2, end) infinite;
+  }
+  @keyframes stet-blink { 50% { opacity: 0; } }
   .time-widget__tip {
     position: absolute; bottom: calc(100% + 14px); right: 0;
     background: var(--ink); color: var(--bone);
@@ -890,7 +903,6 @@
     <nav class="site-nav" id="site-nav" aria-label="primary">
       <a href="#stet">Shop</a>
       <a href="#objects">Objects</a>
-      <a href="/stories/">Stories</a>
       <a href="/manifest.html">Manifesto</a>
       <a href="/about.html">About</a>
       <a href="#cart" class="cart-link" aria-label="Cart">cart</a>
@@ -912,7 +924,7 @@
       </div>
     </div>
     <div class="hero__inner">
-      <h1 class="hero__title"><span class="hero__stet-mark">失敗</span>したい日に、<br><em>着よう。</em></h1>
+      <h1 class="hero__title"><span class="hero__stet-mark">失敗</span>したい日に<span class="hero__dots">....</span><br><em>着よう。</em></h1>
       <p class="hero__sub">typo (誤字) を、誇って着る brand。</p>
       <a href="#stet" class="btn">Shop Stet 01</a>
     </div>
@@ -1035,23 +1047,6 @@
     </div>
   </section>
 
-  <!-- NEWSLETTER -->
-  <section id="newsletter" class="newsletter reveal">
-    <div class="container">
-      <p class="newsletter__sub">Newsletter</p>
-      <p class="newsletter__lead">次の Stet を、<em>最初に着る</em>。</p>
-      <p class="newsletter__body">
-        新しい Stet の入荷と、間違えた朝の小さなノート。月に 1 回、不定期に届きます。
-      </p>
-      <!-- TODO: replace action with Buttondown / ConvertKit endpoint after tig signs up -->
-      <form class="newsletter__form" action="https://buttondown.email/api/emails/embed-subscribe/typostet" method="post" target="popupwindow">
-        <input class="newsletter__input" type="email" name="email" placeholder="you@example.com" required aria-label="メールアドレス">
-        <button class="newsletter__submit" type="submit">Subscribe ↗</button>
-      </form>
-      <p class="newsletter__tip">いつでも解除できます。typo は本気で大歓迎。</p>
-      <p class="newsletter__hashtag">あなたの typo を <em>#TYP0stet</em> で投稿してみる。</p>
-    </div>
-  </section>
 
 </main>
 
@@ -1065,7 +1060,6 @@
         <h4>Shop</h4>
         <ul>
           <li><a href="/products/stet-01/">Stet 01 — Recieved.</a></li>
-          <li><a href="#newsletter">次の Stet を待つ</a></li>
           <li><a href="/about.html#size">サイズガイド</a></li>
           <li><a href="/about.html#shipping">配送について</a></li>
         </ul>
@@ -1073,18 +1067,16 @@
       <div class="site-footer__col">
         <h4>Read</h4>
         <ul>
-          <li><a href="/stories/">Stories</a></li>
           <li><a href="/manifest.html">Manifesto</a></li>
           <li><a href="/community/">Community</a></li>
-          <li><a href="https://note.com/typostet" target="_blank" rel="noopener">note ↗</a></li>
         </ul>
       </div>
       <div class="site-footer__col">
         <h4>Connect</h4>
         <ul>
           <li><a href="https://instagram.com/typostet" target="_blank" rel="noopener">Instagram ↗</a></li>
-          <li><a href="https://threads.net/@typostet" target="_blank" rel="noopener">Threads ↗</a></li>
-          <li><a href="https://x.com/typostet" target="_blank" rel="noopener">X ↗</a></li>
+          <li><a href="https://x.com/typostet481" target="_blank" rel="noopener">X ↗</a></li>
+          <li><a href="https://note.com/typostet" target="_blank" rel="noopener">note ↗</a></li>
           <li class="site-footer__hashtag">#TYP0stet</li>
         </ul>
       </div>
@@ -1205,7 +1197,7 @@
 <!-- 4:81 floating time widget -->
 <div class="time-widget" tabindex="0" role="button" aria-label="TYP0stet time" onclick="this.classList.toggle('is-open')">
   <span class="time-widget__label">stet time</span>
-  <span class="time-widget__clock">4:81</span>
+  <span class="time-widget__clock">4<span class="time-widget__colon">:</span>81</span>
   <div class="time-widget__tip" role="tooltip">
     これは時刻ではない。<em>し (4) っ (8) ぱい (1)</em> の語呂。<br>毎日この時刻は、ない。
   </div>

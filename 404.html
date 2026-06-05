@@ -137,6 +137,11 @@
     font-family: var(--num); font-weight: 700; font-size: 16px;
     letter-spacing: 0.04em; color: var(--mint); text-transform: none;
   }
+  .time-widget__colon {
+    display: inline-block;
+    animation: stet-blink 1.06s steps(2, end) infinite;
+  }
+  @keyframes stet-blink { 50% { opacity: 0; } }
   .time-widget__tip {
     position: absolute; bottom: calc(100% + 14px); right: 0;
     background: var(--ink); color: var(--bone);
@@ -194,7 +199,7 @@
 
 <div class="time-widget" tabindex="0" role="button" aria-label="TYP0stet time" onclick="this.classList.toggle('is-open')">
   <span class="time-widget__label">stet time</span>
-  <span class="time-widget__clock">4:81</span>
+  <span class="time-widget__clock">4<span class="time-widget__colon">:</span>81</span>
   <div class="time-widget__tip" role="tooltip">
     これは時刻ではない。<em>し (4) っ (8) ぱい (1)</em> の語呂。<br>毎日この時刻は、ない。
   </div>

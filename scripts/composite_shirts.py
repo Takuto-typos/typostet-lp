@@ -42,9 +42,9 @@ CROP_X = {
 
 # Logo offsets from shirt body center (px), cy/w are frame-fractions
 LOGO = {
-    "mono_front": dict(dx=-120, cy=0.30, w=0.030),  # one size smaller (0.035 → 0.030)
-    "ts_front":   dict(dx=+400, cy=0.43, w=0.032),  # smaller than original 0.035, hand-drawn marker readable
-    "wm_back":    dict(dx=-240, cy=0.76, w=0.095),
+    "mono_front": dict(dx=-120, cy=0.30, w=0.026),  # 06-05 夜 one more size smaller (0.030 → 0.026)
+    "ts_front":   dict(dx=+400, cy=0.43, w=0.028),  # 06-05 夜 one more size smaller (0.032 → 0.028)
+    "wm_back":    dict(dx=-240, cy=0.76, w=0.083),  # 06-05 夜 one more size smaller (0.095 → 0.083)
 }
 
 MONO_DX_BY_SHIRT = {

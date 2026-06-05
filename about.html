@@ -295,6 +295,11 @@
     font-family: var(--num); font-weight: 700; font-size: 16px;
     letter-spacing: 0.04em; color: var(--mint); text-transform: none;
   }
+  .time-widget__colon {
+    display: inline-block;
+    animation: stet-blink 1.06s steps(2, end) infinite;
+  }
+  @keyframes stet-blink { 50% { opacity: 0; } }
   .time-widget__tip {
     position: absolute; bottom: calc(100% + 14px); right: 0;
     background: var(--ink); color: var(--bone);
@@ -327,7 +332,6 @@
     <nav class="site-nav" id="site-nav" aria-label="primary">
       <a href="/#stet">Shop</a>
       <a href="/#objects">Objects</a>
-      <a href="/stories/">Stories</a>
       <a href="/manifest.html">Manifesto</a>
       <a href="/about.html" class="is-current">About</a>
       <a href="#cart" class="cart-link" aria-label="Cart">cart</a>
@@ -441,8 +445,7 @@
     <p class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</p>
     <div class="site-footer__social">
       <a href="https://instagram.com/typostet" target="_blank" rel="noopener">IG</a>
-      <a href="https://threads.net/@typostet" target="_blank" rel="noopener">Threads</a>
-      <a href="https://x.com/typostet" target="_blank" rel="noopener">X</a>
+      <a href="https://x.com/typostet481" target="_blank" rel="noopener">X</a>
       <span class="site-footer__hashtag">#TYP0stet</span>
     </div>
     <nav class="site-footer__nav">
@@ -469,7 +472,7 @@
 
 <div class="time-widget" tabindex="0" role="button" aria-label="TYP0stet time" onclick="this.classList.toggle('is-open')">
   <span class="time-widget__label">stet time</span>
-  <span class="time-widget__clock">4:81</span>
+  <span class="time-widget__clock">4<span class="time-widget__colon">:</span>81</span>
   <div class="time-widget__tip" role="tooltip">
     これは時刻ではない。<em>し (4) っ (8) ぱい (1)</em> の語呂。<br>毎日この時刻は、ない。
   </div>
