@@ -488,7 +488,7 @@
     color: var(--muted);
   }
 
-  /* --- Objects (Sticker / Tote / Cap / Pin) --- */
+  /* --- Objects (Sticker / Tote / Knapsack) --- */
   .objects { background: var(--bone); padding: 120px 28px; }
   .objects__head { text-align: center; margin-bottom: 56px; }
   .objects__caption {
@@ -500,7 +500,7 @@
   }
   .objects__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
   .object-card {
@@ -545,6 +545,13 @@
     height: auto;
     display: block;
   }
+  .object-card__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .object-card__visual--photo { padding: 0; background: var(--bone); }
   /* On colored backgrounds, ensure 4:81 mint stays mint (no filter needed since source is mint) */
   .object-card__mark .dots {
     position: absolute;
@@ -858,7 +865,7 @@
     </div>
   </section>
 
-  <!-- OBJECTS (Sticker / Tote / Cap / Pin) -->
+  <!-- OBJECTS (Sticker / Tote / Knapsack) -->
   <section id="objects" class="objects reveal">
     <div class="container--wide">
       <div class="objects__head">
@@ -869,39 +876,30 @@
       <div class="objects__grid">
 
         <a class="object-card" data-color="bone" href="https://buy.stripe.com/test_8x26oI7Zsd9LfI5cPD6Na03" target="_blank" rel="noopener">
-          <div class="object-card__visual">
-            <span class="object-card__mark">0<span class="dots">····</span></span>
+          <div class="object-card__visual object-card__visual--photo">
+            <img class="object-card__photo" src="/img/stickers/sticker-pack.jpg" alt="TYP0stet 3-piece sticker pack: 0 monogram, TYP0stet wordmark, 4:81 hand-drawn marker" loading="lazy">
           </div>
           <p class="object-card__type">Sticker Pack</p>
           <p class="object-card__sub">0 / 4:81 / wordmark, 3 sheets</p>
           <p class="object-card__price">¥800</p>
         </a>
 
-        <a class="object-card" data-color="ink" href="https://buy.stripe.com/test_dRm00k7Zsc5HfI53f36Na04" target="_blank" rel="noopener">
-          <div class="object-card__visual">
-            <span class="object-card__mark serif">TOTE</span>
+        <a class="object-card" data-color="bone" href="https://buy.stripe.com/test_dRm00k7Zsc5HfI53f36Na04" target="_blank" rel="noopener">
+          <div class="object-card__visual object-card__visual--photo">
+            <img class="object-card__photo" src="/img/tote/tote-main.jpg" alt="TYP0stet 12oz cotton canvas tote bag in bone, front view with 0 monogram and 4:81 marker" loading="lazy">
           </div>
           <p class="object-card__type">Tote Bag</p>
-          <p class="object-card__sub">12oz canvas, bone or ink</p>
+          <p class="object-card__sub">12oz canvas, bone</p>
           <p class="object-card__price">¥3,800</p>
         </a>
 
-        <a class="object-card" data-color="mint" href="https://buy.stripe.com/test_5kQ7sMfrU7PrgM9dTH6Na05" target="_blank" rel="noopener">
-          <div class="object-card__visual">
-            <span class="object-card__mark serif">CAP</span>
+        <a class="object-card" data-color="bone" href="https://buy.stripe.com/test_8x214oenQ2v70Nb7vj6Na07" target="_blank" rel="noopener">
+          <div class="object-card__visual object-card__visual--photo">
+            <img class="object-card__photo" src="/img/knapsack/knapsack-main.jpg" alt="TYP0stet waxed cotton canvas drawstring knapsack in olive, hung on a plaster wall" loading="lazy">
           </div>
-          <p class="object-card__type">Cap</p>
-          <p class="object-card__sub">6-panel cotton twill, bone or ink</p>
-          <p class="object-card__price">¥6,800</p>
-        </a>
-
-        <a class="object-card" data-color="terracotta" href="https://buy.stripe.com/test_6oUfZi6Vo8Tv2Vj8zn6Na06" target="_blank" rel="noopener">
-          <div class="object-card__visual">
-            <img class="object-card__mark-img" src="/assets/brand/timestamp/handdrawn-481.png" alt="4:81">
-          </div>
-          <p class="object-card__type">Pin Badge</p>
-          <p class="object-card__sub">20mm 真鍮 + 七宝, 5 種</p>
-          <p class="object-card__price">¥800</p>
+          <p class="object-card__type">Knapsack</p>
+          <p class="object-card__sub">waxed cotton canvas, olive</p>
+          <p class="object-card__price">¥4,300</p>
         </a>
 
       </div>

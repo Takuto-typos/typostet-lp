@@ -46,31 +46,21 @@
       "id": "tote-bag",
       "name": "Tote Bag",
       "type": "Bag",
-      "description": "12oz キャンバストート、bone or ink。底マチ付き、A4 余裕。",
+      "description": "12oz キャンバストート、bone。前面 0 monogram + 右下 4:81。A4 余裕、ショルダー丈ハンドル。",
       "price": 3800,
       "priceCurrency": "JPY",
       "availability": "InStock",
       "leadTimeWeeks": [3, 4]
     },
     {
-      "id": "cap",
-      "name": "Cap",
-      "type": "Cap",
-      "description": "コットンツイル 6 パネル low-profile cap、bone or ink。フロント 0 monogram。",
-      "price": 6800,
+      "id": "knapsack",
+      "name": "Knapsack",
+      "type": "Bag",
+      "description": "ワックスドコットンキャンバスの巾着ナップザック、olive。前面 0 monogram + 4:81。軽量デイパック。",
+      "price": 4300,
       "priceCurrency": "JPY",
       "availability": "InStock",
       "leadTimeWeeks": [3, 4]
-    },
-    {
-      "id": "pin-badge",
-      "name": "Pin Badge",
-      "type": "Accessory",
-      "description": "5 種から選択 ─ 0 / 4:81 / TYP0stet wordmark / Stet 01 / 失敗できる テキスト。20mm 真鍮 + 七宝、ピンクラッチ。",
-      "price": 800,
-      "priceCurrency": "JPY",
-      "availability": "InStock",
-      "leadTimeWeeks": [1, 2]
     }
   ],
   "shipping": {
@@ -85,5 +75,5 @@
     "returns": "サイズ違い・色違いの返品不可。不良品は到着 7 日以内に info@typostet.com まで。",
     "language": ["ja", "en"]
   },
-  "lastUpdated": "2026-06-05"
+  "lastUpdated": "2026-06-05T17:00:00+09:00"
 }

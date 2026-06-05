@@ -2,6 +2,8 @@
   "_note": "Stripe TEST mode payment links. Generated 2026-06-05. Live mode keys need separate product creation.",
   "_account": "acct_1TVnhvL7mWzHXi4K (TYP0S)",
   "_livemode": false,
+  "_lpLineup": ["tee", "sticker", "tote", "knapsack"],
+  "_archivedFromLP": ["cap", "pin"],
   "products": {
     "tee": {
       "name": "TYP0stet Stet 01 — Recieved. Tee",
@@ -24,14 +26,23 @@
       "price_jpy": 3800,
       "payment_link": "https://buy.stripe.com/test_dRm00k7Zsc5HfI53f36Na04"
     },
-    "cap": {
+    "knapsack": {
+      "name": "TYP0stet Knapsack",
+      "product_id": "prod_UeBBdZdRrfHhoS",
+      "price_id": "price_1TesozL7mWzHXi4KF1UthU15",
+      "price_jpy": 4300,
+      "payment_link": "https://buy.stripe.com/test_8x214oenQ2v70Nb7vj6Na07"
+    },
+    "_archived_cap": {
+      "_note": "Removed from LP on 2026-06-05 evening. Stripe product retained but unlinked from site.",
       "name": "TYP0stet Cap",
       "product_id": "prod_UdufjrcMHwlsS9",
       "price_id": "price_1TecqtL7mWzHXi4KEKO6Tdgl",
       "price_jpy": 6800,
       "payment_link": "https://buy.stripe.com/test_5kQ7sMfrU7PrgM9dTH6Na05"
     },
-    "pin": {
+    "_archived_pin": {
+      "_note": "Removed from LP on 2026-06-05 evening. Stripe product retained but unlinked from site.",
       "name": "TYP0stet Pin Badge",
       "product_id": "prod_UdugBNXR3FKhxb",
       "price_id": "price_1TecqvL7mWzHXi4KfzMKym2P",
@@ -41,7 +52,7 @@
   },
   "_to_go_live": [
     "1. Stripe Dashboard で test→live mode 切替",
-    "2. Live mode で同じ 5 products を再作成 (Test の data は live に migrate されない)",
+    "2. Live mode で 4 products (tee/sticker/tote/knapsack) を再作成 (Test data は live に migrate されない)",
     "3. Live Payment Link URL でこの file 更新",
     "4. site の各 CTA を Live URL に置換",
     "5. shipping rate (¥600 全国一律) を Dashboard で設定 (MCP 未対応)",
