@@ -14,52 +14,66 @@
     {
       "id": "stet-01",
       "name": "Stet 01 — Recieved.",
-      "description": "TYP0stet の最初の Stet。受信箱の綴り間違い「Recieved」を商品名にした T シャツ。AI が完璧を量産する時代に、人間にしか残せない typo を誇りとして着る。",
+      "type": "T-shirt",
+      "description": "TYP0stet の最初の Stet。受信箱の綴り間違い「Recieved」を商品名にした T シャツ。直さず、誇って着る。",
       "url": "https://typostet.com/products/stet-01/",
-      "category": "Apparel / T-shirt",
       "price": 9800,
       "priceCurrency": "JPY",
-      "availability": "PreOrder",
+      "availability": "InStock",
       "leadTimeWeeks": [3, 4],
       "material": "poly 50 / cot 50, 4.5oz Repreve (recycled)",
-      "silhouette": "boxy drop-tail (athleisure)",
+      "silhouette": "boxy drop-tail",
       "prints": {
         "leftChest": "0 monogram",
         "rightSleeve": "4:81",
         "lowerBack": "TYP0stet wordmark"
       },
-      "colors": [
-        { "name": "BONE", "hex": "#ECE3CF", "logoColor": "ink" },
-        { "name": "MINT", "hex": "#92E5BD", "logoColor": "ink" },
-        { "name": "OLIVE", "hex": "#5E6638", "logoColor": "bone" },
-        { "name": "INK BLACK", "hex": "#1A1A1A", "logoColor": "bone" }
-      ],
-      "sizes": [
-        { "size": "XS", "chestCm": 48, "lengthBackCm": 67, "lengthFrontCm": 63, "shoulderCm": 43, "sleeveCm": 20 },
-        { "size": "S",  "chestCm": 51, "lengthBackCm": 70, "lengthFrontCm": 66, "shoulderCm": 46, "sleeveCm": 21 },
-        { "size": "M",  "chestCm": 54, "lengthBackCm": 73, "lengthFrontCm": 69, "shoulderCm": 49, "sleeveCm": 22 },
-        { "size": "L",  "chestCm": 57, "lengthBackCm": 76, "lengthFrontCm": 72, "shoulderCm": 52, "sleeveCm": 23 },
-        { "size": "XL", "chestCm": 60, "lengthBackCm": 79, "lengthFrontCm": 75, "shoulderCm": 55, "sleeveCm": 24 }
-      ],
-      "images": [
-        "https://typostet.com/img/shirts/bone-front.jpg",
-        "https://typostet.com/img/shirts/bone-back.jpg",
-        "https://typostet.com/img/shirts/mint-front.jpg",
-        "https://typostet.com/img/shirts/mint-back.jpg",
-        "https://typostet.com/img/shirts/olive-front.jpg",
-        "https://typostet.com/img/shirts/olive-back.jpg",
-        "https://typostet.com/img/shirts/black-front.jpg",
-        "https://typostet.com/img/shirts/black-back.jpg"
-      ],
+      "colors": ["BONE", "MINT", "OLIVE", "INK BLACK"],
+      "sizes": ["XS", "S", "M", "L", "XL"]
+    },
+    {
+      "id": "sticker-pack",
+      "name": "Sticker Pack",
+      "type": "Sticker",
+      "description": "0 monogram / 4:81 / TYP0stet wordmark の 3 種ステッカーセット。マットビニール、屋外耐久。",
+      "price": 800,
+      "priceCurrency": "JPY",
+      "availability": "InStock",
+      "leadTimeWeeks": [1, 2],
+      "contents": "3 sheets"
+    },
+    {
+      "id": "tote-bag",
+      "name": "Tote Bag",
+      "type": "Bag",
+      "description": "12oz キャンバストート、bone。前面 0 monogram + 右下 4:81。A4 余裕、ショルダー丈ハンドル。",
+      "price": 3800,
+      "priceCurrency": "JPY",
+      "availability": "InStock",
+      "leadTimeWeeks": [3, 4]
+    },
+    {
+      "id": "knapsack",
+      "name": "Knapsack",
+      "type": "Bag",
+      "description": "ワックスドコットンキャンバスの巾着ナップザック、olive。前面 0 monogram + 4:81。軽量デイパック。",
+      "price": 4300,
+      "priceCurrency": "JPY",
+      "availability": "InStock",
+      "leadTimeWeeks": [3, 4]
     }
   ],
   "shipping": {
-    "domesticJP": { "fee": 600, "currency": "JPY", "carrier": "TBD" },
+    "domesticJP": { "fee": 600, "currency": "JPY", "uniform": true },
     "international": { "fee": "quote-based", "contact": "info@typostet.com" }
+  },
+  "payment": {
+    "provider": "Stripe",
+    "methods": ["Apple Pay", "Google Pay", "Visa", "Master", "Amex", "コンビニ"]
   },
   "policy": {
     "returns": "サイズ違い・色違いの返品不可。不良品は到着 7 日以内に info@typostet.com まで。",
     "language": ["ja", "en"]
   },
-  "lastUpdated": "2026-06-04"
+  "lastUpdated": "2026-06-05T17:00:00+09:00"
 }

@@ -18,7 +18,7 @@ SHIRTS = {
 }
 
 MONOGRAM = DOWNLOADS / "0 マーク.png"
-TIMESTAMP = DOWNLOADS / "481.png"
+TIMESTAMP = DOWNLOADS / "481 (1).png"
 WORDMARK = DOWNLOADS / "TYP0文字ロゴ (1)/2.png"
 
 CROP_RIGHT = 320
@@ -42,8 +42,8 @@ CROP_X = {
 
 # Logo offsets from shirt body center (px), cy/w are frame-fractions
 LOGO = {
-    "mono_front": dict(dx=-120, cy=0.30, w=0.035),
-    "ts_front":   dict(dx=+400, cy=0.43, w=0.035),
+    "mono_front": dict(dx=-120, cy=0.30, w=0.030),  # one size smaller (0.035 → 0.030)
+    "ts_front":   dict(dx=+400, cy=0.43, w=0.032),  # smaller than original 0.035, hand-drawn marker readable
     "wm_back":    dict(dx=-240, cy=0.76, w=0.095),
 }
 
@@ -88,6 +88,19 @@ def trim(img):
     return img.crop(bbox) if bbox else img
 
 
+def white_to_transparent(img, threshold=235):
+    """Convert near-white pixels to fully transparent (for RGB-with-white-bg sources)."""
+    img = img.convert("RGBA")
+    new_data = []
+    for r, g, b, a in img.getdata():
+        if r >= threshold and g >= threshold and b >= threshold:
+            new_data.append((r, g, b, 0))
+        else:
+            new_data.append((r, g, b, a))
+    img.putdata(new_data)
+    return img
+
+
 def find_shirt_bbox(img, bg_threshold=35):
     """Detect shirt bbox by diffing against a top-left sampled bg color."""
     rgb = img.convert("RGB")
@@ -126,7 +139,8 @@ def crop_square_at(img, center_x):
 
 
 mono = trim(Image.open(MONOGRAM).convert("RGBA"))
-ts_raw = trim(Image.open(TIMESTAMP).convert("RGBA"))
+# new hand-drawn 4:81 PNG has white background instead of transparent, convert first
+ts_raw = trim(white_to_transparent(Image.open(TIMESTAMP)))
 wm = trim(Image.open(WORDMARK).convert("RGBA"))
 
 # Rotate 4:81 to follow sleeve seam angle, then re-trim to drop transparent margins.

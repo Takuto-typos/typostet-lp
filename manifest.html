@@ -212,8 +212,33 @@
     color: var(--ink);
   }
 
+  .founder-letter {
+    margin-top: 80px;
+    padding: 40px 32px;
+    background: var(--bone-deep);
+    border: 1px solid var(--rule);
+  }
+  .founder-letter h3 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 22px; line-height: 1.4;
+    margin-bottom: 16px;
+  }
+  .founder-letter h3 em {
+    font-style: normal; font-family: var(--hand-jp); color: var(--mint);
+  }
+  .founder-letter p {
+    font-family: var(--serif); font-size: 15px; line-height: 1.95;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .founder-letter__sig {
+    font-family: var(--mono); font-style: italic; font-size: 13px;
+    color: var(--muted);
+    margin-top: 8px !important;
+  }
+
   .closing {
-    margin-top: 96px;
+    margin-top: 32px;
     padding: 56px 28px;
     background: var(--ink); color: var(--bone);
     text-align: center;
@@ -227,11 +252,11 @@
     font-family: var(--serif); font-size: 14px;
     color: rgba(244, 237, 223, 0.7);
   }
-  .closing .timestamp {
-    font-family: var(--num); font-weight: 700;
-    font-size: 14px; letter-spacing: 0.18em;
-    color: var(--mint);
-    margin-top: 18px;
+  .closing .timestamp-img {
+    width: 80px; height: auto;
+    margin: 18px auto 0;
+    display: block;
+    opacity: 0.95;
   }
 
   .site-footer {
@@ -282,6 +307,7 @@
     </a>
     <nav class="site-nav" id="site-nav" aria-label="primary">
       <a href="/#stet">Shop</a>
+      <a href="/#objects">Objects</a>
       <a href="/stories/">Stories</a>
       <a href="/manifest.html" class="is-current">Manifesto</a>
       <a href="/about.html">About</a>
@@ -373,10 +399,21 @@
     <p>brand mark は <em>0 monogram / 4:81 / TYP0stet wordmark</em> のみ。user の typo 本文を物理シャツに印字しない。typo は user 自身が SNS や会話で誇りとして出す。</p>
   </article>
 
+  <div class="founder-letter">
+    <h3>tig より<em>。</em></h3>
+    <p>
+      このサイトを 1 人で運営してます。<br>
+      Stripe を組み、写真を選び、業者と話し、メールに返信し、コーヒーを淹れる。<br>
+      返信が遅いときは、どこかで小さく失敗しているはずです。<br>
+      気にせず、何度でも書いてください。
+    </p>
+    <p class="founder-letter__sig">— tig, 2026 年 6 月</p>
+  </div>
+
   <div class="closing">
     <h3>失敗できる、を誇りに。</h3>
     <p>これらの宣言は、ブランドが成長するにつれて、より厳密になっていきます。</p>
-    <div class="timestamp">4:81</div>
+    <img class="timestamp-img" src="/assets/brand/timestamp/handdrawn-481.png" alt="4:81">
   </div>
 
 </div>

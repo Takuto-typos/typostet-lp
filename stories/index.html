@@ -189,6 +189,25 @@
   .empty .btn:hover { background: var(--bone); color: var(--ink); }
   .empty .btn::after { content: "↗"; }
 
+  /* Founder aside */
+  .founder-aside {
+    background: var(--bone-deep);
+    border-top: 1px solid var(--rule);
+    padding: 80px 28px;
+  }
+  .founder-aside__inner {
+    max-width: 680px; margin: 0 auto;
+  }
+  .founder-aside__from {
+    font-family: var(--mono); font-style: italic; font-size: 13px;
+    letter-spacing: 0.06em; color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .founder-aside p {
+    font-family: var(--serif); font-size: 17px; line-height: 1.95;
+    color: var(--ink);
+  }
+
   .site-footer {
     background: var(--bone-deep);
     border-top: 1px solid var(--rule);
@@ -239,6 +258,7 @@
     </a>
     <nav class="site-nav" id="site-nav" aria-label="primary">
       <a href="/#stet">Shop</a>
+      <a href="/#objects">Objects</a>
       <a href="/stories/" class="is-current">Stories</a>
       <a href="/manifest.html">Manifesto</a>
       <a href="/about.html">About</a>
@@ -266,9 +286,20 @@
 
   <!-- Fallback when grid is empty -->
   <div class="empty" id="empty-state">
-    <h2>準備中。</h2>
-    <p>もうすぐ最初の記事が公開されます。</p>
+    <h2>もうすぐ。</h2>
+    <p>最初の記事を準備中です。</p>
     <a class="btn" href="https://note.com/typostet" target="_blank" rel="noopener">note でフォロー</a>
+  </div>
+</section>
+
+<section class="founder-aside">
+  <div class="founder-aside__inner">
+    <p class="founder-aside__from">— tig より</p>
+    <p>
+      Stories は、note に書きながら、ここにも残していきます。<br>
+      ブランドの裏側、業者とのやり取り、なぜこの typo を選んだか、何を諦めたか。<br>
+      最初の 1 本は、今夜書きます。
+    </p>
   </div>
 </section>
 

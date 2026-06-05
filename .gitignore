@@ -9,4 +9,6 @@ dist/
 .wrangler/
 .gstack/
 img/hero/output/Gemini_Generated_Image_*.png
+# Gemini raw source PNGs (kept locally for re-crop, not served)
+img/*/raw/
 .DS_Store
