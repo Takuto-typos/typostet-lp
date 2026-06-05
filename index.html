@@ -336,39 +336,15 @@
     background: linear-gradient(180deg, transparent 60%, rgba(146,229,189,0.22) 60%);
     padding: 0 4px;
   }
-  /* deliberate 4 dots in the hero — like a sentence half-written, half-finished */
+  /* deliberate 4 red dots in the hero — like a proofreader's stet annotation */
   .hero__dots {
-    font-family: var(--num); font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-    margin: 0 0.1em;
-  }
-
-  /* deliberate校正記号 stet on the word "失敗" — dotted underline + small "stet" red */
-  .hero__stet-mark {
-    position: relative;
-    display: inline-block;
-  }
-  .hero__stet-mark::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: -0.18em;
-    height: 6px;
-    background-image: radial-gradient(circle, var(--terracotta) 1.6px, transparent 1.8px);
-    background-size: 12px 6px;
-    background-repeat: repeat-x;
-    background-position: center;
-  }
-  .hero__stet-mark::before {
-    content: "stet";
-    position: absolute;
-    top: -0.32em; right: -1.6em;
-    font-family: var(--hand-jp); font-weight: 600;
-    font-size: 0.22em;
+    font-family: var(--num);
+    font-weight: 700;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
     color: var(--terracotta);
-    letter-spacing: 0.04em;
-    transform: rotate(-8deg);
-    white-space: nowrap;
+    margin: 0 0.08em;
+    vertical-align: 0.05em;
   }
   .hero__sub {
     font-family: var(--serif);
@@ -924,7 +900,7 @@
       </div>
     </div>
     <div class="hero__inner">
-      <h1 class="hero__title"><span class="hero__stet-mark">失敗</span>したい日に<span class="hero__dots">....</span><br><em>着よう。</em></h1>
+      <h1 class="hero__title">失敗したい日に<span class="hero__dots">....</span><br><em>着よう。</em></h1>
       <p class="hero__sub">typo (誤字) を、誇って着る brand。</p>
       <a href="#stet" class="btn">Shop Stet 01</a>
     </div>
