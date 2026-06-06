@@ -226,10 +226,11 @@ NO watermarks, NO overlay text, NO Gemini signature, NO AI artifacts.
 
 ---
 
-# Tokyo street meet-up — 男女が街で出会ってちょっとおしゃべり (shirt 4 attach 必須)
+# Tokyo night street meet-up — 赤羽の夜 × 若い男女 × K-style crossover (shirt 4 attach 必須)
 
 TYP0stet brand 思想「街中で見かけた人と仲良くなる」を反映した shoot。
-LP の hero slider に投入予定。
+**沖縄ビーチ (静か・ソロ) → 東京の夜 (人と繋がる)** で hero に物語性。
+Cult brand 寄りなので: anti-touristy / anti-flashy、韓国 Z 世代にも刺さる K-Tokyo crossover style。
 
 ### 使い方
 
@@ -240,37 +241,47 @@ Gemini に **4 枚 attach**:
 - Image 3 = `~/typostet/lp/img/shirts/black-front.jpg`
 - Image 4 = `~/typostet/lp/img/shirts/black-back.jpg`
 
-### Prompt (Variant A: 男=BLACK / 女=BONE)
+### Prompt (Variant A: 男=INK BLACK / 女=BONE)
 
 ```
 ATTACHED REFERENCE IMAGES (mandatory, 4 total):
 - Image 1 = TYP0stet Stet 01 T-shirt FRONT in BONE — small '0' monogram on left chest, '4:81' marker on right sleeve
-- Image 2 = TYP0stet Stet 01 T-shirt BACK in BONE — TYP0stet wordmark print across the lower back
-- Image 3 = TYP0stet Stet 01 T-shirt FRONT in INK BLACK — same monogram + sleeve print
-- Image 4 = TYP0stet Stet 01 T-shirt BACK in INK BLACK — same wordmark print
+- Image 2 = TYP0stet Stet 01 T-shirt BACK in BONE — TYP0stet wordmark on lower back
+- Image 3 = TYP0stet Stet 01 T-shirt FRONT in INK BLACK
+- Image 4 = TYP0stet Stet 01 T-shirt BACK in INK BLACK
 
-CRITICAL: Both people in the generated image must be wearing TYP0stet Stet 01 Tees EXACTLY as shown in the attachments. Preserve the print designs faithfully:
-- Same boxy drop-tail silhouette (crew neck, slightly oversized, dropped hem at back)
-- Same SMALL '0' monogram on left chest (~4-5cm wide)
-- Same SMALL '4:81' marker on right sleeve (~3-4cm wide)
-- DO NOT enlarge or restyle the prints. They should look SMALL and SUBTLE.
+CRITICAL: Reproduce shirt designs EXACTLY as in the attachments — boxy drop-tail silhouette (crew neck, slightly oversized, dropped back hem), SMALL '0' monogram on left chest (~4cm), SMALL '4:81' on right sleeve (~3cm), SMALL TYP0stet wordmark on lower back. DO NOT enlarge or restyle the prints. The prints must look SMALL and SUBTLE.
 
 SCENE:
-Editorial candid lifestyle photography of TWO Japanese people in their late twenties — ONE MAN, ONE WOMAN — who have just met by chance on a quiet residential side street in Tokyo. They are standing close to each other on the sidewalk, mid-conversation, casually noticing they are both wearing TYP0stet shirts.
+Cinematic candid street portrait photography of TWO young Japanese people in their EARLY 20s (around 22-24 years old, a young man and a young woman) who have just met by chance on a narrow back alley in AKABANE (赤羽) Tokyo at NIGHT. They are standing close, mid-conversation, both wearing TYP0stet — a soft moment of "oh, you too?"
 
-The MAN is wearing the INK BLACK Tee (front view, Image 3) with relaxed loose-fit charcoal or dark navy trousers and minimal low-profile sneakers. Hair natural, no styling, calm friendly half-smile listening to the woman.
+The MAN (early 20s, fresh natural look, soft Asian features with a Korean-Japanese crossover style, NOT runway-model perfect — just clean and approachable):
+- INK BLACK TYP0stet Stet 01 Tee (Image 3), oversized boxy fit, untucked
+- Loose-fit STONE-GRAY or BEIGE LINEN SHORTS (mid-thigh length, slightly oversized, NOT athletic shorts, NOT tight)
+- WHITE LOW-TOP SNEAKERS (clean minimal silhouette — Adidas Samba white / New Balance 530 white / Nike Killshot 2 white / Onitsuka Mexico 66 white — pick one that suits the mood)
+- Ankle white socks just barely visible
+- Natural undone hair, short-to-mid length, soft no-product look, slight half-smile, looking toward the woman
 
-The WOMAN is wearing the BONE Tee (front view, Image 1) with relaxed natural-tone linen pants or wide cropped trousers and simple low sneakers or loafers. Hair natural-falling, minimal makeup, expression warm and lightly amused, slightly turned toward the man with one hand softly gesturing.
+The WOMAN (early 20s, fresh natural look, K-style beauty — minimal makeup, glowy skin, soft undone hair, NOT runway-model perfect):
+- BONE TYP0stet Stet 01 Tee (Image 1), oversized boxy fit (front hem softly tucked at the waist for slight shape)
+- HIGH-WAIST BLACK or CHARCOAL COTTON SHORTS (mid-thigh, clean cotton — NOT denim cutoffs, NOT athletic)
+- WHITE LOW-TOP SNEAKERS matching the man's mood (Adidas Samba / NB 530 / Onitsuka Mexico 66 white)
+- Bare ankle or short white socks
+- Hair natural-falling shoulder length or soft bob, no styling, one small minimalist earring (optional), warm slight smile, slightly turned toward the man, one hand mid-gesture
 
-This is the moment of "we just realized we're both wearing the same brand" — NOT a posed fashion shot, NOT both squarely facing the camera. They are angled toward each other, comfortable, unposed.
+Both YOUNG, FRESH, casually stylish — the Korean-Tokyo crossover street look that resonates across East Asia (Seoul × Tokyo Z-gen vibe). NOT high fashion, NOT loud, NOT Harajuku. Quiet confidence, lived-in coolness. Like they're discovering each other.
 
 LOCATION:
-A quiet residential side street in central Tokyo (the vibe of Kuramae 蔵前 / Yanaka 谷中 / Daikanyama 代官山 backstreets). Narrow asphalt sidewalk, low brick or wood-fence buildings, a few potted plants beside a doorway, a faint wooden utility pole. Late afternoon sun creating long soft shadows across the pavement. Optional subtle Tokyo cues in the background: a vending machine in soft blur, an old shop facade, a small wooden sign — but kept understated, NOT touristy.
+A narrow back alley in AKABANE (赤羽) Tokyo — the old shōtengai / yokochō vibe near Akabane Ichibangai. Late evening / early night around 20:00. Warm paper-lantern (chōchin 提灯) glow from a small izakaya doorway lights one side of the alley in soft golden-orange; the other side is softly cool from a vending machine's white-blue glow further down. Old wooden / corrugated-metal shop facades, faded Japanese kanji shop signs (NOT English signage, NOT touristy), narrow asphalt path slightly wet from earlier rain reflecting the lanterns subtly. Low tangled utility wires above. NO crowd — just the two of them.
+
+This is cult-brand niche vibe — quiet, intimate, lived-in, locals-only. Anti-touristy. Anti-Shibuya/Shinjuku/Harajuku flash.
 
 STYLE:
-Candid editorial photography, "street portrait" mood — natural posture, no rigid posing, soft natural color grading. Reference: POPEYE city issue / Fujifilm GFX street portrait look / Magnum Photos relaxed urban candid. 8K, sharp focus on both subjects, gentle background bokeh.
+Cinematic night street portrait photography — Fujifilm film-stock look (X-T5 + 35mm f/1.4 vibe). Slight film grain, soft warm-cool color contrast (lantern warm-orange + vending-machine cool-blue mix). Shallow depth of field — both subjects in focus, alley falling off into soft bokeh. Natural mixed lighting from lanterns + vending machine + a faint distant street lamp. NOT flash photography.
 
-Wide editorial composition (16:9), the two figures slightly off-center on the right, the side street perspective leading in from the left.
+Reference mood: Wong Kar-wai's "In the Mood for Love" alley scenes (warm lanterns + cool shadow), or Korean photographer 카가미타 (Kagamita) / Japanese photographer Daido Moriyama's gentler color work, or Magnum Photos urban candid.
+
+Wide editorial composition (16:9), the two figures positioned just right of center, the alley perspective receding to the left into warm-cool bokeh. Camera slightly below eye level for cinematic feel.
 
 NO watermarks, NO overlay text, NO Gemini signature, NO AI artifacts visible.
 ```
@@ -278,14 +289,16 @@ NO watermarks, NO overlay text, NO Gemini signature, NO AI artifacts visible.
 ### Prompt (Variant B: 男=BONE / 女=INK BLACK)
 
 Same as Variant A above, but swap the shirt colors:
-- The MAN wears the BONE Tee (front view, Image 1) with darker bottoms for contrast
-- The WOMAN wears the INK BLACK Tee (front view, Image 3) with lighter or natural-tone bottoms
+- The MAN wears the BONE Tee (Image 1), boxy oversized fit, untucked. Pair with DARK CHARCOAL or BLACK loose-fit cotton shorts + white low-top sneakers.
+- The WOMAN wears the INK BLACK Tee (Image 3), oversized boxy fit with front hem softly tucked. Pair with STONE-GRAY or BEIGE high-waist cotton shorts + white low-top sneakers.
 
-Everything else identical (location, style, mood, composition).
+Everything else identical — Akabane night alley, K-Tokyo crossover early-20s vibe, lantern + vending machine lighting, cinematic mood, NOT touristy.
 
 ### Tokyo street 共通注意点
-- **「TWO people, ONE MAN ONE WOMAN」「mid-conversation」「NOT posed」を強調** — Gemini が typical fashion shoot を生成しがち
-- **「we just realized we're both wearing the same brand」narrative** を加えると pose が自然になる
-- **「Kuramae / Yanaka / Daikanyama 系の quiet residential side street」** で specific vibe を伝える (派手な渋谷・原宿は avoid)
-- **prints SMALL を強調** — bag prompt と同じく Gemini はロゴ巨大化しがち
-- 生成後 → `~/typostet/lp/img/hero/output/raw/` に保存 → crop + JPEG q85 → LP hero slider に追加 (現状 hero-1〜4 で 4 image rotation)
+- **「EARLY 20s」「young」「fresh」「K-style crossover」を強調** — late 20s だと cult-brand には少し老けて見える
+- **「AKABANE 赤羽 back alley」「yokochō」「chōchin lantern」「vending machine glow」** で specific 夜の東京ローカル感を伝える (Shibuya/Shinjuku/Harajuku は明示的に avoid)
+- **半ズボン (mid-thigh cotton/linen shorts) + 白 low-top sneakers** を明示 — 夏季想定、cult brand 寄りのコーデ
+- **「Korean-Tokyo crossover」「Seoul × Tokyo Z-gen vibe」** を入れて K-audience にも刺さる look に
+- **「Wong Kar-wai mood」「Fujifilm X-T5 35mm f/1.4」** の cinematic reference で chinmoku な雰囲気
+- **prints SMALL を強調** — Gemini はロゴ巨大化しがち
+- 生成後 → `~/typostet/lp/img/hero/output/raw/` に保存 → crop + JPEG q85 → LP hero slider に追加
