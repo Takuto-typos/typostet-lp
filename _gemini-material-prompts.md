@@ -302,3 +302,80 @@ Everything else identical — Akabane night alley, K-Tokyo crossover early-20s v
 - **「Wong Kar-wai mood」「Fujifilm X-T5 35mm f/1.4」** の cinematic reference で chinmoku な雰囲気
 - **prints SMALL を強調** — Gemini はロゴ巨大化しがち
 - 生成後 → `~/typostet/lp/img/hero/output/raw/` に保存 → crop + JPEG q85 → LP hero slider に追加
+
+---
+
+# Shibuya scramble — 昼間の渋谷スクランブル × 男 OLIVE × 女 BONE × 動的 pose
+
+夜の赤羽 (Tokyo 1/2) と並ぶ昼間の東京 image、対比で hero slider に厚みを出す。
+**AI 感削減の hard requirement**: 直立 NOT、肌の質感 natural、ポージング NOT、mid-motion。
+
+### 使い方
+
+Gemini に **4 枚 attach**:
+
+- Image 1 = `~/typostet/lp/img/shirts/olive-front.jpg`
+- Image 2 = `~/typostet/lp/img/shirts/olive-back.jpg`
+- Image 3 = `~/typostet/lp/img/shirts/bone-front.jpg`
+- Image 4 = `~/typostet/lp/img/shirts/bone-back.jpg`
+
+### Prompt (男 OLIVE / 女 BONE / 昼間スクランブル交差点)
+
+```
+ATTACHED REFERENCE IMAGES (mandatory, 4 total):
+- Image 1 = TYP0stet Stet 01 T-shirt FRONT in OLIVE — small '0' monogram on left chest, '4:81' on right sleeve
+- Image 2 = TYP0stet Stet 01 T-shirt BACK in OLIVE — TYP0stet wordmark on lower back
+- Image 3 = TYP0stet Stet 01 T-shirt FRONT in BONE
+- Image 4 = TYP0stet Stet 01 T-shirt BACK in BONE
+
+CRITICAL: Reproduce shirt designs EXACTLY as in the attachments — boxy drop-tail silhouette, SMALL '0' monogram on left chest (~4cm), SMALL '4:81' on right sleeve (~3cm), SMALL TYP0stet wordmark on lower back. DO NOT enlarge or restyle the prints.
+
+SCENE:
+Mid-day documentary-style street photograph captured at SHIBUYA SCRAMBLE CROSSING (渋谷スクランブル交差点), Tokyo, around 13:00–14:00. A young Korean-Japanese-looking man and woman in their EARLY 20s are caught mid-motion crossing the intersection — NOT posed, NOT standing still, NOT looking at the camera. This is a candid documentary moment, not a fashion shoot.
+
+THE MAN (early 20s, ~22-23, fair light skin tone — pale-warm complexion typical of clean K-pop visual, NOT tanned, NOT dark — natural undone soft hair, no styling product):
+- OLIVE TYP0stet Stet 01 Tee (Image 1), boxy oversized fit, untucked
+- Loose-fit STONE-GRAY or BEIGE linen shorts (mid-thigh, NOT tight, NOT athletic)
+- WHITE LOW-TOP SNEAKERS (Adidas Samba white / New Balance 530 / Onitsuka Mexico 66 / Nike Killshot 2)
+- Mid-stride, walking briskly across the crosswalk, looking sideways toward the woman with a half-smile and one hand raised slightly as if mid-gesture or holding a phone
+
+THE WOMAN (early 20s, ~22-23, fair light skin tone — same pale-warm K-style complexion — natural shoulder-length or short bob, undone hair lightly windswept):
+- BONE TYP0stet Stet 01 Tee (Image 3), boxy oversized fit
+- High-waist BLACK or CHARCOAL cotton shorts (mid-thigh, clean cotton)
+- WHITE LOW-TOP SNEAKERS matching the man's silhouette
+- Mid-motion: turning her head slightly, looking back over her shoulder at the man, mouth slightly open as if mid-laugh, one hand brushing hair from her face
+
+POSES & MOTION (CRITICAL — anti-AI):
+- BOTH IN MOTION, NOT standing upright, NOT facing camera squarely
+- Their bodies should show natural asymmetry — one leg forward, shoulders rotated, slight blur on the trailing foot suggesting motion
+- Expressions are imperfect: slight squint from sunlight, hair out of place, NOT model-smooth poses
+
+SKIN & TEXTURE (CRITICAL — anti-AI):
+- Natural skin texture with subtle visible pores and slight imperfections (a small mole, a faint freckle, slight redness near the nose from the sun)
+- NOT airbrushed, NOT plastic-smooth
+- Realistic catchlights in the eyes, soft natural eyelash detail, faint skin highlights from sweat or warm midday sun
+
+LOCATION:
+The famous Shibuya Scramble Crossing — wide intersection, multiple lanes, painted crosswalk lines visible on the asphalt. Background: out-of-focus crowd of pedestrians from various ages and styles, distant Shibuya 109 building or Q-FRONT facade with large LED billboards visible but softly blurred (NOT readable text). Some pedestrians are walking past, some are paused, some checking phones — natural city density, NOT a posed crowd.
+
+LIGHTING:
+Midday natural sunlight from slightly behind the subjects — harsh enough to create soft shadows on the asphalt and crisp highlights on the shirts, but NOT noon-overhead (avoid raccoon-eye shadows). Soft shadow on the woman's face from her hair. The light is real Tokyo summer 13:00 — bright, slightly humid, real.
+
+STYLE:
+Documentary street photography aesthetic — Fujifilm X-T5 + 23mm f/1.4 or Leica Q3 vibe, mid-frame zone focus. Slight grain like Kodak Portra 400. NOT cinematic-dramatic, NOT glossy fashion — this is a real-feeling candid frame.
+
+Reference mood: Daido Moriyama gentler color work, William Eggleston street, Ko Ji-Min (코지민) Korean street docs, or Magnum Photos Tokyo street.
+
+Wide editorial composition (16:9), the two figures off-center, the crosswalk lines and crowd providing depth.
+
+NO watermarks, NO overlay text, NO Gemini signature, NO AI-generated artifacts (no glossy plastic skin, no impossible symmetry, no rigid posing, no over-saturated colors).
+```
+
+### Shibuya scramble 共通注意点
+- **「MID-MOTION」「NOT standing still」「NOT facing camera」を強い repeated emphasis** — Gemini が直立 portrait を生成する強い癖の counter
+- **「fair light skin tone, pale-warm K-style complexion」** で肌白め指定 (Gemini は tan skin デフォ生成しがち)
+- **「natural skin texture with subtle visible pores」「imperfections」「a small mole」「faint freckle」** で AI plastic skin 防止
+- **「documentary street photography」「Magnum」「William Eggleston」** で fashion shoot mood 防止
+- **「Shibuya 109 / Q-FRONT」「crosswalk lines」「out-of-focus crowd」** で specific location vibe
+- **prints SMALL** を強調 (Gemini ロゴ巨大化防止)
+- 生成後 → `~/typostet/lp/img/hero/output/raw/` → crop + JPEG q85 → LP hero slider 差し替え予定 (現 hero-4 = 旧 Tokyo 2 を上書き候補)
