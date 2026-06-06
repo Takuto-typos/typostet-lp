@@ -223,3 +223,69 @@ NO watermarks, NO overlay text, NO Gemini signature, NO AI artifacts.
 - **MINT**: `{COLOR}` = `MINT`, `{COLOR_DESC}` = `pale mint green #92E5BD pistachio sea, washed soft mint, NOT bright lime`
 - **OLIVE**: `{COLOR}` = `OLIVE`, `{COLOR_DESC}` = `washed military olive, low saturation, earthy, NOT bright kelly green`
 - **INK BLACK**: `{COLOR}` = `INK BLACK`, `{COLOR_DESC}` = `soft washed black, warm undertone, like aged Japanese sumi-ink black, NOT pure jet black` — また末尾に "lighting tuned so the black shirt retains soft fabric detail (not crushed shadows)" を 1 行追記
+
+---
+
+# Tokyo street meet-up — 男女が街で出会ってちょっとおしゃべり (shirt 4 attach 必須)
+
+TYP0stet brand 思想「街中で見かけた人と仲良くなる」を反映した shoot。
+LP の hero slider に投入予定。
+
+### 使い方
+
+Gemini に **4 枚 attach**:
+
+- Image 1 = `~/typostet/lp/img/shirts/bone-front.jpg`
+- Image 2 = `~/typostet/lp/img/shirts/bone-back.jpg`
+- Image 3 = `~/typostet/lp/img/shirts/black-front.jpg`
+- Image 4 = `~/typostet/lp/img/shirts/black-back.jpg`
+
+### Prompt (Variant A: 男=BLACK / 女=BONE)
+
+```
+ATTACHED REFERENCE IMAGES (mandatory, 4 total):
+- Image 1 = TYP0stet Stet 01 T-shirt FRONT in BONE — small '0' monogram on left chest, '4:81' marker on right sleeve
+- Image 2 = TYP0stet Stet 01 T-shirt BACK in BONE — TYP0stet wordmark print across the lower back
+- Image 3 = TYP0stet Stet 01 T-shirt FRONT in INK BLACK — same monogram + sleeve print
+- Image 4 = TYP0stet Stet 01 T-shirt BACK in INK BLACK — same wordmark print
+
+CRITICAL: Both people in the generated image must be wearing TYP0stet Stet 01 Tees EXACTLY as shown in the attachments. Preserve the print designs faithfully:
+- Same boxy drop-tail silhouette (crew neck, slightly oversized, dropped hem at back)
+- Same SMALL '0' monogram on left chest (~4-5cm wide)
+- Same SMALL '4:81' marker on right sleeve (~3-4cm wide)
+- DO NOT enlarge or restyle the prints. They should look SMALL and SUBTLE.
+
+SCENE:
+Editorial candid lifestyle photography of TWO Japanese people in their late twenties — ONE MAN, ONE WOMAN — who have just met by chance on a quiet residential side street in Tokyo. They are standing close to each other on the sidewalk, mid-conversation, casually noticing they are both wearing TYP0stet shirts.
+
+The MAN is wearing the INK BLACK Tee (front view, Image 3) with relaxed loose-fit charcoal or dark navy trousers and minimal low-profile sneakers. Hair natural, no styling, calm friendly half-smile listening to the woman.
+
+The WOMAN is wearing the BONE Tee (front view, Image 1) with relaxed natural-tone linen pants or wide cropped trousers and simple low sneakers or loafers. Hair natural-falling, minimal makeup, expression warm and lightly amused, slightly turned toward the man with one hand softly gesturing.
+
+This is the moment of "we just realized we're both wearing the same brand" — NOT a posed fashion shot, NOT both squarely facing the camera. They are angled toward each other, comfortable, unposed.
+
+LOCATION:
+A quiet residential side street in central Tokyo (the vibe of Kuramae 蔵前 / Yanaka 谷中 / Daikanyama 代官山 backstreets). Narrow asphalt sidewalk, low brick or wood-fence buildings, a few potted plants beside a doorway, a faint wooden utility pole. Late afternoon sun creating long soft shadows across the pavement. Optional subtle Tokyo cues in the background: a vending machine in soft blur, an old shop facade, a small wooden sign — but kept understated, NOT touristy.
+
+STYLE:
+Candid editorial photography, "street portrait" mood — natural posture, no rigid posing, soft natural color grading. Reference: POPEYE city issue / Fujifilm GFX street portrait look / Magnum Photos relaxed urban candid. 8K, sharp focus on both subjects, gentle background bokeh.
+
+Wide editorial composition (16:9), the two figures slightly off-center on the right, the side street perspective leading in from the left.
+
+NO watermarks, NO overlay text, NO Gemini signature, NO AI artifacts visible.
+```
+
+### Prompt (Variant B: 男=BONE / 女=INK BLACK)
+
+Same as Variant A above, but swap the shirt colors:
+- The MAN wears the BONE Tee (front view, Image 1) with darker bottoms for contrast
+- The WOMAN wears the INK BLACK Tee (front view, Image 3) with lighter or natural-tone bottoms
+
+Everything else identical (location, style, mood, composition).
+
+### Tokyo street 共通注意点
+- **「TWO people, ONE MAN ONE WOMAN」「mid-conversation」「NOT posed」を強調** — Gemini が typical fashion shoot を生成しがち
+- **「we just realized we're both wearing the same brand」narrative** を加えると pose が自然になる
+- **「Kuramae / Yanaka / Daikanyama 系の quiet residential side street」** で specific vibe を伝える (派手な渋谷・原宿は avoid)
+- **prints SMALL を強調** — bag prompt と同じく Gemini はロゴ巨大化しがち
+- 生成後 → `~/typostet/lp/img/hero/output/raw/` に保存 → crop + JPEG q85 → LP hero slider に追加 (現状 hero-1〜4 で 4 image rotation)
