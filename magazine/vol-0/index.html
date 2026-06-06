@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4EDDF">
+
+<title>Vol.0 私の4:81談、tig。 ─ TYP0stet Magazine</title>
+<meta name="description" content="並走しているプロジェクトが、8 個ある。並走しているのだから、毎日どれかは失敗する。──TYP0stet を作った人間が、自分で自分に取材した column。第 0 号。">
+
+<link rel="canonical" href="https://typostet.com/magazine/vol-0/">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://typostet.com/magazine/vol-0/">
+<meta property="og:title" content="Vol.0 私の4:81談、tig。">
+<meta property="og:description" content="8 個並走している。だから、毎日失敗している。TYP0stet を作った人間の、自分への取材。">
+<meta property="og:image" content="https://typostet.com/img/og-image.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@typostet481">
+
+<link rel="icon" type="image/svg+xml" href="/assets/brand/monogram/tentative-final.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Vol.0 私の4:81談、tig。",
+  "url": "https://typostet.com/magazine/vol-0/",
+  "description": "8 個並走している。だから、毎日失敗している。TYP0stet を作った人間の、自分への取材。",
+  "datePublished": "2026-06-06",
+  "dateModified": "2026-06-06",
+  "inLanguage": "ja",
+  "image": "https://typostet.com/img/og-image.png",
+  "author": { "@type": "Person", "name": "tig" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "TYP0stet",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://typostet.com/assets/brand/wordmark/tentative-final-light.svg"
+    }
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "私の4:81談、〇〇さん。",
+    "url": "https://typostet.com/magazine/"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=IBM+Plex+Sans+JP:wght@300;400;500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Inconsolata:wght@400;700;900&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bone: #F4EDDF;
+    --bone-deep: #ECE3CF;
+    --ink: #0E0E0E;
+    --mint: #92E5BD;
+    --olive: #5E6638;
+    --terracotta: #C7553E;
+    --rule: rgba(14, 14, 14, 0.12);
+    --muted: rgba(14, 14, 14, 0.55);
+
+    --serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+    --sans:  "IBM Plex Sans JP", "Helvetica Neue", Arial, sans-serif;
+    --mono:  "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --num:   "Inconsolata", ui-monospace, Menlo, monospace;
+    --hand-jp: "Klee One", serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bone); color: var(--ink);
+    font-family: var(--sans); line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  .site-header {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(244, 237, 223, 0.92);
+    backdrop-filter: saturate(180%) blur(8px);
+    -webkit-backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-header__inner {
+    max-width: 1320px; margin: 0 auto;
+    padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  }
+  .site-header__brand img { width: 200px; }
+  .site-nav { display: flex; gap: 28px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .site-nav a { padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 200ms ease, opacity 200ms ease; opacity: 0.7; }
+  .site-nav a:hover { border-bottom-color: var(--ink); opacity: 1; }
+  .site-nav a.is-current { opacity: 1; border-bottom-color: var(--ink); }
+  .site-nav a.cart-link { font-style: italic; font-weight: 400; letter-spacing: 0.06em; text-transform: lowercase; opacity: 0.92; }
+  .nav-toggle { display: none; background: none; border: none; padding: 8px; font-family: var(--mono); font-size: 18px; }
+
+  .article-hero {
+    padding: 100px 28px 60px;
+    text-align: left;
+    border-bottom: 1px solid var(--rule);
+    max-width: 760px; margin: 0 auto;
+  }
+  .article-hero p.eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .article-hero p.eyebrow .vol {
+    font-family: var(--num); font-weight: 700;
+    color: var(--mint); letter-spacing: 0.04em;
+    font-size: 16px; vertical-align: -0.05em;
+    margin-right: 8px;
+  }
+  .article-hero h1 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(32px, 5.6vw, 56px);
+    line-height: 1.22;
+    margin-bottom: 22px;
+    letter-spacing: 0.01em;
+  }
+  .article-hero h1 em {
+    font-style: normal;
+    font-family: var(--hand-jp);
+    color: var(--mint);
+  }
+  .article-hero p.sub {
+    font-family: var(--serif); font-size: 18px; line-height: 1.95;
+    color: var(--muted);
+  }
+
+  .article-meta {
+    max-width: 760px; margin: 0 auto;
+    padding: 32px 28px;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+    display: flex; gap: 24px; flex-wrap: wrap;
+  }
+
+  article.column {
+    max-width: 720px; margin: 0 auto;
+    padding: 64px 28px 32px;
+    font-family: var(--serif);
+    font-size: 17px; line-height: 2.05;
+    color: var(--ink);
+  }
+  article.column .lead {
+    font-size: 19px; line-height: 2.05;
+    margin-bottom: 56px;
+    border-left: 3px solid var(--mint);
+    padding-left: 20px;
+    color: var(--ink);
+  }
+  article.column h2 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(22px, 3vw, 28px);
+    line-height: 1.4;
+    margin: 56px 0 22px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    letter-spacing: 0.01em;
+  }
+  article.column h2 .num {
+    font-family: var(--num); font-weight: 700;
+    color: var(--mint);
+    font-size: 0.7em;
+    letter-spacing: 0;
+    margin-right: 14px;
+    vertical-align: 0.05em;
+  }
+  article.column h2 em {
+    font-style: normal; font-family: var(--hand-jp); color: var(--terracotta);
+  }
+  article.column p { margin-bottom: 22px; }
+  article.column p em {
+    font-style: normal;
+    background: linear-gradient(180deg, transparent 64%, rgba(146,229,189,0.36) 64%);
+    padding: 0 2px;
+  }
+  article.column .closing {
+    margin-top: 72px;
+    padding: 48px 32px;
+    background: var(--bone-deep);
+    border: 1px solid var(--rule);
+  }
+  article.column .closing p {
+    font-size: 16px; line-height: 2;
+  }
+  article.column .sig {
+    margin-top: 24px;
+    font-family: var(--hand-jp); font-size: 22px;
+    color: var(--ink);
+    text-align: right;
+  }
+
+  .next-block {
+    max-width: 760px; margin: 64px auto 0;
+    padding: 0 28px;
+  }
+  .next-block__inner {
+    background: var(--ink); color: var(--bone);
+    padding: 40px 32px;
+  }
+  .next-block__inner h3 {
+    font-family: var(--serif); font-style: italic; font-weight: 600;
+    font-size: 22px; margin-bottom: 14px;
+  }
+  .next-block__inner h3 em {
+    font-style: normal; font-family: var(--hand-jp); color: var(--mint);
+  }
+  .next-block__inner p {
+    font-family: var(--serif); font-size: 14px; line-height: 1.95;
+    color: rgba(244,237,223,0.78);
+    margin-bottom: 12px;
+  }
+  .next-block__cta {
+    display: inline-flex; align-items: center; gap: 12px;
+    margin-top: 18px;
+    padding: 14px 22px;
+    background: var(--mint); color: var(--ink);
+    font-family: var(--mono); font-size: 12px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .related-block {
+    max-width: 760px; margin: 64px auto;
+    padding: 0 28px;
+    text-align: center;
+  }
+  .related-block a {
+    font-family: var(--mono); font-size: 12px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 3px;
+    transition: color 200ms ease, border-color 200ms ease;
+  }
+  .related-block a:hover { color: var(--ink); border-color: var(--ink); }
+
+  .site-footer {
+    background: var(--bone);
+    border-top: 1px solid var(--rule);
+    padding: 64px 28px 28px;
+    margin-top: 72px;
+  }
+  .site-footer__inner {
+    max-width: 1320px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .site-footer__copy {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+  .site-footer__nav {
+    display: flex; gap: 22px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--muted); text-transform: uppercase;
+  }
+  .site-footer__nav a:hover { color: var(--ink); }
+  .site-footer__social {
+    display: flex; gap: 18px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+    align-items: center;
+  }
+  .site-footer__social a:hover { color: var(--ink); }
+  .site-footer__hashtag {
+    font-family: var(--hand-jp); font-size: 13px;
+    color: var(--mint); letter-spacing: 0.02em;
+    text-transform: none;
+  }
+
+  @media (max-width: 720px) {
+    .site-header__inner { padding: 12px 20px; }
+    .site-header__brand img { width: 150px; }
+    .site-nav {
+      display: none;
+      position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 6px;
+      background: var(--bone); padding: 18px 24px 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .site-nav.is-open { display: flex; }
+    .nav-toggle { display: inline-flex; }
+    .article-hero { padding: 64px 22px 40px; }
+    article.column { padding: 48px 22px 28px; font-size: 16px; line-height: 2; }
+    article.column .lead { font-size: 17px; padding-left: 16px; }
+    article.column h2 { font-size: 22px; margin: 44px 0 18px; padding-top: 24px; }
+    .next-block { padding: 0 22px; }
+    .next-block__inner { padding: 32px 24px; }
+    .related-block { padding: 0 22px; }
+  }
+
+  /* --- 4:81 floating time widget --- */
+  .time-widget {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--ink); color: var(--bone);
+    padding: 10px 16px; border-radius: 999px;
+    display: inline-flex; align-items: baseline; gap: 10px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    z-index: 50;
+    box-shadow: 0 6px 20px rgba(14,14,14,0.18);
+  }
+  .time-widget .num {
+    font-family: var(--num); font-size: 14px; font-weight: 700;
+    letter-spacing: 0;
+    color: var(--mint);
+  }
+  .time-widget .num .colon { animation: stet-blink 1.06s steps(2, end) infinite; }
+  @keyframes stet-blink { 50% { opacity: 0.2; } }
+  @media (max-width: 720px) {
+    .time-widget { bottom: 16px; right: 16px; padding: 8px 12px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-header__brand" aria-label="TYP0stet home">
+      <img src="/assets/brand/wordmark/tentative-final-light.svg" alt="TYP0stet">
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="primary">
+      <a href="/#stet">Shop</a>
+      <a href="/#objects">Objects</a>
+      <a href="/magazine/" class="is-current">Magazine</a>
+      <a href="/manifest.html">Manifesto</a>
+      <a href="/about.html">About</a>
+      <a href="#cart" class="cart-link" aria-label="Cart">cart</a>
+    </nav>
+    <button class="nav-toggle" aria-label="menu" aria-controls="site-nav" aria-expanded="false">≡</button>
+  </div>
+</header>
+
+<section class="article-hero">
+  <p class="eyebrow"><span class="vol">Vol.0</span>Magazine ─ 私の4:81談</p>
+  <h1>私の4:81談、<em>tig。</em></h1>
+  <p class="sub">8 個並走している。だから、毎日失敗している。</p>
+</section>
+
+<div class="article-meta">
+  <span>2026.06.06</span>
+  <span>Editor: tig</span>
+  <span>Self interview</span>
+  <span>Read ~12 min</span>
+</div>
+
+<article class="column">
+
+  <p class="lead">
+    並走しているプロジェクトが、8 個ある。<br>
+    TYP0stet、訪問看護の手伝い、よもぎ蒸しサロンの集客、米粉クッキー教室の LP、南城市のキャンプ場、local biz の LINE 制作、止まったままの app、それから父業。<br>
+    並走しているのだから、毎日どれかは失敗する。当たり前のことを、書き残しておきたかった。
+    <em>失敗を晒している方が、よっぽど安全だと思っている。</em><br>
+    これは、TYP0stet を作った人間が、自分で自分に取材した column。第 0 号として、書く。
+  </p>
+
+  <h2><span class="num">01</span>TYP0stet ─ 3 度目の pivot で着地した <em>brand</em></h2>
+  <p>
+    3 度目の pivot で、ようやく物販 brand に着地した。
+  </p>
+  <p>
+    最初は SaaS app だった。失敗を呟いて、AI が時効にして、クローゼットに溜まる、そういう設計だった。次に social brand に振った。共犯者システムを作って、誰かの失敗に「いいね」を押せるようにしたかった。そして、3 度目に、物販 brand に着地した。AI 時代に何を始めるべきか、何度も自問した結果だった。
+  </p>
+  <p>
+    名前を TYP0S から TYP0stet に変えたのは、stet という校正記号が「直さなくていい」を意味するからだった。typo を直さない brand。失敗を直さない brand。
+  </p>
+  <p>
+    直すたびに pivot して、3 回方向を変えた人間が、「直さなくていい」と書いた T シャツを作っている。可笑しいけど、これがいちばん正直な構造だと思う。brand のサブコピーには、「失敗できる事を、誇りに思ってる。」と書いた。誰の声でもなく、私の声で。
+  </p>
+
+  <h2><span class="num">02</span>南城市のキャンプ場 ─ 2,742 ㎡ の <em>不確定</em></h2>
+  <p>
+    南城市の佐敷字伊原に、2,742 ㎡ の土地がある。¥830 万。キャンプ場にしたい、と相談したのが今年の春だった。
+  </p>
+  <p>
+    土地家屋調査士の井本氏に、開発許可、接道、トレーラーハウスの建築物該当性、3 つを依頼している。回答を待っている。青地判定が出るかもしれない。出たら買えない。風致 4 種で高さ 10m 以下しか建てられないかもしれない。建てられる建てられないで設計が変わる。上水道を引き込めるかも、まだ分からない。
+  </p>
+  <p>
+    1 つの土地に、不確定が 4 つある。買えなかったら、私の見立てが甘かった、ということになる。そういう時、人は計画を諦めるか、隠すかする。<em>私は隠したくないと思って、状態をそのまま書いた。</em>
+  </p>
+
+  <h2><span class="num">03</span>kotuyoshi 訪問看護 ─ 渡したツールの <em>返信を待つ</em></h2>
+  <p>
+    沖縄の訪問看護 founder、久場由里子さんと出会って、HDS-R + FIM 評価ツールを作って渡した。kotuyoshi-assess.vercel.app に置いてある。
+  </p>
+  <p>
+    渡してから、スタッフから feedback が返ってこない日が続いている。返ってこない日に、毎回「私の作ったツールが、要らなかったんだ」と落ち込む。久場さんが忙しいだけかもしれない、ということを、頭では分かっている。それでも、毎回、落ち込む。
+  </p>
+  <p>
+    営業案件としても、6 ステージのパイプラインを設計した。予約 URL を ケアマネ + 主治医 + 利用者の 3 者経路で組んだ。久場さんからの返信を待っている。
+  </p>
+  <p>
+    無償でも有償でも、誰かに何かを渡して返信を待つ時間は、いつも怖い。怖いのは、たぶん、<em>自分のセンスを試されているような気がするからだ</em>と思う。
+  </p>
+
+  <h2><span class="num">04</span>gekkabijin ─ 集客が動かない <em>チラシ</em></h2>
+  <p>
+    読谷のよもぎ蒸しサロンのオーナーに、無償でチラシを 2 案と、Instagram の post を 2 版と、LP を作って渡した。オーナーは「ありがとう」と言ってくれた。
+  </p>
+  <p>
+    それから、集客は、まだ動いていない。
+  </p>
+  <p>
+    無償だから責任がないか、というと、無いことはない。私のデザインが集客に繋がらなかったとしたら、それは私の失敗だと思う。ラグジュアリー版と、夜版を作った。本命は夜版だと思っている。
+  </p>
+  <p>
+    無償でやることに意味があるかどうか、自問する瞬間がある。意味はあると思う。お金を取らないと、本気で良いものを作る圧が低くなる、という人もいる。<em>でも私は、無償の方が、もっと丁寧に作ろうと思う。</em>
+  </p>
+
+  <h2><span class="num">05</span>mama no ie ─ 動かない <em>LP</em></h2>
+  <p>
+    助産師のママが、米粉クッキーの教室を始めた。「@mamanoie_okinawa_」で活動している。モバイル向けの LP を作って渡した。
+  </p>
+  <p>
+    そこから、料金が確定していない、画像が決まっていない、ホスティング先が決まっていない、で動いていない。
+  </p>
+  <p>
+    誰の責任とも言えないこういう停滞期に、私はどう振る舞えばいいのか、いつも考えている。督促はしない、忘れない、催促はせず提案で動く、というのが私のやり方だと思う。
+  </p>
+  <p>
+    動かない LP を作って渡したのは、私の責任の一部だと思う。誰が悪いという話ではなく、<em>私の側で何ができていれば、もう少し動かせたか、を考える。</em>
+  </p>
+
+  <h2><span class="num">06</span>typos-app v2 ─ 動いていない <em>プロジェクト</em></h2>
+  <p>
+    失敗呟きから、AI 時効、ハンガー画像、クローゼット、購入で公開コレクション化、までを設計した。docs/ に specs を 8 ファイル、plans に統合実装計画書を置いた。
+  </p>
+  <p>
+    そこから、実装が止まっている。並走している 8 個の中で、唯一「動いていない」プロジェクトがある。それが typos-app だ。これは、いちばん怖い。
+  </p>
+  <p>
+    動かないものを「動かす」のは、ハードルが高い。動いているものを「もっと動かす」より、エネルギーが要る。
+  </p>
+  <p>
+    書いていて気づいたが、TYP0stet の購入前提 SNS 構想 (買った人だけが失敗談を投稿できる、いいねで繋がれる) が、この app を再起動する path になりそうだ。<em>並走の 1 つを、別の並走の中に編み込み直す、という回路がある。</em>書きながら、思いついた。
+  </p>
+
+  <h2><span class="num">07</span>clinic / local biz の営業 ─ 進捗ゼロの <em>週がある</em></h2>
+  <p>
+    多言語予約ページを売る、LINE 公式アカウントを作る、TYP0S POP を設置する。営業先のリストが 25 軒ある。隔週木曜が営業日だ。
+  </p>
+  <p>
+    進捗ゼロの週がある。連絡が来ない週がある。先方の都合で延期になる週もある。営業は失敗が常態だと思っている。10 件電話して 1 件取れる仕事だと思って、最初から構えている。それでも、ゼロ週が続くと、自分の見立てが間違っていたかもしれないと思う時間が来る。
+  </p>
+  <p>
+    そういう時、私は気休めに違う作業に走る癖がある。LP を磨いたり、別案件のチラシを作ったりする。<em>これが正しい逃げ方かどうか、自分では決めかねている。</em>
+  </p>
+
+  <h2><span class="num">08</span>父業 ─ いちばん大事な <em>並走</em></h2>
+  <p>
+    8 つの並走の中で、いちばん大事なのは、これだと思う。
+  </p>
+  <p>
+    これは、失敗できない、と思っている、けれど、たぶん、失敗している。失敗していると気づくのは、子どもが大人になってからだと思う。それまで、私は気づかないまま、毎日失敗を積み重ねている。
+  </p>
+  <p>
+    父業について、これ以上は書かないことにする。書ける言葉を、まだ持っていない、というのが正直なところで、<em>書けないこと自体を、column の一部として、ここに残す。</em>
+  </p>
+
+  <div class="closing">
+    <p>
+      8 つの並走を、1 つずつ書いた。書いてみて分かったことが、いくつかある。
+    </p>
+    <p>
+      並走している人が、傍から見ると「凄い」ように見えるかもしれないが、当事者から見ると「凄い」も「凄くない」もない。ただ、並走している、それだけのことだ。並走していると、毎日どれかは失敗する。それも、ただ、起きている、それだけのことだ。
+    </p>
+    <p>
+      「失敗を晒すことを恐れない」というのは、勇気の話ではないと思う。<em>晒さない方が、よっぽど怖い。</em>隠して持っていると、自分一人で抱えることになる。晒すと、誰かが「私もそうだった」と言ってくれる。
+    </p>
+    <p>
+      これが、TYP0stet を作った理由のいちばん深いところにある。
+    </p>
+    <p>
+      AI が誰にでも brand を作らせる時代になった。LP を 1 日で作れる、画像を 5 分で生成できる、Stripe で決済できる。brand は量産期に入っている。物販で差別化するのは、もうほとんど不可能になっている。
+    </p>
+    <p>
+      そこで残るのは、物語と、人と、場、の 3 つだけだと思っている。物語は、AI でも書ける。でも、本物の物語は、人にしか書けない。人は、AI には複製できない。場は、物理空間でしか作れない。
+    </p>
+    <p>
+      TYP0stet は、失敗を晒している人の brand。シャツを着てくれる人は、たぶん、何かを並走している人。何かを並走していると、何かに失敗している。それだけ。
+    </p>
+    <p>
+      4:81 ( 16:21 ) に、月に 1 度、沖縄のどこかで集まる予定にしている。<em>失敗を 1 つ持ち寄ること。TYP0stet を着てくること。</em>私もいる。たまに、いない。
+    </p>
+    <p>
+      雲のように、誰の頭の上にも、同じように来たいと思っている。
+    </p>
+    <p class="sig">─ tig</p>
+  </div>
+
+</article>
+
+<section class="next-block">
+  <div class="next-block__inner">
+    <h3>Next: <em>Vol.1</em> — 私の4:81談、久場由里子さん。</h3>
+    <p>沖縄で訪問看護を立ち上げた、kotuyoshi 訪問看護 founder。看護師としての失敗、組織を作る失敗、それでも続けている理由。</p>
+    <p>公開は 2026 年 7 月予定。Newsletter で告知します。</p>
+    <a href="/community/" class="next-block__cta">4:81 / 沖縄に登録 →</a>
+  </div>
+</section>
+
+<div class="related-block">
+  <a href="/magazine/">← Magazine index に戻る</a>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span class="site-footer__copy">© 2026 TYP0stet ─ Made in 沖縄</span>
+    <nav class="site-footer__nav">
+      <a href="/manifest.html">Manifesto</a>
+      <a href="/community/">Community</a>
+      <a href="/about.html">About</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/tokutei.html">特定商取引</a>
+    </nav>
+    <div class="site-footer__social">
+      <a href="https://instagram.com/typostet" target="_blank" rel="noopener">IG</a>
+      <a href="https://x.com/typostet481" target="_blank" rel="noopener">X</a>
+      <a href="https://note.com/typostet" target="_blank" rel="noopener">note</a>
+      <span class="site-footer__hashtag">#TYP0stet</span>
+    </div>
+  </div>
+</footer>
+
+<a class="time-widget" href="/manifest.html" aria-label="Stet time 4:81">
+  <span>Stet Time</span>
+  <span class="num">4<span class="colon">:</span>81</span>
+</a>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+</script>
+
+</body>
+</html>
