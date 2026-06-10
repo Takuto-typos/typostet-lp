@@ -12,21 +12,21 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
   *,*::before,*::after { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
-    --ink: #0d1117;
-    --bone: #F4EDDF;
-    --mint: #5effd8;
-    --dim: rgba(244, 237, 223, 0.55);
-    --hair: rgba(244, 237, 223, 0.10);
+    --ink: #0E0E0E;
+    --bone: #F1E8D5;
+    --mint: #92E5BD;
+    --dim: rgba(14, 14, 14, 0.55);
+    --hair: rgba(14, 14, 14, 0.12);
   }
   html { scroll-behavior: smooth; }
   body {
-    background: var(--ink);
-    color: var(--bone);
+    background: var(--bone);
+    color: var(--ink);
     font-family: 'IBM Plex Mono', monospace;
     line-height: 1.85;
     -webkit-font-smoothing: antialiased;
@@ -60,7 +60,7 @@
   }
 
   h1 {
-    font-family: 'Noto Serif JP', serif;
+    font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
     font-size: clamp(28px, 5vw, 40px);
     font-weight: 500;
     line-height: 1.5;
@@ -70,9 +70,9 @@
   h1 .z { color: var(--mint); font-family: 'IBM Plex Mono', monospace; font-weight: 700; }
 
   .lead {
-    font-family: 'Noto Serif JP', serif;
+    font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
     font-size: 15px;
-    color: rgba(244, 237, 223, 0.78);
+    color: rgba(14, 14, 14, 0.78);
     line-height: 2;
     margin-bottom: 56px;
   }
@@ -84,12 +84,12 @@
     text-align: left;
   }
   .steps h2 {
-    font-family: 'Noto Serif JP', serif;
+    font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
     font-size: 18px;
     font-weight: 500;
     letter-spacing: 0.06em;
     margin-bottom: 24px;
-    color: var(--bone);
+    color: var(--ink);
     text-align: center;
   }
   .steps ol {
@@ -102,10 +102,10 @@
     counter-increment: step;
     padding: 16px 0 16px 44px;
     position: relative;
-    font-family: 'Noto Serif JP', serif;
+    font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
     font-size: 14px;
     line-height: 1.95;
-    color: rgba(244, 237, 223, 0.78);
+    color: rgba(14, 14, 14, 0.78);
     border-bottom: 1px solid var(--hair);
   }
   .steps li:last-child { border-bottom: none; }
@@ -132,7 +132,7 @@
     display: inline-block;
     padding: 14px 28px;
     border: 1px solid var(--bone);
-    color: var(--bone);
+    color: var(--ink);
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
     letter-spacing: 3px;
@@ -150,11 +150,11 @@
   }
   .cta-row a.primary:hover {
     background: var(--bone);
-    border-color: var(--bone);
+    border-color: var(--ink);
   }
 
   .quiet {
-    font-family: 'Noto Serif JP', serif;
+    font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
     font-size: 13px;
     color: var(--dim);
     line-height: 2;
@@ -178,6 +178,18 @@
   /* mode-specific (cover 版だけ表示する block の制御は JS) */
   [data-mode] { display: none; }
   [data-mode].on { display: block; }
+
+  /* Cotton fabric texture overlay (subtle) */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 0 0.09 0 0 0 0.32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+  }
 </style>
 </head>
 <body>
@@ -193,7 +205,7 @@
   <div data-mode="original" id="block-original">
     <h1>その typo を、<br>着る支度ができました<span style="color: var(--mint)">。</span></h1>
     <p class="lead">
-      ありがとうございます。受注生産のため、お届けまで 14〜21 日ほど。<br>
+      ありがとうございます。受注生産のため、お届けまで 1 週間程度。<br>
       届いたら、いつものシャツのように、着て出かけてください。
     </p>
   </div>
@@ -203,7 +215,7 @@
     <h1>その typo を、<br>あなたも着ます<span style="color: var(--mint)">。</span></h1>
     <p class="lead">
       誰かの typo に「わかる」と思った、その瞬間が物質になります。<br>
-      受注生産のため、お届けまで 14〜21 日ほど。
+      受注生産のため、お届けまで 1 週間程度。
     </p>
   </div>
 
@@ -279,13 +291,13 @@
       original: [
         '決済が完了しました。Stripe からレシートが、ご登録のメールアドレスに届きます。',
         'TYP0stet 内部でデザインを確認し、印刷業者へ手作業で発注します。',
-        '14〜21 日後、ご登録の住所へ発送（追跡番号付き）。発送時にメールでお知らせします。',
+        '1 週間程度後、ご登録の住所へ発送（追跡番号付き）。発送時にメールでお知らせします。',
         '届いたら、着て出かけてください。誰かが、その typo に気づくかもしれません。',
       ],
       cover: [
         '決済が完了しました。Stripe からレシートが、ご登録のメールアドレスに届きます。',
         '元のデザインを TYP0stet 内部で確認し、印刷業者へ手作業で発注します。',
-        '14〜21 日後、ご登録の住所へ発送（追跡番号付き）。発送時にメールでお知らせします。',
+        '1 週間程度後、ご登録の住所へ発送（追跡番号付き）。発送時にメールでお知らせします。',
         '届いたら、着て出かけてください。元の typo を書いた誰かと、同じ服を纏うことになります。',
       ],
       sticker: [

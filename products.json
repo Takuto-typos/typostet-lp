@@ -13,14 +13,15 @@
   "products": [
     {
       "id": "stet-01",
-      "name": "Stet 01 — Recieved.",
+      "name": "Stet Frend",
+      "alternateName": "Stet 01 — Frend.",
       "type": "T-shirt",
-      "description": "TYP0stet の最初の Stet。受信箱の綴り間違い「Recieved」を商品名にした T シャツ。直さず、誇って着る。",
+      "description": "TYP0stet の最初の Stet。子どもの頃、誰でも書いた「Friend」の綴り間違い「Frend」を直さず着る T シャツ。砂場で誰にでも『Frend』と言えたあの頃を、いまの胸に。",
       "url": "https://typostet.com/products/stet-01/",
       "price": 9800,
       "priceCurrency": "JPY",
       "availability": "InStock",
-      "leadTimeWeeks": [3, 4],
+      "leadTimeWeeks": [1, 1],
       "material": "poly 50 / cot 50, 4.5oz Repreve (recycled)",
       "silhouette": "boxy drop-tail",
       "prints": {
@@ -50,7 +51,7 @@
       "price": 3800,
       "priceCurrency": "JPY",
       "availability": "InStock",
-      "leadTimeWeeks": [3, 4]
+      "leadTimeWeeks": [1, 1]
     },
     {
       "id": "tote-ink",
@@ -60,7 +61,7 @@
       "price": 3800,
       "priceCurrency": "JPY",
       "availability": "InStock",
-      "leadTimeWeeks": [3, 4]
+      "leadTimeWeeks": [1, 1]
     },
     {
       "id": "knapsack-olive",
@@ -70,7 +71,7 @@
       "price": 4300,
       "priceCurrency": "JPY",
       "availability": "InStock",
-      "leadTimeWeeks": [3, 4]
+      "leadTimeWeeks": [1, 1]
     },
     {
       "id": "knapsack-mint",
@@ -80,7 +81,7 @@
       "price": 4300,
       "priceCurrency": "JPY",
       "availability": "InStock",
-      "leadTimeWeeks": [3, 4]
+      "leadTimeWeeks": [1, 1]
     }
   ],
   "shipping": {
@@ -95,5 +96,5 @@
     "returns": "サイズ違い・色違いの返品不可。不良品は到着 7 日以内に info@typostet.com まで。",
     "language": ["ja", "en"]
   },
-  "lastUpdated": "2026-06-06T01:00:00+09:00"
+  "lastUpdated": "2026-06-07T13:00:00+09:00"
 }

@@ -9,44 +9,53 @@
 <link rel="apple-touch-icon" sizes="180x180" href="appletouchicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@400;500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@400;500;700&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  :root { --ink: #0E0E0E; --bone: #F4EDDF; --mint: #92E5BD; --mint-deep: #4F8F6E; --terra: #C7553E; --rule: rgba(14,14,14,.15); --soft: rgba(14,14,14,.55); --mute: rgba(14,14,14,.7); }
+  :root { --ink: #0E0E0E; --bone: #F1E8D5; --bone-deep: #E9DFC5; --mint: #92E5BD; --terracotta: #C7553E; --rule: rgba(14,14,14,.12); --soft: rgba(14,14,14,.55); --mute: rgba(14,14,14,.72); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: "IBM Plex Sans JP", -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bone); color: var(--ink); line-height: 1.85; padding: 40px 20px; font-feature-settings: "palt" 1; }
   .container { max-width: 760px; margin: 0 auto; }
-  .brand { display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px; text-decoration: none; color: var(--ink); }
-  .brand .name { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 22px; letter-spacing: .04em; }
-  .brand .name .zero { color: var(--mint-deep); font-style: italic; }
-  .brand .stet { font-family: "Permanent Marker", cursive; font-size: 13px; color: var(--terra); transform: translateY(-2px); }
-  .lang { margin-bottom: 32px; font-size: 13px; font-family: "IBM Plex Mono", monospace; letter-spacing: .08em; }
-  .lang a { color: var(--mint-deep); text-decoration: none; margin: 0 8px 0 0; cursor: pointer; }
-  .lang a:hover { text-decoration: underline; }
-  h1 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 32px; color: var(--ink); margin-top: 24px; margin-bottom: 8px; }
-  .updated { font-size: 11px; color: var(--soft); margin-bottom: 32px; font-family: "IBM Plex Mono", monospace; letter-spacing: .08em; }
-  h2 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 22px; color: var(--ink); margin: 36px 0 12px; }
-  h2::before { content: attr(data-num); font-family: "IBM Plex Mono", monospace; font-style: normal; font-size: 11px; color: var(--mint-deep); margin-right: 12px; letter-spacing: .14em; vertical-align: 4px; }
-  p { font-size: 14px; color: var(--mute); margin-bottom: 12px; line-height: 1.85; }
+  .brand { display: inline-flex; align-items: baseline; margin-bottom: 14px; text-decoration: none; color: var(--ink); }
+  .brand img { height: 28px; width: auto; display: block; }
+  .lang { margin-bottom: 32px; font-size: 12px; font-family: "IBM Plex Mono", monospace; letter-spacing: .12em; }
+  .lang a { color: var(--soft); text-decoration: none; margin: 0 10px 0 0; cursor: pointer; padding-bottom: 3px; border-bottom: 1px solid transparent; transition: color 200ms, border-color 200ms; }
+  .lang a:hover, .lang a.is-active { color: var(--ink); border-bottom-color: var(--mint); }
+  h1 { font-family: "Shippori Mincho", serif; font-weight: 700; font-size: clamp(28px, 4vw, 36px); color: var(--ink); margin-top: 12px; margin-bottom: 6px; letter-spacing: .01em; }
+  .updated { font-size: 11px; color: var(--soft); margin-bottom: 32px; font-family: "IBM Plex Mono", monospace; letter-spacing: .14em; text-transform: uppercase; }
+  h2 { font-family: "Shippori Mincho", serif; font-weight: 600; font-size: 20px; color: var(--ink); margin: 40px 0 14px; line-height: 1.45; }
+  h2::before { content: attr(data-num); font-family: "IBM Plex Mono", monospace; font-style: normal; font-weight: 700; font-size: 11px; color: var(--mint); margin-right: 14px; letter-spacing: .14em; vertical-align: 4px; }
+  p { font-size: 14px; color: var(--mute); margin-bottom: 12px; line-height: 1.95; }
   p strong { color: var(--ink); }
   ul { margin: 8px 0 16px 0; padding-left: 22px; font-size: 14px; color: var(--mute); }
   ul li { margin-bottom: 6px; line-height: 1.7; }
-  .footer { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--rule); font-size: 11px; color: var(--soft); font-family: "IBM Plex Mono", monospace; letter-spacing: .06em; }
+  .footer { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--rule); font-size: 11px; color: var(--soft); font-family: "IBM Plex Mono", monospace; letter-spacing: .08em; }
   .footer a { color: var(--ink); text-decoration: none; margin: 0 6px; }
-  .footer a:hover { color: var(--mint-deep); }
-  .footer .four81 { color: var(--mint-deep); font-weight: 700; float: right; }
+  .footer a:hover { color: var(--terracotta); }
+  .footer .four81 { color: var(--mint); font-weight: 700; float: right; letter-spacing: .04em; }
   .section { display: none; }
   .section.active { display: block; }
-  .inline { color: var(--mint-deep); }
+  .inline { color: var(--ink); border-bottom: 1px solid var(--mint); padding-bottom: 1px; }
+
+  /* Cotton fabric texture overlay (subtle) */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 0 0.09 0 0 0 0.32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+  }
 </style>
 </head>
 <body>
 <div class="container">
-  <a href="/" class="brand">
-    <span class="name">TYP<span class="zero">0</span>S</span>
-    <span class="stet">stet</span>
+  <a href="/" class="brand" aria-label="TYP0stet home">
+    <img src="/assets/brand/wordmark/tentative-final-light.svg" alt="TYP0stet">
   </a>
   <div class="lang">
-    <a onclick="show('ja')">日本語</a> · <a onclick="show('en')">English</a>
+    <a onclick="show('ja')" class="is-active" id="lang-ja">日本語</a> · <a onclick="show('en')" id="lang-en">English</a>
   </div>
 
   <div id="ja" class="section active">
@@ -218,7 +227,10 @@
 <script>
 function show(lang) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.lang a').forEach(a => a.classList.remove('is-active'));
   document.getElementById(lang).classList.add('active');
+  var btn = document.getElementById('lang-' + lang);
+  if (btn) btn.classList.add('is-active');
 }
 </script>
 </body>

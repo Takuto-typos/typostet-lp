@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F4EDDF">
+<meta name="theme-color" content="#F1E8D5">
 
 <title>Magazine ─ 私の4:81談、〇〇さん。 ─ TYP0stet</title>
 <meta name="description" content="TYP0stet が運営する column magazine。失敗を曝け出している人を、編集者の voice で書き留める。「私の4:81談、〇〇さん。」">
@@ -48,8 +48,8 @@
 
 <style>
   :root {
-    --bone: #F4EDDF;
-    --bone-deep: #ECE3CF;
+    --bone: #F1E8D5;
+    --bone-deep: #E9DFC5;
     --ink: #0E0E0E;
     --mint: #92E5BD;
     --olive: #5E6638;
@@ -77,22 +77,22 @@
 
   .site-header {
     position: sticky; top: 0; z-index: 40;
-    background: rgba(244, 237, 223, 0.92);
+    background: rgba(241, 232, 213, 0.92);
     backdrop-filter: saturate(180%) blur(8px);
     -webkit-backdrop-filter: saturate(180%) blur(8px);
     border-bottom: 1px solid var(--rule);
   }
   .site-header__inner {
     max-width: 1320px; margin: 0 auto;
-    padding: 14px 28px;
+    padding: 10px 28px;
     display: flex; align-items: center; justify-content: space-between; gap: 32px;
   }
-  .site-header__brand img { width: 200px; }
+  .site-header__brand img { width: 140px; }
   .site-nav { display: flex; gap: 28px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
   .site-nav a { padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 200ms ease, opacity 200ms ease; opacity: 0.7; }
   .site-nav a:hover { border-bottom-color: var(--ink); opacity: 1; }
   .site-nav a.is-current { opacity: 1; border-bottom-color: var(--ink); }
-  .site-nav a.cart-link { font-style: italic; font-weight: 400; letter-spacing: 0.06em; text-transform: lowercase; opacity: 0.92; }
+  .site-nav a.cart-link { display: none; font-style: italic; font-weight: 400; letter-spacing: 0.06em; text-transform: lowercase; opacity: 0.92; }
   .nav-toggle { display: none; background: none; border: none; padding: 8px; font-family: var(--mono); font-size: 18px; }
 
   .hero {
@@ -154,8 +154,11 @@
     display: grid; gap: 28px;
   }
   .column-card {
-    display: block;
-    padding: 32px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 32px;
+    align-items: stretch;
+    padding: 24px;
     background: var(--bone-deep);
     border: 1px solid var(--rule);
     transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
@@ -164,6 +167,20 @@
     border-color: var(--ink);
     transform: translateY(-2px);
     box-shadow: 0 12px 32px rgba(14,14,14,0.06);
+  }
+  .column-card__image {
+    aspect-ratio: 4 / 5;
+    background: var(--bone);
+    border: 1px solid var(--rule);
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .column-card__image img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .column-card__body {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8px 0;
   }
   .column-card__vol {
     font-family: var(--num); font-weight: 700;
@@ -198,6 +215,10 @@
   }
   .column-card.is-upcoming .column-card__title {
     color: var(--muted);
+  }
+  .column-card.is-upcoming .column-card__image {
+    border-style: dashed;
+    background: transparent;
   }
 
   .note-box {
@@ -240,13 +261,20 @@
   }
   .site-footer__nav a:hover { color: var(--ink); }
   .site-footer__social {
-    display: flex; gap: 18px;
+    display: flex; gap: 16px;
     font-family: var(--mono); font-size: 11px;
     letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--muted);
     align-items: center;
   }
-  .site-footer__social a:hover { color: var(--ink); }
+  .site-footer__social a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px;
+    color: var(--muted);
+    transition: color 200ms ease, transform 200ms ease;
+  }
+  .site-footer__social a:hover { color: var(--ink); transform: translateY(-1px); }
+  .social-icon { width: 18px; height: 18px; display: block; }
   .site-footer__hashtag {
     font-family: var(--hand-jp); font-size: 13px;
     color: var(--mint); letter-spacing: 0.02em;
@@ -254,8 +282,8 @@
   }
 
   @media (max-width: 720px) {
-    .site-header__inner { padding: 12px 20px; }
-    .site-header__brand img { width: 150px; }
+    .site-header__inner { padding: 10px 18px; }
+    .site-header__brand img { width: 108px; }
     .site-nav {
       display: none;
       position: absolute; top: 100%; left: 0; right: 0;
@@ -267,7 +295,13 @@
     .nav-toggle { display: inline-flex; }
     .container { padding: 56px 20px; }
     .hero { padding: 80px 20px 48px; }
-    .column-card { padding: 24px; }
+    .column-card {
+      grid-template-columns: 1fr;
+      padding: 16px;
+      gap: 20px;
+    }
+    .column-card__image { aspect-ratio: 4 / 5; max-width: 60%; margin: 0 auto; }
+    .column-card__vol { font-size: 26px; }
   }
 
   /* --- 4:81 floating time widget --- */
@@ -288,17 +322,33 @@
   }
   .time-widget .num .colon { animation: stet-blink 1.06s steps(2, end) infinite; }
   @keyframes stet-blink { 50% { opacity: 0.2; } }
-  .time-widget:hover::after {
-    content: "これは時刻ではない。し(4)っ(8)ぱい(1)の語呂。";
-    position: absolute; bottom: 130%; right: 0;
-    background: var(--ink); color: var(--bone);
-    padding: 8px 12px; border-radius: 4px;
-    font-family: var(--serif); font-size: 12px;
-    letter-spacing: 0; text-transform: none;
-    white-space: nowrap;
-  }
+  /* tooltip non-disclosure — 分かる人にだけ分かる */
   @media (max-width: 720px) {
     .time-widget { bottom: 16px; right: 16px; padding: 8px 12px; font-size: 10px; }
+  }
+
+  /* Cotton fabric texture overlay (subtle) */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 0 0.09 0 0 0 0.32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+  }
+
+  .site-footer__voice {
+    font-family: var(--hand-jp);
+    font-size: 13px;
+    color: var(--mint);
+    letter-spacing: 0.02em;
+    margin-left: 14px;
+    opacity: 0.92;
+  }
+  @media (max-width: 720px) {
+    .site-footer__voice { display: block; margin: 8px 0 0 0; }
   }
 </style>
 </head>
@@ -336,7 +386,6 @@
     <span>Editor: tig</span>
     <span>Cadence: 月 1</span>
     <span>Format: 3000–5000 字 column</span>
-    <span>Cost: 無料公開</span>
   </div>
 
   <section class="columns">
@@ -345,27 +394,36 @@
     <div class="column-list">
 
       <a class="column-card" href="/magazine/vol-0/">
-        <div class="column-card__vol">Vol.0</div>
-        <h3 class="column-card__title">私の4:81談、<em>tig。</em></h3>
-        <p class="column-card__excerpt">
-          並走しているプロジェクトが 8 個ある。並走しているのだから、毎日どれかは失敗する。
-          失敗を晒している方が、よっぽど安全だと思う。──TYP0stet を作った人間が、TYP0stet を作った理由を、1 つずつ書いた。
-        </p>
-        <div class="column-card__meta">
-          <span>2026.06.06</span>
-          <span>tig / Self</span>
-          <span>5000 字</span>
+        <div class="column-card__image">
+          <img src="/img/magazine/placeholders/portrait.svg" alt="placeholder ─ tig 写真は撮影中">
+        </div>
+        <div class="column-card__body">
+          <div class="column-card__vol">Vol.0</div>
+          <h3 class="column-card__title">私の4:81談、<em>tig。</em></h3>
+          <p class="column-card__excerpt">
+            並走しているプロジェクトが、いくつかある。並走しているのだから、毎日どれかは失敗する。
+            失敗を晒している方が、よっぽど安全だと思う。──TYP0stet を作った人間が、TYP0stet を作った理由を、1 つずつ書いた。
+          </p>
+          <div class="column-card__meta">
+            <span>2026.06.06</span>
+            <span>tig / Self</span>
+          </div>
         </div>
       </a>
 
       <div class="column-card is-upcoming" aria-disabled="true">
-        <div class="column-card__vol">Vol.1</div>
-        <h3 class="column-card__title">私の4:81談、<em>〇〇さん。</em></h3>
-        <p class="column-card__excerpt">
-          取材中。許諾を取れた人から、順に書きます。── coming soon。
-        </p>
-        <div class="column-card__meta">
-          <span>upcoming</span>
+        <div class="column-card__image">
+          <img src="/img/magazine/placeholders/portrait.svg" alt="placeholder ─ 取材中">
+        </div>
+        <div class="column-card__body">
+          <div class="column-card__vol">Vol.1</div>
+          <h3 class="column-card__title">私の4:81談、<em>〇〇さん。</em></h3>
+          <p class="column-card__excerpt">
+            取材中。許諾を取れた人から、順に書きます。── coming soon。
+          </p>
+          <div class="column-card__meta">
+            <span>upcoming</span>
+          </div>
         </div>
       </div>
 
@@ -386,19 +444,33 @@
 
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <span class="site-footer__copy">© 2026 TYP0stet ─ Made in 沖縄</span>
+    <span class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</span><span class="site-footer__voice" aria-hidden="true">今日も、出かけよう。</span>
     <nav class="site-footer__nav">
       <a href="/manifest.html">Manifesto</a>
-      <a href="/community/">Community</a>
       <a href="/about.html">About</a>
       <a href="/terms.html">Terms</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/tokutei.html">特定商取引</a>
     </nav>
     <div class="site-footer__social">
-      <a href="https://instagram.com/typostet" target="_blank" rel="noopener">IG</a>
-      <a href="https://x.com/typostet481" target="_blank" rel="noopener">X</a>
-      <a href="https://note.com/typostet" target="_blank" rel="noopener">note</a>
+      <a href="https://instagram.com/typostet" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor"/>
+        </svg>
+      </a>
+      <a href="https://x.com/typostet481" target="_blank" rel="noopener" aria-label="X">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+      <a href="https://note.com/typostet" target="_blank" rel="noopener" aria-label="note">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M8 8.2v7.6M8 10.4c0.95-1.05 2.3-1.6 3.5-1.6c1.4 0 2.5 1.05 2.5 2.55v6.45"/>
+        </svg>
+      </a>
       <span class="site-footer__hashtag">#TYP0stet</span>
     </div>
   </div>

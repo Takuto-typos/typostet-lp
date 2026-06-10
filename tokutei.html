@@ -3,56 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>特定商取引法に基づく表記 - TYP0stet</title>
+<title>特定商取引法に基づく表記 — TYP0stet</title>
 <meta name="description" content="TYP0stet の特定商取引法に基づく表記。販売事業者、連絡先、価格、配送、返品ポリシー等。">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="appletouchicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@400;500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@400;500;700&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: "IBM Plex Sans JP", -apple-system, BlinkMacSystemFont, sans-serif; background: #F4EDDF; color: #0E0E0E; line-height: 1.8; padding: 40px 20px; font-feature-settings: "palt" 1; }
+  :root {
+    --bone: #F1E8D5;
+    --bone-deep: #E9DFC5;
+    --ink: #0E0E0E;
+    --mint: #92E5BD;
+    --terracotta: #C7553E;
+    --rule: rgba(14, 14, 14, 0.12);
+    --muted: rgba(14, 14, 14, 0.55);
+    --serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+    --sans: "IBM Plex Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --hand-jp: "Klee One", serif;
+  }
+  body { font-family: var(--sans); background: var(--bone); color: var(--ink); line-height: 1.8; padding: 40px 20px; font-feature-settings: "palt" 1; }
   .container { max-width: 760px; margin: 0 auto; }
-  .brand { display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px; text-decoration: none; color: #0E0E0E; }
-  .brand .name { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 22px; letter-spacing: .04em; }
-  .brand .name .zero { color: #4F8F6E; font-style: italic; }
-  .brand .stet { font-family: "Permanent Marker", cursive; font-size: 13px; color: #C7553E; transform: translateY(-2px); }
-  .lang { margin-bottom: 32px; font-size: 13px; font-family: "IBM Plex Mono", monospace; letter-spacing: .08em; }
-  .lang a { color: #4F8F6E; text-decoration: none; margin: 0 8px 0 0; cursor: pointer; }
-  .lang a:hover { text-decoration: underline; }
-  h1 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 32px; color: #0E0E0E; margin-top: 24px; margin-bottom: 8px; }
-  .updated { font-size: 11px; color: rgba(14,14,14,.5); margin-bottom: 24px; font-family: "IBM Plex Mono", monospace; letter-spacing: .08em; }
+  .brand { display: inline-flex; align-items: baseline; gap: 0; text-decoration: none; color: var(--ink); margin-bottom: 14px; }
+  .brand img { height: 28px; width: auto; }
+  .lang { margin-bottom: 32px; font-size: 12px; font-family: var(--mono); letter-spacing: 0.12em; }
+  .lang a { color: var(--muted); text-decoration: none; margin: 0 10px 0 0; cursor: pointer; padding-bottom: 3px; border-bottom: 1px solid transparent; transition: color 200ms, border-color 200ms; }
+  .lang a:hover, .lang a.is-active { color: var(--ink); border-bottom-color: var(--mint); }
+  h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(28px, 4vw, 36px); color: var(--ink); margin-top: 12px; margin-bottom: 6px; letter-spacing: 0.01em; }
+  .updated { font-size: 11px; color: var(--muted); margin-bottom: 32px; font-family: var(--mono); letter-spacing: 0.14em; text-transform: uppercase; }
   table { width: 100%; border-collapse: collapse; margin-top: 16px; }
-  th, td { text-align: left; padding: 14px 8px; border-bottom: 1px solid rgba(14,14,14,.12); vertical-align: top; font-size: 14px; }
-  th { width: 34%; color: #0E0E0E; font-weight: 500; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
-  td { color: rgba(14,14,14,.75); line-height: 1.7; }
-  td strong { color: #0E0E0E; }
-  .note { font-size: 12px; color: rgba(14,14,14,.55); margin-top: 6px; line-height: 1.6; }
-  .footer { margin-top: 56px; padding-top: 28px; border-top: 1px solid rgba(14,14,14,.12); font-size: 11px; color: rgba(14,14,14,.55); font-family: "IBM Plex Mono", monospace; letter-spacing: .06em; }
-  .footer a { color: #0E0E0E; text-decoration: none; margin: 0 6px; }
-  .footer a:hover { color: #4F8F6E; }
-  .footer .four81 { color: #4F8F6E; font-weight: 700; float: right; }
+  th, td { text-align: left; padding: 16px 8px; border-bottom: 1px solid var(--rule); vertical-align: top; font-size: 14px; }
+  th { width: 34%; color: var(--ink); font-weight: 500; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+  td { color: rgba(14,14,14,0.78); line-height: 1.85; }
+  td strong { color: var(--ink); }
+  .note { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.65; }
+  .price-list { margin: 8px 0 0 0; padding-left: 0; list-style: none; }
+  .price-list li { font-size: 13px; color: rgba(14,14,14,0.78); margin-bottom: 5px; padding-left: 16px; position: relative; }
+  .price-list li::before { content: "─"; position: absolute; left: 0; color: var(--mint); }
+  .footer { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--rule); font-size: 11px; color: var(--muted); font-family: var(--mono); letter-spacing: 0.08em; }
+  .footer a { color: var(--ink); text-decoration: none; margin: 0 6px; }
+  .footer a:hover { color: var(--terracotta); }
+  .footer .four81 { color: var(--mint); font-weight: 700; float: right; letter-spacing: 0.04em; }
   .section { display: none; }
   .section.active { display: block; }
-  .price-list { margin: 6px 0 0 0; padding-left: 0; list-style: none; }
-  .price-list li { font-size: 13px; color: rgba(14,14,14,.75); margin-bottom: 4px; padding-left: 14px; position: relative; }
-  .price-list li::before { content: "→"; position: absolute; left: 0; color: #4F8F6E; }
+
+  @media (max-width: 600px) {
+    body { padding: 28px 16px; }
+    th { width: 38%; font-size: 10px; }
+    th, td { padding: 14px 6px; font-size: 13px; }
+  }
+
+  /* Cotton fabric texture overlay (subtle) */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 0 0.09 0 0 0 0.32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+  }
 </style>
 </head>
 <body>
 <div class="container">
-  <a href="/" class="brand">
-    <span class="name">TYP<span class="zero">0</span>S</span>
-    <span class="stet">stet</span>
+  <a href="/" class="brand" aria-label="TYP0stet home">
+    <img src="/assets/brand/wordmark/tentative-final-light.svg" alt="TYP0stet">
   </a>
   <div class="lang">
-    <a onclick="show('ja')">日本語</a> · <a onclick="show('en')">English</a>
+    <a onclick="show('ja')" class="is-active" id="lang-ja">日本語</a> · <a onclick="show('en')" id="lang-en">English</a>
   </div>
 
   <div id="ja" class="section active">
     <h1>特定商取引法に基づく表記</h1>
-    <p class="updated">最終更新日: 2026年6月2日</p>
+    <p class="updated">最終更新日: 2026 年 6 月 7 日</p>
     <table>
       <tr><th>販売事業者</th><td>株式会社 Remoi<div class="note">TYP0stet は株式会社 Remoi が運営するブランドです。将来的に法人格を株式会社 TYP0stet に移行する予定があります。</div></td></tr>
       <tr><th>運営責任者</th><td>代表取締役 堀井 拓斗</td></tr>
@@ -62,29 +90,26 @@
       <tr><th>販売 URL</th><td>https://typostet.com</td></tr>
       <tr><th>販売価格</th><td>商品ごとに表示 (消費税込み)
         <ul class="price-list">
-          <li>TYP0stet Vol.1 Athleisure Tee <strong>¥9,800</strong> (先行予約金 ¥1,000、残金 ¥8,800 は発送前 charge)</li>
-          <li>TYP0stet Sticker Pack <strong>¥500</strong></li>
-          <li>TYP0stet Tote Bag <strong>¥6,800</strong> (Year 1 後半販売予定)</li>
-          <li>TYP0stet Pin Badge <strong>¥800</strong> (Vol.1 launch 後展開予定)</li>
+          <li>Stet Frend (T シャツ) <strong>¥9,800</strong></li>
+          <li>Sticker Pack (ステッカー 3 枚) <strong>¥800</strong></li>
+          <li>Tote — Bone (トートバッグ) <strong>¥3,800</strong></li>
+          <li>Tote — Ink (トートバッグ) <strong>¥3,800</strong></li>
+          <li>Knapsack — Olive (ナップサック) <strong>¥4,300</strong></li>
+          <li>Knapsack — Mint (ナップサック) <strong>¥4,300</strong></li>
         </ul>
-        <div class="note">商品の価格、仕様は予告なく変更する場合があります。最新の価格は商品ページにてご確認ください。</div>
+        <div class="note">商品の価格、仕様は予告なく変更する場合があります。最新の価格は各商品ページにてご確認ください。</div>
       </td></tr>
       <tr><th>商品代金以外の必要料金</th><td>送料: <strong>全国一律 ¥600</strong>
-        <div class="note">沖縄県内発送・海外発送は別途案内。代金引換は対応しておりません。</div>
+        <div class="note">海外発送は別途お見積もりにて対応いたします。代金引換は対応しておりません。</div>
       </td></tr>
-      <tr><th>支払方法</th><td>クレジットカード決済 (Visa / Mastercard / JCB / American Express / Diners Club)<br>Apple Pay / Google Pay
+      <tr><th>支払方法</th><td>クレジットカード決済 (Visa / Mastercard / JCB / American Express / Diners Club)<br>Apple Pay / Google Pay / コンビニ決済
         <div class="note">決済処理は Stripe, Inc. (米国) に委託しています。カード情報は当社のサーバーには保存されません。</div>
       </td></tr>
-      <tr><th>支払時期</th><td><strong>先行予約商品 (Vol.1 シャツ等)</strong>: 予約金 ¥1,000 を注文確定時に決済、残金 ¥8,800 を発送 1 週間前に自動 charge<br><br>
-        <strong>在庫品 (ステッカー等)</strong>: 注文確定時に全額決済
+      <tr><th>支払時期</th><td>ご注文確定時に全額を決済いたします。</td></tr>
+      <tr><th>商品の引き渡し時期</th><td><strong>受注生産のため、ご注文から発送までお届けに 1 週間程度</strong> いただいております。
+        <div class="note">沖縄および東京の協力業者にてプリント・検品後、順次発送いたします。生産状況によりさらにお時間をいただく場合は、メールにて速やかにご連絡いたします。</div>
       </td></tr>
-      <tr><th>商品の引き渡し時期</th><td><strong>Vol.1 Athleisure Tee (受注生産・先行予約)</strong>: 2026 年 10 月発送予定
-        <div class="note">沖縄 SEABOW にてシルクスクリーンプリント、検品後発送。生産状況により最大 4 週間程度延長する場合があります。</div>
-        <strong>ステッカー (在庫品)</strong>: 注文確定後 3 〜 7 営業日以内に発送
-        <div class="note">発送遅延の場合はメールにて速やかにご連絡いたします。</div>
-      </td></tr>
-      <tr><th>返品・交換について</th><td><strong>受注生産品 (Vol.1 シャツ等) はお客様都合による返品・交換をお受けできません。</strong> 染色のムラ・後染めの個体差は受注生産品の特性として許容願います。<br><br>
-        在庫品 (ステッカー等) も衛生上・性質上の理由でお客様都合の返品はお受けしておりません。<br><br>
+      <tr><th>返品・交換について</th><td><strong>受注生産品のため、お客様都合による返品・交換はお受けできません。</strong> 染色のムラ・後染めの個体差は受注生産品の特性として許容願います。<br><br>
         以下に該当する場合のみ、商品到着後 7 日以内にご連絡いただければ無償交換または返金対応いたします:
         <ul class="price-list">
           <li>配送中の破損</li>
@@ -94,13 +119,13 @@
         <div class="note">交換・返金のご連絡先: info@typostet.com</div>
       </td></tr>
       <tr><th>返品送料</th><td>当社事由による不良・誤発送の場合は当社負担、お客様事由の場合は受付不可</td></tr>
-      <tr><th>先行予約のキャンセル</th><td>Vol.1 シャツの先行予約は、残金 charge 前 (発送 1 週間前まで) は予約金 ¥1,000 を全額返金にてキャンセル可能<div class="note">残金 charge 後は受注生産工程に入るためキャンセル不可となります。</div></td></tr>
+      <tr><th>キャンセル</th><td>ご注文確定後 24 時間以内であれば、受注生産工程に入る前としてキャンセルを承ります。それ以降は生産開始のためキャンセル不可となります。<div class="note">キャンセル希望の場合は info@typostet.com まで速やかにご連絡ください。</div></td></tr>
     </table>
   </div>
 
   <div id="en" class="section">
     <h1>Commerce Disclosure (Tokutei Shotorihiki-ho)</h1>
-    <p class="updated">Last updated: June 2, 2026</p>
+    <p class="updated">Last updated: June 7, 2026</p>
     <table>
       <tr><th>Legal Seller</th><td>Remoi, K.K.<div class="note">TYP0stet is a brand operated by Remoi, K.K. We plan to transition the corporate entity to TYP0stet, K.K. in the future.</div></td></tr>
       <tr><th>Representative</th><td>Takuto Horii, CEO</td></tr>
@@ -110,27 +135,26 @@
       <tr><th>Sales URL</th><td>https://typostet.com</td></tr>
       <tr><th>Pricing</th><td>Displayed per item, tax included.
         <ul class="price-list">
-          <li>TYP0stet Vol.1 Athleisure Tee <strong>¥9,800</strong> (¥1,000 deposit at pre-order, ¥8,800 balance charged before shipping)</li>
-          <li>TYP0stet Sticker Pack <strong>¥500</strong></li>
-          <li>TYP0stet Tote Bag <strong>¥6,800</strong> (Late Year 1)</li>
-          <li>TYP0stet Pin Badge <strong>¥800</strong> (Post Vol.1 launch)</li>
+          <li>Stet Frend (T-shirt) <strong>¥9,800</strong></li>
+          <li>Sticker Pack (3 sheets) <strong>¥800</strong></li>
+          <li>Tote — Bone <strong>¥3,800</strong></li>
+          <li>Tote — Ink <strong>¥3,800</strong></li>
+          <li>Knapsack — Olive <strong>¥4,300</strong></li>
+          <li>Knapsack — Mint <strong>¥4,300</strong></li>
         </ul>
+        <div class="note">Prices and specifications may change without notice. Please check each product page for the latest pricing.</div>
       </td></tr>
       <tr><th>Additional Fees</th><td>Shipping: <strong>Flat ¥600 within Japan</strong>
-        <div class="note">Within Okinawa or international shipping handled separately. Cash on delivery not available.</div>
+        <div class="note">International shipping handled separately upon request. Cash on delivery not available.</div>
       </td></tr>
-      <tr><th>Payment Methods</th><td>Credit card (Visa / Mastercard / JCB / Amex / Diners)<br>Apple Pay / Google Pay
+      <tr><th>Payment Methods</th><td>Credit card (Visa / Mastercard / JCB / Amex / Diners)<br>Apple Pay / Google Pay / Konbini
         <div class="note">Payment processing handled by Stripe, Inc. (USA). Card data is not stored on our servers.</div>
       </td></tr>
-      <tr><th>Payment Timing</th><td><strong>Pre-order items (Vol.1 Tee etc.)</strong>: ¥1,000 deposit charged at order; ¥8,800 balance auto-charged 1 week before shipping.<br><br>
-        <strong>In-stock items (stickers etc.)</strong>: Full amount charged at order.
+      <tr><th>Payment Timing</th><td>Full amount charged at order confirmation.</td></tr>
+      <tr><th>Delivery Timing</th><td><strong>All items are made-to-order. Approx. 1 week from order to shipping.</strong>
+        <div class="note">Printed and inspected at our partner facilities in Okinawa and Tokyo, then shipped sequentially. If production requires more time, we will notify you promptly by email.</div>
       </td></tr>
-      <tr><th>Delivery Timing</th><td><strong>Vol.1 Athleisure Tee (made-to-order, pre-order)</strong>: Shipping planned October 2026.
-        <div class="note">Silk-screen printed at SEABOW (Okinawa), inspected, then shipped. Production may extend up to 4 weeks depending on workload.</div>
-        <strong>Stickers (in-stock)</strong>: Shipped within 3–7 business days of order.
-      </td></tr>
-      <tr><th>Returns &amp; Exchanges</th><td><strong>No returns or exchanges for buyer's reasons on made-to-order items (Vol.1 Tee etc.).</strong> Dye unevenness and individual variations in garment-dyed pieces are part of the product character.<br><br>
-        Stickers and similar in-stock items are also non-returnable for buyer's reasons (hygiene, product nature).<br><br>
+      <tr><th>Returns &amp; Exchanges</th><td><strong>No returns or exchanges for buyer's reasons on made-to-order items.</strong> Dye unevenness and individual variations in garment-dyed pieces are part of the product character.<br><br>
         Free exchange or refund within 7 days of arrival only for:
         <ul class="price-list">
           <li>Shipping damage</li>
@@ -140,12 +164,12 @@
         <div class="note">Contact: info@typostet.com within 7 days of arrival.</div>
       </td></tr>
       <tr><th>Return Shipping</th><td>Covered by Remoi, K.K. for our fault; not accepted for buyer's reasons.</td></tr>
-      <tr><th>Pre-order Cancellation</th><td>Vol.1 Tee pre-orders can be cancelled with full ¥1,000 deposit refund up until the balance charge (1 week before shipping).<div class="note">After balance charge, cancellation is not possible due to entering made-to-order production.</div></td></tr>
+      <tr><th>Cancellation</th><td>Cancellations accepted within 24 hours of order confirmation (before entering made-to-order production). After that, cancellation is not possible.<div class="note">For cancellation requests, please contact info@typostet.com promptly.</div></td></tr>
     </table>
   </div>
 
   <div class="footer">
-    <p>© 2026 TYP<span style="color:#4F8F6E">0</span>stet — Remoi, K.K.  <span class="four81">4:81</span></p>
+    <p>© 2026 TYP0stet — Remoi, K.K.  <span class="four81">4:81</span></p>
     <p style="margin-top: 12px;">
       <a href="/">Home</a>·
       <a href="/terms.html">利用規約</a>·
@@ -158,7 +182,9 @@
 <script>
 function show(lang) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.lang a').forEach(a => a.classList.remove('is-active'));
   document.getElementById(lang).classList.add('active');
+  document.getElementById('lang-' + lang).classList.add('is-active');
 }
 </script>
 </body>

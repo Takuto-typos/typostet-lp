@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F4EDDF">
+<meta name="theme-color" content="#F1E8D5">
 
 <title>About ─ TYP0stet</title>
 <meta name="description" content="TYP0stet について。Mission / Vision / Culture / サイズ / 配送 / 会社概要。">
@@ -59,8 +59,8 @@
 
 <style>
   :root {
-    --bone: #F4EDDF;
-    --bone-deep: #ECE3CF;
+    --bone: #F1E8D5;
+    --bone-deep: #E9DFC5;
     --ink: #0E0E0E;
     --mint: #92E5BD;
     --olive: #5E6638;
@@ -88,22 +88,22 @@
 
   .site-header {
     position: sticky; top: 0; z-index: 40;
-    background: rgba(244, 237, 223, 0.92);
+    background: rgba(241, 232, 213, 0.92);
     backdrop-filter: saturate(180%) blur(8px);
     -webkit-backdrop-filter: saturate(180%) blur(8px);
     border-bottom: 1px solid var(--rule);
   }
   .site-header__inner {
     max-width: 1320px; margin: 0 auto;
-    padding: 14px 28px;
+    padding: 10px 28px;
     display: flex; align-items: center; justify-content: space-between; gap: 32px;
   }
-  .site-header__brand img { width: 200px; }
+  .site-header__brand img { width: 140px; }
   .site-nav { display: flex; gap: 28px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
   .site-nav a { padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 200ms ease, opacity 200ms ease; opacity: 0.7; }
   .site-nav a:hover { border-bottom-color: var(--ink); opacity: 1; }
   .site-nav a.is-current { opacity: 1; border-bottom-color: var(--ink); }
-  .site-nav a.cart-link { font-style: italic; font-weight: 400; letter-spacing: 0.06em; text-transform: lowercase; opacity: 0.92; }
+  .site-nav a.cart-link { display: none; font-style: italic; font-weight: 400; letter-spacing: 0.06em; text-transform: lowercase; opacity: 0.92; }
   .nav-toggle { display: none; background: none; border: none; padding: 8px; font-family: var(--mono); font-size: 18px; }
 
   .about-hero {
@@ -119,7 +119,7 @@
 
   .anchor-tabs {
     position: sticky; top: 64px; z-index: 30;
-    background: rgba(244, 237, 223, 0.94);
+    background: rgba(241, 232, 213, 0.94);
     backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--rule);
     padding: 14px 28px;
@@ -247,12 +247,19 @@
   }
   .site-footer__nav a:hover { color: var(--ink); }
   .site-footer__social {
-    display: flex; gap: 18px; align-items: center;
+    display: flex; gap: 16px; align-items: center;
     font-family: var(--mono); font-size: 11px;
     letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--muted);
   }
-  .site-footer__social a:hover { color: var(--ink); }
+  .site-footer__social a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px;
+    color: var(--muted);
+    transition: color 200ms ease, transform 200ms ease;
+  }
+  .site-footer__social a:hover { color: var(--ink); transform: translateY(-1px); }
+  .social-icon { width: 18px; height: 18px; display: block; }
   .site-footer__hashtag {
     font-family: var(--hand-jp); font-size: 13px;
     color: var(--mint); letter-spacing: 0.02em;
@@ -260,8 +267,8 @@
   }
 
   @media (max-width: 720px) {
-    .site-header__inner { padding: 12px 20px; }
-    .site-header__brand img { width: 150px; }
+    .site-header__inner { padding: 10px 18px; }
+    .site-header__brand img { width: 108px; }
     .site-nav {
       display: none;
       position: absolute; top: 100%; left: 0; right: 0;
@@ -272,6 +279,7 @@
     .site-nav.is-open { display: flex; }
     .nav-toggle { display: inline-flex; }
     .anchor-tabs a { margin: 0 8px; font-size: 10px; }
+    .about-hero { padding: 32px 20px 20px; }
     section.block { padding: 56px 20px; }
     .company dl { grid-template-columns: 1fr; gap: 4px; }
     .company dt { margin-top: 14px; }
@@ -310,15 +318,35 @@
     transition: opacity 240ms ease, transform 240ms ease;
   }
   .time-widget__tip em { font-style: normal; color: var(--mint); font-family: var(--hand-jp); }
-  .time-widget:hover .time-widget__tip,
-  .time-widget:focus-within .time-widget__tip,
-  .time-widget.is-open .time-widget__tip {
-    opacity: 1; transform: none; pointer-events: auto;
-  }
+  .time-widget__tip { display: none !important; }
   @media (max-width: 720px) {
     .time-widget { bottom: 16px; right: 16px; padding: 8px 12px; gap: 8px; font-size: 10px; }
     .time-widget__clock { font-size: 14px; }
     .time-widget__tip { width: 210px; font-size: 12px; }
+  }
+
+  /* Cotton fabric texture overlay (subtle) */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 0 0.09 0 0 0 0.32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+  }
+
+  .site-footer__voice {
+    font-family: var(--hand-jp);
+    font-size: 13px;
+    color: var(--mint);
+    letter-spacing: 0.02em;
+    margin-left: 14px;
+    opacity: 0.92;
+  }
+  @media (max-width: 720px) {
+    .site-footer__voice { display: block; margin: 8px 0 0 0; }
   }
 </style>
 </head>
@@ -352,7 +380,7 @@
   <a href="#founder">Founder</a>
   <a href="#size">Size</a>
   <a href="#shipping">Shipping</a>
-  <a href="#company">Company</a>
+  <a href="#company">Connect</a>
 </nav>
 
 <section id="mission" class="block">
@@ -413,7 +441,7 @@
   <ul>
     <li>全国一律 ─ ¥600 (税込)</li>
     <li>海外 ─ 別途見積</li>
-    <li>発送目安 ─ 3〜4 週間</li>
+    <li>発送目安 ─ 受注生産のため、ご注文から 1 週間程度</li>
     <li>返品 ─ サイズ違い・色違いの返品はお受けできません</li>
     <li>不良品 ─ 到着 7 日以内に info@typostet.com まで</li>
   </ul>
@@ -429,8 +457,8 @@
   </details>
 
   <details>
-    <summary>Stet 01 = "Recieved" は誤字？</summary>
-    <p>はい。"Received" の "i" と "e" を逆に書いてしまった綴り間違いです。</p>
+    <summary>Stet 01 = "Stet Frend" について教えて。</summary>
+    <p>商品名は「Stet Frend」。最初の Stet (校正記号「生かせ」の宣言) として、子どもの頃に誰でも書いた "Friend" の綴り間違い「Frend」を直さず着る、というのが Stet Frend の voice です。砂場で誰にでも『Frend』と言えたあの頃を、いまの胸に。</p>
   </details>
 
   <details>
@@ -441,35 +469,38 @@
 </section>
 
 <section id="company" class="block">
-  <p class="micro">08 — Company</p>
-  <h2>会社概要。</h2>
-  <div class="company">
-    <dl>
-      <dt>Brand</dt><dd>TYP0stet (タイポステット)</dd>
-      <dt>運営会社</dt><dd>株式会社 Remoi</dd>
-      <dt>所在地</dt><dd>東京都北区赤羽</dd>
-      <dt>設立</dt><dd>2026 年</dd>
-      <dt>Email</dt><dd><a href="mailto:info@typostet.com">info@typostet.com</a></dd>
-      <dt>note</dt><dd><a href="https://note.com/typostet" target="_blank" rel="noopener">note.com/typostet ↗</a></dd>
-      <dt>法的表記</dt><dd>
-        <a href="/tokutei.html">特定商取引法に基づく表記</a> /
-        <a href="/terms.html">利用規約</a> /
-        <a href="/privacy.html">プライバシー</a>
-      </dd>
-    </dl>
-  </div>
+  <p class="micro">08 — Connect</p>
+  <h2>つながる場所。</h2>
+  <p>お問い合わせは <a href="mailto:info@typostet.com" style="border-bottom: 1px solid var(--mint);">info@typostet.com</a> まで。</p>
+  <p>note の更新は <a href="https://note.com/typostet" target="_blank" rel="noopener" style="border-bottom: 1px solid var(--mint);">note.com/typostet</a> で。</p>
+  <p style="margin-top: 32px; font-size: 13px; color: var(--muted);">法的表記は <a href="/tokutei.html" style="text-decoration: underline;">特定商取引法に基づく表記</a> ・ <a href="/terms.html" style="text-decoration: underline;">利用規約</a> ・ <a href="/privacy.html" style="text-decoration: underline;">プライバシー</a> をご覧ください。</p>
 </section>
 
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <p class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</p>
+    <p class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</p><span class="site-footer__voice" aria-hidden="true">今日も、出かけよう。</span>
     <div class="site-footer__social">
-      <a href="https://instagram.com/typostet" target="_blank" rel="noopener">IG</a>
-      <a href="https://x.com/typostet481" target="_blank" rel="noopener">X</a>
+      <a href="https://instagram.com/typostet" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor"/>
+        </svg>
+      </a>
+      <a href="https://x.com/typostet481" target="_blank" rel="noopener" aria-label="X">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+      <a href="https://note.com/typostet" target="_blank" rel="noopener" aria-label="note">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M8 8.2v7.6M8 10.4c0.95-1.05 2.3-1.6 3.5-1.6c1.4 0 2.5 1.05 2.5 2.55v6.45"/>
+        </svg>
+      </a>
       <span class="site-footer__hashtag">#TYP0stet</span>
     </div>
     <nav class="site-footer__nav">
-      <a href="/community/">Community</a>
       <a href="/terms.html">Terms</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/tokutei.html">特定商取引法</a>

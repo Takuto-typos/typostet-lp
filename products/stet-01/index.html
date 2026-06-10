@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F4EDDF">
+<meta name="theme-color" content="#F1E8D5">
 
-<title>Stet 01 — Recieved. / TYP0stet</title>
-<meta name="description" content="TYP0stet Stet 01 — Recieved. / poly50 cot50 4.5oz Repreve / ¥9,800 (税込) / BONE / MINT / OLIVE / INK BLACK">
+<title>Stet 01 — Stet Frend / TYP0stet</title>
+<meta name="description" content="TYP0stet Stet Frend — 最初の Stet。"Friend" の綴り間違い。直さず、最初の Frend として着る。poly50 cot50 4.5oz Repreve / ¥9,800 / BONE / MINT / OLIVE / INK BLACK / 受注生産 1 週間程度">
 
 <link rel="canonical" href="https://typostet.com/products/stet-01/">
 
 <meta property="og:type" content="product">
 <meta property="og:url" content="https://typostet.com/products/stet-01/">
-<meta property="og:title" content="Stet 01 — Recieved. / TYP0stet">
-<meta property="og:description" content="Stet 01 — Recieved. ¥9,800。">
+<meta property="og:title" content="Stet 01 — Stet Frend / TYP0stet">
+<meta property="og:description" content="最初の Stet。"Friend" の綴り間違い "Frend" を、直さず着る。¥9,800。">
 <meta property="og:image" content="https://typostet.com/img/og-image.png">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="TYP0stet">
@@ -26,7 +26,8 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "@id": "https://typostet.com/products/stet-01/#product",
-  "name": "Stet 01 — Recieved.",
+  "name": "Stet Frend",
+  "alternateName": "Stet 01 — Frend.",
   "sku": "STET-01",
   "image": [
     "https://typostet.com/img/shirts/bone-front.jpg",
@@ -38,7 +39,7 @@
     "https://typostet.com/img/shirts/black-front.jpg",
     "https://typostet.com/img/shirts/black-back.jpg"
   ],
-  "description": "TYP0stet の最初の Stet。受信箱の綴り間違い「Recieved」を商品名にした T シャツ。間違いを直さず、誇りとして着る。素材は poly 50 / cot 50 の 4.5oz Repreve (リサイクル原料)。",
+  "description": "TYP0stet の最初の Stet。子どもの頃、誰でも書いた「Friend」の綴り間違い「Frend」を直さず着る T シャツ。砂場で誰にでも『Frend』と言えたあの頃を、いまの胸に。素材は poly 50 / cot 50 の 4.5oz Repreve (リサイクル原料)。受注生産、お届けまで 1 週間程度。",
   "category": "Apparel / T-Shirt",
   "brand": {
     "@type": "Brand",
@@ -69,7 +70,7 @@
       "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "JP" },
       "deliveryTime": {
         "@type": "ShippingDeliveryTime",
-        "handlingTime": { "@type": "QuantitativeValue", "minValue": 21, "maxValue": 28, "unitCode": "DAY" }
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 5, "maxValue": 7, "unitCode": "DAY" }
       }
     },
     "hasMerchantReturnPolicy": {
@@ -87,8 +88,8 @@
 
 <style>
   :root {
-    --bone: #F4EDDF;
-    --bone-deep: #ECE3CF;
+    --bone: #F1E8D5;
+    --bone-deep: #E9DFC5;
     --ink: #0E0E0E;
     --mint: #92E5BD;
     --olive: #5E6638;
@@ -121,21 +122,21 @@
   /* ─── Header (shared) ─── */
   .site-header {
     position: sticky; top: 0; z-index: 40;
-    background: rgba(244, 237, 223, 0.92);
+    background: rgba(241, 232, 213, 0.92);
     backdrop-filter: saturate(180%) blur(8px);
     -webkit-backdrop-filter: saturate(180%) blur(8px);
     border-bottom: 1px solid var(--rule);
   }
   .site-header__inner {
     max-width: 1320px; margin: 0 auto;
-    padding: 14px 28px;
+    padding: 10px 28px;
     display: flex; align-items: center; justify-content: space-between; gap: 32px;
   }
-  .site-header__brand img { width: 200px; }
+  .site-header__brand img { width: 140px; }
   .site-nav { display: flex; gap: 28px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
   .site-nav a { padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 200ms ease, opacity 200ms ease; opacity: 0.7; }
   .site-nav a:hover { border-bottom-color: var(--ink); opacity: 1; }
-  .site-nav a.cart-link { font-style: italic; font-weight: 400; letter-spacing: 0.06em; text-transform: lowercase; opacity: 0.92; }
+  .site-nav a.cart-link { display: none; font-style: italic; font-weight: 400; letter-spacing: 0.06em; text-transform: lowercase; opacity: 0.92; }
   .nav-toggle { display: none; background: none; border: none; padding: 8px; font-family: var(--mono); font-size: 18px; }
 
   /* ─── Breadcrumb ─── */
@@ -282,7 +283,61 @@
   }
   .pdp__cta:hover { background: var(--bone); color: var(--ink); }
   .pdp__cta::after { content: "→"; }
-  .pdp__cta[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
+  .pdp__cta[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; background: var(--bone-deep); color: var(--muted); border-color: var(--rule); }
+  .pdp__cta[aria-disabled="true"]::after { content: ""; }
+
+  /* Editorial detail (素材 / 製法 / マーク) */
+  .pdp__detail {
+    margin: 40px 0 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+  }
+  .pdp__detail__block {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .pdp__detail__block:last-of-type { border-bottom: none; }
+  .pdp__detail__label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .pdp__detail__h {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .pdp__detail__h em {
+    font-style: normal;
+    font-family: var(--hand-jp);
+    color: var(--mint);
+    font-weight: 400;
+  }
+  .pdp__detail__body {
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.95;
+    color: rgba(14, 14, 14, 0.72);
+  }
+  .pdp__detail__body strong { color: var(--ink); font-weight: 500; }
+  .pdp__detail__tagline {
+    margin-top: 36px;
+    padding: 24px 0 8px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--hand-jp);
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--terracotta);
+    text-align: left;
+    letter-spacing: 0.01em;
+  }
   .pdp__cta-note {
     font-family: var(--mono); font-style: italic; font-size: 11px;
     letter-spacing: 0.04em; color: var(--muted);
@@ -360,7 +415,7 @@
   .story__sig {
     font-family: var(--mono); font-style: italic; font-weight: 400;
     font-size: 13px; letter-spacing: 0.1em;
-    color: rgba(244, 237, 223, 0.7);
+    color: rgba(241, 232, 213, 0.7);
   }
 
   /* ─── Footer (shared shorthand) ─── */
@@ -385,12 +440,19 @@
   }
   .site-footer__nav a:hover { color: var(--ink); }
   .site-footer__social {
-    display: flex; gap: 18px; align-items: center;
+    display: flex; gap: 16px; align-items: center;
     font-family: var(--mono); font-size: 11px;
     letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--muted);
   }
-  .site-footer__social a:hover { color: var(--ink); }
+  .site-footer__social a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px;
+    color: var(--muted);
+    transition: color 200ms ease, transform 200ms ease;
+  }
+  .site-footer__social a:hover { color: var(--ink); transform: translateY(-1px); }
+  .social-icon { width: 18px; height: 18px; display: block; }
   .site-footer__hashtag {
     font-family: var(--hand-jp); font-size: 13px;
     color: var(--mint); letter-spacing: 0.02em;
@@ -403,8 +465,8 @@
     .pdp__gallery { position: static; }
   }
   @media (max-width: 720px) {
-    .site-header__inner { padding: 12px 20px; }
-    .site-header__brand img { width: 150px; }
+    .site-header__inner { padding: 10px 18px; }
+    .site-header__brand img { width: 108px; }
     .site-nav {
       display: none;
       position: absolute; top: 100%; left: 0; right: 0;
@@ -416,6 +478,26 @@
     .site-nav.is-open { display: flex; }
     .nav-toggle { display: inline-flex; }
     .pdp__thumbs { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    /* PDP CTA を mobile で常に footer sticky */
+    .pdp__cta {
+      position: sticky;
+      bottom: 0;
+      z-index: 30;
+      margin: 24px -20px 0;
+      padding: 18px 22px calc(18px + env(safe-area-inset-bottom, 0px));
+      border-radius: 0;
+      box-shadow: 0 -10px 24px -6px rgba(14, 14, 14, 0.16);
+    }
+    .pdp__cta[aria-disabled="true"] {
+      background: var(--ink);
+      color: rgba(244, 237, 223, 0.65);
+      border-color: var(--ink);
+      opacity: 0.92;
+    }
+    .pdp__cta-note {
+      margin-top: 12px; padding: 0 4px;
+      font-size: 11px; text-align: center;
+    }
   }
 
   /* --- tig より mini-block --- */
@@ -521,15 +603,35 @@
     transition: opacity 240ms ease, transform 240ms ease;
   }
   .time-widget__tip em { font-style: normal; color: var(--mint); font-family: var(--hand-jp); }
-  .time-widget:hover .time-widget__tip,
-  .time-widget:focus-within .time-widget__tip,
-  .time-widget.is-open .time-widget__tip {
-    opacity: 1; transform: none; pointer-events: auto;
-  }
+  .time-widget__tip { display: none !important; }
   @media (max-width: 720px) {
     .time-widget { bottom: 16px; right: 16px; padding: 8px 12px; gap: 8px; font-size: 10px; }
     .time-widget__clock { font-size: 14px; }
     .time-widget__tip { width: 210px; font-size: 12px; }
+  }
+
+  /* Cotton fabric texture overlay (subtle) */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 0 0.09 0 0 0 0.32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+  }
+
+  .site-footer__voice {
+    font-family: var(--hand-jp);
+    font-size: 13px;
+    color: var(--mint);
+    letter-spacing: 0.02em;
+    margin-left: 14px;
+    opacity: 0.92;
+  }
+  @media (max-width: 720px) {
+    .site-footer__voice { display: block; margin: 8px 0 0 0; }
   }
 </style>
 </head>
@@ -555,28 +657,26 @@
 <nav class="crumbs" aria-label="breadcrumb">
   <a href="/">TYP0stet</a><span>/</span>
   <a href="/#stet">Shop</a><span>/</span>
-  <span style="opacity:1;color:var(--ink)">Stet 01 — Recieved.</span>
+  <span style="opacity:1;color:var(--ink)">Stet 01 — Frend.</span>
 </nav>
 
 <main class="pdp">
   <!-- Gallery -->
   <section class="pdp__gallery">
     <div class="pdp__main-image">
-      <img id="main-img" src="/img/shirts/bone-front.jpg" alt="Stet 01 — Recieved. / BONE 正面" loading="eager">
+      <img id="main-img" src="/img/shirts/bone-front.jpg" alt="Stet 01 — Frend. / BONE 正面" loading="eager">
     </div>
     <div class="pdp__thumbs" id="thumbs">
-      <button class="pdp__thumb is-active" data-src="/img/shirts/bone-front.jpg"><img src="/img/shirts/bone-front.jpg" alt=""></button>
-      <button class="pdp__thumb" data-src="/img/shirts/bone-back.jpg"><img src="/img/shirts/bone-back.jpg" alt=""></button>
-      <button class="pdp__thumb" data-src="/img/shirts/bone-front.jpg"><img src="/img/shirts/bone-front.jpg" alt=""></button>
-      <button class="pdp__thumb" data-src="/img/shirts/bone-back.jpg"><img src="/img/shirts/bone-back.jpg" alt=""></button>
+      <button class="pdp__thumb is-active" data-src="/img/shirts/bone-front.jpg"><img src="/img/shirts/bone-front.jpg" alt="正面"></button>
+      <button class="pdp__thumb" data-src="/img/shirts/bone-back.jpg"><img src="/img/shirts/bone-back.jpg" alt="背面"></button>
     </div>
   </section>
 
   <!-- Info -->
   <section class="pdp__info">
     <p class="pdp__eyebrow">Stet 01</p>
-    <h1 class="pdp__title">Recieved<em>.</em></h1>
-    <p class="pdp__narrative">最初の Stet は、誰でも一度はやる "Received" の綴り間違い。返信もできないまま、誰かに届いてしまった夜のために。直さず、着る。</p>
+    <h1 class="pdp__title">Stet <em>Frend.</em></h1>
+    <p class="pdp__narrative">最初の Stet。子どもの頃、誰でも書いた "Friend" の綴り間違い "Frend"。砂場で誰にでも『Frend』と言えたあの頃を、いまの胸に。直さず、着る。</p>
     <p class="pdp__price">¥9,800 <small>税込・送料 ¥600</small></p>
 
     <!-- Color -->
@@ -592,7 +692,7 @@
 
     <!-- Size -->
     <div class="selector">
-      <div class="selector__label"><span>Size</span><span id="size-name">— 未選択</span></div>
+      <div class="selector__label"><span>Size</span><span id="size-name"></span></div>
       <div class="sizes" id="sizes">
         <button class="size" data-size="XS">XS</button>
         <button class="size" data-size="S">S</button>
@@ -603,12 +703,46 @@
       <a href="#size-guide" class="size-guide-link">sizes are honest — guide はこちら ↓</a>
     </div>
 
-    <a id="cta" href="https://buy.stripe.com/test_bJe5kEcfI9XzfI53f36Na02" target="_blank" rel="noopener" class="pdp__cta">Buy ─ ¥9,800</a>
+    <!-- Editorial detail (素材 / 製法 / マーク) -->
+    <div class="pdp__detail">
+
+      <div class="pdp__detail__block">
+        <p class="pdp__detail__label">Material</p>
+        <h3 class="pdp__detail__h">poly 50 / cot 50, 4.5oz <em>Repreve.</em></h3>
+        <p class="pdp__detail__body">
+          ベースに <strong>Repreve リサイクル繊維</strong> を使用。回収ペットボトル由来の polyester を、コットンとブレンドした 4.5oz の athleisure-grade 生地。<br>
+          丈夫で、乾きやすく、洗い込むほど身体に馴染む。1 枚で着れば朝の運動着に、ジャケットの下に挟めば夜の長い時間にも対応する。<br>
+          後染め仕上げのため、個体差として現れる染色の濃淡は、この生地の表情だと考えている。
+        </p>
+      </div>
+
+      <div class="pdp__detail__block">
+        <p class="pdp__detail__label">Construction</p>
+        <h3 class="pdp__detail__h">受注生産。<em>1 枚ずつ、仕立てる。</em></h3>
+        <p class="pdp__detail__body">
+          量産せず、ご注文を受けてから、1 枚ずつ仕立てる。沖縄と東京の協力業者でシルクスクリーンプリント、検品、梱包を経て、ご注文から <strong>1 週間程度</strong> でお届けする。<br>
+          シルエットはボックス・ドロップテール。前後の着丈に差を設け、1 枚で着ても、上に羽織っても、裾の表情がきれいに残るよう設計した。<br>
+          作りためないこと、過剰在庫を抱えないこと、を製法の前提に置いている。
+        </p>
+      </div>
+
+      <div class="pdp__detail__block">
+        <p class="pdp__detail__label">Marks</p>
+        <h3 class="pdp__detail__h">3 つのマークを、<em>1 着に内蔵する。</em></h3>
+        <p class="pdp__detail__body">
+          左胸の <strong>0 monogram</strong> ─ 円が閉じきらないゼロ。完璧の代わりに、抜けを誇る印。<br>
+          右袖の <strong>4:81</strong> ─ 「し (4) っ (8) ぱい (1)」の語呂。第 3 のブランドマーク。<br>
+          背面下の <strong>TYP0stet wordmark</strong> ─ TYP0 (ink) と stet (mint marker) の合成。間違いを直さず "生かす" 校正記号そのもの。<br>
+          いずれも、brand を主張するために置いたのではなく、着る人が「失敗で繋がる」きっかけになるように、3 つに分けて置いている。
+        </p>
+      </div>
+
+      <p class="pdp__detail__tagline">これを着たら、誰かと、失敗で繋がるかもしれない。</p>
+    </div>
+
+    <a id="cta" href="#sizes" data-stripe-url="https://buy.stripe.com/test_bJe5kEcfI9XzfI53f36Na02" aria-disabled="true" class="pdp__cta">サイズを選んで ─ Buy ¥9,800</a>
     <p class="pdp__cta-note">Stripe で安全に決済 ─ Apple Pay / Google Pay / 主要カード / コンビニ対応</p>
 
-    <p class="pdp__delivery">
-      <strong>お届けまで 3〜4 週間</strong>。
-    </p>
 
     <!-- Accordions -->
     <details open>
@@ -647,7 +781,7 @@
       <div>
         <ul>
           <li><strong>配送料</strong> ─ 全国一律 ¥600 / 海外 別途見積</li>
-          <li><strong>発送までの目安</strong> ─ 3〜4 週間</li>
+          <li><strong>発送までの目安</strong> ─ 受注生産のため、ご注文から 1 週間程度</li>
           <li><strong>返品</strong> ─ サイズ違い・色違いの返品はお受けできません。サイズ表をよく見て選んでください</li>
           <li><strong>不良品</strong> ─ 到着 7 日以内に info@typostet.com まで</li>
         </ul>
@@ -668,7 +802,7 @@
       <p>
         最初の Stet を選んでくれて、ありがとうございます。<br>
         届いた日は、なるべく失敗する予定の朝に、最初に着てみてください。<br>
-        返信が遅いときは、どこかで小さく失敗してるはず。気にせず、何度でも書いてください。
+        届いたら、どこかで、教えてください。
       </p>
       <p class="pdp__founder-sig">— tig, 2026 年 6 月</p>
     </div>
@@ -709,14 +843,29 @@
 
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <p class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</p>
+    <p class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</p><span class="site-footer__voice" aria-hidden="true">今日も、出かけよう。</span>
     <div class="site-footer__social">
-      <a href="https://instagram.com/typostet" target="_blank" rel="noopener">IG</a>
-      <a href="https://x.com/typostet481" target="_blank" rel="noopener">X</a>
+      <a href="https://instagram.com/typostet" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor"/>
+        </svg>
+      </a>
+      <a href="https://x.com/typostet481" target="_blank" rel="noopener" aria-label="X">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+      <a href="https://note.com/typostet" target="_blank" rel="noopener" aria-label="note">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M8 8.2v7.6M8 10.4c0.95-1.05 2.3-1.6 3.5-1.6c1.4 0 2.5 1.05 2.5 2.55v6.45"/>
+        </svg>
+      </a>
       <span class="site-footer__hashtag">#TYP0stet</span>
     </div>
     <nav class="site-footer__nav">
-      <a href="/community/">Community</a>
       <a href="/terms.html">Terms</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/tokutei.html">特定商取引法</a>
@@ -741,11 +890,9 @@
       var front = '/img/shirts/' + color + '-front.jpg';
       var back  = '/img/shirts/' + color + '-back.jpg';
       mainImg.src = front;
-      mainImg.alt = 'Stet 01 — Recieved. / ' + name + ' 正面';
-      thumbs[0].dataset.src = front; thumbs[0].querySelector('img').src = front;
-      thumbs[1].dataset.src = back;  thumbs[1].querySelector('img').src = back;
-      thumbs[2].dataset.src = front; thumbs[2].querySelector('img').src = front;
-      thumbs[3].dataset.src = back;  thumbs[3].querySelector('img').src = back;
+      mainImg.alt = 'Stet 01 — Frend. / ' + name + ' 正面';
+      if (thumbs[0]) { thumbs[0].dataset.src = front; thumbs[0].querySelector('img').src = front; }
+      if (thumbs[1]) { thumbs[1].dataset.src = back;  thumbs[1].querySelector('img').src = back;  }
       thumbs.forEach(function (t, i) { t.classList.toggle('is-active', i === 0); });
       // URL sync
       var url = new URL(window.location);
@@ -776,17 +923,41 @@
     });
   })();
 
-  // Size selector
+  // Size selector + Buy CTA gate
   (function () {
     var sizes = document.querySelectorAll('.size');
     var sizeName = document.getElementById('size-name');
+    var cta = document.getElementById('cta');
     sizes.forEach(function (s) {
       s.addEventListener('click', function () {
         sizes.forEach(function (x) { x.classList.remove('is-active'); });
         s.classList.add('is-active');
         sizeName.textContent = s.dataset.size;
+        // Activate Buy CTA on first size selection
+        if (cta && cta.getAttribute('aria-disabled') === 'true') {
+          cta.removeAttribute('aria-disabled');
+          cta.setAttribute('href', cta.dataset.stripeUrl);
+          cta.setAttribute('target', '_blank');
+          cta.setAttribute('rel', 'noopener');
+          cta.textContent = 'Buy ─ ¥9,800';
+        }
       });
     });
+    // If user clicks CTA while disabled, scroll to size selector
+    if (cta) {
+      cta.addEventListener('click', function (e) {
+        if (cta.getAttribute('aria-disabled') === 'true') {
+          e.preventDefault();
+          var sizeEl = document.getElementById('sizes');
+          if (sizeEl) {
+            sizeEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            sizeEl.style.transition = 'box-shadow 600ms ease';
+            sizeEl.style.boxShadow = '0 0 0 3px rgba(199, 85, 62, 0.4)';
+            setTimeout(function () { sizeEl.style.boxShadow = ''; }, 1200);
+          }
+        }
+      });
+    }
   })();
 
   // Mobile nav

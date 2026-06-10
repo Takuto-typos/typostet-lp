@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F4EDDF">
+<meta name="theme-color" content="#F1E8D5">
 
 <title>Manifesto ─ TYP0stet</title>
 <meta name="description" content="TYP0stet の倫理憲章。失敗を扱うブランドとして、守ること、しないこと。">
@@ -54,8 +54,8 @@
 
 <style>
   :root {
-    --bone: #F4EDDF;
-    --bone-deep: #ECE3CF;
+    --bone: #F1E8D5;
+    --bone-deep: #E9DFC5;
     --ink: #0E0E0E;
     --mint: #92E5BD;
     --olive: #5E6638;
@@ -83,22 +83,22 @@
 
   .site-header {
     position: sticky; top: 0; z-index: 40;
-    background: rgba(244, 237, 223, 0.92);
+    background: rgba(241, 232, 213, 0.92);
     backdrop-filter: saturate(180%) blur(8px);
     -webkit-backdrop-filter: saturate(180%) blur(8px);
     border-bottom: 1px solid var(--rule);
   }
   .site-header__inner {
     max-width: 1320px; margin: 0 auto;
-    padding: 14px 28px;
+    padding: 10px 28px;
     display: flex; align-items: center; justify-content: space-between; gap: 32px;
   }
-  .site-header__brand img { width: 200px; }
+  .site-header__brand img { width: 140px; }
   .site-nav { display: flex; gap: 28px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
   .site-nav a { padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 200ms ease, opacity 200ms ease; opacity: 0.7; }
   .site-nav a:hover { border-bottom-color: var(--ink); opacity: 1; }
   .site-nav a.is-current { opacity: 1; border-bottom-color: var(--ink); }
-  .site-nav a.cart-link { font-style: italic; font-weight: 400; letter-spacing: 0.06em; text-transform: lowercase; opacity: 0.92; }
+  .site-nav a.cart-link { display: none; font-style: italic; font-weight: 400; letter-spacing: 0.06em; text-transform: lowercase; opacity: 0.92; }
   .nav-toggle { display: none; background: none; border: none; padding: 8px; font-family: var(--mono); font-size: 18px; }
 
   .hero {
@@ -250,7 +250,7 @@
   }
   .closing p {
     font-family: var(--serif); font-size: 14px;
-    color: rgba(244, 237, 223, 0.7);
+    color: rgba(241, 232, 213, 0.7);
   }
   .closing .timestamp-img {
     width: 80px; height: auto;
@@ -280,13 +280,20 @@
   }
   .site-footer__nav a:hover { color: var(--ink); }
   .site-footer__social {
-    display: flex; gap: 18px;
+    display: flex; gap: 16px;
     font-family: var(--mono); font-size: 11px;
     letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--muted);
     align-items: center;
   }
-  .site-footer__social a:hover { color: var(--ink); }
+  .site-footer__social a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px;
+    color: var(--muted);
+    transition: color 200ms ease, transform 200ms ease;
+  }
+  .site-footer__social a:hover { color: var(--ink); transform: translateY(-1px); }
+  .social-icon { width: 18px; height: 18px; display: block; }
   .site-footer__hashtag {
     font-family: var(--hand-jp); font-size: 13px;
     color: var(--mint); letter-spacing: 0.02em;
@@ -294,8 +301,8 @@
   }
 
   @media (max-width: 720px) {
-    .site-header__inner { padding: 12px 20px; }
-    .site-header__brand img { width: 150px; }
+    .site-header__inner { padding: 10px 18px; }
+    .site-header__brand img { width: 108px; }
     .site-nav {
       display: none;
       position: absolute; top: 100%; left: 0; right: 0;
@@ -343,15 +350,35 @@
     transition: opacity 240ms ease, transform 240ms ease;
   }
   .time-widget__tip em { font-style: normal; color: var(--mint); font-family: var(--hand-jp); }
-  .time-widget:hover .time-widget__tip,
-  .time-widget:focus-within .time-widget__tip,
-  .time-widget.is-open .time-widget__tip {
-    opacity: 1; transform: none; pointer-events: auto;
-  }
+  .time-widget__tip { display: none !important; }
   @media (max-width: 720px) {
     .time-widget { bottom: 16px; right: 16px; padding: 8px 12px; gap: 8px; font-size: 10px; }
     .time-widget__clock { font-size: 14px; }
     .time-widget__tip { width: 210px; font-size: 12px; }
+  }
+
+  /* Cotton fabric texture overlay (subtle) */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 0 0.09 0 0 0 0.32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+  }
+
+  .site-footer__voice {
+    font-family: var(--hand-jp);
+    font-size: 13px;
+    color: var(--mint);
+    letter-spacing: 0.02em;
+    margin-left: 14px;
+    opacity: 0.92;
+  }
+  @media (max-width: 720px) {
+    .site-footer__voice { display: block; margin: 8px 0 0 0; }
   }
 </style>
 </head>
@@ -411,49 +438,17 @@
     </div>
   </div>
 
-  <h2 class="section-title">私たちが<em>しない</em>こと。</h2>
-  <p class="section-sub">7 rules — what TYP0stet refuses to do.</p>
+  <h2 class="section-title">この brand が、<em>しないこと。</em></h2>
+  <p class="section-sub">things this brand will not do.</p>
 
   <article class="rule">
-    <p class="num">01</p>
-    <h3>失敗を、<em>笑い物にしない</em>。</h3>
-    <p>誰かの失敗は、私たちの教科書。先に書いてくれた人を、笑う理由はない。</p>
-  </article>
-
-  <article class="rule">
-    <p class="num">02</p>
-    <h3>本人が出したものだけ、<em>出す</em>。</h3>
-    <p>名前も、写真も、SNS の handle も。許諾のないものは、影に置く。</p>
-  </article>
-
-  <article class="rule">
-    <p class="num">03</p>
-    <h3>AI を、<em>主語にしない</em>。</h3>
-    <p>翻訳したのも、design したのも、結局は人。<em>人間が選ぶ brand</em> としての純度を、保つ。</p>
-  </article>
-
-  <article class="rule">
-    <p class="num">04</p>
-    <h3>バズで、<em>釣らない</em>。</h3>
-    <p>燃やすより、灯す。speed と純度が衝突したら、迷わず純度を取る。</p>
-  </article>
-
-  <article class="rule">
-    <p class="num">05</p>
-    <h3>沖縄を、<em>消費しない</em>。</h3>
-    <p>「沖縄産」は marketing word じゃない。職人の名前と工程を、ちゃんと書く。</p>
-  </article>
-
-  <article class="rule">
-    <p class="num">06</p>
-    <h3>余らせない、<em>作りすぎない</em>。</h3>
-    <p>実際に着る人の数だけ作る。<em>あと 1 枚</em> は、来年の人のために置いておく。</p>
-  </article>
-
-  <article class="rule">
-    <p class="num">07</p>
-    <h3>typo は、<em>シャツに乗せない</em>。</h3>
-    <p>あなたの失敗は、あなたが誇るもの。<br>シャツは、その背中を、静かに支えるだけ。</p>
+    <p>誰かの失敗を、笑い物にすることは、しません。先に書いてくれた人を、笑う理由はないと思っています。誰かの失敗は、私たちが次に書くときの教科書です。</p>
+    <p>名前も、写真も、SNS の handle も、本人が出したものだけを出します。許諾のないものは、影に置く。それは brand の品位というより、書く人としての最低限のルールです。</p>
+    <p>翻訳したのも、design したのも、文章を整えたのも、結局は人です。<em>AI を、主語にしない。</em>「AI が翻訳しました」とは書きません。手を動かしたのは、人。それを書き換えるのは、誠実ではないと思います。</p>
+    <p>バズで、釣らない。燃やすより、灯す。スピードと純度が衝突したら、迷わず純度を取ります。一度に多くの人に届くより、長く読んでくれる人と関係を作る方を選びます。</p>
+    <p>沖縄を、消費しない。「沖縄産」は marketing word ではありません。沖縄で誰がどう作っているか、職人の名前と工程を、ちゃんと書ける時にだけ書きます。それまでは、書きません。</p>
+    <p>余らせない、作りすぎない。実際に着る人の数だけ作ります。<em>あと 1 枚</em> は、来年の人のために置いておく。受注生産という選択は、そのための仕組みです。</p>
+    <p>typo は、シャツに乗せない。<em>あなたの失敗は、あなたが誇るもの。</em>シャツは、その背中を、静かに支えるだけです。brand mark は 0 monogram と 4:81 と TYP0stet wordmark の 3 つだけ。あとは、着る人の物語のためにあります。</p>
   </article>
 
   <div class="founder-letter">
@@ -477,14 +472,29 @@
 
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <p class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</p>
+    <p class="site-footer__copy">© 2026 TYP0stet ─ Remoi, K.K.</p><span class="site-footer__voice" aria-hidden="true">今日も、出かけよう。</span>
     <div class="site-footer__social">
-      <a href="https://instagram.com/typostet" target="_blank" rel="noopener">IG</a>
-      <a href="https://x.com/typostet481" target="_blank" rel="noopener">X</a>
+      <a href="https://instagram.com/typostet" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor"/>
+        </svg>
+      </a>
+      <a href="https://x.com/typostet481" target="_blank" rel="noopener" aria-label="X">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+      <a href="https://note.com/typostet" target="_blank" rel="noopener" aria-label="note">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M8 8.2v7.6M8 10.4c0.95-1.05 2.3-1.6 3.5-1.6c1.4 0 2.5 1.05 2.5 2.55v6.45"/>
+        </svg>
+      </a>
       <span class="site-footer__hashtag">#TYP0stet</span>
     </div>
     <nav class="site-footer__nav">
-      <a href="/community/">Community</a>
       <a href="/terms.html">Terms</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/tokutei.html">特定商取引法</a>

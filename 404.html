@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F4EDDF">
+<meta name="theme-color" content="#F1E8D5">
 
 <title>404 — stet ─ TYP0stet</title>
 <meta name="description" content="探していたページが見つかりません。けれど、迷い込んだのも一つの stet。">
@@ -18,8 +18,8 @@
 
 <style>
   :root {
-    --bone: #F4EDDF;
-    --bone-deep: #ECE3CF;
+    --bone: #F1E8D5;
+    --bone-deep: #E9DFC5;
     --ink: #0E0E0E;
     --mint: #92E5BD;
     --terracotta: #C7553E;
@@ -52,7 +52,7 @@
     max-width: 1320px; margin: 0 auto;
     display: flex; align-items: center; gap: 32px;
   }
-  .site-header__brand img { width: 200px; }
+  .site-header__brand img { width: 140px; }
 
   main {
     flex: 1;
@@ -152,19 +152,39 @@
     transition: opacity 240ms ease, transform 240ms ease;
   }
   .time-widget__tip em { font-style: normal; color: var(--mint); font-family: var(--hand-jp); }
-  .time-widget:hover .time-widget__tip,
-  .time-widget:focus-within .time-widget__tip,
-  .time-widget.is-open .time-widget__tip {
-    opacity: 1; transform: none; pointer-events: auto;
-  }
+  .time-widget__tip { display: none !important; }
   @media (max-width: 720px) {
     .site-header { padding: 12px 20px; }
-    .site-header__brand img { width: 150px; }
+    .site-header__brand img { width: 108px; }
     main { padding: 56px 20px 88px; }
     .err em { right: -0.8em; }
     .time-widget { bottom: 16px; right: 16px; padding: 8px 12px; gap: 8px; font-size: 10px; }
     .time-widget__clock { font-size: 14px; }
     .time-widget__tip { width: 210px; font-size: 12px; }
+  }
+
+  /* Cotton fabric texture overlay (subtle) */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 0 0.09 0 0 0 0.32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+  }
+
+  .site-footer__voice {
+    font-family: var(--hand-jp);
+    font-size: 13px;
+    color: var(--mint);
+    letter-spacing: 0.02em;
+    margin-left: 14px;
+    opacity: 0.92;
+  }
+  @media (max-width: 720px) {
+    .site-footer__voice { display: block; margin: 8px 0 0 0; }
   }
 </style>
 </head>
@@ -188,8 +208,8 @@
   <a class="err-btn" href="/">最初に戻る</a>
   <p class="err-secondary">
     <a href="/#stet">Shop</a><span>·</span>
-    <a href="/manifest.html">Manifesto</a><span>·</span>
-    <a href="/community/">Community</a>
+    <a href="/magazine/">Magazine</a><span>·</span>
+    <a href="/manifest.html">Manifesto</a>
   </p>
 </main>
 
