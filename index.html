@@ -709,6 +709,45 @@
     background: var(--bone); color: var(--ink);
   }
 
+  /* --- Journal teaser --- */
+  .journal {
+    background: var(--bone-deep);
+    padding: 120px 28px;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+  }
+  .journal__eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .journal__lead {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(26px, 3.8vw, 44px);
+    line-height: 1.3;
+    margin-bottom: 24px;
+    letter-spacing: 0.01em;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    max-width: 780px;
+    margin-left: auto; margin-right: auto;
+  }
+  .journal__lead em {
+    font-style: normal;
+    font-family: var(--hand-jp);
+    color: var(--mint);
+  }
+  .journal__body {
+    font-family: var(--serif); font-size: 16px; line-height: 2;
+    color: var(--muted);
+    max-width: 560px; margin: 0 auto 36px;
+  }
+  @media (max-width: 720px) {
+    .journal { padding: 80px 20px; }
+    .journal__lead { font-size: clamp(22px, 5.6vw, 32px); }
+    .journal__body { font-size: 15px; }
+  }
+
   /* --- Newsletter --- */
   .newsletter { background: var(--bone); padding: 140px 28px; text-align: center; }
   .newsletter__sub {
@@ -1130,6 +1169,19 @@
     </div>
   </section>
 
+  <!-- JOURNAL TEASER -->
+  <section id="journal" class="journal reveal">
+    <div class="container">
+      <p class="journal__eyebrow">Journal ─ failure 論のコラム</p>
+      <h2 class="journal__lead">完璧を量産できる時代に、<em>間違いだけが</em>自分の証明になる。</h2>
+      <p class="journal__body">
+        完璧なものがボタンひとつで出てくる時代に、間違いだけが複製できない痕跡になる。<br>
+        TYP0stet の failure 論 ─ 月に一度、言葉で続ける。
+      </p>
+      <a href="/magazine/" class="btn">Journal を読む →</a>
+    </div>
+  </section>
+
 
 </main>
 
@@ -1151,6 +1203,7 @@
         <h4>Read</h4>
         <ul>
           <li><a href="/manifest.html">Manifesto</a></li>
+          <li><a href="/magazine/">Journal</a></li>
         </ul>
       </div>
       <div class="site-footer__col">
