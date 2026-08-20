@@ -343,6 +343,7 @@
     color: var(--mint);
     background: linear-gradient(180deg, transparent 60%, rgba(146,229,189,0.22) 60%);
     padding: 0 4px;
+    text-shadow: 0 1px 12px rgba(13, 11, 10, 0.45), 0 0 2px rgba(13, 11, 10, 0.3);
   }
   /* deliberate 4 red dots in the hero — like a proofreader's stet annotation */
   .hero__stet-dots {
@@ -710,6 +711,58 @@
   }
 
   /* --- Journal teaser --- */
+  .club {
+    background: var(--bone-deep);
+    padding: 110px 28px;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+  }
+  .club__eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
+    color: var(--terracotta); text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .club__lead {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(26px, 3.8vw, 44px);
+    line-height: 1.3;
+    margin-bottom: 26px;
+    letter-spacing: 0.01em;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  .club__lead em {
+    font-style: normal;
+    font-family: var(--hand-jp);
+    font-weight: 400;
+    color: var(--mint);
+    background: linear-gradient(180deg, transparent 60%, rgba(146,229,189,0.22) 60%);
+    padding: 0 4px;
+  }
+  .club__body {
+    font-family: var(--serif); font-size: 16px; line-height: 2.1;
+    max-width: 640px; margin: 0 auto 18px;
+    word-break: keep-all; overflow-wrap: anywhere;
+  }
+  .club__typos {
+    font-style: normal; font-family: var(--mono);
+    letter-spacing: 0.12em; color: var(--terracotta);
+  }
+  .club__note {
+    font-family: var(--serif); font-size: 14px; line-height: 2;
+    color: var(--muted); max-width: 640px; margin: 0 auto 26px;
+  }
+  .club__playon {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--terracotta);
+    margin-bottom: 32px;
+  }
+  @media (max-width: 720px) {
+    .club { padding: 80px 20px; }
+    .club__lead { font-size: clamp(22px, 5.6vw, 32px); }
+    .club__body { font-size: 15px; }
+  }
+
   .journal {
     background: var(--bone-deep);
     padding: 120px 28px;
@@ -1004,7 +1057,8 @@
     <nav class="site-nav" id="site-nav" aria-label="primary">
       <a href="#stet">Shop</a>
       <a href="#objects">Objects</a>
-      <a href="/magazine/">Magazine</a>
+      <a href="#club">Club</a>
+      <a href="/magazine/">Journal</a>
       <a href="/manifest.html">Manifesto</a>
       <a href="/about.html">About</a>
       <a href="#cart" class="cart-link" aria-label="Cart">cart</a>
@@ -1044,6 +1098,24 @@
   <section id="about" class="about reveal">
     <div class="container">
       <h2 class="about__line">失敗できる事が、<em>人間の証明</em>になる。</h2>
+    </div>
+  </section>
+
+  <!-- CLUB (TYP0stet FC) -->
+  <section id="club" class="club reveal">
+    <div class="container">
+      <span class="section-anchor" aria-hidden="true"></span>
+      <p class="club__eyebrow">TYP0stet FC ─ Okinawa</p>
+      <h2 class="club__lead">シャツの前に、<em>コート</em>がある。</h2>
+      <p class="club__body">
+        TYP0stet はフットサルのクラブでもある。<br>
+        2026 年 8 月、個人参加の 1day 大会に初めて出て、優勝した。<br>
+        ここに来るやつらを、<em class="club__typos">TYPOS</em> と呼ぶ。<br>
+        上手さの証明はいらない。失敗できる人が、メンバー。
+      </p>
+      <p class="club__note">たまに個サルを開く。日程は Instagram に置いておく。来ても、来なくてもいい。</p>
+      <p class="club__playon">PLAY ON ─ 失敗しても、笛は鳴らさない。</p>
+      <a href="https://instagram.com/typostet" target="_blank" rel="noopener" class="btn">Instagram で日程を見る →</a>
     </div>
   </section>
 
