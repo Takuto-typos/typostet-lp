@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F1E8D5">
 
-<title>TYP0stet ── 失敗できる事が、人間の証明になる。</title>
-<meta name="description" content="typo (誤字) と stet (校正記号「生かせ」) の合成名。Stet Frend (Stet 01)、poly50/cot50 4.5oz / ¥9,800、受注生産 1 週間程度。">
+<title>TYP0stet ── 同じシャツに、いつか会う。</title>
+<meta name="description" content="沖縄のアパレルブランド TYP0stet。typo (誤字) と stet (校正記号「生かせ」) の合成名。Stet Frend (Stet 01)、poly50/cot50 4.5oz / ¥9,800、受注生産 1 週間程度。フットサルクラブ TYP0S も動いてる。">
 <meta name="keywords" content="TYP0stet, タイポステット, typo, stet, 失敗, アパレル, athleisure, Tシャツ">
 
 <link rel="canonical" href="https://typostet.com/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://typostet.com/">
-<meta property="og:title" content="TYP0stet ── 失敗できる事が、人間の証明になる。">
-<meta property="og:description" content="失敗できる事を、誇りに思ってる。Stet Frend (Stet 01)。">
+<meta property="og:title" content="TYP0stet ── 同じシャツに、いつか会う。">
+<meta property="og:description" content="沖縄のアパレル。0 はミント。フットサルクラブ TYP0S もある。">
 <meta property="og:image" content="https://typostet.com/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -23,8 +23,8 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@typostet481">
-<meta name="twitter:title" content="TYP0stet ── 失敗できる事が、人間の証明になる。">
-<meta name="twitter:description" content="失敗したい日に、着よう。">
+<meta name="twitter:title" content="TYP0stet ── 同じシャツに、いつか会う。">
+<meta name="twitter:description" content="着てたら、仲間。">
 <meta name="twitter:image" content="https://typostet.com/img/og-image.png">
 
 <link rel="icon" type="image/svg+xml" href="/assets/brand/monogram/tentative-final.svg">
@@ -47,7 +47,7 @@
         "height": 240
       },
       "image": "https://typostet.com/img/og-image.png",
-      "description": "typo (誤字) と stet (校正記号「生かせ」) を合成した brand 名。AI が完璧を量産する時代に、失敗を治さず誇りとして着るアパレル brand。",
+      "description": "沖縄発のアパレル brand。typo (誤字) と stet (校正記号「生かせ」) の合成名 ─ 間違いを直さず、生かす。個人参加のフットサルクラブ TYP0S を持つ。",
       "foundingDate": "2026",
       "founder": { "@type": "Person", "name": "tig" },
       "parentOrganization": {
@@ -70,14 +70,14 @@
         "areaServed": "JP",
         "availableLanguage": ["ja", "en"]
       },
-      "slogan": "失敗できる事が、人間の証明になる。"
+      "slogan": "同じシャツに、いつか会う。"
     },
     {
       "@type": "WebSite",
       "@id": "https://typostet.com/#website",
       "url": "https://typostet.com",
       "name": "TYP0stet",
-      "description": "失敗を、誇りに変える apparel brand。",
+      "description": "沖縄のアパレル brand。0 はミント。",
       "publisher": { "@id": "https://typostet.com/#organization" },
       "inLanguage": "ja"
     },
@@ -86,8 +86,8 @@
       "@id": "https://typostet.com/#brand",
       "name": "TYP0stet",
       "logo": "https://typostet.com/assets/brand/wordmark/tentative-final-light.svg",
-      "slogan": "失敗できる事が、人間の証明になる。",
-      "description": "typo と stet を合成した brand。失敗を直さず、誇りとして着る。"
+      "slogan": "同じシャツに、いつか会う。",
+      "description": "typo と stet を合成した brand。間違いを直さず、生かす。"
     },
     {
       "@type": "FAQPage",
@@ -711,6 +711,44 @@
   }
 
   /* --- Journal teaser --- */
+  .practice { background: var(--bone-deep); }
+  .practice__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    margin: 48px 0 56px;
+  }
+  .practice__card { text-align: center; }
+  .practice__fig {
+    background: var(--bone); border: 1px solid var(--rule);
+    padding: 28px 20px; margin-bottom: 18px;
+  }
+  .practice__card h3 {
+    font-family: var(--mono); font-weight: 500; font-size: 13px;
+    letter-spacing: 0.18em; margin-bottom: 6px;
+  }
+  .practice__cap {
+    font-family: var(--mono); font-size: 11px; color: var(--muted);
+    letter-spacing: 0.06em; margin-bottom: 10px;
+  }
+  .practice__cta { text-align: center; margin-top: 44px; }
+  .practice__layouts { display: flex; justify-content: center; gap: 10px; margin: 34px 0 30px; }
+  .practice__ltab {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em;
+    padding: 10px 22px; border: 1px solid var(--ink); background: transparent;
+    color: var(--ink); cursor: pointer; transition: background 160ms ease, color 160ms ease;
+  }
+  .practice__ltab.is-on { background: var(--ink); color: var(--bone); }
+  .practice__grid--photos { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .practice__grid--photos .practice__card img {
+    width: 100%; border: 1px solid var(--rule); background: var(--bone);
+    margin-bottom: 14px; display: block;
+  }
+  @media (max-width: 720px) {
+    .practice__grid--photos { grid-template-columns: 1fr; max-width: 420px; }
+  }
+  @media (max-width: 720px) {
+    .practice__grid { grid-template-columns: 1fr; gap: 20px; max-width: 320px; margin-left: auto; margin-right: auto; }
+  }
+
   .club {
     background: var(--bone-deep);
     padding: 110px 28px;
@@ -735,7 +773,7 @@
     font-style: normal;
     font-family: var(--hand-jp);
     font-weight: 400;
-    color: var(--mint);
+    color: #4F8F6E;
     background: linear-gradient(180deg, transparent 60%, rgba(146,229,189,0.22) 60%);
     padding: 0 4px;
   }
@@ -751,6 +789,10 @@
   .club__note {
     font-family: var(--serif); font-size: 14px; line-height: 2;
     color: var(--muted); max-width: 640px; margin: 0 auto 26px;
+  }
+  .club__find {
+    font-family: var(--serif); font-weight: 700; font-size: 17px;
+    letter-spacing: 0.04em; margin-bottom: 26px;
   }
   .club__playon {
     font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em;
@@ -961,6 +1003,7 @@
     .hero__slide[src*="hero-2"] { object-position: 70% center; }
     .hero__inner { padding: 40px 22px 80px; max-width: 100%; }
     .hero__title { font-size: clamp(22px, 5.9vw, 32px); line-height: 1.32; word-break: keep-all; overflow-wrap: anywhere; }
+    .hero__title em { text-shadow: 0 1px 10px rgba(13, 11, 10, 0.65), 0 0 3px rgba(13, 11, 10, 0.5); }
     .about { padding: 56px 20px; }
     .stet__head { margin-bottom: 28px; }
     .stet__grid { grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -1058,8 +1101,6 @@
       <a href="#stet">Shop</a>
       <a href="#objects">Objects</a>
       <a href="#club">Club</a>
-      <a href="/magazine/">Journal</a>
-      <a href="/manifest.html">Manifesto</a>
       <a href="/about.html">About</a>
       <a href="#cart" class="cart-link" aria-label="Cart">cart</a>
     </nav>
@@ -1081,8 +1122,7 @@
       </div>
     </div>
     <div class="hero__inner">
-      <h1 class="hero__title">失敗できる人間は、<em>美しい。</em></h1>
-      <p class="hero__sub">失敗してきた、その全部を、いまの 1 着に。</p>
+      <h1 class="hero__title">同じシャツに、<em>いつか会う</em>。</h1>
       <a href="#stet" class="btn">Stet 01</a>
     </div>
     <div class="hero__dots" id="hero-dots" aria-hidden="true">
@@ -1094,30 +1134,6 @@
     </div>
   </section>
 
-  <!-- ABOUT (one-line tagline) -->
-  <section id="about" class="about reveal">
-    <div class="container">
-      <h2 class="about__line">失敗できる事が、<em>人間の証明</em>になる。</h2>
-    </div>
-  </section>
-
-  <!-- CLUB (TYP0stet FC) -->
-  <section id="club" class="club reveal">
-    <div class="container">
-      <span class="section-anchor" aria-hidden="true"></span>
-      <p class="club__eyebrow">TYP0stet FC ─ Okinawa</p>
-      <h2 class="club__lead">シャツの前に、<em>コート</em>がある。</h2>
-      <p class="club__body">
-        TYP0stet はフットサルのクラブでもある。<br>
-        2026 年 8 月、個人参加の 1day 大会に初めて出て、優勝した。<br>
-        ここに来るやつらを、<em class="club__typos">TYPOS</em> と呼ぶ。<br>
-        上手さの証明はいらない。失敗できる人が、メンバー。
-      </p>
-      <p class="club__note">たまに個サルを開く。日程は Instagram に置いておく。来ても、来なくてもいい。</p>
-      <p class="club__playon">PLAY ON ─ 失敗しても、笛は鳴らさない。</p>
-      <a href="https://instagram.com/typostet" target="_blank" rel="noopener" class="btn">Instagram で日程を見る →</a>
-    </div>
-  </section>
 
   <!-- STET 01 (product preview) -->
   <section id="stet" class="stet reveal">
@@ -1171,6 +1187,60 @@
         <div><dt>サイズ</dt><dd>XS / S / M / L / XL</dd></div>
         <div><dt>価格</dt><dd>¥9,800 (税込)</dd></div>
       </dl>
+    </div>
+  </section>
+
+  <!-- PRACTICE (TYP0S practice uniform) -->
+  <section id="practice" class="stet practice reveal">
+    <div class="container--wide">
+      <span class="section-anchor" aria-hidden="true"></span>
+      <div class="stet__head">
+        <p class="stet__index">TYP0S ─ practice kit</p>
+        <h2 class="stet__title">Practice <em>Kit.</em></h2>
+        <p class="stet__sub">クラブ <a href="#club" style="border-bottom:1px solid var(--rule)">TYP0S</a> のプラクティスユニフォーム。個サルでも、1day 大会でも、そのまま着られる。背番号は 1〜99 から選べる。</p>
+      </div>
+
+      <div class="practice__layouts" role="tablist" aria-label="番号の配置">
+        <button class="practice__ltab is-on" data-v="c" type="button">裾ナンバー</button>
+        <button class="practice__ltab" data-v="b" type="button">胸ナンバー</button>
+      </div>
+
+      <div class="practice__grid practice__grid--photos">
+        <div class="practice__card">
+          <img src="/img/practice/navy-c.jpg" data-color="navy" alt="TYP0S Practice Kit — DEEP NAVY 前面と背面" loading="lazy">
+          <h3>DEEP NAVY</h3>
+          <p class="price">¥12,800 (税込)</p>
+        </div>
+        <div class="practice__card">
+          <img src="/img/practice/terracotta-c.jpg" data-color="terracotta" alt="TYP0S Practice Kit — TERRACOTTA 前面と背面" loading="lazy">
+          <h3>TERRACOTTA</h3>
+          <p class="price">¥13,800 (税込)</p>
+        </div>
+        <div class="practice__card">
+          <img src="/img/practice/bone-c.jpg" data-color="bone" alt="TYP0S Practice Kit — BONE 前面と背面" loading="lazy">
+          <h3>BONE</h3>
+          <p class="price">¥12,800 (税込)</p>
+        </div>
+        <div class="practice__card">
+          <img src="/img/practice/ink-c.jpg" data-color="ink" alt="TYP0S Practice Kit — INK BLACK 前面と背面" loading="lazy">
+          <h3>INK BLACK</h3>
+          <p class="price">¥12,800 (税込)</p>
+        </div>
+      </div>
+
+      <dl class="stet__spec">
+        <div><dt>背番号</dt><dd>1〜99 から選択</dd></div>
+        <div><dt>ネーム</dt><dd>背番号の上に入れられる ─ +¥1,000 (税込)</dd></div>
+        <div><dt>素材</dt><dd>ドライ技術ポリ ─ マット非光沢、私服でも着られる質感</dd></div>
+        <div><dt>サイズ</dt><dd>XS / S / M / L / XL</dd></div>
+        <div><dt>発送</dt><dd>受注生産 ─ お届けまで 1 週間程度</dd></div>
+        <div><dt>価格</dt><dd>¥12,800 (税込) ─ TERRACOTTA は ¥13,800</dd></div>
+      </dl>
+
+      <div class="practice__cta">
+        <!-- Stripe Live 切替後: payment link (custom fields: サイズ / 背番号 1-99) に差し替え -->
+        <a href="https://instagram.com/typostet" target="_blank" rel="noopener" class="btn">Instagram DM で注文する</a>
+      </div>
     </div>
   </section>
 
@@ -1234,23 +1304,29 @@
   </section>
 
   <!-- MANIFESTO -->
-  <section id="manifesto" class="manifesto reveal">
+  <section id="club" class="club reveal">
     <div class="container">
-      <p class="manifesto__lead">間違わない時代に、<em>私たちは間違える</em>。</p>
-      <a href="/manifest.html" class="btn btn--ghost">Manifesto →</a>
+      <span class="section-anchor" aria-hidden="true"></span>
+      <p class="club__eyebrow">TYP0S ─ Futsal Club</p>
+      <h2 class="club__lead">集まった奴らが、<em>クラブ</em>。</h2>
+      <p class="club__body">
+        TYP0stet を着て蹴る、個人参加のフットサルクラブ。名前は TYP0S。<br>
+        沖縄で始まって、2026 年 8 月、1day 大会に初めて出て、優勝した。
+      </p>
+      <p class="club__note">
+        TYP0S は誰でも開ける。自分の街でコートを取って、集まれば、そこも TYP0S。<br>
+        参加も自由。日程は Instagram に置く。来ても、来なくてもいい。
+      </p>
+      <p class="club__find">散らばった TYP0S を、見つけよう。</p>
+      <p class="club__playon">PLAY ON ─ ミスでプレーを止めない。</p>
+      <a href="https://instagram.com/typostet" target="_blank" rel="noopener" class="btn">Instagram で日程を見る</a>
     </div>
   </section>
 
-  <!-- JOURNAL TEASER -->
-  <section id="journal" class="journal reveal">
+  <!-- WORLD (一滴) -->
+  <section id="world" class="manifesto reveal">
     <div class="container">
-      <p class="journal__eyebrow">Journal ─ failure 論のコラム</p>
-      <h2 class="journal__lead">完璧を量産できる時代に、<em>間違いだけが</em>自分の証明になる。</h2>
-      <p class="journal__body">
-        完璧なものがボタンひとつで出てくる時代に、間違いだけが複製できない痕跡になる。<br>
-        TYP0stet の failure 論 ─ 月に一度、言葉で続ける。
-      </p>
-      <a href="/magazine/" class="btn">Journal を読む →</a>
+      <p class="manifesto__lead">世界のどこかで、同じ0とすれ違ったら。<br><em>おー、って言う</em>。それだけのルール。</p>
     </div>
   </section>
 
@@ -1267,6 +1343,7 @@
         <h4>Shop</h4>
         <ul>
           <li><a href="/products/stet-01/">Stet Frend</a></li>
+          <li><a href="/#practice">Practice Kit</a></li>
           <li><a href="/about.html#size">サイズガイド</a></li>
           <li><a href="/about.html#shipping">配送について</a></li>
         </ul>
@@ -1395,6 +1472,22 @@
           back.src = s; back.alt = a;
           wrap.classList.remove('is-swapping');
         }, 180);
+      });
+    });
+  })();
+
+  // Practice kit: 番号配置トグル(裾=c / 胸=b)
+  (function () {
+    var tabs = document.querySelectorAll('.practice__ltab');
+    if (!tabs.length) return;
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        tabs.forEach(function (x) { x.classList.remove('is-on'); });
+        t.classList.add('is-on');
+        var v = t.getAttribute('data-v');
+        document.querySelectorAll('.practice__grid--photos img[data-color]').forEach(function (img) {
+          img.setAttribute('src', '/img/practice/' + img.getAttribute('data-color') + '-' + v + '.jpg');
+        });
       });
     });
   })();

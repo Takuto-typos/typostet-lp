@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stet 01 — OD / 5700-01 一周ビュー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=IBM+Plex+Mono:ital@1&display=swap" rel="stylesheet">
+<style>
+  :root{ --od:#5f664b; --od-dark:#4c5340; --cream:#f0e9d6; --bg:#e9e3d5; --ink:#3a3a32; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:"Shippori Mincho",serif;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 16px 60px}
+  .head{text-align:center;margin-bottom:8px}
+  .head h1{font-size:18px;font-weight:700;letter-spacing:.04em}
+  .head p{font-size:12px;opacity:.6;margin-top:4px;font-family:"IBM Plex Mono",monospace;font-style:italic}
+  .stage{width:min(460px,94vw);height:min(500px,104vw);perspective:1500px;margin:10px 0 4px;
+    display:flex;align-items:center;justify-content:center}
+  .turn{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .05s linear}
+  .face{position:absolute;inset:0;backface-visibility:hidden;display:flex;align-items:center;justify-content:center}
+  .face.back{transform:rotateY(180deg)}
+  .tee-wrap{position:relative;width:100%;height:100%}
+  svg.tee{width:100%;height:100%;display:block;filter:drop-shadow(0 16px 20px rgba(60,60,40,.16))}
+  .mark{position:absolute;pointer-events:none}
+  .m-mono{left:34%;top:32%;width:8.5%}
+  .m-481{left:69%;top:25%;width:9%;transform:rotate(15deg)}
+  .m-word{left:31%;top:56%;width:25%}
+  .label{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.12em;opacity:.75;
+    margin:6px 0 14px;min-height:16px;text-transform:uppercase}
+  .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+  button{font-family:"IBM Plex Mono",monospace;font-size:12px;background:transparent;
+    border:1px solid var(--od);color:var(--od-dark);padding:8px 14px;border-radius:2px;
+    cursor:pointer;letter-spacing:.06em;transition:all .15s}
+  button:hover{background:var(--od);color:var(--cream)}
+  button.on{background:var(--od);color:var(--cream)}
+  .dots{display:flex;gap:8px;margin-top:14px}
+  .dot{width:9px;height:9px;border-radius:50%;border:1px solid var(--od);cursor:pointer;background:transparent}
+  .dot.active{background:var(--od)}
+  .spec{margin-top:30px;width:min(460px,94vw);background:#ffffff88;border:1px solid #00000012;
+    border-radius:6px;padding:18px 20px;font-size:13px;line-height:1.9}
+  .spec h2{font-size:13px;letter-spacing:.1em;font-family:"IBM Plex Mono",monospace;
+    text-transform:uppercase;opacity:.5;margin-bottom:8px;font-weight:400}
+  .spec b{font-weight:700}
+  .swatch{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:5px;border:1px solid #0002}
+  .note{margin-top:14px;font-size:11px;opacity:.55;line-height:1.7;max-width:min(460px,94vw)}
+</style>
+</head>
+<body>
+  <div class="head">
+    <h1>TYP0stet — Stet 01 / 初号機</h1>
+    <p>blank: United Athle 5700-01 dry-smooth · color: OD · ink: vanilla</p>
+  </div>
+
+  <div class="stage">
+    <div class="turn" id="turn">
+      <!-- FRONT -->
+      <div class="face front">
+        <div class="tee-wrap">
+          <svg class="tee" viewBox="0 0 440 500">
+            <defs>
+              <linearGradient id="odf" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#6d7457"/><stop offset=".5" stop-color="#5f664b"/><stop offset="1" stop-color="#4c5340"/>
+              </linearGradient>
+              <radialGradient id="hlf" cx=".42" cy=".32" r=".75">
+                <stop offset="0" stop-color="#ffffff" stop-opacity=".10"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <path d="M150,84 L106,104 C98,114 100,122 112,136 L124,172 L140,184 L140,386 Q140,396 150,396 L290,396 Q300,396 300,386 L300,184 L316,172 L328,136 C340,122 342,114 334,104 L290,84 C274,78 258,78 246,78 C240,94 200,94 194,78 C178,78 164,80 150,84 Z"
+              fill="url(#odf)" stroke="#3f4633" stroke-width="2"/>
+            <path d="M150,84 L106,104 C98,114 100,122 112,136 L124,172 L140,184 L140,386 Q140,396 150,396 L290,396 Q300,396 300,386 L300,184 L316,172 L328,136 C340,122 342,114 334,104 L290,84 C274,78 258,78 246,78 C240,94 200,94 194,78 C178,78 164,80 150,84 Z"
+              fill="url(#hlf)"/>
+            <path d="M194,79 C200,94 240,94 246,79" fill="none" stroke="#4a5139" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+            <path d="M140,186 L140,390" fill="none" stroke="#454c39" stroke-width="2" opacity=".3"/>
+            <path d="M300,186 L300,390" fill="none" stroke="#454c39" stroke-width="2" opacity=".3"/>
+            <path d="M148,394 L292,394" fill="none" stroke="#454c39" stroke-width="2" opacity=".25"/>
+          </svg>
+          <img class="mark m-mono" id="mkMono" alt="">
+          <img class="mark m-481"  id="mk481"  alt="">
+        </div>
+      </div>
+      <!-- BACK -->
+      <div class="face back">
+        <div class="tee-wrap">
+          <svg class="tee" viewBox="0 0 440 500">
+            <defs>
+              <linearGradient id="odb" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#6d7457"/><stop offset=".5" stop-color="#5f664b"/><stop offset="1" stop-color="#4c5340"/>
+              </linearGradient>
+              <radialGradient id="hlb" cx=".42" cy=".32" r=".75">
+                <stop offset="0" stop-color="#ffffff" stop-opacity=".08"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <path d="M150,84 L106,104 C98,114 100,122 112,136 L124,172 L140,184 L140,386 Q140,396 150,396 L290,396 Q300,396 300,386 L300,184 L316,172 L328,136 C340,122 342,114 334,104 L290,84 C274,78 258,78 246,78 C240,86 200,86 194,78 C178,78 164,80 150,84 Z"
+              fill="url(#odb)" stroke="#3f4633" stroke-width="2"/>
+            <path d="M150,84 L106,104 C98,114 100,122 112,136 L124,172 L140,184 L140,386 Q140,396 150,396 L290,396 Q300,396 300,386 L300,184 L316,172 L328,136 C340,122 342,114 334,104 L290,84 C274,78 258,78 246,78 C240,86 200,86 194,78 C178,78 164,80 150,84 Z"
+              fill="url(#hlb)"/>
+            <path d="M196,80 C202,87 238,87 244,80" fill="none" stroke="#444b38" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+            <rect x="206" y="82" width="28" height="9" rx="2" fill="#cfc9b5" opacity=".5"/>
+            <path d="M140,186 L140,390" fill="none" stroke="#454c39" stroke-width="2" opacity=".3"/>
+            <path d="M300,186 L300,390" fill="none" stroke="#454c39" stroke-width="2" opacity=".3"/>
+            <path d="M148,394 L292,394" fill="none" stroke="#454c39" stroke-width="2" opacity=".25"/>
+          </svg>
+          <img class="mark m-word" id="mkWord" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label" id="label">正面 / FRONT</div>
+
+  <div class="controls">
+    <button id="spin" class="on">⏸ 自動回転</button>
+    <button data-deg="0">正面</button>
+    <button data-deg="90">右</button>
+    <button data-deg="180">背面</button>
+    <button data-deg="270">左</button>
+  </div>
+  <div class="dots" id="dots"></div>
+
+  <div class="spec">
+    <h2>SPEC</h2>
+    <div><b>ボディ</b>：United Athle 5700-01 ドライスムース 4.4oz（リサイクルポリ100%・吸水速乾・UVケア）</div>
+    <div><b>カラー</b>：<span class="swatch" style="background:#5f664b"></span>OD（オリーブドラブ）</div>
+    <div><b>プリント</b>：シルクスクリーン1色 / <span class="swatch" style="background:#f0e9d6"></span>バニラ</div>
+    <div><b>配置</b>：左胸 0+···· モノグラム / 右袖 4:81 / 背中裾 TYPO stet</div>
+    <div><b>シルエット</b>：ストレート裾・ドロップショルダー（ドロップテール無し）</div>
+  </div>
+  <div class="note">
+    ※ シルエットは実ブランク 5700-01（ストレート裾）に合わせた作図。マークは実ブランド版下（0+···· / 4:81 / TYPO stet）を OD 用にバニラ反転したもの。色味・生地の光沢は実物撮影で微差あり。90°/270°（側面）はデザイン無し＝薄い辺が見える状態。
+  </div>
+
+<script>
+function recolor(src, el){
+  const img=new Image();
+  img.onload=function(){
+    const c=document.createElement('canvas');
+    c.width=img.naturalWidth; c.height=img.naturalHeight;
+    const x=c.getContext('2d'); x.drawImage(img,0,0);
+    try{
+      const d=x.getImageData(0,0,c.width,c.height), p=d.data;
+      for(let i=0;i<p.length;i+=4){
+        const ink=255-Math.min(p[i],p[i+1],p[i+2]);
+        p[i]=240;p[i+1]=233;p[i+2]=214;p[i+3]=Math.min(255,ink*3.2);
+      }
+      x.putImageData(d,0,0); el.src=c.toDataURL();
+    }catch(e){ el.src=src; }
+  };
+  img.src=src;
+}
+recolor('img/gemini-reference/01-monogram.png',     document.getElementById('mkMono'));
+recolor('img/gemini-reference/03-handdrawn-481.png',document.getElementById('mk481'));
+recolor('img/gemini-reference/02-wordmark.png',     document.getElementById('mkWord'));
+
+var turn=document.getElementById('turn'), label=document.getElementById('label');
+var deg=0, spinning=true;
+var names=[['正面 / FRONT',0],['右側面 / RIGHT',90],['背面 / BACK',180],['左側面 / LEFT',270]];
+function norm(d){return ((d%360)+360)%360;}
+function setLabel(){
+  var n=norm(deg), best=names[0], bd=999;
+  names.forEach(function(it){var a=it[1];var diff=Math.min(Math.abs(n-a),360-Math.abs(n-a));if(diff<bd){bd=diff;best=it;}});
+  label.textContent = bd<14 ? best[0] : '回転中…';
+  document.querySelectorAll('.dot').forEach(function(d,i){d.classList.toggle('active', names[i][1]===best[1] && bd<14);});
+}
+function render(){ turn.style.transform='rotateY('+deg+'deg)'; setLabel(); }
+function frame(){ if(spinning){ deg+=0.7; render(); } requestAnimationFrame(frame); }
+requestAnimationFrame(frame);
+function stopSpin(){ spinning=false; var s=document.getElementById('spin'); s.classList.remove('on'); s.textContent='▶ 自動回転'; }
+document.getElementById('spin').addEventListener('click',function(e){
+  spinning=!spinning; e.target.classList.toggle('on',spinning);
+  e.target.textContent=(spinning?'⏸ 自動回転':'▶ 自動回転');
+});
+document.querySelectorAll('button[data-deg]').forEach(function(b){
+  b.addEventListener('click',function(){ stopSpin(); var t=+b.dataset.deg; deg=Math.round(deg/360)*360+t; render(); });
+});
+var dotsEl=document.getElementById('dots');
+names.forEach(function(it){var a=it[1];var d=document.createElement('div');d.className='dot';
+  d.addEventListener('click',function(){ stopSpin(); deg=Math.round(deg/360)*360+a; render(); });
+  dotsEl.appendChild(d);});
+render();
+</script>
+</body>
+</html>
