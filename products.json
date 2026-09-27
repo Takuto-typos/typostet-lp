@@ -4,11 +4,16 @@
     "name": "TYP0stet",
     "alternateName": "タイポステット",
     "url": "https://typostet.com",
-    "description": "typo (誤字) と stet (校正記号「生かせ」) を合成した brand 名。失敗を治さず、誇りとして身につけるアパレル。",
+    "description": "沖縄発のアウトドアスポーツブランド。typo (誤字) と stet (校正記号「生かせ」) の合成名で、ミスを生かせる人たちを表す。",
     "operatingCompany": "株式会社 Remoi",
     "location": "東京都北区赤羽",
     "founded": "2026",
-    "thesis": "失敗できる事が、人間の証明になる。"
+    "thesis": "失敗できる事が、人間の証明になる。",
+    "origin": "沖縄",
+    "sameAs": [
+      "https://www.instagram.com/typostet/",
+      "https://note.com/typostet"
+    ]
   },
   "products": [
     {
@@ -21,7 +26,10 @@
       "price": 6800,
       "priceCurrency": "JPY",
       "availability": "InStock",
-      "leadTimeWeeks": [1, 1],
+      "leadTimeWeeks": [
+        1,
+        1
+      ],
       "material": "poly 50 / cot 50, 4.5oz Repreve (recycled)",
       "silhouette": "boxy drop-tail",
       "prints": {
@@ -29,8 +37,19 @@
         "rightSleeve": "4:81",
         "lowerBack": "TYP0stet wordmark"
       },
-      "colors": ["BONE", "MINT", "OLIVE", "INK BLACK"],
-      "sizes": ["XS", "S", "M", "L", "XL"]
+      "colors": [
+        "BONE",
+        "MINT",
+        "OLIVE",
+        "INK BLACK"
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
     },
     {
       "id": "sticker-pack",
@@ -40,7 +59,10 @@
       "price": 800,
       "priceCurrency": "JPY",
       "availability": "InStock",
-      "leadTimeWeeks": [1, 2],
+      "leadTimeWeeks": [
+        1,
+        2
+      ],
       "contents": "3 sheets"
     },
     {
@@ -51,7 +73,10 @@
       "price": 3800,
       "priceCurrency": "JPY",
       "availability": "InStock",
-      "leadTimeWeeks": [1, 1]
+      "leadTimeWeeks": [
+        1,
+        1
+      ]
     },
     {
       "id": "tote-ink",
@@ -61,7 +86,10 @@
       "price": 3800,
       "priceCurrency": "JPY",
       "availability": "InStock",
-      "leadTimeWeeks": [1, 1]
+      "leadTimeWeeks": [
+        1,
+        1
+      ]
     },
     {
       "id": "knapsack-olive",
@@ -71,7 +99,10 @@
       "price": 4300,
       "priceCurrency": "JPY",
       "availability": "InStock",
-      "leadTimeWeeks": [1, 1]
+      "leadTimeWeeks": [
+        1,
+        1
+      ]
     },
     {
       "id": "knapsack-mint",
@@ -81,20 +112,72 @@
       "price": 4300,
       "priceCurrency": "JPY",
       "availability": "InStock",
-      "leadTimeWeeks": [1, 1]
+      "leadTimeWeeks": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "uni",
+      "name": "ユニ",
+      "alternateName": "TYP0S uniform",
+      "type": "Futsal jersey",
+      "description": "フットサルチーム TYP0S が着ているユニフォーム。マットで光らないドライ技術ポリなので、個サル・大会・普段着に使える。",
+      "url": "https://typostet.com/#practice",
+      "price": 8800,
+      "priceCurrency": "JPY",
+      "availability": "InStock",
+      "options": {
+        "longSleeve": 1000,
+        "namePrint": 1000
+      },
+      "numbers": "1-99",
+      "colors": [
+        "DEEP NAVY",
+        "TERRACOTTA",
+        "BONE",
+        "INK BLACK"
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "ドライ技術ポリ (マット非光沢)",
+      "orderChannel": "Instagram DM (@typostet)",
+      "leadTime": "在庫あり=数日以内 / 在庫なし=1〜2か月程度"
     }
   ],
   "shipping": {
-    "domesticJP": { "fee": 600, "currency": "JPY", "uniform": true },
-    "international": { "fee": "quote-based", "contact": "info@typostet.com" }
+    "domesticJP": {
+      "fee": 600,
+      "currency": "JPY",
+      "uniform": true
+    },
+    "international": {
+      "fee": "quote-based",
+      "contact": "info@typostet.com"
+    }
   },
   "payment": {
     "provider": "Stripe",
-    "methods": ["Apple Pay", "Google Pay", "Visa", "Master", "Amex", "コンビニ"]
+    "methods": [
+      "Visa",
+      "Mastercard",
+      "JCB",
+      "American Express",
+      "Diners Club",
+      "Discover"
+    ]
   },
   "policy": {
     "returns": "サイズ違い・色違いの返品不可。不良品は到着 7 日以内に info@typostet.com まで。",
-    "language": ["ja", "en"]
+    "language": [
+      "ja",
+      "en"
+    ]
   },
-  "lastUpdated": "2026-06-07T13:00:00+09:00"
+  "lastUpdated": "2026-09-28T09:00:00+09:00"
 }

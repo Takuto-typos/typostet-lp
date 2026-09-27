@@ -203,10 +203,10 @@
 
   <!-- ─── original 購入 (creator が自分の typo を着る) ─── -->
   <div data-mode="original" id="block-original">
-    <h1>その typo を、<br>着る支度ができました<span style="color: var(--mint)">。</span></h1>
+    <h1>ありがとう<br>ございます<span style="color: var(--mint)">。</span></h1>
     <p class="lead">
-      ありがとうございます。受注生産のため、お届けまで 1 週間程度。<br>
-      届いたら、いつものシャツのように、着て出かけてください。
+      受注生産のため、お届けまで 1 週間程度。<br>
+      届いたら、着て、持って、<br>出かけてください。
     </p>
   </div>
 
@@ -240,10 +240,6 @@
     <a href="mailto:info@typostet.com">問い合わせる</a>
   </div>
 
-  <div class="quiet">
-    アプリを使っている方は、ブラウザを閉じてアプリに戻れます。<br>
-    クローゼットに「<em>製造中</em>」のラベルが付きます。
-  </div>
 </main>
 
 <footer>
@@ -279,7 +275,7 @@
 
     // eyebrow の text を mode 別に
     var eyebrowText = {
-      original: 'ORDER CONFIRMED · TYP0stet WEAR',
+      original: 'ORDER CONFIRMED · TYP0stet',
       cover:    'ORDER CONFIRMED · COVER VERSION',
       sticker:  'ORDER CONFIRMED · STICKER',
     }[mode];
@@ -290,9 +286,9 @@
     var stepsByMode = {
       original: [
         '決済が完了しました。Stripe からレシートが、ご登録のメールアドレスに届きます。',
-        'TYP0stet 内部でデザインを確認し、印刷業者へ手作業で発注します。',
+        'ご注文内容を確認し、製作を手配します。',
         '1 週間程度後、ご登録の住所へ発送（追跡番号付き）。発送時にメールでお知らせします。',
-        '届いたら、着て出かけてください。誰かが、その typo に気づくかもしれません。',
+        '届いたら、外に持ち出してください。どこかで、同じ 0 とすれ違うかもしれません。',
       ],
       cover: [
         '決済が完了しました。Stripe からレシートが、ご登録のメールアドレスに届きます。',
