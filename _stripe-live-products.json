@@ -1,0 +1,42 @@
+{
+  "_livemode": true,
+  "shipping_price": "price_1UKJFTL7mWzHXi4KvCQgMOcm",
+  "products": {
+    "tee": {
+      "product_id": "prod_VKzDgHt5ktveMg",
+      "price_id": "price_1UKJFTL7mWzHXi4KEB1DswVh",
+      "price_jpy": 6800,
+      "payment_link": "https://buy.stripe.com/dRm5kE5Rk1r31Rf9Dr6Na00"
+    },
+    "sticker": {
+      "product_id": "prod_VKzDfBiJ5XO7Ka",
+      "price_id": "price_1UKJFUL7mWzHXi4KKfZCiFMq",
+      "price_jpy": 800,
+      "payment_link": "https://buy.stripe.com/4gM5kE4Ng3zb3Zn8zn6Na01"
+    },
+    "tote_bone": {
+      "product_id": "prod_VKzDL8v1PZHdT7",
+      "price_id": "price_1UKJFVL7mWzHXi4KkBB42sm0",
+      "price_jpy": 3800,
+      "payment_link": "https://buy.stripe.com/bJe5kEcfI9XzfI53f36Na02"
+    },
+    "tote_ink": {
+      "product_id": "prod_VKzDEHW9KkTAgS",
+      "price_id": "price_1UKJFWL7mWzHXi4KSUS86X0O",
+      "price_jpy": 3800,
+      "payment_link": "https://buy.stripe.com/8x26oI7Zsd9LfI5cPD6Na03"
+    },
+    "knapsack_olive": {
+      "product_id": "prod_VKzD4Rny1h28MS",
+      "price_id": "price_1UKJFXL7mWzHXi4KfWEKTvll",
+      "price_jpy": 4300,
+      "payment_link": "https://buy.stripe.com/dRm00k7Zsc5HfI53f36Na04"
+    },
+    "knapsack_mint": {
+      "product_id": "prod_VKzEp1RoRFM05Z",
+      "price_id": "price_1UKJFYL7mWzHXi4KR1iOGFRZ",
+      "price_jpy": 4300,
+      "payment_link": "https://buy.stripe.com/5kQ7sMfrU7PrgM9dTH6Na05"
+    }
+  }
+}
