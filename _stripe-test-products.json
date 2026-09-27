@@ -10,7 +10,7 @@
       "product_id": "prod_Udufy6mAYseOx9",
       "price_id": "price_1UKDyxL7mWzHXi4KiS5Y6khq",
       "price_jpy": 6800,
-      "payment_link": "https://buy.stripe.com/test_4gMeVebbE6Ln7bzdTH6Na0a",
+      "payment_link": "https://buy.stripe.com/test_5kQ28sfrUedP67v02R6Na0b",
       "_note": "2026-09-27 ¥9,800→¥6,800。旧link plink_1TecqxL7mWzHXi4KpWHSPj3q は無効化済"
     },
     "sticker": {
@@ -18,14 +18,14 @@
       "product_id": "prod_UdufziWli1Ine4",
       "price_id": "price_1TecqoL7mWzHXi4Kj7D54ztz",
       "price_jpy": 800,
-      "payment_link": "https://buy.stripe.com/test_8x26oI7Zsd9LfI5cPD6Na03"
+      "payment_link": "https://buy.stripe.com/test_4gM4gA1B4fhTbrPbLz6Na0c"
     },
     "tote_bone": {
       "name": "TYP0stet Tote — Bone",
       "product_id": "prod_UdufEmVIGSf71P",
       "price_id": "price_1TecqrL7mWzHXi4KySicjOAF",
       "price_jpy": 3800,
-      "payment_link": "https://buy.stripe.com/test_dRm00k7Zsc5HfI53f36Na04",
+      "payment_link": "https://buy.stripe.com/test_eVq5kEgvYb1DbrP5nb6Na0d",
       "_note": "Originally created as generic Tote, now treated as the Bone variation"
     },
     "tote_ink": {
@@ -33,14 +33,14 @@
       "product_id": "prod_UeJU19t5tp2eV2",
       "price_id": "price_1Tf0rxL7mWzHXi4KgGgEvTZW",
       "price_jpy": 3800,
-      "payment_link": "https://buy.stripe.com/test_28EeVefrU7PreE19Dr6Na08"
+      "payment_link": "https://buy.stripe.com/test_dRmaEYbbE5Hj8fDcPD6Na0e"
     },
     "knapsack_olive": {
       "name": "TYP0stet Knapsack — Olive",
       "product_id": "prod_UeBBdZdRrfHhoS",
       "price_id": "price_1TesozL7mWzHXi4KF1UthU15",
       "price_jpy": 4300,
-      "payment_link": "https://buy.stripe.com/test_8x214oenQ2v70Nb7vj6Na07",
+      "payment_link": "https://buy.stripe.com/test_3cI6oI3Jc0mZeE19Dr6Na0f",
       "_note": "Originally created as generic Knapsack, now treated as the Olive variation"
     },
     "knapsack_mint": {
@@ -48,7 +48,7 @@
       "product_id": "prod_UeJUTemPaxG9Ug",
       "price_id": "price_1Tf0rzL7mWzHXi4KxEWNyYga",
       "price_jpy": 4300,
-      "payment_link": "https://buy.stripe.com/test_4gM00k4NgfhT2Vj9Dr6Na09"
+      "payment_link": "https://buy.stripe.com/test_7sY8wQa7A8TvbrP9Dr6Na0g"
     },
     "_archived_cap": {
       "_note": "Removed from LP on 2026-06-05 evening. Stripe product retained but unlinked from site.",
