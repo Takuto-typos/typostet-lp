@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#F1E8D5">
 
 <title>TYP0stet ── 同じシャツに、いつか会う。</title>
-<meta name="description" content="沖縄のアパレルブランド TYP0stet。typo (誤字) と stet (校正記号「生かせ」) の合成名。Stet Frend (Stet 01)、poly50/cot50 4.5oz / ¥9,800、受注生産 1 週間程度。フットサルクラブ TYP0S も動いてる。">
+<meta name="description" content="沖縄のアパレルブランド TYP0stet。typo (誤字) と stet (校正記号「生かせ」) の合成名。Stet Frend (Stet 01)、poly50/cot50 4.5oz / ¥6,800、受注生産 1 週間程度。フットサルクラブ TYP0S も動いてる。">
 <meta name="keywords" content="TYP0stet, タイポステット, typo, stet, 失敗, アパレル, athleisure, Tシャツ">
 
 <link rel="canonical" href="https://typostet.com/">
@@ -789,11 +789,25 @@
   .club__note {
     font-family: var(--serif); font-size: 14px; line-height: 2;
     color: var(--muted); max-width: 640px; margin: 0 auto 26px;
+    word-break: keep-all; overflow-wrap: anywhere;
   }
+  .practice .stet__sub { word-break: keep-all; overflow-wrap: anywhere; }
   .club__find {
     font-family: var(--serif); font-weight: 700; font-size: 17px;
     letter-spacing: 0.04em; margin-bottom: 26px;
   }
+  .club__names {
+    display: grid; grid-template-columns: auto 1fr; column-gap: 14px; row-gap: 4px;
+    width: fit-content; max-width: 100%; margin: 0 auto 32px; font-family: var(--serif);
+    font-size: 15px; line-height: 1.9; word-break: keep-all; overflow-wrap: anywhere;
+  }
+  .club__names div { display: contents; }
+  .club__names dt { text-align: right; padding-top: 3px; }
+  .club__names dt {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em;
+    color: var(--terracotta); flex: 0 0 auto;
+  }
+  .club__names dd { margin: 0; text-align: left; }
   .club__playon {
     font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em;
     text-transform: uppercase; color: var(--terracotta);
@@ -1153,7 +1167,7 @@
             <img class="stet__swatch stet__swatch--back" src="/img/shirts/bone-back.jpg" alt="BONE 背面" loading="lazy">
           </div>
           <h3>BONE</h3>
-          <p class="price">¥9,800</p>
+          <p class="price">¥6,800</p>
         </a>
         <a class="stet__card" href="/products/stet-01/?color=mint">
           <div class="stet__swatch-wrap">
@@ -1161,7 +1175,7 @@
             <img class="stet__swatch stet__swatch--back" src="/img/shirts/mint-front.jpg" alt="MINT 正面" loading="lazy">
           </div>
           <h3>MINT</h3>
-          <p class="price">¥9,800</p>
+          <p class="price">¥6,800</p>
         </a>
         <a class="stet__card" href="/products/stet-01/?color=olive">
           <div class="stet__swatch-wrap">
@@ -1169,7 +1183,7 @@
             <img class="stet__swatch stet__swatch--back" src="/img/shirts/olive-back.jpg" alt="OLIVE 背面" loading="lazy">
           </div>
           <h3>OLIVE</h3>
-          <p class="price">¥9,800</p>
+          <p class="price">¥6,800</p>
         </a>
         <a class="stet__card" href="/products/stet-01/?color=black">
           <div class="stet__swatch-wrap">
@@ -1177,7 +1191,7 @@
             <img class="stet__swatch stet__swatch--back" src="/img/shirts/black-front.jpg" alt="INK BLACK 正面" loading="lazy">
           </div>
           <h3>INK BLACK</h3>
-          <p class="price">¥9,800</p>
+          <p class="price">¥6,800</p>
         </a>
       </div>
 
@@ -1185,7 +1199,7 @@
         <div><dt>素材</dt><dd>poly 50 / cot 50 ─ 4.5oz Repreve</dd></div>
         <div><dt>発送</dt><dd>受注生産 ─ お届けまで 1 週間程度</dd></div>
         <div><dt>サイズ</dt><dd>XS / S / M / L / XL</dd></div>
-        <div><dt>価格</dt><dd>¥9,800 (税込)</dd></div>
+        <div><dt>価格</dt><dd>¥6,800 (税込)</dd></div>
       </dl>
     </div>
   </section>
@@ -1195,9 +1209,9 @@
     <div class="container--wide">
       <span class="section-anchor" aria-hidden="true"></span>
       <div class="stet__head">
-        <p class="stet__index">TYP0S ─ practice kit</p>
-        <h2 class="stet__title">Practice <em>Kit.</em></h2>
-        <p class="stet__sub">クラブ <a href="#club" style="border-bottom:1px solid var(--rule)">TYP0S</a> のプラクティスユニフォーム。個サルでも、1day 大会でも、そのまま着られる。背番号は 1〜99 から選べる。</p>
+        <p class="stet__index">TYP0S ─ uniform</p>
+        <h2 class="stet__title"><em>ユニ。</em></h2>
+        <p class="stet__sub"><a href="#club" style="border-bottom:1px solid var(--rule)">TYP0S</a> が<wbr>着てるユニ。<wbr>個サルでも<wbr>大会でも、<wbr>そのまま<wbr>普段着にも。<wbr>背番号は <wbr>1〜99 から<wbr>選べる。</p>
       </div>
 
       <div class="practice__layouts" role="tablist" aria-label="番号の配置">
@@ -1207,34 +1221,35 @@
 
       <div class="practice__grid practice__grid--photos">
         <div class="practice__card">
-          <img src="/img/practice/navy-c.jpg" data-color="navy" alt="TYP0S Practice Kit — DEEP NAVY 前面と背面" loading="lazy">
+          <img src="/img/practice/navy-c.jpg" data-color="navy" alt="TYP0S ユニ — DEEP NAVY 前面と背面" loading="lazy">
           <h3>DEEP NAVY</h3>
-          <p class="price">¥12,800 (税込)</p>
+          <p class="price">¥8,800 (税込)</p>
         </div>
         <div class="practice__card">
-          <img src="/img/practice/terracotta-c.jpg" data-color="terracotta" alt="TYP0S Practice Kit — TERRACOTTA 前面と背面" loading="lazy">
+          <img src="/img/practice/terracotta-c.jpg" data-color="terracotta" alt="TYP0S ユニ — TERRACOTTA 前面と背面" loading="lazy">
           <h3>TERRACOTTA</h3>
-          <p class="price">¥13,800 (税込)</p>
+          <p class="price">¥8,800 (税込)</p>
         </div>
         <div class="practice__card">
-          <img src="/img/practice/bone-c.jpg" data-color="bone" alt="TYP0S Practice Kit — BONE 前面と背面" loading="lazy">
+          <img src="/img/practice/bone-c.jpg" data-color="bone" alt="TYP0S ユニ — BONE 前面と背面" loading="lazy">
           <h3>BONE</h3>
-          <p class="price">¥12,800 (税込)</p>
+          <p class="price">¥8,800 (税込)</p>
         </div>
         <div class="practice__card">
-          <img src="/img/practice/ink-c.jpg" data-color="ink" alt="TYP0S Practice Kit — INK BLACK 前面と背面" loading="lazy">
+          <img src="/img/practice/ink-c.jpg" data-color="ink" alt="TYP0S ユニ — INK BLACK 前面と背面" loading="lazy">
           <h3>INK BLACK</h3>
-          <p class="price">¥12,800 (税込)</p>
+          <p class="price">¥8,800 (税込)</p>
         </div>
       </div>
 
       <dl class="stet__spec">
         <div><dt>背番号</dt><dd>1〜99 から選択</dd></div>
-        <div><dt>ネーム</dt><dd>背番号の上に入れられる ─ +¥1,000 (税込)</dd></div>
+        <div><dt>ネーム</dt><dd>背番号の上に入れられる ─ <span style="white-space:nowrap">+¥1,000 (税込)</span></dd></div>
         <div><dt>素材</dt><dd>ドライ技術ポリ ─ マット非光沢、私服でも着られる質感</dd></div>
         <div><dt>サイズ</dt><dd>XS / S / M / L / XL</dd></div>
-        <div><dt>発送</dt><dd>受注生産 ─ お届けまで 1 週間程度</dd></div>
-        <div><dt>価格</dt><dd>¥12,800 (税込) ─ TERRACOTTA は ¥13,800</dd></div>
+        <div><dt>袖</dt><dd>半袖 / 長袖 ─ 長袖は <span style="white-space:nowrap">+¥1,000 (税込)</span></dd></div>
+        <div><dt>発送</dt><dd>在庫があればすぐ発送 ─ 在庫がない場合は注文後に作るため、お届けまでお時間をいただくことがあります</dd></div>
+        <div><dt>価格</dt><dd>¥8,800 (税込)</dd></div>
       </dl>
 
       <div class="practice__cta">
@@ -1307,19 +1322,20 @@
   <section id="club" class="club reveal">
     <div class="container">
       <span class="section-anchor" aria-hidden="true"></span>
-      <p class="club__eyebrow">TYP0S ─ Futsal Club</p>
-      <h2 class="club__lead">集まった奴らが、<em>クラブ</em>。</h2>
+      <p class="club__eyebrow">TYP0stet ─ from Okinawa</p>
+      <h2 class="club__lead">沖縄発の、<em>外で遊ぶ服</em>。</h2>
       <p class="club__body">
-        TYP0stet を着て蹴る、個人参加のフットサルクラブ。名前は TYP0S。<br>
-        沖縄で始まって、2026 年 8 月、1day 大会に初めて出て、優勝した。
+        TYP0stet は、<wbr>沖縄で<wbr>生まれた<wbr>アウトドアスポーツブランド。<br>
+        海でも、<wbr>コートでも、<wbr>そのまま<wbr>街でも。<wbr>汗をかく日に<wbr>着る服を<wbr>つくってます。
       </p>
       <p class="club__note">
-        TYP0S は誰でも開ける。自分の街でコートを取って、集まれば、そこも TYP0S。<br>
-        参加も自由。日程は Instagram に置く。来ても、来なくてもいい。
+        仲間と<wbr>フットサルチーム <wbr>TYP0S も<wbr>やってます。<wbr>日程は <wbr>Instagram に<wbr>載せてるので、<wbr>気軽にどうぞ。
       </p>
-      <p class="club__find">散らばった TYP0S を、見つけよう。</p>
-      <p class="club__playon">PLAY ON ─ ミスでプレーを止めない。</p>
-      <a href="https://instagram.com/typostet" target="_blank" rel="noopener" class="btn">Instagram で日程を見る</a>
+      <dl class="club__names">
+        <div><dt>TYP0S</dt><dd>typo<wbr>(ミス)<wbr> + s。<wbr>ミスする<wbr>奴ら。</dd></div>
+        <div><dt>TYP0stet</dt><dd>typo + stet<wbr>(校正記号で<wbr>「生かせ」)。<wbr>ミスを<wbr>生かせる<wbr>人たち。</dd></div>
+      </dl>
+      <a href="https://instagram.com/typostet" target="_blank" rel="noopener" class="btn">Instagram を見る</a>
     </div>
   </section>
 
@@ -1343,7 +1359,7 @@
         <h4>Shop</h4>
         <ul>
           <li><a href="/products/stet-01/">Stet Frend</a></li>
-          <li><a href="/#practice">Practice Kit</a></li>
+          <li><a href="/#practice">ユニ</a></li>
           <li><a href="/about.html#size">サイズガイド</a></li>
           <li><a href="/about.html#shipping">配送について</a></li>
         </ul>

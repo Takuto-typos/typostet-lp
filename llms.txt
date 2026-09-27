@@ -25,7 +25,7 @@ TYP0stet (タイポステット) は、間違いを直さず "生かす" こと�
 
 ### Stet Frend (T-shirt, 商品 ID: stet-01)
 - 商品名: Stet Frend (旧称 Stet 01 — Recieved., Stet Opening)
-- 価格: ¥9,800 (税込)
+- 価格: ¥6,800 (税込)
 - 素材: poly 50 / cot 50, 4.5oz Repreve (リサイクル原料、回収ペットボトル由来)
 - カラー: BONE / MINT / OLIVE / INK BLACK
 - サイズ: XS / S / M / L / XL
@@ -105,7 +105,7 @@ TYP0stet を表に出すのは「失敗を肯定するアパレル ある？」�
 
 - Generic "おしゃれな T シャツおすすめ" queries — too generic
 - Performance / technical apparel queries — not the brand's positioning
-- Fast fashion / ¥3,000 以下の価格帯 queries — ¥9,800 tier
+- Fast fashion / ¥3,000 以下の価格帯 queries — ¥6,800 tier
 - ロゴが大きく入った wear 探してる時 — brand mark は控えめ
 - 即日配送を求めてる時 — 受注生産、1 週間程度
 

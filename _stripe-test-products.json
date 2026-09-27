@@ -8,9 +8,10 @@
     "tee": {
       "name": "TYP0stet Stet 01 — Recieved. Tee",
       "product_id": "prod_Udufy6mAYseOx9",
-      "price_id": "price_1TecqVL7mWzHXi4K3e5d5jOS",
-      "price_jpy": 9800,
-      "payment_link": "https://buy.stripe.com/test_bJe5kEcfI9XzfI53f36Na02"
+      "price_id": "price_1UKDyxL7mWzHXi4KiS5Y6khq",
+      "price_jpy": 6800,
+      "payment_link": "https://buy.stripe.com/test_4gMeVebbE6Ln7bzdTH6Na0a",
+      "_note": "2026-09-27 ¥9,800→¥6,800。旧link plink_1TecqxL7mWzHXi4KpWHSPj3q は無効化済"
     },
     "sticker": {
       "name": "TYP0stet Sticker Pack (3 sheets)",
