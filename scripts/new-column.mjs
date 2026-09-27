@@ -283,6 +283,7 @@ function buildPage(fm, articleHtml) {
 
 <link rel="icon" type="image/svg+xml" href="/assets/brand/monogram/tentative-final.svg">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
 <script type="application/ld+json">
 ${jsonLd}
