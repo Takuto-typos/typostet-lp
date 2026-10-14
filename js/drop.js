@@ -87,7 +87,7 @@
     try {
       const body = {
         email: f.get('email'), name: f.get('name'), size: f.get('size'), number: num,
-        sleeve: f.get('sleeve'), back_name: bn.toUpperCase(), website: f.get('website') || '',
+        sleeve: f.get('sleeve'), number_pos: f.get('number_pos') || 'hem', back_name: bn.toUpperCase(), website: f.get('website') || '',
       };
       const r = await fetch(`/api/drops/${DROP}/signup`, {
         method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json' }, body: JSON.stringify(body),

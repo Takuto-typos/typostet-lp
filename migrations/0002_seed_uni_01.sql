@@ -7,7 +7,7 @@ VALUES (
   'ユニ。 INK BLACK',
   8800,
   600,
-  '{"sizes":["XS","S","M","L","XL"],"sleeve":{"short":0,"long":1000},"back_name":1000}',
+  '{"sizes":["120","130","140","150","160","SS","S","M","L","O","XO","2XO","3XO"],"sleeve":{"short":0,"long":1000},"back_name":1000}',
   30,
   1796050799,
   'open',

@@ -34,10 +34,13 @@ export function calcPrice(drop, choice) {
 }
 
 export const SLEEVE_LABEL = { short: '半袖', long: '長袖' };
+export const NUMBER_POS_LABEL = { hem: '番号は裾', chest: '番号は胸' };
 
 /** Human readable summary used in emails and Stripe product name. */
 export function describeChoice(s) {
-  const parts = [`サイズ ${s.size}`, `背番号 ${s.number}`, SLEEVE_LABEL[s.sleeve] || s.sleeve];
+  const parts = [`サイズ ${s.size}`, `背番号 ${s.number}`];
+  if (s.number_pos) parts.push(NUMBER_POS_LABEL[s.number_pos] || s.number_pos);
+  parts.push(SLEEVE_LABEL[s.sleeve] || s.sleeve);
   if (s.back_name) parts.push(`背中の名前 ${s.back_name}`);
   return parts.join(' / ');
 }

@@ -35,7 +35,8 @@ const valid = { email: ' Taro@Example.com ', name: '山田 太郎', size: 'm', n
 test('validation: accepts and normalises a valid signup', () => {
   const r = validateSignup(valid, drop);
   assert.equal(r.ok, true);
-  assert.deepEqual(r.value, { email: 'taro@example.com', name: '山田 太郎', size: 'M', number: 7, back_name: 'TARO', sleeve: 'long' });
+  assert.deepEqual(r.value, { email: 'taro@example.com', name: '山田 太郎', size: 'M', number: 7, back_name: 'TARO', sleeve: 'long', number_pos: 'hem' });
+  assert.equal(validateSignup({ ...valid, number_pos: 'chest' }, drop).value.number_pos, 'chest');
   assert.equal(validateSignup({ ...valid, back_name: '' }, drop).value.back_name, null);
   assert.equal(validateSignup({ ...valid, back_name: 'J. Doe-X' }, drop).ok, true);
   assert.equal(validateSignup({ ...valid, number: 99 }, drop).ok, true);
@@ -55,6 +56,7 @@ test('validation: rejects bad fields', () => {
   bad({ name: 'x'.repeat(41) }, 'name');
   bad({ name: 'a\u0000b' }, 'name');
   bad({ size: 'XXL' }, 'size');
+  bad({ number_pos: 'back' }, 'number_pos');
   bad({ number: '0' }, 'number');
   bad({ number: '100' }, 'number');
   bad({ number: '7a' }, 'number');

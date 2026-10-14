@@ -25,6 +25,7 @@ const COLUMNS = [
   ['size', 'サイズ'],
   ['number', '背番号'],
   ['back_name', '背中の名前'],
+  ['number_pos', '番号の位置'],
   ['sleeve', '袖'],
   ['amount', '金額(送料別)'],
   ['created_at', '申込み'],

@@ -77,8 +77,8 @@ export async function insertSignup(db, drop, value, now) {
     row = await db
       .prepare(
         `INSERT INTO signups
-           (drop_id, token, email, name, size, number, back_name, sleeve, position, state, amount, created_at)
-         SELECT d.id, ?, ?, ?, ?, ?, ?, ?,
+           (drop_id, token, email, name, size, number, back_name, sleeve, number_pos, position, state, amount, created_at)
+         SELECT d.id, ?, ?, ?, ?, ?, ?, ?, ?,
            COALESCE((SELECT MAX(position) FROM signups WHERE drop_id = d.id), 0) + 1,
            CASE WHEN d.status = 'open'
                  AND (SELECT COUNT(*) FROM signups WHERE drop_id = d.id AND state IN ${ACTIVE_STATES}) < d.cap
@@ -96,6 +96,7 @@ export async function insertSignup(db, drop, value, now) {
         value.number,
         value.back_name,
         value.sleeve,
+        value.number_pos || 'hem',
         price.item,
         now,
         drop.id,

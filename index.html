@@ -200,6 +200,7 @@ input:focus,select:focus{outline:2px solid var(--mint);outline-offset:1px}
 .choice{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .choice label{display:flex;align-items:center;gap:8px;min-height:52px;padding:0 14px;border:1px solid #444;border-radius:6px;background:var(--ink-2);cursor:pointer;font-size:15px}
 .choice input{accent-color:var(--mint);width:18px;height:18px}
+.choice--pos img{width:48px;height:36px;object-fit:cover;border-radius:3px}
 .choice label:has(input:checked){border-color:var(--mint)}
 fieldset{border:0;margin:0;padding:0;display:grid;gap:6px}
 legend{font-size:14px;margin-bottom:6px;padding:0}
@@ -382,10 +383,11 @@ footer a{text-decoration:none}
       <h2 class="sec">ユニ。INK BLACK</h2>
       <p class="price">¥8,800<span style="font-family:var(--sans);font-weight:400;font-size:14px">(税込)</span></p>
       <dl class="spec">
-        <div><dt>背番号</dt><dd>1〜99 から選べます</dd></div>
+        <div><dt>背番号</dt><dd>1〜99 から好きな番号を。ほかの人とかぶっても大丈夫です</dd></div>
+        <div><dt>番号の位置</dt><dd>裾か胸か、選べます</dd></div>
         <div><dt>名前</dt><dd>背番号の上に入れられます(英字12文字まで)<span class="nb">+¥1,000</span></dd></div>
         <div><dt>袖</dt><dd>半袖 / 長袖 <span class="nb">+¥1,000</span></dd></div>
-        <div><dt>サイズ</dt><dd>XS / S / M / L / XL</dd></div>
+        <div><dt>サイズ</dt><dd>キッズ 120〜160 / 大人 SS〜3XO(4XL)</dd></div>
         <div><dt>生地</dt><dd>ドライの鹿の子(汗が乾きやすい編み方)。光らないので、普段着にもなります</dd></div>
         <div><dt>枚数</dt><dd>30着だけ。再販はしません</dd></div>
         <div><dt>色</dt><dd>INK BLACK × ミント</dd></div>
@@ -408,9 +410,16 @@ footer a{text-decoration:none}
         <label>メールアドレス<input type="email" name="email" required autocomplete="email" inputmode="email"></label>
         <label>お名前<input type="text" name="name" required autocomplete="name" maxlength="40"></label>
         <div class="row2">
-          <label>サイズ<select name="size" required><option value="">選ぶ</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select></label>
+          <label>サイズ<select name="size" required><option value="">選ぶ</option><optgroup label="キッズ"><option>120</option><option>130</option><option>140</option><option>150</option><option>160</option></optgroup><optgroup label="大人"><option>SS</option><option>S</option><option>M</option><option>L</option><option value="O">O(XL)</option><option value="XO">XO(2XL)</option><option value="2XO">2XO(3XL)</option><option value="3XO">3XO(4XL)</option></optgroup></select></label>
           <label>背番号<input type="number" name="number" min="1" max="99" required inputmode="numeric" placeholder="1〜99"></label>
         </div>
+        <fieldset>
+          <legend>番号の位置</legend>
+          <div class="choice choice--pos">
+            <label><input type="radio" name="number_pos" value="hem" checked><img src="/img/detail/5-hem.jpg" alt="" width="48" height="36">裾</label>
+            <label><input type="radio" name="number_pos" value="chest"><img src="/img/detail/pos-chest.jpg" alt="" width="48" height="36">胸</label>
+          </div>
+        </fieldset>
         <fieldset>
           <legend>袖</legend>
           <div class="choice">

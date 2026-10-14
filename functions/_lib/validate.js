@@ -52,6 +52,10 @@ export function validateSignup(input, drop) {
     fields.sleeve = '袖の長さを選んでください。';
   }
 
+  // 番号の位置: 裾(hem)か胸(chest)。古いフォームから来た場合は裾
+  const numberPos = str(input.number_pos || 'hem').trim().toLowerCase();
+  if (!['hem', 'chest'].includes(numberPos)) fields.number_pos = '番号の位置を選んでください。';
+
   if (Object.keys(fields).length) return { ok: false, fields };
-  return { ok: true, value: { email, name, size, number, back_name: backName, sleeve } };
+  return { ok: true, value: { email, name, size, number, back_name: backName, sleeve, number_pos: numberPos } };
 }

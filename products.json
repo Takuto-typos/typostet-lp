@@ -24,16 +24,28 @@
       "cap": 20,
       "deadline": "2026-11-30",
       "sizes": [
-        "XS",
+        "120",
+        "130",
+        "140",
+        "150",
+        "160",
+        "SS",
         "S",
         "M",
         "L",
-        "XL"
+        "O",
+        "XO",
+        "2XO",
+        "3XO"
       ],
       "numbers": "1-99",
       "image": "https://typostet.com/img/practice/ink-c.jpg",
       "url": "https://typostet.com/#join",
-      "drop": "02"
+      "drop": "02",
+      "number_position": [
+        "裾",
+        "胸"
+      ]
     }
   ]
 }
