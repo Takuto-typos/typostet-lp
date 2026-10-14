@@ -188,6 +188,15 @@ section{padding:72px 0}
 .spec dd{margin:0}
 .price{font-family:var(--num);font-weight:800;font-size:28px}
 
+.sizes{margin-top:20px;border:1px solid var(--line);border-radius:6px;padding:0 14px}
+.sizes summary{cursor:pointer;padding:14px 0;font-weight:700;font-size:15px}
+.sizes__scroll{overflow-x:auto}
+.sizes table{border-collapse:collapse;width:100%;font-size:13px;font-family:var(--num)}
+.sizes th,.sizes td{padding:7px 6px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
+.sizes thead th{font-family:var(--sans);font-size:12px;color:var(--sub);font-weight:500}
+.sizes tbody th{text-align:left;font-weight:800}
+.sizes p{font-size:13px;color:var(--sub);margin:10px 0 14px}
+
 /* form */
 .join{background:var(--ink);color:#fff}
 .join .lead{color:#d6d6d6;margin:-8px 0 28px}
@@ -394,6 +403,14 @@ footer a{text-decoration:none}
         <div><dt>送料</dt><dd>全国一律 ¥600</dd></div>
         <div><dt>お届け</dt><dd>30人のお支払いがそろってから、約3〜4週間</dd></div>
       </dl>
+      <details class="sizes">
+        <summary>サイズ表(目安)</summary>
+        <div class="sizes__scroll"><table>
+          <thead><tr><th>サイズ</th><th>身長</th><th>着丈</th><th>身幅</th><th>肩幅</th><th>袖丈</th></tr></thead>
+          <tbody><tr><th>120</th><td>120前後</td><td>47</td><td>34</td><td>—</td><td>—</td></tr><tr><th>130</th><td>130前後</td><td>51</td><td>38</td><td>—</td><td>—</td></tr><tr><th>140</th><td>135〜145</td><td>56</td><td>42.5</td><td>34.5</td><td>16.5</td></tr><tr><th>150</th><td>145〜155</td><td>60</td><td>45</td><td>37</td><td>17</td></tr><tr><th>160</th><td>155〜165</td><td>64</td><td>47.5</td><td>39.5</td><td>17.5</td></tr><tr><th>SS</th><td colspan="5">確認中</td></tr><tr><th>S</th><td>162〜168</td><td>67</td><td>50</td><td>42.5</td><td>18.5</td></tr><tr><th>M</th><td>167〜173</td><td>69</td><td>52</td><td>44.5</td><td>19.5</td></tr><tr><th>L</th><td>172〜178</td><td>71</td><td>54</td><td>46.5</td><td>20</td></tr><tr><th>O(XL)</th><td>177〜183</td><td>73</td><td>56</td><td>48.5</td><td>20.5</td></tr><tr><th>XO(2XL)</th><td>182〜188</td><td>75</td><td>58</td><td>50.5</td><td>21</td></tr><tr><th>2XO(3XL)</th><td>187〜193</td><td>77</td><td>60</td><td>52.5</td><td>21.5</td></tr><tr><th>3XO(4XL)</th><td>192〜198</td><td>79</td><td>62</td><td>54.5</td><td>22</td></tr></tbody>
+        </table></div>
+        <p>単位は cm。一般的な昇華ユニフォームの寸法です。作る工場が決まったら、正確な数字に差し替えます。スポーツ用なので、普段の服よりひと回り大きめです。迷ったら、いつものサイズで大丈夫です。</p>
+      </details>
     </div>
   </div>
 </section>
