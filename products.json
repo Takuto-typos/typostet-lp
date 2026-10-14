@@ -2,8 +2,15 @@
   "brand": "TYP0stet",
   "seller": "株式会社 Remoi",
   "url": "https://typostet.com",
-  "model": "20人集まったら作る。1デザイン20枚限定・再販なし",
+  "model": "30人集まったら作る。1デザイン30枚限定・再販なし",
   "drops": [
+    {
+      "id": "tee-01",
+      "drop": "01",
+      "name": "Stet Frend MINT",
+      "kind": "Tシャツ",
+      "status": "終了"
+    },
     {
       "id": "uni-01",
       "name": "ユニ。 INK BLACK",
@@ -25,7 +32,8 @@
       ],
       "numbers": "1-99",
       "image": "https://typostet.com/img/practice/ink-c.jpg",
-      "url": "https://typostet.com/#join"
+      "url": "https://typostet.com/#join",
+      "drop": "02"
     }
   ]
 }

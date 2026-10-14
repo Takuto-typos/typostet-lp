@@ -80,5 +80,7 @@ export function createDb({ seed = true } = {}) {
     if (!seed && /seed/.test(f)) continue;
     runSql(d1.sqlite, readFileSync(join(MIGRATIONS, f), 'utf8'));
   }
+  // テストは「定員20」の固定条件で流れを確かめる(本番の定員は seed の値。DROP 02 は 30)
+  if (seed) runSql(d1.sqlite, "UPDATE drops SET cap = 20 WHERE id = 'uni-01';");
   return d1;
 }

@@ -1,13 +1,13 @@
 // トップページの「今○人」と申込みフォーム。数字は API の実数だけを出す(取れなければ「–」のまま)。
 (() => {
   const DROP = 'uni-01';
-  const CAP = 20;
+  const CAP = 30;
   const PRICE = { base: 8800, long: 1000, name: 1000, ship: 600 };
   const DEADLINE = new Date('2026-11-30T23:59:59+09:00');
   const $ = id => document.getElementById(id);
   const yen = n => '¥' + n.toLocaleString('ja-JP');
 
-  // 点20個
+  // 点30個
   const dots = $('dots');
   for (let i = 0; i < CAP; i++) dots.appendChild(document.createElement('i'));
   const paint = n => [...dots.children].forEach((d, i) => d.classList.toggle('on', i < n));
@@ -18,7 +18,7 @@
 
   const STATUS = {
     open: '募集中',
-    paying: '20人そろいました・お支払い受付中',
+    paying: '30人そろいました・お支払い受付中',
     made: '製作中',
     cancelled: '中止しました',
   };
@@ -37,7 +37,7 @@
     const step = () => { paint(++i); if (i < n) setTimeout(step, 60); };
     if (n > 0) step();
     $('status').textContent = STATUS[d.status] || STATUS.open;
-    $('rec-01').textContent = d.status === 'open' ? `募集中 ${n}/${CAP}` : (STATUS[d.status] || '');
+    $('rec-02').textContent = d.status === 'open' ? `募集中 ${n}/${CAP}` : (STATUS[d.status] || '');
     if (d.status && d.status !== 'open') {
       if (d.status === 'paying') {
         setCta('補欠で申し込む', 'まだお金はかかりません');
@@ -105,7 +105,7 @@
         $('r-msg').textContent = 'お支払いの期限までに払わなかった方が出たら、順番にメールでご案内します。';
       } else {
         $('r-pos').textContent = pos ? `${pos}番目` : '';
-        $('r-msg').textContent = '確認のメールを送りました。20人そろったら、お支払いのご案内をお送りします。';
+        $('r-msg').textContent = '確認のメールを送りました。30人そろったら、お支払いのご案内をお送りします。';
       }
       res.classList.add('show');
       res.focus();
