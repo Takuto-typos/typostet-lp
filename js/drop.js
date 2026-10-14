@@ -117,6 +117,30 @@
     }
   });
 
+  // 新着 stet を受け取る
+  const nf = $('news-form');
+  nf.addEventListener('submit', async e => {
+    e.preventDefault();
+    const msg = $('news-msg');
+    if (!nf.email.value || !nf.email.checkValidity()) { msg.textContent = 'メールアドレスを確かめてください。'; return; }
+    const b = nf.querySelector('button');
+    b.disabled = true;
+    try {
+      const r = await fetch('/api/subscribe', {
+        method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json' },
+        body: JSON.stringify({ email: nf.email.value, website: nf.website.value, source: 'top' }),
+      });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(d.message || 'うまく送れませんでした。時間をおいてもう一度お試しください。');
+      nf.hidden = true;
+      msg.classList.add('ok');
+      msg.textContent = d.message || '登録しました。新しいデザインが出たら、このアドレスにお知らせします。';
+    } catch (x) {
+      msg.textContent = x.message;
+      b.disabled = false;
+    }
+  });
+
   // スクロールで出す(控えめ)
   const io = 'IntersectionObserver' in window && new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }

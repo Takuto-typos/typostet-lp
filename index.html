@@ -92,7 +92,12 @@ section{padding:72px 0}
 .top{position:sticky;top:0;z-index:20;background:var(--ink);color:#fff}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
 .top img{height:26px;width:auto}
-.top nav{display:flex;gap:18px;font-size:13px}
+.top .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.top .tag{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--mint);white-space:nowrap;padding-left:10px;border-left:1px solid #444;line-height:1.3}
+.top nav{display:flex;align-items:center;gap:18px;font-size:13px}
+.top nav .wide{display:none}
+.top nav .pill{background:var(--mint);color:var(--ink);font-weight:700;padding:6px 14px;border-radius:999px;opacity:1}
+@media (min-width:720px){.top nav .wide{display:inline}.top .tag{font-size:12px}}
 .top nav a{text-decoration:none;opacity:.85}
 .top nav a:hover{opacity:1}
 
@@ -108,6 +113,10 @@ section{padding:72px 0}
 .stamp{position:absolute;right:12px;top:12px;width:88px;height:88px;animation:spin 24s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.stamp{animation:none}}
+
+.facts{list-style:none;margin:-8px 0 26px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.facts li{font-size:13px;border:1px solid #444;border-radius:999px;padding:4px 12px;color:#e0e0e0}
+.facts b{font-family:var(--num);font-size:15px;color:#fff}
 
 /* counter */
 .count{border-top:1px solid #333;padding-top:22px}
@@ -126,8 +135,21 @@ section{padding:72px 0}
 .note{font-size:13px;color:#a8a8a8;margin:10px 0 0}
 .status{display:inline-block;font-family:var(--mono);font-size:12px;padding:3px 10px;border:1px solid var(--mint);color:var(--mint);border-radius:999px;margin-bottom:14px}
 
+/* details */
+.anat__grid{display:grid;gap:24px}
+.anat__fig{position:relative;margin:0;border-radius:4px;overflow:hidden}
+.pin{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:var(--mint);color:var(--ink);font-family:var(--num);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(14,14,14,.35)}
+.anat__list{list-style:none;margin:0;padding:0;counter-reset:a}
+.anat__list li{position:relative;padding:14px 0 14px 40px;border-bottom:1px solid var(--line);font-size:15px;color:#333}
+.anat__list li:first-child{border-top:1px solid var(--ink)}
+.anat__list li::before{counter-increment:a;content:counter(a);position:absolute;left:0;top:14px;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--mint);font-family:var(--num);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.anat__list b{display:block;color:var(--ink);font-size:16px;margin-bottom:2px}
+@media (min-width:860px){.anat__grid{grid-template-columns:1.4fr 1fr;align-items:start;gap:48px}}
+
 /* core message */
-.core{background:var(--ink);color:#fff;padding:24px 0 88px;text-align:center}
+.core{background:var(--ink);color:#fff;padding:72px 0 96px;text-align:center;position:relative;overflow:hidden}
+.core__bg{position:absolute;inset:0;width:100%;height:100%;opacity:.09;pointer-events:none}
+.core .wrap{position:relative}
 .core .msg{font-family:var(--serif);font-weight:800;font-size:clamp(34px,9.5vw,72px);line-height:1.3;margin:0 0 28px;letter-spacing:.04em}
 .core .msg em{font-style:normal;color:var(--mint)}
 .core .story{max-width:30em;margin:0 auto;text-align:left}
@@ -135,7 +157,7 @@ section{padding:72px 0}
 .core .story p:last-child{color:#fff;margin-bottom:0}
 .core .mono{width:44px;margin:0 auto 28px}
 .hero .lead .only{color:#fff;font-weight:700}
-@media (min-width:860px){.core{padding:40px 0 120px}}
+@media (min-width:860px){.core{padding:120px 0 140px}}
 
 /* how */
 .how{background:var(--mint)}
@@ -195,6 +217,16 @@ legend{font-size:14px;margin-bottom:6px;padding:0}
 .rec li.empty{color:#9a9a9a}
 .rec li.empty .no{color:#c9c9c9}
 
+/* news */
+.news{background:var(--mint)}
+.news__lead{font-size:16px;margin:-8px 0 20px;max-width:34em}
+.news__form{display:grid;gap:10px;max-width:520px}
+.news__form input[type=email]{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.btn--ink{background:var(--ink);color:#fff;max-width:none}
+.news__note{font-size:13px;color:#24493a;margin:12px 0 0}
+.news__note.ok{font-size:15px;color:var(--ink);font-weight:700}
+@media (min-width:720px){.news__form{grid-template-columns:1fr auto}.btn--ink{width:auto}}
+
 /* about */
 .about{background:var(--terra);color:#fff}
 .about p{font-size:17px;margin:0 0 12px;max-width:34em}
@@ -237,8 +269,8 @@ footer a{text-decoration:none}
 
 <header class="top">
   <div class="wrap">
-    <a href="/" aria-label="TYP0stet トップ"><img src="/assets/brand/v2/typostet_word_white.svg" alt="TYP0stet" width="104" height="26"></a>
-    <nav><a href="#how">しくみ</a><a href="#join">申し込む</a><a href="#about">TYP0stet</a></nav>
+    <a class="brand" href="/" aria-label="TYP0stet トップ"><img src="/assets/brand/v2/typostet_word_white.svg" alt="TYP0stet" width="104" height="26"><span class="tag">30着だけ。再販なし。</span></a>
+    <nav><a class="wide" href="#how">しくみ</a><a class="wide" href="#news">新着 stet</a><a class="pill" href="#join">申し込む</a></nav>
   </div>
 </header>
 
@@ -255,10 +287,12 @@ footer a{text-decoration:none}
       </svg>
     </div>
     <div>
-      <p class="what">沖縄発のアウトドアスポーツブランド</p>
       <p class="eyebrow" style="color:#bdbdbd">DROP 02</p>
       <h1>ユニ。<small>INK BLACK</small></h1>
       <p class="lead"><b class="only">世界で30人しか持てません。</b><br>再販もしません。30人集まったら作ります。</p>
+      <ul class="facts">
+        <li>光らないドライ鹿の子</li><li>背番号 1〜99</li><li>普段着にもなる</li><li><b>¥8,800</b></li>
+      </ul>
 
       <div class="count" aria-live="polite">
         <span class="status" id="status">募集中</span>
@@ -273,7 +307,32 @@ footer a{text-decoration:none}
   </div>
 </section>
 
+<section class="anat" id="detail">
+  <div class="wrap">
+    <p class="eyebrow">Details</p>
+    <h2 class="sec">ユニ。のこと</h2>
+    <div class="anat__grid">
+      <figure class="anat__fig">
+        <img src="/img/practice/ink-c.jpg" alt="ユニ。INK BLACK の前と後ろ。番号の位置と記号の説明つき" width="1400" height="763" loading="lazy">
+        <span class="pin" style="left:28%;top:12%">1</span>
+        <span class="pin" style="left:36%;top:44%">2</span>
+        <span class="pin" style="left:18%;top:27%">3</span>
+        <span class="pin" style="left:73%;top:57%">4</span>
+        <span class="pin" style="left:34%;top:91%">5</span>
+      </figure>
+      <ol class="anat__list">
+        <li><b>ミントの細いライン</b>襟と袖口だけに、ブランドの色を一本。</li>
+        <li><b>胸の TYP0S と、点4つ</b>TYP0S は typo + s で「ミスするやつら」。0の下の点4つは、校正記号の stet(やっぱり生かす)。</li>
+        <li><b>うっすら入った記号</b>生地の ∧ や = は、文章を直すときの校正記号。∧ は「ここに足す」、二重線は「消す」。直した跡を、そのまま柄にした。黒の濃淡なので、近くで見ないと気づかない。</li>
+        <li><b>番号の下だけミント</b>背番号は1〜99から選べる。下の4割だけ色を変えてある。</li>
+        <li><b>裾とスリット</b>後ろが少し長い裾と、横のスリット。シャツの外に出して着ても、だらしなく見えない。</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
 <section class="core" aria-label="TYP0stet が大事にしていること">
+  <svg class="core__bg" viewBox="0 0 1200 1100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g transform="translate(766 482) rotate(-1) scale(1.13)" stroke="#ffffff" color="#ffffff"><g stroke="none" fill="currentColor"><circle cx="0" cy="0" r="6"/><circle cx="20" cy="0" r="6"/><circle cx="40" cy="0" r="6"/><circle cx="60" cy="0" r="6"/></g></g><g transform="translate(517 185) rotate(11) scale(0.83)" stroke="#92E5BD" color="#92E5BD"><g stroke-width="8" fill="none"><rect x="0" y="0" width="44" height="80" rx="22"/><rect x="6" y="5" width="44" height="80" rx="22"/></g></g><g transform="translate(375 -11) rotate(-11) scale(0.81)" stroke="#ffffff" color="#ffffff"><g stroke="none" fill="currentColor"><circle cx="0" cy="0" r="6"/><circle cx="20" cy="0" r="6"/><circle cx="40" cy="0" r="6"/><circle cx="60" cy="0" r="6"/></g></g><g transform="translate(-3 482) rotate(-15) scale(0.75)" stroke="#ffffff" color="#ffffff"><g stroke-width="8" fill="none"><rect x="0" y="0" width="44" height="80" rx="22"/><path d="M6,20 L38,28 L6,38 L38,46 L6,56 L38,62"/></g></g><g transform="translate(278 545) rotate(-10) scale(1.18)" stroke="#ffffff" color="#ffffff"><g stroke-width="8" fill="none"><rect x="0" y="0" width="44" height="80" rx="22"/><path d="M6,20 L38,28 L6,38 L38,46 L6,56 L38,62"/></g></g><g transform="translate(515 689) rotate(4) scale(1.35)" stroke="#92E5BD" color="#92E5BD"><path d="M0,0 H70 M0,14 H70" fill="none" stroke-width="5"/></g><g transform="translate(432 558) rotate(5) scale(1.27)" stroke="#ffffff" color="#ffffff"><text x="0" y="0" font-family="IBM Plex Mono,monospace" font-size="34" fill="currentColor" stroke="none">seperate</text><path d="M-4,-12 H154" stroke-width="4" fill="none"/></g><g transform="translate(350 324) rotate(15) scale(0.63)" stroke="#ffffff" color="#ffffff"><g stroke="none" fill="currentColor"><circle cx="0" cy="0" r="6"/><circle cx="20" cy="0" r="6"/><circle cx="40" cy="0" r="6"/><circle cx="60" cy="0" r="6"/></g></g><g transform="translate(752 293) rotate(-0) scale(0.80)" stroke="#ffffff" color="#ffffff"><g stroke-width="8" fill="none"><path d="M30,2 A22,22 0 0 0 0,22 V58 A22,22 0 0 0 44,58 V30"/></g></g><g transform="translate(1108 935) rotate(5) scale(0.70)" stroke="#92E5BD" color="#92E5BD"><path d="M0,40 L20,0 L40,40" fill="none" stroke-width="6"/></g><g transform="translate(580 390) rotate(17) scale(0.86)" stroke="#ffffff" color="#ffffff"><g stroke="none" fill="currentColor"><circle cx="0" cy="0" r="6"/><circle cx="20" cy="0" r="6"/><circle cx="40" cy="0" r="6"/><circle cx="60" cy="0" r="6"/></g></g><g transform="translate(81 622) rotate(11) scale(0.76)" stroke="#92E5BD" color="#92E5BD"><path d="M0,0 H70 M0,14 H70" fill="none" stroke-width="5"/></g><g transform="translate(318 929) rotate(-4) scale(0.68)" stroke="#ffffff" color="#ffffff"><text x="0" y="0" font-family="IBM Plex Mono,monospace" font-size="34" fill="currentColor" stroke="none">recieved</text><path d="M-4,-12 H154" stroke-width="4" fill="none"/></g><g transform="translate(84 100) rotate(3) scale(1.14)" stroke="#ffffff" color="#ffffff"><g stroke-width="8" fill="none"><rect x="0" y="0" width="44" height="80" rx="22"/></g></g><g transform="translate(941 170) rotate(9) scale(1.04)" stroke="#92E5BD" color="#92E5BD"><g stroke="none" fill="currentColor"><circle cx="0" cy="0" r="6"/><circle cx="20" cy="0" r="6"/><circle cx="40" cy="0" r="6"/><circle cx="60" cy="0" r="6"/></g></g><g transform="translate(849 -1) rotate(10) scale(0.75)" stroke="#ffffff" color="#ffffff"><g stroke="none" fill="currentColor"><circle cx="0" cy="0" r="6"/><circle cx="20" cy="0" r="6"/><circle cx="40" cy="0" r="6"/><circle cx="60" cy="0" r="6"/></g></g><g transform="translate(426 794) rotate(16) scale(0.81)" stroke="#ffffff" color="#ffffff"><text x="0" y="0" font-family="IBM Plex Mono,monospace" font-size="34" fill="currentColor" stroke="none">seperate</text></g><g transform="translate(351 158) rotate(-16) scale(0.67)" stroke="#ffffff" color="#ffffff"><g stroke-width="8" fill="none"><path d="M30,2 A22,22 0 0 0 0,22 V58 A22,22 0 0 0 44,58 V30"/></g></g><g transform="translate(1115 175) rotate(8) scale(1.23)" stroke="#92E5BD" color="#92E5BD"><text x="0" y="0" font-family="IBM Plex Mono,monospace" font-size="34" fill="currentColor" stroke="none">TYP0</text></g><g transform="translate(992 642) rotate(-7) scale(0.93)" stroke="#ffffff" color="#ffffff"><g stroke="none" fill="currentColor"><circle cx="0" cy="0" r="6"/><circle cx="20" cy="0" r="6"/><circle cx="40" cy="0" r="6"/><circle cx="60" cy="0" r="6"/></g></g><g transform="translate(76 984) rotate(15) scale(1.14)" stroke="#ffffff" color="#ffffff"><g stroke="none" fill="currentColor"><circle cx="0" cy="0" r="6"/><circle cx="20" cy="0" r="6"/><circle cx="40" cy="0" r="6"/><circle cx="60" cy="0" r="6"/></g></g><g transform="translate(650 1002) rotate(-7) scale(1.01)" stroke="#92E5BD" color="#92E5BD"><g stroke-width="8" fill="none"><rect x="0" y="0" width="44" height="80" rx="22"/><path d="M6,20 L38,28 L6,38 L38,46 L6,56 L38,62"/></g></g><g transform="translate(58 819) rotate(-9) scale(1.19)" stroke="#ffffff" color="#ffffff"><path d="M0,0 H70 M0,14 H70" fill="none" stroke-width="5"/></g><g transform="translate(985 437) rotate(-12) scale(0.96)" stroke="#92E5BD" color="#92E5BD"><text x="0" y="0" font-family="IBM Plex Mono,monospace" font-size="34" fill="currentColor" stroke="none">teh</text></g><g transform="translate(896 308) rotate(6) scale(1.16)" stroke="#ffffff" color="#ffffff"><g stroke="none" fill="currentColor"><circle cx="0" cy="0" r="6"/><circle cx="20" cy="0" r="6"/><circle cx="40" cy="0" r="6"/><circle cx="60" cy="0" r="6"/></g></g><g transform="translate(860 1035) rotate(6) scale(0.77)" stroke="#92E5BD" color="#92E5BD"><g stroke-width="8" fill="none"><rect x="0" y="0" width="44" height="80" rx="22"/><g fill="currentColor" stroke="none"><circle cx="0" cy="104" r="5"/><circle cx="15" cy="104" r="5"/><circle cx="30" cy="104" r="5"/><circle cx="44" cy="104" r="5"/></g></g></g><g transform="translate(249 816) rotate(6) scale(0.96)" stroke="#92E5BD" color="#92E5BD"><g stroke-width="8" fill="none"><rect x="0" y="0" width="44" height="80" rx="22" transform="rotate(14 22 40)"/></g></g><g transform="translate(204 397) rotate(4) scale(1.28)" stroke="#ffffff" color="#ffffff"><g stroke-width="8" fill="none"><rect x="0" y="0" width="44" height="80" rx="22"/><path d="M-10,90 L54,-10"/></g></g><g transform="translate(606 -19) rotate(7) scale(1.08)" stroke="#92E5BD" color="#92E5BD"><g stroke-width="8" fill="none"><rect x="0" y="0" width="44" height="80" rx="22"/><path d="M6,20 L38,28 L6,38 L38,46 L6,56 L38,62"/></g></g><g transform="translate(211 197) rotate(1) scale(0.73)" stroke="#92E5BD" color="#92E5BD"><text x="0" y="0" font-family="IBM Plex Mono,monospace" font-size="34" fill="currentColor" stroke="none">seperate</text></g><g transform="translate(603 848) rotate(12) scale(0.63)" stroke="#92E5BD" color="#92E5BD"><text x="0" y="0" font-family="IBM Plex Mono,monospace" font-size="34" fill="currentColor" stroke="none">4:81</text><path d="M-4,-12 H84" stroke-width="4" fill="none"/></g><g transform="translate(1112 749) rotate(2) scale(0.63)" stroke="#ffffff" color="#ffffff"><g stroke="none" fill="currentColor"><circle cx="0" cy="0" r="6"/><circle cx="20" cy="0" r="6"/><circle cx="40" cy="0" r="6"/><circle cx="60" cy="0" r="6"/></g></g><g transform="translate(896 891) rotate(-9) scale(0.70)" stroke="#ffffff" color="#ffffff"><text x="0" y="0" font-family="IBM Plex Mono,monospace" font-size="34" fill="currentColor" stroke="none">TYP0</text><path d="M-4,-12 H94" stroke-width="4" fill="none"/></g><g transform="translate(1058 12) rotate(9) scale(1.30)" stroke="#ffffff" color="#ffffff"><g stroke-width="8" fill="none"><rect x="0" y="0" width="44" height="80" rx="22" transform="rotate(14 22 40)"/></g></g><g transform="translate(855 650) rotate(-13) scale(1.33)" stroke="#ffffff" color="#ffffff"><path d="M0,0 H70 M0,14 H70" fill="none" stroke-width="5"/></g><g transform="translate(443 1040) rotate(1) scale(1.36)" stroke="#92E5BD" color="#92E5BD"><g stroke-width="8" fill="none"><rect x="0" y="0" width="44" height="80" rx="22"/></g></g><g transform="translate(771 162) rotate(-13) scale(0.77)" stroke="#ffffff" color="#ffffff"><g stroke-width="8" fill="none"><rect x="0" y="0" width="44" height="80" rx="22"/></g></g><g transform="translate(209 17) rotate(-6) scale(0.66)" stroke="#ffffff" color="#ffffff"><g stroke="none" fill="currentColor"><circle cx="0" cy="0" r="6"/><circle cx="20" cy="0" r="6"/><circle cx="40" cy="0" r="6"/><circle cx="60" cy="0" r="6"/></g></g><g transform="translate(765 802) rotate(-13) scale(0.77)" stroke="#ffffff" color="#ffffff"><g stroke="none" fill="currentColor"><circle cx="0" cy="0" r="6"/><circle cx="20" cy="0" r="6"/><circle cx="40" cy="0" r="6"/><circle cx="60" cy="0" r="6"/></g></g><g transform="translate(584 555) rotate(-9) scale(1.24)" stroke="#ffffff" color="#ffffff"><path d="M0,40 L20,0 L40,40" fill="none" stroke-width="6"/></g><g transform="translate(234 1032) rotate(11) scale(1.00)" stroke="#ffffff" color="#ffffff"><g stroke-width="8" fill="none"><rect x="0" y="0" width="44" height="80" rx="22"/><rect x="6" y="5" width="44" height="80" rx="22"/></g></g><g transform="translate(1080 543) rotate(-4) scale(0.88)" stroke="#ffffff" color="#ffffff"><text x="0" y="0" font-family="IBM Plex Mono,monospace" font-size="34" fill="currentColor" stroke="none">4:81</text><path d="M-4,-12 H84" stroke-width="4" fill="none"/></g><g transform="translate(718 637) rotate(-15) scale(0.83)" stroke="#ffffff" color="#ffffff"><g stroke="none" fill="currentColor"><circle cx="0" cy="0" r="6"/><circle cx="20" cy="0" r="6"/><circle cx="40" cy="0" r="6"/><circle cx="60" cy="0" r="6"/></g></g><g transform="translate(61 292) rotate(6) scale(0.81)" stroke="#92E5BD" color="#92E5BD"><path d="M0,40 L20,0 L40,40" fill="none" stroke-width="6"/></g></svg>
   <div class="wrap">
     <img class="mono" src="/assets/brand/v2/typostet_mono_mint.svg" alt="" width="44" height="76">
     <p class="msg rv"><em>失敗</em>こそが、<br>人間の証明。</p>
@@ -379,6 +438,20 @@ footer a{text-decoration:none}
   </div>
 </section>
 
+<section class="news" id="news">
+  <div class="wrap">
+    <p class="eyebrow">Next stet</p>
+    <h2 class="sec">新着 stet を受け取る</h2>
+    <p class="news__lead">新しいデザインが出たら、メールで知らせます。毎回30着だけなので、出たときに知りたい人はどうぞ。</p>
+    <form id="news-form" class="news__form" novalidate>
+      <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="メールアドレス" aria-label="メールアドレス">
+      <div class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+      <button class="btn btn--ink" type="submit">受け取る</button>
+    </form>
+    <p class="news__note" id="news-msg" role="status">届くのは新しいデザインのお知らせだけ。いつでも止められます。</p>
+  </div>
+</section>
+
 <section class="about" id="about">
   <div class="wrap">
     <img class="logo" src="/assets/brand/v2/typostet_word_white.svg" alt="TYP0stet" width="320" height="80">
@@ -406,6 +479,7 @@ footer a{text-decoration:none}
   <div class="wrap">
     <img src="/assets/brand/v2/typostet_word_mint.svg" alt="TYP0stet" width="140" height="35">
     <nav>
+      <a href="#news">新着 stet を受け取る</a>
       <a href="/tokutei.html">特定商取引法にもとづく表記</a>
       <a href="/privacy.html">プライバシーポリシー</a>
       <a href="/terms.html">利用規約</a>
