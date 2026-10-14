@@ -35,7 +35,7 @@
       "alternateName": ["タイポステット", "TYPOstet"],
       "url": "https://typostet.com",
       "logo": "https://typostet.com/assets/brand/v2/typostet_word_ink.svg",
-      "description": "沖縄発のアウトドアスポーツブランド。毎回1つのデザインを、30人集まったら作る。世界に30枚だけで、再販はしない。仲間とフットサルチーム TYP0S も運営。",
+      "description": "沖縄発のアウトドアスポーツブランド。毎回1つのデザインを、30人集まったら作る。世界に30枚だけで、再販はしない。",
       "parentOrganization": { "@type": "Organization", "name": "株式会社 Remoi" },
       "sameAs": ["https://www.instagram.com/typostet/"],
       "contactPoint": { "@type": "ContactPoint", "email": "info@typostet.com", "contactType": "customer support", "areaServed": "JP", "availableLanguage": ["ja"] }
@@ -140,9 +140,10 @@ section{padding:72px 0}
 .anat__fig{position:relative;margin:0;border-radius:4px;overflow:hidden}
 .pin{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:var(--mint);color:var(--ink);font-family:var(--num);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(14,14,14,.35)}
 .anat__list{list-style:none;margin:0;padding:0;counter-reset:a}
-.anat__list li{position:relative;padding:14px 0 14px 40px;border-bottom:1px solid var(--line);font-size:15px;color:#333}
+.anat__list li{position:relative;display:grid;grid-template-columns:128px 1fr;gap:14px;align-items:start;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px;color:#333}
+.anat__list img{width:128px;height:96px;object-fit:cover;border-radius:4px}
 .anat__list li:first-child{border-top:1px solid var(--ink)}
-.anat__list li::before{counter-increment:a;content:counter(a);position:absolute;left:0;top:14px;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--mint);font-family:var(--num);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.anat__list li::before{counter-increment:a;content:counter(a);position:absolute;left:6px;top:22px;box-shadow:0 0 0 2px var(--mint);width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--mint);font-family:var(--num);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
 .anat__list b{display:block;color:var(--ink);font-size:16px;margin-bottom:2px}
 @media (min-width:860px){.anat__grid{grid-template-columns:1.4fr 1fr;align-items:start;gap:48px}}
 
@@ -321,11 +322,11 @@ footer a{text-decoration:none}
         <span class="pin" style="left:34%;top:91%">5</span>
       </figure>
       <ol class="anat__list">
-        <li><b>ミントの細いライン</b>襟と袖口だけに、ブランドの色を一本。</li>
-        <li><b>胸の TYP0S と、点4つ</b>TYP0S は typo + s で「ミスするやつら」。0の下の点4つは、校正記号の stet(やっぱり生かす)。</li>
-        <li><b>うっすら入った記号</b>生地の ∧ や = は、文章を直すときの校正記号。∧ は「ここに足す」、二重線は「消す」。直した跡を、そのまま柄にした。黒の濃淡なので、近くで見ないと気づかない。</li>
-        <li><b>番号の下だけミント</b>背番号は1〜99から選べる。下の4割だけ色を変えてある。</li>
-        <li><b>裾とスリット</b>後ろが少し長い裾と、横のスリット。シャツの外に出して着ても、だらしなく見えない。</li>
+        <li><img src="/img/detail/1-collar.jpg" alt="襟のミントのライン(拡大)" width="480" height="360" loading="lazy"><div><b>ミントの細いライン</b>襟と袖口だけに、ブランドの色を一本。</div></li>
+        <li><img src="/img/detail/2-chest.jpg" alt="胸の TYP0S と点4つ(拡大)" width="480" height="360" loading="lazy"><div><b>胸の TYP0S と、点4つ</b>TYP0S は typo + s で「ミスするやつら」。0の下の点4つは、校正記号の stet(やっぱり生かす)。</div></li>
+        <li><img src="/img/detail/3-marks.jpg" alt="生地の校正記号の柄(拡大)" width="480" height="360" loading="lazy"><div><b>うっすら入った記号</b>生地の ∧ や = は、文章を直すときの校正記号。∧ は「ここに足す」、二重線は「消す」。直した跡を、そのまま柄にした。黒の濃淡なので、近くで見ないと気づかない。</div></li>
+        <li><img src="/img/detail/4-number.jpg" alt="背番号の下だけミント(拡大)" width="480" height="360" loading="lazy"><div><b>番号の下だけミント</b>背番号は1〜99から選べる。下の4割だけ色を変えてある。</div></li>
+        <li><img src="/img/detail/5-hem.jpg" alt="後ろが長い裾と横のスリット(拡大)" width="480" height="360" loading="lazy"><div><b>裾とスリット</b>後ろが少し長い裾と、横のスリット。シャツの外に出して着ても、だらしなく見えない。</div></li>
       </ol>
     </div>
   </div>
@@ -456,7 +457,6 @@ footer a{text-decoration:none}
   <div class="wrap">
     <img class="logo" src="/assets/brand/v2/typostet_word_white.svg" alt="TYP0stet" width="320" height="80">
     <p>沖縄発のアウトドアスポーツブランドです。</p>
-    <p>仲間とフットサルチーム TYP0S もやってます。</p>
     <p style="margin-top:24px"><a href="https://www.instagram.com/typostet/" target="_blank" rel="noopener">Instagram @typostet →</a></p>
   </div>
 </section>
