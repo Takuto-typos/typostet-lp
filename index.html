@@ -157,13 +157,13 @@ section{padding:72px 0}
 }
 
 /* wear */
-.wear{padding-top:0}
+.wear{padding-top:0;margin-top:-40px}
 .wear__list{list-style:none;margin:0 calc(var(--gut) * -1);padding:0 var(--gut);display:grid;grid-auto-flow:column;grid-auto-columns:72%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
 .wear__list::-webkit-scrollbar{display:none}
 .wear__list li{scroll-snap-align:start}
 .wear__list img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
-.wear__list p{margin:8px 0 0;font-family:var(--mono);font-size:12px;color:var(--sub)}
-@media (min-width:860px){.wear__list{margin:0;padding:0;grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible}}
+.wear__note{margin:8px 0 0;font-size:11px;color:var(--sub)}
+@media (min-width:860px){.wear{margin-top:-64px}.wear__list{margin:0;padding:0;grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible}}
 
 /* core message */
 .core{background:var(--ink);color:#fff;padding:72px 0 96px;text-align:center;position:relative;overflow:hidden}
@@ -361,15 +361,14 @@ footer a{text-decoration:none}
   </div>
 </section>
 
-<section class="wear" id="wear">
+<section class="wear" id="wear" aria-label="着こなしのイメージ">
   <div class="wrap">
-    <p class="eyebrow">Wear</p>
-    <h2 class="sec">着こなし</h2>
     <ul class="wear__list">
-      <li><img src="/img/wear/after-game.jpg" alt="個サルのあと、ユニ。を着て話す2人" width="660" height="825" loading="lazy"><p>個サルのあと</p></li>
-      <li><img src="/img/wear/naha-street.jpg" alt="那覇の路地を、ユニ。にチノパンを合わせて歩く人" width="1000" height="1241" loading="lazy"><p>そのまま街へ</p></li>
-      <li><img src="/img/wear/fabric.jpg" alt="ユニ。の襟と、生地の校正記号のアップ" width="1000" height="1000" loading="lazy"><p>近くで見ると</p></li>
+      <li><img src="/img/wear/after-game.jpg" alt="個サルのあと、ユニ。を着て話す2人" width="660" height="825" loading="lazy"></li>
+      <li><img src="/img/wear/naha-street.jpg" alt="那覇の路地を、ユニ。にチノパンを合わせて歩く人" width="1000" height="1241" loading="lazy"></li>
+      <li><img src="/img/wear/fabric.jpg" alt="ユニ。の襟と、生地の校正記号のアップ" width="1000" height="1000" loading="lazy"></li>
     </ul>
+    <p class="wear__note">イメージ</p>
   </div>
 </section>
 
