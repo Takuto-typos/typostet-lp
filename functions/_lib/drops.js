@@ -1,6 +1,10 @@
-// Core state machine for "20人集まったら作る".
+// Core state machine for "30人集まったら作る".
+//
+// A signup is only counted after the person presses the button in the confirmation mail
+// (pending_signups -> signups). See confirmSignup().
 //
 // drops.status:   open -> paying -> made          (open -> cancelled if deadline passes)
+//                 paying -> made after the deadline once nobody is left to pay (made with those who paid)
 // signups.state:  reserved -> invited -> paid
 //                 reserved -> invited -> expired  (7 days unpaid; slot goes to waitlist head)
 //                 waiting  -> invited -> ...      (promotion)
@@ -13,6 +17,11 @@
 import { calcPrice } from './pricing.js';
 import { cancelledMail, expiredMail, inviteMail, promotedMail, receiptMail } from './mail.js';
 import { DAY, PAY_WINDOW, randomToken, sha256Hex } from './util.js';
+
+// Expire unpaid invites a little after the 7 days, so a Stripe Checkout session that is still
+// open at the deadline (Stripe keeps them >= 30 min) can never be paid after its slot moved on.
+export const EXPIRE_GRACE = 60 * 60;
+export const PENDING_TTL = DAY; // 確認メールのリンクの有効期限
 
 export const ACTIVE_STATES = "('reserved','invited','paid')";
 export const RATE_LIMIT_MAX = 5;
@@ -42,10 +51,11 @@ export async function getCounts(db, dropId) {
 
 /**
  * Records this attempt and returns true if the IP is over the limit.
- * Stores only a SHA-256 hash of the IP.
+ * Stores only a salted SHA-256 hash of the IP (salt = a server secret, so the hashes
+ * can't be reversed by hashing every IPv4 address).
  */
-export async function isRateLimited(db, ip, now) {
-  const ipHash = await sha256Hex(`typostet-drops:${ip || 'unknown'}`);
+export async function isRateLimited(db, ip, now, salt = '') {
+  const ipHash = await sha256Hex(`${salt}:typostet-drops:${ip || 'unknown'}`);
   const since = now - RATE_LIMIT_WINDOW;
   const [, countRes] = await db.batch([
     db.prepare('INSERT INTO rate_limits (ip_hash, created_at) VALUES (?, ?)').bind(ipHash, now),
@@ -66,7 +76,7 @@ export class SignupError extends Error {
 /**
  * Insert a signup. Position and reserved/waiting are decided inside ONE SQL
  * statement (INSERT ... SELECT), which SQLite/D1 executes atomically, so two
- * simultaneous requests can never both become #20. UNIQUE(drop_id, position)
+ * simultaneous requests can never both become #30. UNIQUE(drop_id, position)
  * is a second safety net.
  */
 export async function insertSignup(db, drop, value, now) {
@@ -80,7 +90,7 @@ export async function insertSignup(db, drop, value, now) {
            (drop_id, token, email, name, size, number, back_name, sleeve, number_pos, position, state, amount, created_at)
          SELECT d.id, ?, ?, ?, ?, ?, ?, ?, ?,
            COALESCE((SELECT MAX(position) FROM signups WHERE drop_id = d.id), 0) + 1,
-           CASE WHEN d.status = 'open'
+           CASE WHEN d.status IN ('open','paying')
                  AND (SELECT COUNT(*) FROM signups WHERE drop_id = d.id AND state IN ${ACTIVE_STATES}) < d.cap
                 THEN 'reserved' ELSE 'waiting' END,
            ?, ?
@@ -124,6 +134,65 @@ export async function insertSignup(db, drop, value, now) {
     waitingRank = Number(r?.n || 0);
   }
   return { signup: row, waitingRank };
+}
+
+/**
+ * Step 1 of a signup: keep the checked form until the person confirms the address.
+ * Re-submitting with the same address replaces the earlier one (new token, new 24h).
+ */
+export async function savePending(db, dropId, value, now) {
+  return db
+    .prepare(
+      `INSERT INTO pending_signups (drop_id, token, email, payload, created_at) VALUES (?, ?, ?, ?, ?)
+       ON CONFLICT (drop_id, email) DO UPDATE SET token = excluded.token, payload = excluded.payload, created_at = excluded.created_at
+       RETURNING *`,
+    )
+    .bind(dropId, randomToken(), value.email, JSON.stringify(value), now)
+    .first();
+}
+
+export async function findPending(db, token, now) {
+  const row = await db.prepare('SELECT * FROM pending_signups WHERE token = ?').bind(token).first();
+  if (!row || row.created_at <= now - PENDING_TTL) return null;
+  return row;
+}
+
+/**
+ * Step 2: the button in the confirmation mail. Only now the signup gets its position.
+ * Throws SignupError (duplicate / closed / cancelled / ...) like insertSignup.
+ * @returns {{ drop, signup, waitingRank, mails, counts }}  mails = receipt + any transition mails
+ */
+export async function confirmSignup(env, pending, now) {
+  const db = env.DB;
+  const drop = await getDrop(db, pending.drop_id);
+  if (!drop) throw new SignupError('not_found', 404, 'このドロップは見つかりません。');
+  if (drop.status === 'cancelled') throw new SignupError('cancelled', 410, 'このドロップは中止になりました。');
+  if (drop.status === 'made' || drop.deadline <= now) {
+    throw new SignupError('closed', 410, 'このドロップの申込みは締め切りました。');
+  }
+
+  let result;
+  try {
+    result = await insertSignup(db, drop, JSON.parse(pending.payload), now);
+  } catch (err) {
+    if (err instanceof SignupError && err.code === 'duplicate') {
+      await db.prepare('DELETE FROM pending_signups WHERE id = ?').bind(pending.id).run();
+    }
+    throw err;
+  }
+  await db.prepare('DELETE FROM pending_signups WHERE id = ?').bind(pending.id).run();
+
+  // Apply transitions now (e.g. this was #30 -> paying + invites).
+  const hk = await housekeep(env, drop.id, now);
+  const current = hk.drop || drop;
+  // Invited straight away (this was #30, or a slot was free while paying): the payment mail is the receipt.
+  const invitedNow = hk.mails.some((m) => m.to === result.signup.email);
+  const signup = invitedNow ? { ...result.signup, state: 'invited' } : result.signup;
+  const mails = invitedNow
+    ? hk.mails
+    : [receiptMail(env, current, signup, { waitingRank: result.waitingRank }), ...hk.mails];
+  const counts = await getCounts(db, drop.id);
+  return { drop: current, signup, waitingRank: result.waitingRank, mails, counts };
 }
 
 /**
@@ -182,7 +251,7 @@ export async function housekeep(env, dropId, now) {
          AND (SELECT status FROM drops WHERE id = ?) = 'paying'
        RETURNING *`,
     )
-    .bind(now, dropId, now - PAY_WINDOW, dropId)
+    .bind(now, dropId, now - PAY_WINDOW - EXPIRE_GRACE, dropId)
     .all();
 
   // 4) free slots -> promote earliest waiting. The LIMIT is computed inside the
@@ -207,8 +276,22 @@ export async function housekeep(env, dropId, now) {
   // 5) all cap paid -> made (normally done by the webhook; repeated here for safety)
   await markMadeIfComplete(db, dropId);
 
-  // housekeeping of the rate-limit table
+  // 6) after the deadline nobody new can sign up. Once nobody is left to pay (no invited,
+  //    no waiting), make it with the people who paid -- or cancel if nobody paid.
+  await db
+    .prepare(
+      `UPDATE drops SET status = CASE
+           WHEN (SELECT COUNT(*) FROM signups WHERE drop_id = ? AND state = 'paid') > 0 THEN 'made'
+           ELSE 'cancelled' END
+       WHERE id = ? AND status = 'paying' AND deadline <= ?
+         AND NOT EXISTS (SELECT 1 FROM signups WHERE drop_id = ? AND state IN ('invited','waiting','reserved'))`,
+    )
+    .bind(dropId, dropId, now, dropId)
+    .run();
+
+  // housekeeping of the rate-limit table and unconfirmed signups
   await db.prepare('DELETE FROM rate_limits WHERE created_at < ?').bind(now - DAY).run();
+  await db.prepare('DELETE FROM pending_signups WHERE created_at < ?').bind(now - PENDING_TTL).run();
 
   drop = await getDrop(db, dropId);
   for (const s of invited.results || []) mails.push(inviteMail(env, drop, s));

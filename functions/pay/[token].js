@@ -41,6 +41,11 @@ const PAGES = {
     title: 'このドロップは中止になりました',
     lines: ['締め切りまでに人数がそろわなかったため、中止になりました。', 'お金は一切いただいていません。'],
   },
+  full: {
+    status: 410,
+    title: '30着そろいました',
+    lines: ['このドロップは、ほかの方のお支払いで枠が埋まりました。', 'お金は一切いただいていません。'],
+  },
   error: {
     status: 502,
     title: 'お支払いのページを開けませんでした',
@@ -69,6 +74,7 @@ export async function onRequestGet(context) {
   const drop = await getDrop(env.DB, s.drop_id);
   if (!drop) return page('not_found');
   if (drop.status === 'cancelled') return page('cancelled');
+  if (drop.status === 'made') return page('full');
 
   // Reuse an open session so repeated clicks don't create parallel checkouts.
   if (s.checkout_url && Number(s.checkout_expires_at) > now + 120) {

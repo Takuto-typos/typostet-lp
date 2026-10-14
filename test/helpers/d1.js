@@ -74,13 +74,13 @@ export class D1Shim {
   }
 }
 
-export function createDb({ seed = true } = {}) {
+export function createDb({ seed = true, realCap = false } = {}) {
   const d1 = new D1Shim();
   for (const f of readdirSync(MIGRATIONS).filter((n) => n.endsWith('.sql')).sort()) {
     if (!seed && /seed/.test(f)) continue;
     runSql(d1.sqlite, readFileSync(join(MIGRATIONS, f), 'utf8'));
   }
   // テストは「定員20」の固定条件で流れを確かめる(本番の定員は seed の値。DROP 02 は 30)
-  if (seed) runSql(d1.sqlite, "UPDATE drops SET cap = 20 WHERE id = 'uni-01';");
+  if (seed && !realCap) runSql(d1.sqlite, "UPDATE drops SET cap = 20 WHERE id = 'uni-01';");
   return d1;
 }

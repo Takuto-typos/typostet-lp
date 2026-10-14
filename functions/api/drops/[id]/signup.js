@@ -1,42 +1,17 @@
-// POST /api/drops/:id/signup
-// Accepts JSON or form-encoded. JSON clients get JSON; plain HTML form posts
-// get a 303 redirect back to the top page with ?signup=... (see functions/README.md).
+// POST /api/drops/:id/signup  (step 1 of 2)
+// Accepts JSON or form-encoded. Checks the form, keeps it as a pending signup and mails a
+// confirmation link. The signup is only counted (and gets its position) when the button on
+// /confirm/:token is pressed, so nobody can fill the 30 slots with other people's addresses.
+// The answer is the same for every valid address (no way to tell who has already signed up).
+// JSON clients get JSON; plain HTML form posts get a 303 back to /?signup=pending#join.
 
-import { getCounts, getDrop, housekeep, insertSignup, isRateLimited, receiptMail, SignupError } from '../../../_lib/drops.js';
-import { sendMails } from '../../../_lib/mail.js';
+import { getDrop, isRateLimited, savePending } from '../../../_lib/drops.js';
+import { confirmSignupMail, sendMails } from '../../../_lib/mail.js';
+import { readBody, wantsJson } from '../../../_lib/request.js';
 import { validateSignup } from '../../../_lib/validate.js';
 import { background, isValidDropId, json, nowSec } from '../../../_lib/util.js';
 
-const MAX_BODY = 8 * 1024;
-
-async function readBody(request) {
-  const len = Number(request.headers.get('content-length') || 0);
-  if (len > MAX_BODY) return null;
-  const type = (request.headers.get('content-type') || '').toLowerCase();
-  try {
-    if (type.includes('application/json')) {
-      const text = await request.text();
-      if (text.length > MAX_BODY) return null;
-      const data = JSON.parse(text);
-      return data && typeof data === 'object' && !Array.isArray(data) ? data : null;
-    }
-    if (type.includes('application/x-www-form-urlencoded') || type.includes('multipart/form-data')) {
-      const form = await request.formData();
-      const out = {};
-      for (const [k, v] of form.entries()) if (typeof v === 'string') out[k] = v;
-      return out;
-    }
-  } catch {
-    return null;
-  }
-  return null;
-}
-
-function wantsJson(request) {
-  const type = (request.headers.get('content-type') || '').toLowerCase();
-  const accept = (request.headers.get('accept') || '').toLowerCase();
-  return type.includes('application/json') || accept.includes('application/json');
-}
+export const PENDING_MESSAGE = '確認のメールを送りました。メールのリンクから「申込みを確定する」を押すと、申込みが確定します。';
 
 export async function onRequestPost(context) {
   const { request, env, params } = context;
@@ -46,16 +21,14 @@ export async function onRequestPost(context) {
 
   const respond = (status, payload) => {
     if (asJson) return json(payload, status);
-    const q = payload.ok
-      ? `signup=${encodeURIComponent(payload.state)}&n=${encodeURIComponent(payload.state === 'waiting' ? payload.waiting_rank : payload.position)}`
-      : `signup=error&reason=${encodeURIComponent(payload.error)}`;
-    return new Response(null, { status: 303, headers: { location: `/?${q}#drop`, 'cache-control': 'no-store' } });
+    const q = payload.ok ? 'signup=pending' : `signup=error&reason=${encodeURIComponent(payload.error)}`;
+    return new Response(null, { status: 303, headers: { location: `/?${q}#join`, 'cache-control': 'no-store' } });
   };
 
   if (!isValidDropId(id)) return respond(404, { ok: false, error: 'not_found', message: 'このドロップは見つかりません。' });
 
   const ip = request.headers.get('cf-connecting-ip') || '';
-  if (await isRateLimited(env.DB, ip, now)) {
+  if (await isRateLimited(env.DB, ip, now, env.ADMIN_KEY)) {
     return respond(429, {
       ok: false,
       error: 'rate_limited',
@@ -81,36 +54,14 @@ export async function onRequestPost(context) {
     return respond(422, { ok: false, error: 'invalid', message: '入力内容を確認してください。', fields: v.fields });
   }
 
-  let result;
+  let pending;
   try {
-    result = await insertSignup(env.DB, drop, v.value, now);
+    pending = await savePending(env.DB, drop.id, v.value, now);
   } catch (err) {
-    if (err instanceof SignupError) return respond(err.status, { ok: false, error: err.code, message: err.message });
-    console.error('signup insert failed:', err?.message || err);
+    console.error('pending signup save failed:', err?.message || err);
     return respond(500, { ok: false, error: 'server_error', message: '申込みを保存できませんでした。時間をおいてもう一度お試しください。' });
   }
 
-  const { signup, waitingRank } = result;
-
-  // Apply transitions now (e.g. this was #20 -> status paying + invites),
-  // send all emails in the background.
-  const hk = await housekeep(env, id, now);
-  const mails = [receiptMail(env, hk.drop || drop, signup, { waitingRank }), ...hk.mails];
-  await background(context, sendMails(env, mails));
-
-  const counts = await getCounts(env.DB, id);
-  return respond(201, {
-    ok: true,
-    state: signup.state,
-    position: signup.position,
-    waiting_rank: waitingRank,
-    count: Math.min(counts.active, drop.cap),
-    cap: drop.cap,
-    waiting: counts.waiting,
-    status: hk.drop?.status || drop.status,
-    message:
-      signup.state === 'waiting'
-        ? `補欠の${waitingRank}番目で受け付けました。確認のメールをお送りしました。`
-        : `${signup.position}番目で受け付けました。確認のメールをお送りしました。`,
-  });
+  await background(context, sendMails(env, [confirmSignupMail(env, drop, pending)]));
+  return respond(202, { ok: true, state: 'pending', message: PENDING_MESSAGE });
 }

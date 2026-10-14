@@ -1,4 +1,4 @@
-// POST /api/subscribe — 新着 stet を受け取る
+// POST /api/subscribe — 新着 stet を受け取る (step 1: mails a confirmation link; /news/:token confirms)
 // Accepts JSON or form-encoded { email, website (honeypot), source? }.
 // JSON clients get JSON; plain HTML form posts get a 303 back to /?subscribe=ok#news (or =error).
 // The answer is the same whether or not the address was already on the list.
@@ -9,7 +9,7 @@ import { readBody, wantsJson } from '../_lib/request.js';
 import { subscribe, validateSubscribe } from '../_lib/subscribers.js';
 import { background, json, nowSec } from '../_lib/util.js';
 
-export const SUBSCRIBED_MESSAGE = '登録しました。新しいデザインが出たら、このアドレスにお知らせします。';
+export const SUBSCRIBED_MESSAGE = '確認のメールを送りました。メールのリンクから「登録する」を押すと、登録が終わります。';
 
 export async function onRequestPost(context) {
   const { request, env } = context;
@@ -24,7 +24,7 @@ export async function onRequestPost(context) {
 
   // Separate bucket from the signup limit (same 5 per 10 minutes rule).
   const ip = request.headers.get('cf-connecting-ip') || '';
-  if (await isRateLimited(env.DB, `subscribe:${ip}`, now)) {
+  if (await isRateLimited(env.DB, `subscribe:${ip}`, now, env.ADMIN_KEY)) {
     return respond(429, {
       ok: false,
       error: 'rate_limited',

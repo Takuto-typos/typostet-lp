@@ -34,17 +34,26 @@ test('signup: JSON and form-encoded; receipt mail sent', async () => {
   assert.equal(body.position, 1);
   assert.equal(body.count, 1);
 
-  res = await h.signup(person(2), { form: true, ip: '198.51.100.99' });
+  // plain HTML form: step 1 redirects back to the page; nothing is counted until confirmed
+  res = await h.submit(person(2), { form: true, ip: '198.51.100.99' });
   assert.equal(res.status, 303);
-  assert.equal(res.headers.get('location'), '/?signup=reserved&n=2#drop');
+  assert.equal(res.headers.get('location'), '/?signup=pending#join');
+  assert.equal((await h.signupRows()).length, 1);
+  const pending = await h.env.DB.prepare("SELECT * FROM pending_signups WHERE email = 'user2@example.com'").first();
+  res = await h.confirm(pending.token);
+  assert.equal(res.status, 201);
+  assert.equal((await res.json()).position, 2);
 
   res = await h.signup(person(3), { form: true, ip: '198.51.100.98', accept: 'application/json' });
   assert.equal(res.status, 201);
 
   const m = h.mails();
-  assert.equal(m.length, 3);
+  assert.equal(m.length, 6); // confirmation + receipt for each of the 3
   assert.equal(m[0].to, 'user1@example.com');
-  assert.match(m[0].subject, /申込みを受け付けました/);
+  assert.match(m[0].subject, /申込みの確認/);
+  assert.match(m[0].text, /https:\/\/typostet\.test\/confirm\/[A-Za-z0-9_-]{32}/);
+  assert.doesNotMatch(m[0].text, /テスト 1/, 'the confirmation mail carries no typed name');
+  assert.match(m[1].subject, /申込みを受け付けました/);
   const row = (await h.signupRows())[0];
   assert.match(row.token, /^[A-Za-z0-9_-]{32}$/);
   assert.equal(row.amount, 8800);
@@ -91,11 +100,13 @@ test('#20 flips status to paying and invites all 20; #21 is waiting', async () =
   assert.ok(rows.every((r) => r.state === 'invited' && r.invited_at === T0));
   assert.deepEqual(rows.map((r) => r.position), Array.from({ length: 20 }, (_, i) => i + 1));
 
-  // receipt for #20 + 20 invitations, sent through the batch endpoint
-  assert.equal(h.calls.resend.length, 1);
-  assert.match(h.calls.resend[0].url, /\/emails\/batch$/);
+  // #20's confirmation mail, then 20 invitations through the batch endpoint
+  // (#20 is invited straight away, so the invitation is its receipt)
+  assert.equal(h.calls.resend.length, 2);
+  assert.match(h.calls.resend[1].url, /\/emails\/batch$/);
   const m = h.mails();
   assert.equal(m.length, 21);
+  assert.match(m[0].subject, /申込みの確認/);
   const invites = m.filter((x) => /お支払いのご案内/.test(x.subject));
   assert.equal(invites.length, 20);
   assert.equal(new Set(invites.map((x) => x.to)).size, 20);
@@ -115,7 +126,7 @@ test('#20 flips status to paying and invites all 20; #21 is waiting', async () =
   const body = await (await h.getDrop()).json();
   assert.equal(body.count, 20);
   assert.equal(body.waiting, 1);
-  assert.match(h.mails()[0].subject, /補欠で受け付けました/);
+  assert.ok(h.mails().some((x) => /補欠で受け付けました/.test(x.subject)));
 });
 
 test('ordering is race-safe: concurrent inserts never produce two #20s', async () => {
@@ -143,7 +154,7 @@ test('unpaid after 7 days -> expired; earliest waiting promoted', async () => {
   await h.getDrop();
   assert.equal(h.mails().length, 0, 'nothing due yet');
 
-  h.clock.now = T0 + 7 * DAY + 5;
+  h.clock.now = T0 + 7 * DAY + 3600 + 61; // 1h grace after the 7 days; page views housekeep at most once a minute
   await h.getDrop();
   const after = await h.signupRows();
   assert.equal(after[18].state, 'expired');

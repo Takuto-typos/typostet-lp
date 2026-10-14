@@ -3,6 +3,8 @@
 import { createDb } from './d1.js';
 import { onRequestGet as getDropHandler } from '../../functions/api/drops/[id]/index.js';
 import { onRequestPost as signupHandler } from '../../functions/api/drops/[id]/signup.js';
+import { onRequestGet as confirmGetHandler, onRequestPost as confirmPostHandler } from '../../functions/confirm/[token].js';
+import { onRequestGet as newsGetHandler, onRequestPost as newsPostHandler } from '../../functions/news/[token].js';
 import { onRequestGet as payHandler } from '../../functions/pay/[token].js';
 import { onRequestPost as webhookHandler } from '../../functions/api/stripe/webhook.js';
 import { onRequestGet as adminHandler } from '../../functions/admin.js';
@@ -80,7 +82,28 @@ export function setup({ resend = true } = {}) {
     async getDrop(id = 'uni-01') {
       return invoke(getDropHandler, new Request(`https://x/api/drops/${id}`), { id });
     },
-    async signup(fields, { id = 'uni-01', ip = '203.0.113.1', form = false, accept } = {}) {
+    /**
+     * Full signup as a person does it: submit the form, then press the button in the
+     * confirmation mail. Returns the confirm response (JSON), or the submit response if
+     * the submit was refused. Pass { confirm: false } to only submit.
+     */
+    async signup(fields, opts = {}) {
+      const res = await api.submit(fields, opts);
+      if (opts.confirm === false || res.status !== 202) return res;
+      const email = String(fields.email || '').trim().toLowerCase();
+      const p = await env.DB.prepare('SELECT token FROM pending_signups WHERE email = ? ORDER BY id DESC').bind(email).first();
+      return api.confirm(p.token);
+    },
+    async confirm(token, { method = 'POST', json = true } = {}) {
+      const handler = method === 'POST' ? confirmPostHandler : confirmGetHandler;
+      const headers = json ? { accept: 'application/json' } : {};
+      return invoke(handler, new Request(`https://x/confirm/${token}`, { method, headers }), { token });
+    },
+    async news(token, { method = 'POST' } = {}) {
+      const handler = method === 'POST' ? newsPostHandler : newsGetHandler;
+      return invoke(handler, new Request(`https://x/news/${token}`, { method }), { token });
+    },
+    async submit(fields, { id = 'uni-01', ip = '203.0.113.1', form = false, accept } = {}) {
       const headers = { 'cf-connecting-ip': ip };
       let body;
       if (form) {
@@ -107,7 +130,19 @@ export function setup({ resend = true } = {}) {
     async admin(query) {
       return invoke(adminHandler, new Request(`https://x/admin?${query}`));
     },
-    async subscribe(fields, { ip = '203.0.113.50', form = false, accept } = {}) {
+    /**
+     * Subscribe as a person does it: submit, then press the button in the confirmation mail.
+     * Returns the submit response. Pass { confirm: false } to only submit.
+     */
+    async subscribe(fields, opts = {}) {
+      const res = await api.subscribeSubmit(fields, opts);
+      if (opts.confirm === false || !(res.status === 200 || res.status === 303)) return res;
+      const email = String(fields.email || '').trim().toLowerCase();
+      const row = await env.DB.prepare('SELECT token FROM subscribers WHERE email = ?').bind(email).first();
+      if (row) await api.news(row.token);
+      return res;
+    },
+    async subscribeSubmit(fields, { ip = '203.0.113.50', form = false, accept } = {}) {
       const headers = { 'cf-connecting-ip': ip };
       let body;
       if (form) {

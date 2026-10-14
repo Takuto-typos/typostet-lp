@@ -1,6 +1,7 @@
 // トップページの「今○人」と申込みフォーム。数字は API の実数だけを出す(取れなければ「–」のまま)。
 (() => {
   const DROP = 'uni-01';
+  // 初期値。API が返す値(DB の値)が届いたら、そちらで上書きする
   const CAP = 30;
   const PRICE = { base: 8800, long: 1000, name: 1000, ship: 600 };
   const DEADLINE = new Date('2026-11-30T23:59:59+09:00');
@@ -23,6 +24,7 @@
     cancelled: '中止しました',
   };
 
+  const form = $('form');
   const setCta = (main, sub) => {
     const cta = $('cta');
     cta.textContent = main;
@@ -30,6 +32,11 @@
   };
 
   function render(d) {
+    if (Number.isInteger(d.price)) PRICE.base = d.price;
+    if (Number.isInteger(d.shipping)) PRICE.ship = d.shipping;
+    if (Number.isInteger(d.options?.sleeve?.long)) PRICE.long = d.options.sleeve.long;
+    if (Number.isInteger(d.options?.back_name)) PRICE.name = d.options.back_name;
+    calc();
     const n = Math.min(d.count ?? 0, CAP);
     $('count').textContent = n;
     // 1つずつ埋める(控えめに)
@@ -55,14 +62,13 @@
     .catch(() => { /* 取れなければ「–」のまま。嘘の数字は出さない */ });
 
   // 合計金額
-  const form = $('form');
-  const calc = () => {
+  function calc() {
     const f = new FormData(form);
     let t = PRICE.base + PRICE.ship;
     if (f.get('sleeve') === 'long') t += PRICE.long;
     if ((f.get('back_name') || '').trim()) t += PRICE.name;
     $('total').textContent = yen(t);
-  };
+  }
   form.addEventListener('input', calc);
   calc();
 
@@ -95,21 +101,15 @@
       const d = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error((d.fields && Object.values(d.fields)[0]) || d.message || 'うまく送れませんでした。時間をおいてもう一度お試しください。');
 
-      const pos = d.position ?? d.signup?.position;
-      const waiting = (d.state ?? d.signup?.state) === 'waiting';
+      // まだ確定していない。届いたメールのリンクから「申込みを確定する」を押すと順番が決まる
       form.hidden = true;
       const res = $('result');
-      if (waiting) {
-        $('r-eyebrow').textContent = '補欠で受け付けました';
-        $('r-pos').textContent = d.waiting_rank ? `補欠 ${d.waiting_rank}番目` : '補欠';
-        $('r-msg').textContent = 'お支払いの期限までに払わなかった方が出たら、順番にメールでご案内します。';
-      } else {
-        $('r-pos').textContent = pos ? `${pos}番目` : '';
-        $('r-msg').textContent = '確認のメールを送りました。30人そろったら、お支払いのご案内をお送りします。';
-      }
+      $('r-eyebrow').textContent = 'あと1歩です';
+      $('r-pos').textContent = 'メールを見てください';
+      $('r-pos').classList.add('txt');
+      $('r-msg').textContent = `${form.email.value} に確認のメールを送りました。メールのリンクから「申込みを確定する」を押すと、申込みが確定して順番が決まります。届かないときは迷惑メールのフォルダも見てみてください。`;
       res.classList.add('show');
       res.focus();
-      fetch(`/api/drops/${DROP}`).then(r => r.json()).then(render).catch(() => {});
     } catch (x) {
       err.textContent = x.message;
       btn.disabled = false;

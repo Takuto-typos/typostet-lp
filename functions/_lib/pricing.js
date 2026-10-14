@@ -11,7 +11,7 @@ export function parseOptions(drop) {
   }
   raw = raw && typeof raw === 'object' ? raw : {};
   return {
-    sizes: Array.isArray(raw.sizes) && raw.sizes.length ? raw.sizes : ['XS', 'S', 'M', 'L', 'XL'],
+    sizes: Array.isArray(raw.sizes) && raw.sizes.length ? raw.sizes : ['120', '130', '140', '150', '160', 'SS', 'S', 'M', 'L', 'O', 'XO', '2XO', '3XO'],
     sleeve: raw.sleeve && typeof raw.sleeve === 'object' ? raw.sleeve : { short: 0 },
     back_name: Number.isInteger(raw.back_name) ? raw.back_name : 0,
   };

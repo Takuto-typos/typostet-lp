@@ -1,4 +1,4 @@
-// All emails for the 20-drop flow + the 新着のお知らせ list, and the Resend senders.
+// All emails for the 30-person drop flow + the 新着のお知らせ list, and the Resend senders.
 // Copy rules: です・ます調 / 普通の話し言葉 / 短く / 煽らない / 絵文字なし.
 
 import { calcPrice, describeChoice } from './pricing.js';
@@ -25,10 +25,13 @@ function payLink(env, s) {
   return `${siteUrl(env)}/pay/${s.token}`;
 }
 
-/** Plain text -> minimal HTML (escaped, line breaks, links clickable). */
+// Only our own links become clickable (never text a visitor typed, e.g. a name).
+const OWN_LINK_RE = /(https?:\/\/(?:typostet\.com|typostet\.test|localhost(?::\d+)?)(?:\/[^\s<]*)?)/g;
+
+/** Plain text -> minimal HTML (escaped, line breaks, our own links clickable). */
 export function textToHtml(text) {
   const body = escapeHtml(text)
-    .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1">$1</a>')
+    .replace(OWN_LINK_RE, '<a href="$1">$1</a>')
     .replace(/\n/g, '<br>\n');
   return `<!doctype html><html lang="ja"><body style="font-family:-apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;font-size:15px;line-height:1.8;color:#1a1a1a;max-width:560px;margin:0 auto;padding:24px;">${body}</body></html>`;
 }
@@ -36,6 +39,32 @@ export function textToHtml(text) {
 function build(env, to, subject, lines, idempotencyKey) {
   const text = [...lines, footer(env)].join('\n');
   return { to, subject, text, html: textToHtml(text), idempotencyKey };
+}
+
+// ---------------------------------------------------------------------------
+// 0. 申込みの確認(ボタンを押したら申込みが確定して順番が決まる)。名前は入れない
+// ---------------------------------------------------------------------------
+export function confirmSignupMail(env, drop, pending) {
+  const value = JSON.parse(pending.payload);
+  return build(
+    env,
+    pending.email,
+    `申込みの確認(${drop.name})`,
+    [
+      'TYP0stet です。',
+      '',
+      `${drop.name} の申込みを確定する前に、メールアドレスの確認をお願いします。`,
+      '下のリンクを開いて「申込みを確定する」を押すと、申込みが確定して順番が決まります。',
+      '',
+      `${siteUrl(env)}/confirm/${pending.token}`,
+      '',
+      'リンクの有効期限は24時間です。',
+      'このメールに心当たりがない場合は、何もしなくて大丈夫です。申込みにはなりません。',
+      '',
+      summary(drop, value),
+    ],
+    `confirm-${pending.id}-${pending.created_at}`,
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -87,7 +116,7 @@ export function receiptMail(env, drop, s, { waitingRank } = {}) {
 }
 
 // ---------------------------------------------------------------------------
-// 2. 20人そろいました・支払いのお願い
+// 2. 30人そろいました・支払いのお願い
 // ---------------------------------------------------------------------------
 export function inviteMail(env, drop, s) {
   const due = Number(s.invited_at) + PAY_WINDOW;
@@ -251,21 +280,23 @@ function listMail(env, sub, subject, lines, idempotencyKey) {
   };
 }
 
-export function welcomeMail(env, sub) {
-  return listMail(
+// 新着のお知らせの登録確認。ボタンを押すまで配信先に入れない(特定電子メール法の同意の確認)
+export function newsConfirmMail(env, sub, now) {
+  return build(
     env,
-    sub,
-    '新着のお知らせに登録しました(TYP0stet)',
+    sub.email,
+    '新着のお知らせの登録確認(TYP0stet)',
     [
       'TYP0stet です。',
       '',
-      '新着のお知らせに登録しました。',
-      '新しいデザインが出たら、このアドレスにお知らせします。',
-      '送るのは、新しいドロップが始まるときだけです。',
+      '新着のお知らせの登録を受け付ける前に、メールアドレスの確認をお願いします。',
+      '下のリンクを開いて「登録する」を押すと、登録が終わります。',
       '',
-      'このメールに心当たりがない場合は、下のリンクから止めてください。',
+      `${siteUrl(env)}/news/${sub.token}`,
+      '',
+      'このメールに心当たりがない場合は、何もしなくて大丈夫です。登録されません。',
     ],
-    `welcome-${sub.id}-${sub.unsubscribed_at || sub.created_at}`,
+    `news-confirm-${sub.id}-${now}`,
   );
 }
 
@@ -294,9 +325,37 @@ export function dropAnnounceMail(env, drop, sub) {
 // Sender (Resend REST API). Without RESEND_API_KEY, prints to console (local dev).
 // ---------------------------------------------------------------------------
 function toResend(m) {
-  const out = { from: FROM, reply_to: 'info@typostet.com', to: [m.to], subject: m.subject, text: m.text, html: m.html };
+  const out = { from: FROM, reply_to: CONTACT_EMAIL, to: [m.to], subject: m.subject, text: m.text, html: m.html };
   if (m.headers) out.headers = m.headers;
   return out;
+}
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/** POST to Resend, retrying network errors, 429 and 5xx (3 tries). Returns the last Response. */
+async function postResend(fetchImpl, path, headers, body) {
+  let lastErr;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    if (attempt) await sleep(600 * 3 ** (attempt - 1));
+    try {
+      const res = await fetchImpl(`${RESEND_URL}${path}`, { method: 'POST', headers, body });
+      if (res.ok || (res.status < 500 && res.status !== 429)) return res;
+      lastErr = new Error(`resend ${path} ${res.status}: ${(await res.text()).slice(0, 200)}`);
+    } catch (err) {
+      lastErr = err;
+    }
+  }
+  throw lastErr;
+}
+
+async function sendOne(fetchImpl, headers, m) {
+  const res = await postResend(
+    fetchImpl,
+    '/emails',
+    m.idempotencyKey ? { ...headers, 'idempotency-key': m.idempotencyKey } : headers,
+    JSON.stringify(toResend(m)),
+  );
+  if (!res.ok) throw new Error(`resend ${res.status}: ${(await res.text()).slice(0, 200)}`);
 }
 
 export async function sendMails(env, mails, fetchImpl = fetch) {
@@ -315,35 +374,44 @@ export async function sendMails(env, mails, fetchImpl = fetch) {
     'content-type': 'application/json',
   };
   let sent = 0;
-  try {
-    if (list.length === 1) {
-      const m = list[0];
-      const res = await fetchImpl(`${RESEND_URL}/emails`, {
-        method: 'POST',
-        headers: m.idempotencyKey ? { ...headers, 'idempotency-key': m.idempotencyKey } : headers,
-        body: JSON.stringify(toResend(m)),
-      });
-      if (!res.ok) throw new Error(`resend ${res.status}: ${(await res.text()).slice(0, 200)}`);
+  const failed = [];
+  if (list.length === 1) {
+    try {
+      await sendOne(fetchImpl, headers, list[0]);
       sent = 1;
-    } else {
-      // Batch endpoint (max 100 per call) keeps us under Resend's per-second rate limit.
-      for (let i = 0; i < list.length; i += 100) {
-        const chunk = list.slice(i, i + 100);
-        const res = await fetchImpl(`${RESEND_URL}/emails/batch`, {
-          method: 'POST',
-          headers,
-          body: JSON.stringify(chunk.map(toResend)),
-        });
-        if (!res.ok) throw new Error(`resend batch ${res.status}: ${(await res.text()).slice(0, 200)}`);
+    } catch (err) {
+      failed.push([list[0], err]);
+    }
+  } else {
+    // Batch endpoint (max 100 per call) keeps us under Resend's per-second rate limit.
+    // If a whole batch is refused (e.g. one bad address), send that chunk one by one so
+    // a single problem can't lose everybody's mail (the 30 payment links go out together).
+    for (let i = 0; i < list.length; i += 100) {
+      const chunk = list.slice(i, i + 100);
+      let ok = false;
+      try {
+        const res = await postResend(fetchImpl, '/emails/batch', headers, JSON.stringify(chunk.map(toResend)));
+        ok = res.ok;
+        if (!ok) console.error(`resend batch ${res.status}: ${(await res.text()).slice(0, 200)}`);
+      } catch (err) {
+        console.error('resend batch failed:', err?.message || err);
+      }
+      if (ok) {
         sent += chunk.length;
+        continue;
+      }
+      for (const m of chunk) {
+        try {
+          await sendOne(fetchImpl, headers, m);
+          sent += 1;
+        } catch (err) {
+          failed.push([m, err]);
+        }
       }
     }
-  } catch (err) {
-    console.error(
-      'mail send failed:',
-      err?.message || err,
-      list.map((m) => `${maskEmail(m.to)} "${m.subject}"`).join(', '),
-    );
+  }
+  for (const [m, err] of failed) {
+    console.error('mail send failed:', err?.message || err, `${maskEmail(m.to)} "${m.subject}"`);
   }
   return { sent };
 }

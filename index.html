@@ -230,9 +230,11 @@ legend{font-size:14px;margin-bottom:6px;padding:0}
 .total{font-size:15px;color:#d6d6d6}
 .total b{font-family:var(--num);font-size:24px;color:#fff}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+[hidden]{display:none !important}
 .result{display:none;background:var(--ink-2);border:1px solid var(--mint);border-radius:8px;padding:24px;max-width:560px}
 .result.show{display:block}
 .result .big{font-family:var(--num);font-weight:800;font-size:56px;color:var(--mint);line-height:1}
+.result .big.txt{font-family:inherit;font-size:26px;line-height:1.4}
 .err{color:#ff9c8a;font-size:14px;min-height:1em;margin:0}
 
 /* record */
@@ -328,7 +330,7 @@ footer a{text-decoration:none}
         <div class="n"><b id="count">–</b><span>/ 30人</span></div>
         <p class="label">いま申し込んでいる人</p>
         <div class="dots" id="dots" aria-hidden="true"></div>
-        <p class="dl">締め切り <b>11.30</b>(日)<span id="left"></span></p>
+        <p class="dl">締め切り <b>11.30</b>(月)<span id="left"></span></p>
         <a class="btn" href="#join" id="cta">申し込む<small>まだお金はかかりません</small></a>
         <p class="note">集まらなければ中止します。そのときもお金はかかりません。</p>
       </div>
@@ -365,7 +367,7 @@ footer a{text-decoration:none}
   <div class="wrap">
     <ul class="wear__list">
       <li><img src="/img/wear/after-game.jpg" alt="個サルのあと、ユニ。を着て話す2人" width="660" height="825" loading="lazy"></li>
-      <li><img src="/img/wear/naha-street.jpg" alt="那覇の路地を、ユニ。にチノパンを合わせて歩く人" width="1000" height="1241" loading="lazy"></li>
+      <li><img src="/img/wear/naha-street.jpg" alt="那覇の路地を、ユニ。にチノパンを合わせて歩く人" width="800" height="993" loading="lazy"></li>
       <li><img src="/img/wear/fabric.jpg" alt="ユニ。の襟と、生地の校正記号のアップ" width="1000" height="1000" loading="lazy"></li>
     </ul>
     <p class="wear__note">イメージ</p>
@@ -392,7 +394,7 @@ footer a{text-decoration:none}
     <p class="eyebrow">How it works</p>
     <h2 class="sec">しくみ</h2>
     <ol class="steps">
-      <li class="rv"><h3>申し込む</h3><p>メールアドレスとサイズ、背番号を送ります。お金はまだかかりません。</p></li>
+      <li class="rv"><h3>申し込む</h3><p>メールアドレスとサイズ、背番号を送ります。届いたメールのリンクから確定すると、順番が決まります。お金はまだかかりません。</p></li>
       <li class="rv"><h3>30人そろう</h3><p>そろったらメールが届きます。7日以内にお支払いください。払わなかった人の分は、補欠の人に回ります。</p></li>
       <li class="rv"><h3>作って届ける</h3><p>30人分をまとめて作り、お届けします。</p></li>
     </ol>
@@ -488,7 +490,7 @@ footer a{text-decoration:none}
     <h2 class="sec">これまでのドロップ</h2>
     <p style="margin:-8px 0 24px;color:var(--sub);font-size:15px">終わったデザインは、もう作らない。ここに並べていく。</p>
     <ol class="rec">
-      <li><img src="/img/shirts/mint-front.jpg" alt="" width="64" height="64" loading="lazy"><span class="no">01</span><span class="nm">Stet Frend MINT<small>Tシャツ。Friend の綴り間違いを、そのまま名前にした</small></span><span class="st">終了</span></li>
+      <li><img src="/img/shirts/mint-front-thumb.jpg" alt="" width="64" height="64" loading="lazy"><span class="no">01</span><span class="nm">Stet Frend MINT<small>Tシャツ。Friend の綴り間違いを、そのまま名前にした</small></span><span class="st">終了</span></li>
       <li><img src="/img/practice/ink-c.jpg" alt="" width="64" height="64" loading="lazy"><span class="no">02</span><span class="nm">ユニ。INK BLACK<small>ユニフォーム</small></span><span class="st" id="rec-02">募集中</span></li>
       <li class="empty"><span class="ph"></span><span class="no">03</span><span class="nm">つぎのデザイン</span><span class="st">準備中</span></li>
     </ol>
@@ -530,6 +532,7 @@ footer a{text-decoration:none}
     <details><summary>ほかの人と背番号がかぶってもいいですか?</summary><p>かぶっても大丈夫です。番号は申し込んだ人ごとに入れます。</p></details>
     <details><summary>チームで申し込めますか?</summary><p>申し込めます。メンバーそれぞれが、自分のメールアドレスで申し込んでください。30着のうち何着がチームになっても構いません。ただ、再販はしないので、あとからメンバーの分を足すことはできません。</p></details>
     <details><summary>公式戦で使えますか?</summary><p>大会の決まりによります。黒は審判の服と同じ色なので、使えない大会もあります。個サルや練習、普段着ならそのまま着られます。</p></details>
+    <details><summary>確認のメールが届きません</summary><p>迷惑メールのフォルダを見てみてください。届いていなければ、もう一度申し込むか、info@typostet.com までご連絡ください。</p></details>
     <details><summary>支払い方法は?</summary><p>クレジットカードです。お支払いのメールにあるリンクから払えます。</p></details>
     <details><summary>あとから同じものは買えますか?</summary><p>買えません。同じデザインは二度と作りません。</p></details>
   </div>

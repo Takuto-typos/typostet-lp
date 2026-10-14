@@ -1,4 +1,4 @@
-# functions/ — 20人集まったら作る (backend)
+# functions/ — 30人集まったら作る (backend)
 
 Cloudflare Pages Functions + D1. No framework, no runtime dependencies. Stripe and Resend are called with `fetch`.
 Spec: `../../docs/specs/2026-10-14-20-drops.md`.
@@ -8,7 +8,9 @@ Spec: `../../docs/specs/2026-10-14-20-drops.md`.
 | Route | File | What it does |
 |---|---|---|
 | `GET /api/drops/:id` | `api/drops/[id]/index.js` | `{ id, name, count, cap, waiting, deadline, status, price, shipping, options }`. Real numbers only. Runs housekeeping via `waitUntil`. |
-| `POST /api/drops/:id/signup` | `api/drops/[id]/signup.js` | JSON or form-encoded. Fields: `email`, `name`, `size` (XS–XL), `number` (1–99), `back_name` (optional, A–Z a–z space . -, max 12), `sleeve` (`short`/`long`), honeypot `website` (must be empty). |
+| `POST /api/drops/:id/signup` | `api/drops/[id]/signup.js` | Step 1. JSON or form-encoded. Fields: `email`, `name` (no URLs), `size` (one of the drop's `options.sizes`, e.g. 120–160 / SS–3XO), `number` (1–99), `number_pos` (`hem`/`chest`), `back_name` (optional, A–Z space . -, max 12, stored in capitals), `sleeve` (`short`/`long`), honeypot `website` (must be empty). Saves a pending signup and mails a confirmation link. Nothing is counted yet. |
+| `GET/POST /confirm/:token` | `confirm/[token].js` | Step 2. GET = page with a 「申込みを確定する」 button; POST = count the signup (position decided now), housekeep, send the receipt. Links expire after 24h. |
+| `GET/POST /news/:token` | `news/[token].js` | Confirms a 新着のお知らせ address (GET = button page, POST = confirm). |
 | `GET /pay/:token` | `pay/[token].js` | Creates (or reuses) a Stripe Checkout Session and 303-redirects. Otherwise a small explanation page. |
 | `POST /api/stripe/webhook` | `api/stripe/webhook.js` | `checkout.session.completed` (+ `async_payment_succeeded`) → paid + thanks mail; all paid → drop `made`. |
 | `GET /admin?key=...` | `admin.js` | Signup table. `&drop=uni-01`, `&format=csv` (UTF-8 BOM for Excel). Below it: 新着のお知らせ (active count, subscriber table, `&format=csv&view=subscribers`) and a notify form per `open` drop. |
@@ -21,21 +23,22 @@ Shared code lives in `_lib/` (`drops.js` = state machine, `mail.js` = all 8 emai
 
 ### Signup responses (for the front-end)
 
-- JSON request (or `Accept: application/json`): `201 { ok, state: "reserved"|"waiting", position, waiting_rank, count, cap, waiting, status, message }`.
-  Errors: `{ ok:false, error, message, fields? }` with 400 (bad body / honeypot), 404, 409 (`duplicate`), 410 (`closed`/`cancelled`), 422 (`invalid`, per-field messages in `fields`), 429 (`rate_limited`).
-- Plain HTML form post: `303` to `/?signup=reserved&n=7#drop`, `/?signup=waiting&n=2#drop`, or `/?signup=error&reason=duplicate#drop`.
+- Step 1, JSON request (or `Accept: application/json`): `202 { ok:true, state:"pending", message }` — the same for every valid address (no way to tell who already signed up).
+  Errors: `{ ok:false, error, message, fields? }` with 400 (bad body / honeypot), 404, 410 (`closed`/`cancelled`), 422 (`invalid`, per-field messages in `fields`), 429 (`rate_limited`).
+- Step 1, plain HTML form post: `303` to `/?signup=pending#join` or `/?signup=error&reason=...#join`.
+- Step 2 (`POST /confirm/:token`): an HTML result page. With `Accept: application/json`: `201 { ok, state: "reserved"|"waiting"|"invited", position, waiting_rank, count, cap, waiting, status, message }`, or 409 (`duplicate`) / 410.
 
 ### Subscribe responses (for the front-end)
 
-- JSON request (or `Accept: application/json`): `200 { ok:true, message:"登録しました。新しいデザインが出たら、このアドレスにお知らせします。" }`.
+- JSON request (or `Accept: application/json`): `200 { ok:true, message:"確認のメールを送りました。…" }`. The address is only mailed announcements after its owner presses 「登録する」 on `/news/:token` (double opt-in).
   The answer is identical for a new address and one that is already on the list (no mail is sent the second time), so the form can't be used to check who is subscribed.
   Errors: `{ ok:false, error, message }` with 400 (`bad_request`: unreadable body / honeypot), 422 (`invalid` email), 429 (`rate_limited`), 500.
 - Plain HTML form post: `303` to `/?subscribe=ok#news` or `/?subscribe=error#news`.
 
 ## 新着のお知らせ (mailing list)
 
-- `subscribers`: one row per address (`email UNIQUE COLLATE NOCASE`, stored lower-cased), 192-bit random `token` for the unsubscribe link, `unsubscribed_at` NULL = active.
-  New → insert + welcome mail. Already active → nothing. Unsubscribed → reactivated (same token, `created_at` kept) + welcome mail.
+- `subscribers`: one row per address (`email UNIQUE COLLATE NOCASE`, stored lower-cased), 192-bit random `token` for the confirm + unsubscribe links. Active = `confirmed_at` set AND `unsubscribed_at` NULL.
+  New → insert + confirmation mail. Already active → nothing. Not confirmed / unsubscribed → confirmation mail again; only the owner's button changes anything (same token, `created_at` kept).
 - `drop_notices (drop_id, subscriber_id)` PRIMARY KEY: a drop is announced to each person at most once. Rows are claimed with `INSERT OR IGNORE ... RETURNING` *before* each Resend batch call (≤100 mails), so two notify runs at the same time can't double-send; if Resend rejects a chunk, its claims are deleted and the run stops (press again to resume — only people still missing get it).
 - Without `RESEND_API_KEY` (local dev) the notify run only prints the mails to the console and records nothing.
 - Every list mail carries (特定電子メール法) 送信者名「TYP0stet(株式会社 Remoi)」, the address, info@typostet.com and the unsubscribe link `${SITE_URL}/unsubscribe/<token>`, plus `List-Unsubscribe: <...>` and `List-Unsubscribe-Post: List-Unsubscribe=One-Click` headers (RFC 8058; Gmail/Yahoo bulk-sender requirement).
@@ -71,7 +74,7 @@ ADMIN_KEY = "local-admin"
 STRIPE_WEBHOOK_SECRET = "whsec_local"
 # STRIPE_SECRET_KEY = "sk_test_..."   # test-mode key only
 VARS
-npm run db:migrate:local      # wrangler d1 migrations apply typostet-drops --local (0001-0003)
+npm run db:migrate:local      # wrangler d1 migrations apply typostet-drops --local (0001-0005)
 npm run dev                   # wrangler pages dev .  -> http://localhost:8788
 npm test                      # node:test + node:sqlite (Node >= 22.5), no install needed
 ```
@@ -85,3 +88,12 @@ npm test                      # node:test + node:sqlite (Node >= 22.5), no insta
 3. Set secrets in Pages (Settings → Variables and Secrets, Production): `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `RESEND_API_KEY`, `ADMIN_KEY`.
 4. Stripe Dashboard → Developers → Webhooks → add endpoint `https://typostet.com/api/stripe/webhook`, events `checkout.session.completed` and `checkout.session.async_payment_succeeded`. Copy its signing secret into `STRIPE_WEBHOOK_SECRET`.
 5. Resend: verify `typostet.com` as a sending domain (sender is `hello@typostet.com`).
+
+## Scheduled housekeeping
+
+Expiry (7 days + 1h grace), waitlist promotion and deadline cancellation run inside `housekeep()`, which runs on signups and,
+at most once a minute, on `GET /api/drops/:id`. `.github/workflows/housekeep.yml` calls that API every 30 minutes so nothing
+waits for a visitor. **When a new drop starts, change the drop id in that workflow.**
+After the deadline a `paying` drop with nobody left to pay (no invited / waiting) becomes `made` with the people who paid
+(or `cancelled` if nobody paid).
+

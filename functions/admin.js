@@ -5,7 +5,7 @@
 import { messagePage } from './_lib/page.js';
 import { SLEEVE_LABEL } from './_lib/pricing.js';
 import { countActive, listSubscribers } from './_lib/subscribers.js';
-import { escapeHtml, formatJst, html, isValidDropId, safeEqual } from './_lib/util.js';
+import { escapeHtml, formatJst, html, isValidDropId, safeEqual, siteUrl } from './_lib/util.js';
 
 const STATE_LABEL = {
   waiting: '補欠',
@@ -33,9 +33,11 @@ const COLUMNS = [
   ['paid_at', '支払い'],
   ['expired_at', '期限切れ'],
   ['stripe_session_id', 'Stripe session'],
+  ['pay_link', '支払いリンク(メールが届かない人に)'],
 ];
 
-function display(key, row) {
+function display(key, row, env) {
+  if (key === 'pay_link') return row.state === 'invited' && env ? `${siteUrl(env)}/pay/${row.token}` : '';
   const v = row[key];
   if (v === null || v === undefined || v === '') return '';
   if (key === 'state') return STATE_LABEL[v] || v;
@@ -54,6 +56,7 @@ function csvCell(value) {
 const SUB_COLUMNS = [
   ['email', 'メール'],
   ['created_at', '登録'],
+  ['confirmed_at', '確認'],
   ['unsubscribed_at', '配信停止'],
   ['source', '登録元'],
 ];
@@ -100,7 +103,7 @@ export async function onRequestGet(context) {
 
   if (isCsv) {
     const lines = [['drop_id', ...COLUMNS.map(([k]) => k)].map(csvCell).join(',')];
-    for (const r of rows) lines.push([drop.id, ...COLUMNS.map(([k]) => display(k, r))].map(csvCell).join(','));
+    for (const r of rows) lines.push([drop.id, ...COLUMNS.map(([k]) => display(k, r, env))].map(csvCell).join(','));
     return csvResponse(lines, `${drop ? drop.id : 'signups'}.csv`);
   }
 
@@ -117,8 +120,11 @@ export async function onRequestGet(context) {
 
   const head = COLUMNS.map(([, label]) => `<th>${escapeHtml(label)}</th>`).join('');
   const body = rows
-    .map((r) => `<tr class="s-${escapeHtml(r.state)}">${COLUMNS.map(([k]) => `<td>${escapeHtml(display(k, r))}</td>`).join('')}</tr>`)
+    .map((r) => `<tr class="s-${escapeHtml(r.state)}">${COLUMNS.map(([k]) => `<td>${escapeHtml(display(k, r, env))}</td>`).join('')}</tr>`)
     .join('\n');
+  const pendingCount = drop
+    ? Number((await env.DB.prepare('SELECT COUNT(*) AS n FROM pending_signups WHERE drop_id = ?').bind(drop.id).first('n')) || 0)
+    : 0;
   const summary = Object.entries(counts)
     .map(([s, n]) => `${STATE_LABEL[s] || s} ${n}`)
     .join(' / ');
@@ -140,7 +146,7 @@ export async function onRequestGet(context) {
     .join('\n');
   const subHead = SUB_COLUMNS.map(([, label]) => `<th>${escapeHtml(label)}</th>`).join('');
   const subBody = subscribers
-    .map((r) => `<tr class="${r.unsubscribed_at ? 's-expired' : ''}">${SUB_COLUMNS.map(([k]) => `<td>${escapeHtml(display(k, r))}</td>`).join('')}</tr>`)
+    .map((r) => `<tr class="${r.unsubscribed_at || !r.confirmed_at ? 's-expired' : ''}">${SUB_COLUMNS.map(([k]) => `<td>${escapeHtml(display(k, r))}</td>`).join('')}</tr>`)
     .join('\n');
   const subCsvHref = `/admin?key=${keyParam}&format=csv&view=subscribers`;
 
@@ -173,7 +179,7 @@ export async function onRequestGet(context) {
 ${
   drop
     ? `<p>状態: ${escapeHtml(STATUS_LABEL[drop.status] || drop.status)} / 定員 ${escapeHtml(drop.cap)} / 締め切り ${escapeHtml(formatJst(drop.deadline))}</p>
-<p>${escapeHtml(summary || '申込みはまだありません')}</p>
+<p>${escapeHtml(summary || '申込みはまだありません')}${pendingCount ? ` / 確認メール待ち ${escapeHtml(pendingCount)}` : ''}</p>
 <p><a href="${escapeHtml(csvHref)}">CSV をダウンロード</a></p>`
     : '<p>ドロップがありません。</p>'
 }

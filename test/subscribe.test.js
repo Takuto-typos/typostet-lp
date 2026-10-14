@@ -1,9 +1,9 @@
 import { test, beforeEach, afterEach } from 'node:test';
 import assert from 'node:assert/strict';
 import { setup, T0 } from './helpers/harness.js';
-import { dropAnnounceMail, welcomeMail } from '../functions/_lib/mail.js';
+import { dropAnnounceMail, newsConfirmMail } from '../functions/_lib/mail.js';
 
-const OK_MESSAGE = '登録しました。新しいデザインが出たら、このアドレスにお知らせします。';
+const OK_MESSAGE = '確認のメールを送りました。メールのリンクから「登録する」を押すと、登録が終わります。';
 const KEY = 'admin-secret-key';
 let h;
 beforeEach(() => {
@@ -18,15 +18,15 @@ function listMails() {
   return h.calls.resend.flatMap((c) => (Array.isArray(c.body) ? c.body : [c.body]));
 }
 
-test('subscribe: new address is stored and gets one welcome mail', async () => {
-  const res = await h.subscribe(sub(' Taro@Example.com ', { source: 'top' }));
+test('subscribe: new address gets a confirmation mail and is active only after the button', async () => {
+  const res = await h.subscribe(sub(' Taro@Example.com ', { source: 'top' }), { confirm: false });
   assert.equal(res.status, 200);
   assert.deepEqual(await res.json(), { ok: true, message: OK_MESSAGE });
-  const rows = await h.subscriberRows();
+  let rows = await h.subscriberRows();
   assert.equal(rows.length, 1);
   assert.equal(rows[0].email, 'taro@example.com');
   assert.equal(rows[0].source, 'top');
-  assert.equal(rows[0].unsubscribed_at, null);
+  assert.equal(rows[0].confirmed_at, null);
   assert.equal(rows[0].created_at, T0);
   assert.match(rows[0].token, /^[A-Za-z0-9_-]{32}$/); // 192 bits
 
@@ -34,10 +34,26 @@ test('subscribe: new address is stored and gets one welcome mail', async () => {
   assert.equal(m.length, 1);
   assert.deepEqual(m[0].to, ['taro@example.com']);
   assert.equal(m[0].reply_to, 'info@typostet.com');
-  assert.match(m[0].subject, /新着のお知らせに登録しました/);
-  assert.ok(m[0].text.includes(`https://typostet.test/unsubscribe/${rows[0].token}`));
-  assert.equal(m[0].headers['List-Unsubscribe'], `<https://typostet.test/unsubscribe/${rows[0].token}>`);
-  assert.equal(m[0].headers['List-Unsubscribe-Post'], 'List-Unsubscribe=One-Click');
+  assert.match(m[0].subject, /新着のお知らせの登録確認/);
+  assert.ok(m[0].text.includes(`https://typostet.test/news/${rows[0].token}`));
+
+  // not counted / not mailed until confirmed
+  let page = await (await h.admin(`key=${KEY}`)).text();
+  assert.match(page, /受け取り中 0 人/);
+
+  // GET only shows the button; POST confirms
+  const get = await h.news(rows[0].token, { method: 'GET' });
+  assert.match(await get.text(), new RegExp(`<form method="post" action="/news/${rows[0].token}"`));
+  assert.equal((await h.subscriberRows())[0].confirmed_at, null);
+  h.clock.now += 30;
+  const post = await h.news(rows[0].token);
+  assert.equal(post.status, 200);
+  assert.match(await post.text(), /登録しました/);
+  rows = await h.subscriberRows();
+  assert.equal(rows[0].confirmed_at, T0 + 30);
+  page = await (await h.admin(`key=${KEY}`)).text();
+  assert.match(page, /受け取り中 1 人/);
+  assert.equal((await h.news('A'.repeat(32))).status, 404);
 });
 
 test('subscribe: form post redirects to #news', async () => {
@@ -96,7 +112,7 @@ test('subscribe: per-IP rate limit (5 per 10 minutes), separate from signup', as
   assert.equal((await h.subscribe(sub('r6@example.com'), { ip: '192.0.2.9' })).status, 200);
 });
 
-test('subscribe: unsubscribed address is reactivated with a welcome mail', async () => {
+test('subscribe: unsubscribed address gets a new confirmation; reactivated only by the button', async () => {
   await h.subscribe(sub('back@example.com'));
   const [row] = await h.subscriberRows();
   await h.unsubscribe(row.token, { method: 'POST' });
@@ -104,15 +120,17 @@ test('subscribe: unsubscribed address is reactivated with a welcome mail', async
   h.calls.resend.length = 0;
 
   h.clock.now += 3600;
-  const res = await h.subscribe(sub('back@example.com', { source: 'footer' }), { ip: '203.0.113.70' });
+  const res = await h.subscribe(sub('back@example.com', { source: 'footer' }), { ip: '203.0.113.70', confirm: false });
   assert.deepEqual(await res.json(), { ok: true, message: OK_MESSAGE });
+  assert.ok((await h.subscriberRows())[0].unsubscribed_at, 'someone else typing the address does not turn it back on');
+  await h.news(row.token);
   const [after] = await h.subscriberRows();
   assert.equal(after.unsubscribed_at, null);
   assert.equal(after.token, row.token); // old unsubscribe links keep working
   assert.equal(after.created_at, T0);
   assert.equal(after.source, 'footer');
   assert.equal(listMails().length, 1);
-  assert.match(listMails()[0].subject, /新着のお知らせに登録しました/);
+  assert.match(listMails()[0].subject, /新着のお知らせの登録確認/);
 });
 
 test('unsubscribe: GET only shows a confirm form; POST unsubscribes; unknown token 404', async () => {
@@ -154,6 +172,7 @@ test('unsubscribe: RFC 8058 one-click POST works', async () => {
 
 test('notify: sends once per subscriber per drop, skips unsubscribed, uses batch', async () => {
   for (let i = 1; i <= 3; i++) await h.subscribe(sub(`n${i}@example.com`), { ip: `203.0.113.${80 + i}` });
+  await h.subscribe(sub('never-confirmed@example.com'), { ip: '203.0.113.79', confirm: false });
   const rows = await h.subscriberRows();
   await h.unsubscribe(rows[1].token, { method: 'POST' });
   h.calls.resend.length = 0;
@@ -188,8 +207,8 @@ test('notify: sends once per subscriber per drop, skips unsubscribed, uses batch
 });
 
 test('notify: chunks of at most 100 per batch call', async () => {
-  const stmt = h.env.DB.prepare('INSERT INTO subscribers (email, token, created_at) VALUES (?, ?, ?)');
-  await h.env.DB.batch(Array.from({ length: 205 }, (_, i) => stmt.bind(`bulk${i}@example.com`, `tok_${String(i).padStart(30, '0')}`, T0)));
+  const stmt = h.env.DB.prepare('INSERT INTO subscribers (email, token, created_at, confirmed_at) VALUES (?, ?, ?, ?)');
+  await h.env.DB.batch(Array.from({ length: 205 }, (_, i) => stmt.bind(`bulk${i}@example.com`, `tok_${String(i).padStart(30, '0')}`, T0, T0)));
   const res = await h.notify(`key=${KEY}&drop=uni-01`, { confirm: 'uni-01' });
   assert.match(await res.text(), /205 件送りました/);
   assert.deepEqual(h.calls.resend.map((c) => c.body.length), [100, 100, 5]);
@@ -262,8 +281,8 @@ test('/admin: subscribers section, notify form for open drops, CSV', async () =>
   const bytes = new Uint8Array(await res.arrayBuffer());
   assert.deepEqual([...bytes.slice(0, 3)], [0xef, 0xbb, 0xbf], 'UTF-8 BOM for Excel');
   const csv = new TextDecoder().decode(bytes);
-  assert.ok(csv.startsWith('"email","created_at","unsubscribed_at","source"'));
-  assert.match(csv, /"s1@example\.com","2026年10月20日 12:00","",""/);
+  assert.ok(csv.startsWith('"email","created_at","confirmed_at","unsubscribed_at","source"'));
+  assert.match(csv, /"s1@example\.com","2026年10月20日 12:00","2026年10月20日 12:00","",""/);
 
   assert.equal((await h.admin('key=wrong&format=csv&view=subscribers')).status, 404);
 });
@@ -272,7 +291,10 @@ test('list mail copy: unsubscribe link, sender, address, contact; no "!" or emoj
   const env = { SITE_URL: 'https://typostet.com/' };
   const s = { id: 7, email: 'a@example.com', token: 'T'.repeat(32), created_at: T0, unsubscribed_at: null };
   const drop = { id: 'uni-01', name: 'ユニ。 INK BLACK', cap: 30, deadline: 1796050799 };
-  for (const m of [welcomeMail(env, s), dropAnnounceMail(env, drop, s)]) {
+  const c = newsConfirmMail(env, s, T0);
+  assert.ok(c.text.includes(`https://typostet.com/news/${'T'.repeat(32)}`));
+  assert.ok(!/[!！]/.test(`${c.subject}\n${c.text}`));
+  for (const m of [dropAnnounceMail(env, drop, s)]) {
     const all = `${m.subject}\n${m.text}`;
     assert.ok(m.text.includes(`https://typostet.com/unsubscribe/${'T'.repeat(32)}`));
     assert.ok(m.text.includes('TYP0stet(株式会社 Remoi)'));

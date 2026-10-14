@@ -1,11 +1,12 @@
 // 新着 stet を受け取る: the drop-announcement mailing list.
 //
-// subscribers: one row per address (UNIQUE email COLLATE NOCASE). unsubscribed_at NULL = active.
+// subscribers: one row per address (UNIQUE email COLLATE NOCASE).
+// Active = confirmed_at set (the owner pressed the button in the confirmation mail) AND unsubscribed_at NULL.
 // drop_notices: (drop_id, subscriber_id) PRIMARY KEY. A row is claimed with INSERT OR IGNORE ... RETURNING
 // *before* the mail goes out, so two concurrent "notify" runs can never mail the same person twice
 // for the same drop. If Resend rejects a chunk, that chunk's claims are deleted again.
 
-import { dropAnnounceMail, sendBatch, welcomeMail } from './mail.js';
+import { dropAnnounceMail, newsConfirmMail, sendBatch } from './mail.js';
 import { randomToken } from './util.js';
 
 // Same shape as validate.js (signup).
@@ -22,10 +23,13 @@ export function validateSubscribe(input) {
   return { ok: true, value: { email, source: SOURCE_RE.test(source) ? source.toLowerCase() : null } };
 }
 
+const ACTIVE = 'confirmed_at IS NOT NULL AND unsubscribed_at IS NULL';
+
 /**
- * Add (or reactivate) an address.
- * @returns {{ status: 'new'|'reactivated'|'active', subscriber, mail: object|null }}
- *   mail is the welcome mail to send (null when the address was already active).
+ * Register an address, or re-send the confirmation for one that isn't active.
+ * Nothing changes until the owner presses the button (confirmSubscriber).
+ * @returns {{ status: 'pending'|'active', subscriber, mail: object|null }}
+ *   mail is the confirmation mail to send (null when the address is already active).
  */
 export async function subscribe(env, { email, source }, now) {
   const db = env.DB;
@@ -37,22 +41,22 @@ export async function subscribe(env, { email, source }, now) {
     )
     .bind(email, randomToken(), now, source)
     .first();
-  if (inserted) return { status: 'new', subscriber: inserted, mail: welcomeMail(env, inserted) };
+  if (inserted) return { status: 'pending', subscriber: inserted, mail: newsConfirmMail(env, inserted, now) };
 
-  // Existing address: only a previously unsubscribed one changes (and gets a welcome mail).
-  const reactivated = await db
-    .prepare(
-      `UPDATE subscribers SET unsubscribed_at = NULL, source = COALESCE(?, source)
-       WHERE email = ? AND unsubscribed_at IS NOT NULL
-       RETURNING *`,
-    )
-    .bind(source, email)
-    .first();
-  if (reactivated) {
-    // created_at is kept (first sign-up); the idempotency key uses `now` so a later re-subscribe mails again.
-    return { status: 'reactivated', subscriber: reactivated, mail: welcomeMail(env, { ...reactivated, unsubscribed_at: now }) };
-  }
-  return { status: 'active', subscriber: null, mail: null };
+  const row = await db.prepare('SELECT * FROM subscribers WHERE email = ?').bind(email).first();
+  if (!row) return { status: 'active', subscriber: null, mail: null };
+  if (row.confirmed_at && !row.unsubscribed_at) return { status: 'active', subscriber: null, mail: null };
+  if (source) await db.prepare('UPDATE subscribers SET source = ? WHERE id = ?').bind(source, row.id).run();
+  return { status: 'pending', subscriber: row, mail: newsConfirmMail(env, row, now) };
+}
+
+/** The button in the confirmation mail. Also re-activates an address that had stopped. */
+export async function confirmSubscriber(db, token, now) {
+  await db
+    .prepare('UPDATE subscribers SET confirmed_at = ?, unsubscribed_at = NULL WHERE token = ? AND NOT (' + ACTIVE + ')')
+    .bind(now, token)
+    .run();
+  return findByToken(db, token);
 }
 
 export async function findByToken(db, token) {
@@ -66,7 +70,7 @@ export async function unsubscribe(db, token, now) {
 }
 
 export async function countActive(db) {
-  return Number((await db.prepare('SELECT COUNT(*) AS n FROM subscribers WHERE unsubscribed_at IS NULL').first('n')) || 0);
+  return Number((await db.prepare(`SELECT COUNT(*) AS n FROM subscribers WHERE ${ACTIVE}`).first('n')) || 0);
 }
 
 export async function listSubscribers(db) {
@@ -84,7 +88,7 @@ export async function notifyDrop(env, drop, now) {
       await db
         .prepare(
           `SELECT s.* FROM subscribers s
-           WHERE s.unsubscribed_at IS NULL
+           WHERE s.confirmed_at IS NOT NULL AND s.unsubscribed_at IS NULL
              AND NOT EXISTS (SELECT 1 FROM drop_notices n WHERE n.drop_id = ? AND n.subscriber_id = s.id)
            ORDER BY s.id`,
         )

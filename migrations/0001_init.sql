@@ -1,4 +1,4 @@
--- 20人集まったら作る(drops)
+-- 30人集まったら作る(drops)
 -- All timestamps are unix epoch seconds (INTEGER). Display is done in JST by the app.
 
 CREATE TABLE IF NOT EXISTS drops (
@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS drops (
   price      INTEGER NOT NULL,                -- base price, JPY tax incl.
   shipping   INTEGER NOT NULL DEFAULT 600,    -- JPY, flat
   options    TEXT NOT NULL DEFAULT '{}',      -- JSON: {"sizes":[...],"sleeve":{"short":0,"long":1000},"back_name":1000}
-  cap        INTEGER NOT NULL DEFAULT 20,
+  cap        INTEGER NOT NULL DEFAULT 30,
   deadline   INTEGER NOT NULL,                -- epoch seconds
   status     TEXT NOT NULL DEFAULT 'open'
              CHECK (status IN ('open','paying','made','cancelled')),
