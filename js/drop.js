@@ -93,7 +93,7 @@
         method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json' }, body: JSON.stringify(body),
       });
       const d = await r.json().catch(() => ({}));
-      if (!r.ok) throw new Error(d.error || d.message || 'うまく送れませんでした。時間をおいてもう一度お試しください。');
+      if (!r.ok) throw new Error((d.fields && Object.values(d.fields)[0]) || d.message || 'うまく送れませんでした。時間をおいてもう一度お試しください。');
 
       const pos = d.position ?? d.signup?.position;
       const waiting = (d.state ?? d.signup?.state) === 'waiting';
@@ -101,7 +101,7 @@
       const res = $('result');
       if (waiting) {
         $('r-eyebrow').textContent = '補欠で受け付けました';
-        $('r-pos').textContent = `補欠 ${Math.max(1, (pos || CAP + 1) - CAP)}番目`;
+        $('r-pos').textContent = d.waiting_rank ? `補欠 ${d.waiting_rank}番目` : '補欠';
         $('r-msg').textContent = 'お支払いの期限までに払わなかった方が出たら、順番にメールでご案内します。';
       } else {
         $('r-pos').textContent = pos ? `${pos}番目` : '';
