@@ -1,316 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>注文を受け付けました — TYP0stet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E0E0E">
+<title>お支払いありがとうございました ── TYP0stet</title>
+<meta name="description" content="TYP0stet のお支払いが完了しました。">
 <meta name="robots" content="noindex">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="canonical" href="https://typostet.com/thank-you.html">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/v2/typostet_favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
-<style>
-  *,*::before,*::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --ink: #0E0E0E;
-    --bone: #F1E8D5;
-    --mint: #92E5BD;
-    --dim: rgba(14, 14, 14, 0.55);
-    --hair: rgba(14, 14, 14, 0.12);
-  }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bone);
-    color: var(--ink);
-    font-family: 'IBM Plex Mono', monospace;
-    line-height: 1.85;
-    -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .topbar {
-    padding: 22px 32px;
-    border-bottom: 1px solid var(--hair);
-    font-size: 11px;
-    letter-spacing: 4px;
-  }
-  .topbar .brand { font-weight: 500; letter-spacing: 6px; }
-  .topbar .brand .z { color: var(--mint); font-weight: 700; }
-
-  main {
-    flex: 1;
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 96px 32px 64px;
-    text-align: center;
-  }
-
-  .eyebrow {
-    font-size: 10px;
-    color: var(--mint);
-    letter-spacing: 5px;
-    margin-bottom: 28px;
-  }
-
-  h1 {
-    font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
-    font-size: clamp(28px, 5vw, 40px);
-    font-weight: 500;
-    line-height: 1.5;
-    letter-spacing: 0.06em;
-    margin-bottom: 28px;
-  }
-  h1 .z { color: var(--mint); font-family: 'IBM Plex Mono', monospace; font-weight: 700; }
-
-  .lead {
-    font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
-    font-size: 15px;
-    color: rgba(14, 14, 14, 0.78);
-    line-height: 2;
-    margin-bottom: 56px;
-  }
-
-  .steps {
-    border-top: 1px solid var(--hair);
-    padding-top: 56px;
-    margin-bottom: 64px;
-    text-align: left;
-  }
-  .steps h2 {
-    font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    margin-bottom: 24px;
-    color: var(--ink);
-    text-align: center;
-  }
-  .steps ol {
-    list-style: none;
-    counter-reset: step;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-  .steps li {
-    counter-increment: step;
-    padding: 16px 0 16px 44px;
-    position: relative;
-    font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
-    font-size: 14px;
-    line-height: 1.95;
-    color: rgba(14, 14, 14, 0.78);
-    border-bottom: 1px solid var(--hair);
-  }
-  .steps li:last-child { border-bottom: none; }
-  .steps li::before {
-    content: "0" counter(step);
-    position: absolute;
-    left: 0;
-    top: 18px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 700;
-    font-size: 12px;
-    color: var(--mint);
-    letter-spacing: 2px;
-  }
-
-  .cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
-    margin-bottom: 48px;
-  }
-  .cta-row a {
-    display: inline-block;
-    padding: 14px 28px;
-    border: 1px solid var(--bone);
-    color: var(--ink);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-decoration: none;
-    transition: background 0.3s, color 0.3s;
-  }
-  .cta-row a:hover {
-    background: var(--bone);
-    color: var(--ink);
-  }
-  .cta-row a.primary {
-    background: var(--mint);
-    color: var(--ink);
-    border-color: var(--mint);
-  }
-  .cta-row a.primary:hover {
-    background: var(--bone);
-    border-color: var(--ink);
-  }
-
-  .quiet {
-    font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
-    font-size: 13px;
-    color: var(--dim);
-    line-height: 2;
-    border-top: 1px solid var(--hair);
-    padding-top: 32px;
-    text-align: center;
-  }
-  .quiet em { color: var(--mint); font-style: normal; }
-
-  footer {
-    border-top: 1px solid var(--hair);
-    padding: 32px 24px;
-    text-align: center;
-    font-size: 10px;
-    color: var(--dim);
-    letter-spacing: 3px;
-  }
-  footer a { color: var(--dim); text-decoration: none; margin: 0 12px; }
-  footer a:hover { color: var(--mint); }
-
-  /* mode-specific (cover 版だけ表示する block の制御は JS) */
-  [data-mode] { display: none; }
-  [data-mode].on { display: block; }
-
-  /* Cotton fabric texture overlay (subtle) */
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9999;
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 0 0.09 0 0 0 0.32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.5;
-    mix-blend-mode: multiply;
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@800&family=IBM+Plex+Sans+JP:wght@400;700&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/sub.css">
 </head>
 <body>
-
-<div class="topbar">
-  <div class="brand">TYP<span class="z">0</span>stet</div>
-</div>
-
-<main>
-  <div class="eyebrow" id="eyebrow">ORDER CONFIRMED</div>
-
-  <!-- ─── original 購入 (creator が自分の typo を着る) ─── -->
-  <div data-mode="original" id="block-original">
-    <h1>ありがとう<br>ございます<span style="color: var(--mint)">。</span></h1>
-    <p class="lead">
-      受注生産のため、お届けまで 1 週間程度。<br>
-      届いたら、着て、持って、<br>出かけてください。
-    </p>
-  </div>
-
-  <!-- ─── cover 版購入 (他人の typo を着る) ─── -->
-  <div data-mode="cover" id="block-cover">
-    <h1>その typo を、<br>あなたも着ます<span style="color: var(--mint)">。</span></h1>
-    <p class="lead">
-      誰かの typo に「わかる」と思った、その瞬間が物質になります。<br>
-      受注生産のため、お届けまで 1 週間程度。
-    </p>
-  </div>
-
-  <!-- ─── sticker 購入 ─── -->
-  <div data-mode="sticker" id="block-sticker">
-    <h1>その typo を、<br>貼る支度ができました<span style="color: var(--mint)">。</span></h1>
-    <p class="lead">
-      ありがとうございます。印刷後 7〜10 日ほどでお届け。<br>
-      ノート、水筒、手帳、どこへでも。
-    </p>
-  </div>
-
-  <div class="steps">
-    <h2>これから起こること</h2>
-    <ol id="steps-list">
-      <!-- JS で挿入 -->
-    </ol>
-  </div>
-
-  <div class="cta-row">
-    <a href="/" class="primary">HOME へ戻る</a>
-    <a href="mailto:info@typostet.com">問い合わせる</a>
-  </div>
-
-</main>
-
-<footer>
-  <a href="/">Home</a>·
-  <a href="/privacy.html">Privacy</a>·
-  <a href="/terms.html">Terms</a>·
-  <a href="/tokutei.html">特定商取引法</a>·
-  <a href="/manifest.html">Manifesto</a>
-</footer>
-
-<script>
-  /**
-   * URL クエリで mode を判定:
-   *   - ?mode=cover     → 他人の typo 購入
-   *   - ?mode=sticker   → ステッカー
-   *   - default          → 自分の typo (original)
-   *
-   * Edge Function (create-checkout-session) が success_url を組み立てる時に
-   * &mode=... を付加する設計。session_id は埋まるが本ページでは使わない。
-   */
-  (function() {
-    var params = new URLSearchParams(window.location.search);
-    var mode = (params.get('mode') || 'original').toLowerCase();
-
-    var validModes = ['original', 'cover', 'sticker'];
-    if (validModes.indexOf(mode) === -1) {
-      mode = 'original';
-    }
-
-    // 該当 block を表示
-    var block = document.querySelector('[data-mode="' + mode + '"]');
-    if (block) block.classList.add('on');
-
-    // eyebrow の text を mode 別に
-    var eyebrowText = {
-      original: 'ORDER CONFIRMED · TYP0stet',
-      cover:    'ORDER CONFIRMED · COVER VERSION',
-      sticker:  'ORDER CONFIRMED · STICKER',
-    }[mode];
-    document.getElementById('eyebrow').textContent = eyebrowText;
-
-    // steps を mode 別に
-    var stepsList = document.getElementById('steps-list');
-    var stepsByMode = {
-      original: [
-        '決済が完了しました。Stripe からレシートが、ご登録のメールアドレスに届きます。',
-        'ご注文内容を確認し、製作を手配します。',
-        '1 週間程度後、ご登録の住所へ発送（追跡番号付き）。発送時にメールでお知らせします。',
-        '届いたら、外に持ち出してください。どこかで、同じ 0 とすれ違うかもしれません。',
-      ],
-      cover: [
-        '決済が完了しました。Stripe からレシートが、ご登録のメールアドレスに届きます。',
-        '元のデザインを TYP0stet 内部で確認し、印刷業者へ手作業で発注します。',
-        '1 週間程度後、ご登録の住所へ発送（追跡番号付き）。発送時にメールでお知らせします。',
-        '届いたら、着て出かけてください。元の typo を書いた誰かと、同じ服を纏うことになります。',
-      ],
-      sticker: [
-        '決済が完了しました。Stripe からレシートが、ご登録のメールアドレスに届きます。',
-        'デザインを確認し、印刷業者へ発注します。',
-        '印刷後 7〜10 日でご登録の住所へ発送。発送時にメールでお知らせします。',
-        '届いたら、どこへでも貼ってください。ノート、水筒、手帳、ギターのケース。',
-      ],
-    };
-    var steps = stepsByMode[mode] || stepsByMode.original;
-    steps.forEach(function(s) {
-      var li = document.createElement('li');
-      li.textContent = s;
-      stepsList.appendChild(li);
-    });
-  })();
-</script>
-
+<header class="top"><div class="wrap"><a href="/" aria-label="TYP0stet トップ"><img src="/assets/brand/v2/typostet_word_white.svg" alt="TYP0stet" width="104" height="26"></a><a class="back" href="/">トップへ</a></div></header>
+<main><div class="wrap">
+<p class="eyebrow">Thank you</p>
+<h1>お支払いありがとうございました。</h1>
+<p>確認のメールをお送りしました。</p>
+<h2>これから</h2>
+<ol>
+<li>30人分のお支払いがそろったら、製作に入ります。</li>
+<li>約3〜4週間で発送します。発送したらメールでお知らせします。</li>
+<li>遅れる場合も、メールでお知らせします。</li>
+</ol>
+<p>わからないことがあれば、info@typostet.com までご連絡ください。</p>
+<p style="margin-top:32px"><a class="btn" href="/">トップへ戻る</a></p>
+</div></main>
+<footer><div class="wrap">
+<img src="/assets/brand/v2/typostet_word_mint.svg" alt="TYP0stet" width="120" height="30">
+<nav><a href="/tokutei.html">特定商取引法にもとづく表記</a><a href="/privacy.html">プライバシーポリシー</a><a href="/terms.html">利用規約</a><a href="mailto:info@typostet.com">お問い合わせ</a></nav>
+<p>© 2026 TYP0stet / 株式会社 Remoi</p>
+</div></footer>
 </body>
 </html>

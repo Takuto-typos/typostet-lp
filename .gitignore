@@ -13,3 +13,6 @@ img/hero/output/Gemini_Generated_Image_*.png
 img/*/raw/
 img/**/raw/
 .DS_Store
+
+# Cloudflare local secrets (wrangler pages dev)
+.dev.vars

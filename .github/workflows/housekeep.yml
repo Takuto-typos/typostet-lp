@@ -1,0 +1,12 @@
+# 支払い期限切れ・補欠の繰り上げ・締め切りの中止は、ページが開かれたときに処理される。
+# 誰も開かない時間があっても遅れないように、30分ごとにサイトの人数APIを呼ぶ。
+name: housekeep
+on:
+  schedule:
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -fsS -o /dev/null https://typostet.com/api/drops/uni-01

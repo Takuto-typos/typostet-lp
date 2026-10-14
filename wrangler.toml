@@ -1,0 +1,16 @@
+# Cloudflare Pages config (static site + Pages Functions under functions/).
+# NOTE: once this file exists, Pages treats it as the source of truth for bindings/vars.
+# Secrets (STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, RESEND_API_KEY, ADMIN_KEY) are NOT set here:
+# set them in the Pages dashboard (Settings > Variables and Secrets) or `wrangler pages secret put`.
+name = "typostet-lp"
+pages_build_output_dir = "."
+compatibility_date = "2025-09-01"
+
+[vars]
+SITE_URL = "https://typostet.com"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "typostet-drops"
+database_id = "f2a0ec2a-3cf3-47d8-82b0-4b6776c256b8"
+migrations_dir = "migrations"
