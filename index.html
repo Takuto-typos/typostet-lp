@@ -154,6 +154,15 @@ section{padding:72px 0}
   .anat__hint{display:none}
 }
 
+/* wear */
+.wear{padding-top:0}
+.wear__list{list-style:none;margin:0 calc(var(--gut) * -1);padding:0 var(--gut);display:grid;grid-auto-flow:column;grid-auto-columns:72%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.wear__list::-webkit-scrollbar{display:none}
+.wear__list li{scroll-snap-align:start}
+.wear__list img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
+.wear__list p{margin:8px 0 0;font-family:var(--mono);font-size:12px;color:var(--sub)}
+@media (min-width:860px){.wear__list{margin:0;padding:0;grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible}}
+
 /* core message */
 .core{background:var(--ink);color:#fff;padding:72px 0 96px;text-align:center;position:relative;overflow:hidden}
 .core__bg{position:absolute;inset:0;width:100%;height:100%;opacity:.09;pointer-events:none}
@@ -296,7 +305,7 @@ footer a{text-decoration:none}
 <section class="hero" id="drop">
   <div class="wrap grid">
     <div class="photo">
-      <img src="/img/practice/ink-c.jpg" alt="ユニ。INK BLACK の前と後ろ。胸に TYP0S、裾と背中に背番号" width="1400" height="763" fetchpriority="high">
+      <img src="/img/wear/court-night.jpg" alt="夜のフットサルコートの脇で、ユニ。INK BLACK を着て水を飲む人" width="1600" height="893" fetchpriority="high">
       <svg class="stamp" viewBox="0 0 100 100" aria-hidden="true">
         <defs><path id="ring" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
         <circle cx="50" cy="50" r="49" fill="#92E5BD"/>
@@ -347,6 +356,18 @@ footer a{text-decoration:none}
       </ol>
       <p class="anat__hint" aria-hidden="true">横にスワイプ →</p>
     </div>
+  </div>
+</section>
+
+<section class="wear" id="wear">
+  <div class="wrap">
+    <p class="eyebrow">Wear</p>
+    <h2 class="sec">着こなし</h2>
+    <ul class="wear__list">
+      <li><img src="/img/wear/after-game.jpg" alt="個サルのあと、ユニ。を着て話す2人" width="660" height="825" loading="lazy"><p>個サルのあと</p></li>
+      <li><img src="/img/wear/naha-street.jpg" alt="那覇の路地を、ユニ。にチノパンを合わせて歩く人" width="1000" height="1241" loading="lazy"><p>そのまま街へ</p></li>
+      <li><img src="/img/wear/fabric.jpg" alt="ユニ。の襟と、生地の校正記号のアップ" width="1000" height="1000" loading="lazy"><p>近くで見ると</p></li>
+    </ul>
   </div>
 </section>
 
