@@ -1,8 +1,8 @@
-// All emails for the 20-drop flow + the Resend sender.
+// All emails for the 20-drop flow + the 新着のお知らせ list, and the Resend senders.
 // Copy rules: です・ます調 / 普通の話し言葉 / 短く / 煽らない / 絵文字なし.
 
 import { calcPrice, describeChoice } from './pricing.js';
-import { escapeHtml, formatJst, maskEmail, PAY_WINDOW, siteUrl, yen } from './util.js';
+import { escapeHtml, formatJst, maskEmail, PAY_WINDOW, sha256Hex, siteUrl, yen } from './util.js';
 
 export const FROM = 'TYP0stet <hello@typostet.com>';
 const RESEND_URL = 'https://api.resend.com';
@@ -212,10 +212,91 @@ export function paidMail(env, drop, s) {
 }
 
 // ---------------------------------------------------------------------------
+// 7-8. 新着 stet を受け取る(お知らせリスト)
+// 特定電子メール法: 送信者名・住所・問い合わせ先・配信停止の方法を毎通に入れる。
+// RFC 8058: List-Unsubscribe + List-Unsubscribe-Post でワンクリック停止。
+// ---------------------------------------------------------------------------
+export const SENDER_NAME = 'TYP0stet(株式会社 Remoi)';
+export const SENDER_ADDRESS = '〒115-0045 東京都北区赤羽 1-59-8 日ノ出ビル 4F';
+export const CONTACT_EMAIL = 'info@typostet.com';
+
+export function unsubscribeUrl(env, sub) {
+  return `${siteUrl(env)}/unsubscribe/${sub.token}`;
+}
+
+function listMail(env, sub, subject, lines, idempotencyKey) {
+  const unsub = unsubscribeUrl(env, sub);
+  const text = [
+    ...lines,
+    '',
+    '--',
+    SENDER_NAME,
+    SENDER_ADDRESS,
+    `お問い合わせ: ${CONTACT_EMAIL}`,
+    siteUrl(env),
+    '',
+    'お知らせが不要になったら、こちらから止められます。',
+    unsub,
+  ].join('\n');
+  return {
+    to: sub.email,
+    subject,
+    text,
+    html: textToHtml(text),
+    idempotencyKey,
+    headers: {
+      'List-Unsubscribe': `<${unsub}>`,
+      'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+    },
+  };
+}
+
+export function welcomeMail(env, sub) {
+  return listMail(
+    env,
+    sub,
+    '新着のお知らせに登録しました(TYP0stet)',
+    [
+      'TYP0stet です。',
+      '',
+      '新着のお知らせに登録しました。',
+      '新しいデザインが出たら、このアドレスにお知らせします。',
+      '送るのは、新しいドロップが始まるときだけです。',
+      '',
+      'このメールに心当たりがない場合は、下のリンクから止めてください。',
+    ],
+    `welcome-${sub.id}-${sub.unsubscribed_at || sub.created_at}`,
+  );
+}
+
+export function dropAnnounceMail(env, drop, sub) {
+  return listMail(
+    env,
+    sub,
+    `新しいデザインが出ました(${drop.name})`,
+    [
+      'TYP0stet です。',
+      '',
+      `新しいドロップ「${drop.name}」の申込みを始めました。`,
+      `世界に${drop.cap}着だけ。再販はしません。`,
+      `${drop.cap} 人そろったら作ります。そろうまで、お金はかかりません。`,
+      '',
+      `締め切り: ${formatJst(drop.deadline)}`,
+      '',
+      '申込みはこちらから。',
+      `${siteUrl(env)}/#join`,
+    ],
+    `announce-${drop.id}-${sub.id}`,
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Sender (Resend REST API). Without RESEND_API_KEY, prints to console (local dev).
 // ---------------------------------------------------------------------------
 function toResend(m) {
-  return { from: FROM, reply_to: 'info@typostet.com', to: [m.to], subject: m.subject, text: m.text, html: m.html };
+  const out = { from: FROM, reply_to: 'info@typostet.com', to: [m.to], subject: m.subject, text: m.text, html: m.html };
+  if (m.headers) out.headers = m.headers;
+  return out;
 }
 
 export async function sendMails(env, mails, fetchImpl = fetch) {
@@ -265,4 +346,45 @@ export async function sendMails(env, mails, fetchImpl = fetch) {
     );
   }
   return { sent };
+}
+
+/**
+ * Send a list through Resend's batch endpoint, chunk by chunk (max 100 each), and report
+ * per chunk so the caller can record exactly what went out. Unlike sendMails, failures are
+ * returned (not just logged), and the batch endpoint is used even for a single mail.
+ * Without RESEND_API_KEY nothing is sent: mails are printed and `dryRun: true` is returned.
+ * @param {(chunk:object[]) => Promise<object[]>} [beforeChunk] may narrow the chunk (e.g. claim rows); returns the mails to send
+ * @param {(chunk:object[], ok:boolean) => Promise<void>} [afterChunk]
+ */
+export async function sendBatch(env, mails, { beforeChunk, afterChunk, fetchImpl = fetch } = {}) {
+  const list = (mails || []).filter(Boolean);
+  if (!env.RESEND_API_KEY) {
+    for (const m of list) console.log(`[mail:dev] to=${m.to}\nsubject: ${m.subject}\n${m.text}\n`);
+    return { sent: 0, logged: list.length, dryRun: true };
+  }
+  let sent = 0;
+  for (let i = 0; i < list.length; i += 100) {
+    let chunk = list.slice(i, i + 100);
+    if (beforeChunk) chunk = (await beforeChunk(chunk)) || [];
+    if (!chunk.length) continue;
+    let ok = false;
+    try {
+      const headers = { authorization: `Bearer ${env.RESEND_API_KEY}`, 'content-type': 'application/json' };
+      const keys = chunk.map((m) => m.idempotencyKey).filter(Boolean);
+      if (keys.length === chunk.length) headers['idempotency-key'] = `batch-${await sha256Hex(keys.join('|'))}`;
+      const res = await fetchImpl(`${RESEND_URL}/emails/batch`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(chunk.map(toResend)),
+      });
+      if (!res.ok) throw new Error(`resend batch ${res.status}: ${(await res.text()).slice(0, 200)}`);
+      ok = true;
+      sent += chunk.length;
+    } catch (err) {
+      console.error('list mail send failed:', err?.message || err, `${chunk.length} mails`);
+    }
+    if (afterChunk) await afterChunk(chunk, ok);
+    if (!ok) return { sent, remaining: list.length - i };
+  }
+  return { sent, remaining: 0 };
 }

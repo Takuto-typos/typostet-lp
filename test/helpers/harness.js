@@ -6,6 +6,9 @@ import { onRequestPost as signupHandler } from '../../functions/api/drops/[id]/s
 import { onRequestGet as payHandler } from '../../functions/pay/[token].js';
 import { onRequestPost as webhookHandler } from '../../functions/api/stripe/webhook.js';
 import { onRequestGet as adminHandler } from '../../functions/admin.js';
+import { onRequestPost as notifyHandler } from '../../functions/admin/notify.js';
+import { onRequestPost as subscribeHandler } from '../../functions/api/subscribe.js';
+import { onRequestGet as unsubscribeGetHandler, onRequestPost as unsubscribePostHandler } from '../../functions/unsubscribe/[token].js';
 import { signPayload } from '../../functions/_lib/stripe.js';
 
 export const T0 = Date.parse('2026-10-20T12:00:00+09:00') / 1000;
@@ -103,6 +106,41 @@ export function setup({ resend = true } = {}) {
     },
     async admin(query) {
       return invoke(adminHandler, new Request(`https://x/admin?${query}`));
+    },
+    async subscribe(fields, { ip = '203.0.113.50', form = false, accept } = {}) {
+      const headers = { 'cf-connecting-ip': ip };
+      let body;
+      if (form) {
+        headers['content-type'] = 'application/x-www-form-urlencoded';
+        body = new URLSearchParams(fields).toString();
+      } else {
+        headers['content-type'] = 'application/json';
+        body = JSON.stringify(fields);
+      }
+      if (accept) headers.accept = accept;
+      return invoke(subscribeHandler, new Request('https://x/api/subscribe', { method: 'POST', headers, body }));
+    },
+    async unsubscribe(token, { method = 'GET', oneClick = false } = {}) {
+      const init = { method };
+      if (oneClick) {
+        init.headers = { 'content-type': 'application/x-www-form-urlencoded' };
+        init.body = 'List-Unsubscribe=One-Click';
+      }
+      const handler = method === 'POST' ? unsubscribePostHandler : unsubscribeGetHandler;
+      return invoke(handler, new Request(`https://x/unsubscribe/${token}`, init), { token });
+    },
+    async notify(query, fields = {}) {
+      return invoke(
+        notifyHandler,
+        new Request(`https://x/admin/notify?${query}`, {
+          method: 'POST',
+          headers: { 'content-type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(fields).toString(),
+        }),
+      );
+    },
+    async subscriberRows() {
+      return (await env.DB.prepare('SELECT * FROM subscribers ORDER BY id').all()).results;
     },
     async signupRows(id = 'uni-01') {
       return (await env.DB.prepare('SELECT * FROM signups WHERE drop_id = ? ORDER BY position').bind(id).all()).results;
