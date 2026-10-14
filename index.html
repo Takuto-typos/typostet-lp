@@ -108,9 +108,9 @@ section{padding:72px 0}
 .hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(40px,11vw,76px);line-height:1.12;margin:0 0 14px;letter-spacing:.02em}
 .hero h1 small{display:block;font-family:var(--num);font-weight:800;font-size:.42em;letter-spacing:.08em;color:var(--mint);margin-top:6px}
 .hero .lead{font-size:17px;margin:0 0 28px;color:#e9e9e9}
-.photo{position:relative;border-radius:4px;overflow:hidden;background:#2a2622}
-.photo img{width:100%;height:auto}
-.stamp{position:absolute;right:12px;top:12px;width:88px;height:88px;animation:spin 24s linear infinite}
+.photo{position:relative}
+.photo img{width:100%;height:auto;border-radius:4px;background:#2a2622}
+.stamp{position:absolute;left:-10px;top:-22px;width:72px;height:72px;animation:spin 24s linear infinite;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.stamp{animation:none}}
 
@@ -269,7 +269,7 @@ footer a{text-decoration:none}
   .prod{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start}
   .gal{grid-template-columns:1fr}
   .joinwrap{display:grid;grid-template-columns:1fr 1fr;gap:56px}
-  .stamp{width:112px;height:112px}
+  .stamp{width:100px;height:100px;left:-46px;top:-40px}
 }
 </style>
 </head>
