@@ -136,16 +136,23 @@ section{padding:72px 0}
 .status{display:inline-block;font-family:var(--mono);font-size:12px;padding:3px 10px;border:1px solid var(--mint);color:var(--mint);border-radius:999px;margin-bottom:14px}
 
 /* details */
-.anat__grid{display:grid;gap:24px}
+.anat__grid{display:grid;gap:16px}
 .anat__fig{position:relative;margin:0;border-radius:4px;overflow:hidden}
 .pin{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:var(--mint);color:var(--ink);font-family:var(--num);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(14,14,14,.35)}
-.anat__list{list-style:none;margin:0;padding:0;counter-reset:a}
-.anat__list li{position:relative;display:grid;grid-template-columns:128px 1fr;gap:14px;align-items:start;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px;color:#333}
-.anat__list img{width:128px;height:96px;object-fit:cover;border-radius:4px}
-.anat__list li:first-child{border-top:1px solid var(--ink)}
-.anat__list li::before{counter-increment:a;content:counter(a);position:absolute;left:6px;top:22px;box-shadow:0 0 0 2px var(--mint);width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--mint);font-family:var(--num);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
-.anat__list b{display:block;color:var(--ink);font-size:16px;margin-bottom:2px}
-@media (min-width:860px){.anat__grid{grid-template-columns:1.4fr 1fr;align-items:start;gap:48px}}
+.anat__list{list-style:none;margin:0 calc(var(--gut) * -1);padding:0 var(--gut) 4px;counter-reset:a;display:grid;grid-auto-flow:column;grid-auto-columns:68%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.anat__list::-webkit-scrollbar{display:none}
+.anat__list li{position:relative;scroll-snap-align:start;background:#f6f6f4;border-radius:6px;overflow:hidden;padding:0 0 14px}
+.anat__list img{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;margin-bottom:10px}
+.anat__list li::before{counter-increment:a;content:counter(a);position:absolute;left:10px;top:10px;width:26px;height:26px;border-radius:50%;background:var(--mint);color:var(--ink);font-family:var(--num);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.anat__list b{display:block;font-size:15px;padding:0 12px;margin-bottom:2px}
+.anat__list p{margin:0;padding:0 12px;font-size:13px;line-height:1.7;color:#444}
+.anat__hint{margin:-4px 0 0;font-family:var(--mono);font-size:11px;color:var(--sub);text-align:right}
+@media (min-width:860px){
+  .anat__fig{width:min(100%,620px);margin:0 auto}
+  .anat__grid{gap:20px}
+  .anat__list{margin:0;padding:0;grid-auto-flow:row;grid-template-columns:repeat(5,1fr);overflow:visible}
+  .anat__hint{display:none}
+}
 
 /* core message */
 .core{background:var(--ink);color:#fff;padding:72px 0 96px;text-align:center;position:relative;overflow:hidden}
@@ -321,13 +328,14 @@ footer a{text-decoration:none}
         <span class="pin" style="left:73%;top:57%">4</span>
         <span class="pin" style="left:34%;top:91%">5</span>
       </figure>
-      <ol class="anat__list">
-        <li><img src="/img/detail/1-collar.jpg" alt="襟のミントのライン(拡大)" width="480" height="360" loading="lazy"><div><b>ミントの細いライン</b>襟と袖口だけに、ブランドの色を一本。</div></li>
-        <li><img src="/img/detail/2-chest.jpg" alt="胸の TYP0S と点4つ(拡大)" width="480" height="360" loading="lazy"><div><b>胸の TYP0S と、点4つ</b>TYP0S は typo + s で「ミスするやつら」。0の下の点4つは、校正記号の stet(やっぱり生かす)。</div></li>
-        <li><img src="/img/detail/3-marks.jpg" alt="生地の校正記号の柄(拡大)" width="480" height="360" loading="lazy"><div><b>うっすら入った記号</b>生地の ∧ や = は、文章を直すときの校正記号。∧ は「ここに足す」、二重線は「消す」。直した跡を、そのまま柄にした。黒の濃淡なので、近くで見ないと気づかない。</div></li>
-        <li><img src="/img/detail/4-number.jpg" alt="背番号の下だけミント(拡大)" width="480" height="360" loading="lazy"><div><b>番号の下だけミント</b>背番号は1〜99から選べる。下の4割だけ色を変えてある。</div></li>
-        <li><img src="/img/detail/5-hem.jpg" alt="後ろが長い裾と横のスリット(拡大)" width="480" height="360" loading="lazy"><div><b>裾とスリット</b>後ろが少し長い裾と、横のスリット。シャツの外に出して着ても、だらしなく見えない。</div></li>
+      <ol class="anat__list" aria-label="5つのポイント">
+        <li><img src="/img/detail/1-collar.jpg" alt="襟のミントのライン(拡大)" width="480" height="360" loading="lazy"><b>ミントの細いライン</b><p>襟と袖口だけに、ブランドの色を一本。</p></li>
+        <li><img src="/img/detail/2-chest.jpg" alt="胸の TYP0S と点4つ(拡大)" width="480" height="360" loading="lazy"><b>胸の TYP0S と点4つ</b><p>TYP0S は「ミスするやつら」。点4つは stet(やっぱり生かす)。</p></li>
+        <li><img src="/img/detail/3-marks.jpg" alt="生地の校正記号の柄(拡大)" width="480" height="360" loading="lazy"><b>うっすら入った記号</b><p>∧ は「ここに足す」、二重線は「消す」。直した跡を柄にした。</p></li>
+        <li><img src="/img/detail/4-number.jpg" alt="背番号の下だけミント(拡大)" width="480" height="360" loading="lazy"><b>番号の下だけミント</b><p>背番号は1〜99。下の4割だけ色を変えてある。</p></li>
+        <li><img src="/img/detail/5-hem.jpg" alt="後ろが長い裾と横のスリット(拡大)" width="480" height="360" loading="lazy"><b>裾とスリット</b><p>後ろが少し長い裾と、横のスリット。外に出して着てもきれい。</p></li>
       </ol>
+      <p class="anat__hint" aria-hidden="true">横にスワイプ →</p>
     </div>
   </div>
 </section>
