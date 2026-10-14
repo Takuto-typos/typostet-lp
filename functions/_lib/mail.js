@@ -215,7 +215,7 @@ export function paidMail(env, drop, s) {
 // Sender (Resend REST API). Without RESEND_API_KEY, prints to console (local dev).
 // ---------------------------------------------------------------------------
 function toResend(m) {
-  return { from: FROM, to: [m.to], subject: m.subject, text: m.text, html: m.html };
+  return { from: FROM, reply_to: 'info@typostet.com', to: [m.to], subject: m.subject, text: m.text, html: m.html };
 }
 
 export async function sendMails(env, mails, fetchImpl = fetch) {
