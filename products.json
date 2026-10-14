@@ -1,143 +1,21 @@
 {
-  "$schema": "https://schema.org/Product",
-  "brand": {
-    "name": "TYP0stet",
-    "alternateName": "タイポステット",
-    "url": "https://typostet.com",
-    "description": "沖縄発のアウトドアスポーツブランド。typo (誤字) と stet (校正記号「生かせ」) の合成名で、ミスを生かせる人たちを表す。",
-    "operatingCompany": "株式会社 Remoi",
-    "location": "東京都北区赤羽",
-    "founded": "2026",
-    "thesis": "失敗できる事が、人間の証明になる。",
-    "origin": "沖縄",
-    "sameAs": [
-      "https://www.instagram.com/typostet/",
-      "https://note.com/typostet"
-    ]
-  },
-  "products": [
+  "brand": "TYP0stet",
+  "seller": "株式会社 Remoi",
+  "url": "https://typostet.com",
+  "model": "20人集まったら作る。1デザイン20枚限定・再販なし",
+  "drops": [
     {
-      "id": "stet-01",
-      "name": "Stet Frend",
-      "alternateName": "Stet 01 — Frend.",
-      "type": "T-shirt",
-      "description": "TYP0stet の最初の Stet。子どもの頃、誰でも書いた「Friend」の綴り間違い「Frend」を直さず着る T シャツ。砂場で誰にでも『Frend』と言えたあの頃を、いまの胸に。",
-      "url": "https://typostet.com/products/stet-01/",
-      "price": 6800,
-      "priceCurrency": "JPY",
-      "availability": "InStock",
-      "leadTimeWeeks": [
-        1,
-        1
-      ],
-      "material": "poly 50 / cot 50, 4.5oz Repreve (recycled)",
-      "silhouette": "boxy drop-tail",
-      "prints": {
-        "leftChest": "0 monogram",
-        "rightSleeve": "4:81",
-        "lowerBack": "TYP0stet wordmark"
-      },
-      "colors": [
-        "BONE",
-        "MINT",
-        "OLIVE",
-        "INK BLACK"
-      ],
-      "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL"
-      ]
-    },
-    {
-      "id": "sticker-pack",
-      "name": "Sticker Pack",
-      "type": "Sticker",
-      "description": "0 monogram / 4:81 / TYP0stet wordmark の 3 種ステッカーセット。マットビニール、屋外耐久。",
-      "price": 800,
-      "priceCurrency": "JPY",
-      "availability": "InStock",
-      "leadTimeWeeks": [
-        1,
-        2
-      ],
-      "contents": "3 sheets"
-    },
-    {
-      "id": "tote-bone",
-      "name": "Tote — Bone",
-      "type": "Bag",
-      "description": "12oz cotton canvas tote bag in unbleached bone, with a small ink-black 0 monogram silk-screen printed at upper-center. A4-portrait silhouette, shoulder-length handles.",
-      "price": 3800,
-      "priceCurrency": "JPY",
-      "availability": "InStock",
-      "leadTimeWeeks": [
-        1,
-        1
-      ]
-    },
-    {
-      "id": "tote-ink",
-      "name": "Tote — Ink",
-      "type": "Bag",
-      "description": "12oz cotton canvas tote bag in deep ink black, with a small bone-cream 0 monogram silk-screen printed at upper-center. A4-portrait silhouette, shoulder-length handles.",
-      "price": 3800,
-      "priceCurrency": "JPY",
-      "availability": "InStock",
-      "leadTimeWeeks": [
-        1,
-        1
-      ]
-    },
-    {
-      "id": "knapsack-olive",
-      "name": "Knapsack — Olive",
-      "type": "Bag",
-      "description": "Waxed cotton canvas drawstring knapsack in muted military olive, with a small bone-cream 0 monogram silk-screen printed at upper-center. Lightweight day pack.",
-      "price": 4300,
-      "priceCurrency": "JPY",
-      "availability": "InStock",
-      "leadTimeWeeks": [
-        1,
-        1
-      ]
-    },
-    {
-      "id": "knapsack-mint",
-      "name": "Knapsack — Mint",
-      "type": "Bag",
-      "description": "Waxed cotton canvas drawstring knapsack in soft mint green, with a small ink-black 0 monogram silk-screen printed at upper-center. Lightweight day pack.",
-      "price": 4300,
-      "priceCurrency": "JPY",
-      "availability": "InStock",
-      "leadTimeWeeks": [
-        1,
-        1
-      ]
-    },
-    {
-      "id": "uni",
-      "name": "ユニ",
-      "alternateName": "TYP0S uniform",
-      "type": "Futsal jersey",
-      "description": "フットサルチーム TYP0S が着ているユニフォーム。マットで光らないドライ技術ポリなので、個サル・大会・普段着に使える。",
-      "url": "https://typostet.com/#practice",
-      "price": 8800,
-      "priceCurrency": "JPY",
-      "availability": "InStock",
+      "id": "uni-01",
+      "name": "ユニ。 INK BLACK",
+      "status": "募集中",
+      "price_jpy": 8800,
       "options": {
-        "longSleeve": 1000,
-        "namePrint": 1000
+        "long_sleeve_jpy": 1000,
+        "back_name_jpy": 1000
       },
-      "numbers": "1-99",
-      "colors": [
-        "DEEP NAVY",
-        "TERRACOTTA",
-        "BONE",
-        "INK BLACK"
-      ],
+      "shipping_jpy": 600,
+      "cap": 20,
+      "deadline": "2026-11-30",
       "sizes": [
         "XS",
         "S",
@@ -145,39 +23,9 @@
         "L",
         "XL"
       ],
-      "material": "ドライ技術ポリ (マット非光沢)",
-      "orderChannel": "Instagram DM (@typostet)",
-      "leadTime": "在庫あり=数日以内 / 在庫なし=1〜2か月程度"
+      "numbers": "1-99",
+      "image": "https://typostet.com/img/practice/ink-c.jpg",
+      "url": "https://typostet.com/#join"
     }
-  ],
-  "shipping": {
-    "domesticJP": {
-      "fee": 600,
-      "currency": "JPY",
-      "uniform": true
-    },
-    "international": {
-      "fee": "quote-based",
-      "contact": "info@typostet.com"
-    }
-  },
-  "payment": {
-    "provider": "Stripe",
-    "methods": [
-      "Visa",
-      "Mastercard",
-      "JCB",
-      "American Express",
-      "Diners Club",
-      "Discover"
-    ]
-  },
-  "policy": {
-    "returns": "サイズ違い・色違いの返品不可。不良品は到着 7 日以内に info@typostet.com まで。",
-    "language": [
-      "ja",
-      "en"
-    ]
-  },
-  "lastUpdated": "2026-09-28T09:00:00+09:00"
+  ]
 }

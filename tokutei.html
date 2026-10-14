@@ -1,197 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>特定商取引法に基づく表記 — TYP0stet</title>
-<meta name="description" content="TYP0stet の特定商取引法に基づく表記。販売事業者、連絡先、価格、配送、返品ポリシー等。">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E0E0E">
+<title>特定商取引法にもとづく表記 ── TYP0stet</title>
+<meta name="description" content="TYP0stet(株式会社 Remoi)の特定商取引法にもとづく表記です。">
+<link rel="canonical" href="https://typostet.com/tokutei.html">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/v2/typostet_favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@400;500;700&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --bone: #F1E8D5;
-    --bone-deep: #E9DFC5;
-    --ink: #0E0E0E;
-    --mint: #92E5BD;
-    --terracotta: #C7553E;
-    --rule: rgba(14, 14, 14, 0.12);
-    --muted: rgba(14, 14, 14, 0.55);
-    --serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
-    --sans: "IBM Plex Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-    --hand-jp: "Klee One", serif;
-  }
-  body { font-family: var(--sans); background: var(--bone); color: var(--ink); line-height: 1.8; padding: 40px 20px; font-feature-settings: "palt" 1; }
-  .container { max-width: 760px; margin: 0 auto; }
-  .brand { display: inline-flex; align-items: baseline; gap: 0; text-decoration: none; color: var(--ink); margin-bottom: 14px; }
-  .brand img { height: 28px; width: auto; }
-  .lang { margin-bottom: 32px; font-size: 12px; font-family: var(--mono); letter-spacing: 0.12em; }
-  .lang a { color: var(--muted); text-decoration: none; margin: 0 10px 0 0; cursor: pointer; padding-bottom: 3px; border-bottom: 1px solid transparent; transition: color 200ms, border-color 200ms; }
-  .lang a:hover, .lang a.is-active { color: var(--ink); border-bottom-color: var(--mint); }
-  h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(28px, 4vw, 36px); color: var(--ink); margin-top: 12px; margin-bottom: 6px; letter-spacing: 0.01em; }
-  .updated { font-size: 11px; color: var(--muted); margin-bottom: 32px; font-family: var(--mono); letter-spacing: 0.14em; text-transform: uppercase; }
-  table { width: 100%; border-collapse: collapse; margin-top: 16px; }
-  th, td { text-align: left; padding: 16px 8px; border-bottom: 1px solid var(--rule); vertical-align: top; font-size: 14px; }
-  th { width: 34%; color: var(--ink); font-weight: 500; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
-  td { color: rgba(14,14,14,0.78); line-height: 1.85; }
-  td strong { color: var(--ink); }
-  .note { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.65; }
-  .price-list { margin: 8px 0 0 0; padding-left: 0; list-style: none; }
-  .price-list li { font-size: 13px; color: rgba(14,14,14,0.78); margin-bottom: 5px; padding-left: 16px; position: relative; }
-  .price-list li::before { content: "─"; position: absolute; left: 0; color: var(--mint); }
-  .footer { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--rule); font-size: 11px; color: var(--muted); font-family: var(--mono); letter-spacing: 0.08em; }
-  .footer a { color: var(--ink); text-decoration: none; margin: 0 6px; }
-  .footer a:hover { color: var(--terracotta); }
-  .footer .four81 { color: var(--mint); font-weight: 700; float: right; letter-spacing: 0.04em; }
-  .section { display: none; }
-  .section.active { display: block; }
-
-  @media (max-width: 600px) {
-    body { padding: 28px 16px; }
-    th { width: 38%; font-size: 10px; }
-    th, td { padding: 14px 6px; font-size: 13px; }
-  }
-
-  /* Cotton fabric texture overlay (subtle) */
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9999;
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 0 0.09 0 0 0 0.32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.5;
-    mix-blend-mode: multiply;
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@800&family=IBM+Plex+Sans+JP:wght@400;700&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/sub.css">
 </head>
 <body>
-<div class="container">
-  <a href="/" class="brand" aria-label="TYP0stet home">
-    <img src="/assets/brand/wordmark/tentative-final-light.svg" alt="TYP0stet">
-  </a>
-  <div class="lang">
-    <a onclick="show('ja')" class="is-active" id="lang-ja">日本語</a> · <a onclick="show('en')" id="lang-en">English</a>
-  </div>
-
-  <div id="ja" class="section active">
-    <h1>特定商取引法に基づく表記</h1>
-    <p class="updated">最終更新日: 2026 年 9 月 28 日</p>
-    <table>
-      <tr><th>販売事業者</th><td>株式会社 Remoi<div class="note">TYP0stet は株式会社 Remoi が運営するブランドです。将来的に法人格を株式会社 TYP0stet に移行する予定があります。</div></td></tr>
-      <tr><th>運営責任者</th><td>代表取締役 堀井 拓斗</td></tr>
-      <tr><th>所在地</th><td>〒115-0045 東京都北区赤羽 1-59-8 日ノ出ビル 4F</td></tr>
-      <tr><th>電話番号</th><td>請求があれば遅滞なく開示いたします (info@typostet.com までご連絡ください)</td></tr>
-      <tr><th>メール連絡先</th><td>info@typostet.com</td></tr>
-      <tr><th>販売 URL</th><td>https://typostet.com</td></tr>
-      <tr><th>販売価格</th><td>商品ごとに表示 (消費税込み)
-        <ul class="price-list">
-          <li>Stet Frend (T シャツ) <strong>¥6,800</strong></li>
-          <li>Sticker Pack (ステッカー 3 枚) <strong>¥800</strong></li>
-          <li>Tote — Bone (トートバッグ) <strong>¥3,800</strong></li>
-          <li>Tote — Ink (トートバッグ) <strong>¥3,800</strong></li>
-          <li>Knapsack — Olive (ナップサック) <strong>¥4,300</strong></li>
-          <li>Knapsack — Mint (ナップサック) <strong>¥4,300</strong></li>
-          <li>ユニ (TYP0S ユニフォーム) <strong>¥8,800</strong> ─ 長袖 +¥1,000 / ネーム入れ +¥1,000</li>
-        </ul>
-        <div class="note">商品の価格、仕様は予告なく変更する場合があります。最新の価格は各商品ページにてご確認ください。</div>
-      </td></tr>
-      <tr><th>商品代金以外の必要料金</th><td>送料: <strong>全国一律 ¥600</strong>
-        <div class="note">海外発送は別途お見積もりにて対応いたします。代金引換は対応しておりません。</div>
-      </td></tr>
-      <tr><th>支払方法</th><td>クレジットカード決済 (Visa / Mastercard / JCB / American Express / Diners Club / Discover)
-        <div class="note">ユニは Instagram DM でご注文を受け付け、ご案内する決済リンクからお支払いいただきます。</div>
-        <div class="note">決済処理は Stripe, Inc. (米国) に委託しています。カード情報は当社のサーバーには保存されません。</div>
-      </td></tr>
-      <tr><th>支払時期</th><td>ご注文確定時に全額を決済いたします。</td></tr>
-      <tr><th>商品の引き渡し時期</th><td><strong>Stet Frend・小物:</strong> 受注生産のため、ご注文から発送まで 1 週間程度いただいております。<br>
-        <strong>ユニ:</strong> 在庫がある場合は、ご注文から数日以内に発送します。在庫がない場合はご注文後に製作するため、お届けまで 1〜2 か月程度いただきます (ご注文時に目安をお知らせします)。
-        <div class="note">沖縄および東京の協力業者にてプリント・検品後、順次発送いたします。生産状況によりさらにお時間をいただく場合は、メールにて速やかにご連絡いたします。</div>
-      </td></tr>
-      <tr><th>返品・交換について</th><td><strong>受注生産品のため、お客様都合による返品・交換はお受けできません。</strong> 染色のムラ・後染めの個体差は受注生産品の特性として許容願います。<br><br>
-        以下に該当する場合のみ、商品到着後 7 日以内にご連絡いただければ無償交換または返金対応いたします:
-        <ul class="price-list">
-          <li>配送中の破損</li>
-          <li>明らかな縫製不良・印刷不良</li>
-          <li>注文内容と異なる商品の発送</li>
-        </ul>
-        <div class="note">交換・返金のご連絡先: info@typostet.com</div>
-      </td></tr>
-      <tr><th>返品送料</th><td>当社事由による不良・誤発送の場合は当社負担、お客様事由の場合は受付不可</td></tr>
-      <tr><th>キャンセル</th><td>ご注文確定後 24 時間以内であれば、受注生産工程に入る前としてキャンセルを承ります。それ以降は生産開始のためキャンセル不可となります。<div class="note">キャンセル希望の場合は info@typostet.com まで速やかにご連絡ください。</div></td></tr>
-    </table>
-  </div>
-
-  <div id="en" class="section">
-    <h1>Commerce Disclosure (Tokutei Shotorihiki-ho)</h1>
-    <p class="updated">Last updated: September 28, 2026</p>
-    <table>
-      <tr><th>Legal Seller</th><td>Remoi, K.K.<div class="note">TYP0stet is a brand operated by Remoi, K.K. We plan to transition the corporate entity to TYP0stet, K.K. in the future.</div></td></tr>
-      <tr><th>Representative</th><td>Takuto Horii, CEO</td></tr>
-      <tr><th>Address</th><td>Hinode Bldg. 4F, 1-59-8 Akabane, Kita-ku, Tokyo 115-0045, Japan</td></tr>
-      <tr><th>Phone</th><td>Disclosed promptly upon request (contact info@typostet.com)</td></tr>
-      <tr><th>Email</th><td>info@typostet.com</td></tr>
-      <tr><th>Sales URL</th><td>https://typostet.com</td></tr>
-      <tr><th>Pricing</th><td>Displayed per item, tax included.
-        <ul class="price-list">
-          <li>Stet Frend (T-shirt) <strong>¥6,800</strong></li>
-          <li>Sticker Pack (3 sheets) <strong>¥800</strong></li>
-          <li>Tote — Bone <strong>¥3,800</strong></li>
-          <li>Tote — Ink <strong>¥3,800</strong></li>
-          <li>Knapsack — Olive <strong>¥4,300</strong></li>
-          <li>Knapsack — Mint <strong>¥4,300</strong></li>
-          <li>Uni (TYP0S uniform) <strong>¥8,800</strong> ─ long sleeve +¥1,000 / name print +¥1,000</li>
-        </ul>
-        <div class="note">Prices and specifications may change without notice. Please check each product page for the latest pricing.</div>
-      </td></tr>
-      <tr><th>Additional Fees</th><td>Shipping: <strong>Flat ¥600 within Japan</strong>
-        <div class="note">International shipping handled separately upon request. Cash on delivery not available.</div>
-      </td></tr>
-      <tr><th>Payment Methods</th><td>Credit card (Visa / Mastercard / JCB / Amex / Diners / Discover)
-        <div class="note">Uniforms are ordered via Instagram DM and paid through a payment link we send you.</div>
-        <div class="note">Payment processing handled by Stripe, Inc. (USA). Card data is not stored on our servers.</div>
-      </td></tr>
-      <tr><th>Payment Timing</th><td>Full amount charged at order confirmation.</td></tr>
-      <tr><th>Delivery Timing</th><td><strong>Stet Frend and objects:</strong> made-to-order, approx. 1 week from order to shipping.<br>
-        <strong>Uniform:</strong> ships within a few days if in stock. If out of stock, it is made after your order and takes approx. 1–2 months (we will tell you the estimate when you order).
-        <div class="note">Printed and inspected at our partner facilities in Okinawa and Tokyo, then shipped sequentially. If production requires more time, we will notify you promptly by email.</div>
-      </td></tr>
-      <tr><th>Returns &amp; Exchanges</th><td><strong>No returns or exchanges for buyer's reasons on made-to-order items.</strong> Dye unevenness and individual variations in garment-dyed pieces are part of the product character.<br><br>
-        Free exchange or refund within 7 days of arrival only for:
-        <ul class="price-list">
-          <li>Shipping damage</li>
-          <li>Manufacturing defects</li>
-          <li>Wrong items shipped</li>
-        </ul>
-        <div class="note">Contact: info@typostet.com within 7 days of arrival.</div>
-      </td></tr>
-      <tr><th>Return Shipping</th><td>Covered by Remoi, K.K. for our fault; not accepted for buyer's reasons.</td></tr>
-      <tr><th>Cancellation</th><td>Cancellations accepted within 24 hours of order confirmation (before entering made-to-order production). After that, cancellation is not possible.<div class="note">For cancellation requests, please contact info@typostet.com promptly.</div></td></tr>
-    </table>
-  </div>
-
-  <div class="footer">
-    <p>© 2026 TYP0stet — Remoi, K.K.  <span class="four81">4:81</span></p>
-    <p style="margin-top: 12px;">
-      <a href="/">Home</a>·
-      <a href="/terms.html">利用規約</a>·
-      <a href="/privacy.html">プライバシー</a>·
-      <a href="/manifest.html">倫理憲章</a>·
-      <a href="mailto:info@typostet.com">info@typostet.com</a>
-    </p>
-  </div>
-</div>
-<script>
-function show(lang) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.lang a').forEach(a => a.classList.remove('is-active'));
-  document.getElementById(lang).classList.add('active');
-  document.getElementById('lang-' + lang).classList.add('is-active');
-}
-</script>
+<header class="top"><div class="wrap"><a href="/" aria-label="TYP0stet トップ"><img src="/assets/brand/v2/typostet_word_white.svg" alt="TYP0stet" width="104" height="26"></a><a class="back" href="/">トップへ</a></div></header>
+<main><div class="wrap">
+<p class="eyebrow">Legal</p>
+<h1>特定商取引法にもとづく表記</h1>
+<p class="upd">最終更新日: 2026年10月14日</p>
+<div class="box"><p><b>TYP0stet の売り方</b></p><p>毎回1つのデザインを、20人集まったら作ります。申し込んだ時点ではお金はかかりません。20人そろってから、お支払いのご案内をメールでお送りします。</p></div>
+<dl class="t">
+<div><dt>販売事業者</dt><dd>株式会社 Remoi(TYP0stet は株式会社 Remoi が運営するブランドです)</dd></div>
+<div><dt>運営責任者</dt><dd>代表取締役 堀井 拓斗</dd></div>
+<div><dt>所在地</dt><dd>〒115-0045 東京都北区赤羽 1-59-8 日ノ出ビル 4F</dd></div>
+<div><dt>電話番号</dt><dd>ご請求があれば遅滞なくお知らせします(info@typostet.com までご連絡ください)</dd></div>
+<div><dt>メールアドレス</dt><dd>info@typostet.com</dd></div>
+<div><dt>販売URL</dt><dd>https://typostet.com</dd></div>
+<div><dt>販売価格</dt><dd><p>ドロップ(各回の商品)ごとにページに表示します(税込)。</p><p>DROP 01 ユニ。INK BLACK:¥8,800/長袖 +¥1,000/背中の名前 +¥1,000</p></dd></div>
+<div><dt>商品代金以外の費用</dt><dd>送料 全国一律 ¥600。海外への発送は行っていません。</dd></div>
+<div><dt>申込みと契約</dt><dd><p>ページからの申込みは、購入の予約です。この時点では費用はかかりません。</p><p>申込み順に1〜20番目までを本申込み、21番目以降を補欠として受け付けます。</p><p>20人そろったあと、お支払いが完了した時点で売買契約が成立します。</p></dd></div>
+<div><dt>支払方法</dt><dd>クレジットカード。決済は Stripe, Inc. に委託しています。カード情報は当社のサーバーには保存されません。</dd></div>
+<div><dt>支払時期</dt><dd>20人そろったときにお送りするメールのリンクから、メールの送信日から7日以内にお支払いください。期限を過ぎた場合、その枠は補欠の方に順番にご案内します。</dd></div>
+<div><dt>集まらなかった場合</dt><dd>締め切り日までに20人に達しなかった場合は、そのドロップを中止し、申し込んだ全員にメールでお知らせします。費用は一切かかりません。</dd></div>
+<div><dt>商品の引き渡し時期</dt><dd>20人分のお支払いがそろってから製作し、約3〜4週間で発送します。遅れる場合はメールでお知らせします。</dd></div>
+<div><dt>申込みの取り消し</dt><dd>お支払いの前であれば、いつでも取り消せます。受付メールに返信してください。お支払いの後は製作に入るため、取り消しはお受けできません。</dd></div>
+<div><dt>返品・交換</dt><dd><p>背番号や名前を入れて1枚ずつ作るため、お客様のご都合による返品・交換はお受けできません。</p><p>配送中の破損、縫製や印刷の不良、注文と違う商品が届いた場合は、到着から7日以内に info@typostet.com までご連絡ください。交換または返金します(送料は当社負担)。</p></dd></div>
+<div><dt>製作できなくなった場合</dt><dd>お支払いのあとに、製作先の事情などで商品をお届けできなくなった場合は、お支払いいただいた全額を返金します。</dd></div>
+</dl>
+</div></main>
+<footer><div class="wrap">
+<img src="/assets/brand/v2/typostet_word_mint.svg" alt="TYP0stet" width="120" height="30">
+<nav><a href="/tokutei.html">特定商取引法にもとづく表記</a><a href="/privacy.html">プライバシーポリシー</a><a href="/terms.html">利用規約</a><a href="mailto:info@typostet.com">お問い合わせ</a></nav>
+<p>© 2026 TYP0stet / 株式会社 Remoi</p>
+</div></footer>
 </body>
 </html>

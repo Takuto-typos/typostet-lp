@@ -1,2 +1,12 @@
 /v2/        /             301
 /v2/*       /:splat       301
+# 2026-10 作り直し: カート販売をやめて「20人集まったら作る」に。旧ページはトップへ
+/products/stet-01/   /          301
+/products/stet-01    /          301
+/products/*          /          301
+/about.html          /#about    301
+/about               /#about    301
+/manifest.html       /#about    301
+/manifest            /#about    301
+/community/          /          301
+/community/*         /          301
