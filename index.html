@@ -110,6 +110,8 @@ section{padding:72px 0}
 .hero .lead{font-size:17px;margin:0 0 28px;color:#e9e9e9}
 .photo{position:relative}
 .photo img{width:100%;height:auto;border-radius:4px;background:#2a2622}
+.hero .photo img{aspect-ratio:1/1;object-fit:cover;object-position:50% 52%}
+@media (min-width:860px){.hero .photo{width:fit-content;margin-left:auto}.hero .photo img{aspect-ratio:auto;max-height:72vh;width:auto}}
 .stamp{position:absolute;left:-10px;top:-22px;width:72px;height:72px;animation:spin 24s linear infinite;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.stamp{animation:none}}
@@ -305,7 +307,7 @@ footer a{text-decoration:none}
 <section class="hero" id="drop">
   <div class="wrap grid">
     <div class="photo">
-      <img src="/img/wear/court-night.jpg" alt="夜のフットサルコートの脇で、ユニ。INK BLACK を着て水を飲む人" width="1600" height="893" fetchpriority="high">
+      <img src="/img/wear/hero-30.jpg" alt="沖縄のビーチで流木に掛けた、ユニ。INK BLACK。胸に TYP0S と背番号30" width="1100" height="1365" fetchpriority="high">
       <svg class="stamp" viewBox="0 0 100 100" aria-hidden="true">
         <defs><path id="ring" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
         <circle cx="50" cy="50" r="49" fill="#92E5BD"/>
